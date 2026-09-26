@@ -14,7 +14,7 @@
   // uncomment the matching block in the OPT-IN INFRA section below.
   //
   // `name` must stay a valid Cloudflare name (lowercase + dashes, 3–63 chars).
-  "name": "app-slug-placeholder",
+  "name": "algonexexam",
 
   // The Worker entry is the TanStack Start SSR server bundle — `vite build`
   // emits dist/server/server.js (`export default { fetch }`). The deploy CI
