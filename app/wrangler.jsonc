@@ -18,7 +18,9 @@
 
   // The Worker entry is the TanStack Start SSR server bundle — `vite build`
   // emits dist/server/server.js (`export default { fetch }`). The deploy CI
-  // rediscovers the real built entry and points `main` at it.
+  "build": {
+    "command": "bun install && bun run build"
+  },
   "main": "dist/server/server.js",
   "compatibility_date": "2025-05-01",
   "compatibility_flags": ["nodejs_compat"],

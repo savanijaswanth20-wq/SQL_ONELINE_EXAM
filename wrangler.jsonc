@@ -1,6 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mysql-exam-studio",
+  "build": {
+    "command": "cd app && bun install && bun run build"
+  },
   "main": "app/dist/server/server.js",
   "compatibility_date": "2025-05-01",
   "compatibility_flags": ["nodejs_compat"],
