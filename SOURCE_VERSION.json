@@ -1,0 +1,10 @@
+{
+  "commit": "922a72908e0f4250904b9d65f1daf7f5d6fdae0d",
+  "website": "https://mysql-exam-studio.higgsfield.app",
+  "export_date": "2026-09-26",
+  "archive_additions": [
+    "START_HERE.md",
+    "app/wrangler.local.jsonc",
+    "SOURCE_VERSION.json"
+  ]
+}
