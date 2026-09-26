@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   Database,
   SignOut,
+  GithubLogo,
   Shield,
   User,
 } from "@phosphor-icons/react";
@@ -36,10 +37,11 @@ export function Shell({
   const { user, profile, role, signOut, loading } = useAuth();
   const [avatarError, setAvatarError] = useState(false);
 
-  const displayName = profile?.full_name || user?.email?.split("@")[0] || "Learner";
+  const githubUsername = (user?.user_metadata?.user_name || user?.user_metadata?.preferred_username || profile?.github_username || "") as string;
+  const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.user_metadata?.name || githubUsername || user?.email?.split("@")[0] || "Learner";
   const displayEmail = profile?.email || user?.email || "";
-  const avatarUrl = profile?.avatar_url;
-  const initial = (displayName || "U").charAt(0).toUpperCase();
+  const avatarUrl = profile?.avatar_url || user?.user_metadata?.avatar_url;
+  const initial = (displayName || githubUsername || "U").charAt(0).toUpperCase();
 
   return (
     <div className="app-layout">
@@ -84,9 +86,14 @@ export function Shell({
           )}
         </nav>
 
-        {/* Account / Profile Section (Only shown if signed in) */}
-        {user && (
-          <div className="sidebar-account-section">
+        {/* Account / Profile Section */}
+        <div className="sidebar-account-section">
+          {loading ? (
+            <div className="sidebar-account-loading">
+              <div className="avatar-placeholder" />
+              <div className="text-placeholder" />
+            </div>
+          ) : user ? (
             <div className="user-profile-box">
               <div className="user-profile-identity">
                 {avatarUrl && !avatarError ? (
@@ -111,6 +118,11 @@ export function Shell({
                       {role.toUpperCase()}
                     </span>
                   </div>
+                  {githubUsername && (
+                    <span className="user-profile-github" title={`@${githubUsername}`}>
+                      @{githubUsername}
+                    </span>
+                  )}
                   <span className="user-profile-email" title={displayEmail}>
                     {displayEmail}
                   </span>
@@ -120,19 +132,24 @@ export function Shell({
                 type="button"
                 className="sidebar-signout-btn"
                 onClick={() => void signOut()}
-                title="Sign out"
+                title="Sign out of your GitHub account"
               >
                 <SignOut size={15} />
                 <span>Sign out</span>
               </button>
             </div>
-          </div>
-        )}
+          ) : (
+            <a href="/login" className="sidebar-signin-link">
+              <GithubLogo size={18} weight="bold" />
+              <span>Continue with GitHub</span>
+            </a>
+          )}
+        </div>
 
         <div className="sidebar-note">
           <ShieldCheck size={24} />
-          <strong>Your progress, saved.</strong>
-          <p>Attempts are saved in your local session. Take exams whenever you are ready.</p>
+          <strong>Developer progress, saved.</strong>
+          <p>Authenticated attempts and certificates are synced to your GitHub account.</p>
         </div>
         <div className="sidebar-footer">
           <span>MySQL core concepts</span>
@@ -157,13 +174,39 @@ export function Shell({
             </strong>
           </span>
           <div className="topbar-right">
-            {user && (
+            {user ? (
               <div className="topbar-user-chip">
+                {avatarUrl && (
+                  <img
+                    src={avatarUrl}
+                    alt={displayName}
+                    className="topbar-avatar"
+                    referrerPolicy="no-referrer"
+                    onError={() => {}}
+                  />
+                )}
                 <span className={`role-badge role-badge-${role}`}>
                   {role.toUpperCase()}
                 </span>
-                <span className="topbar-user-name">{displayName}</span>
+                <span className="topbar-user-name">
+                  {displayName}
+                  {githubUsername ? ` (@${githubUsername})` : ""}
+                </span>
+                <button
+                  type="button"
+                  className="topbar-signout-btn"
+                  onClick={() => void signOut()}
+                  title="Sign out"
+                >
+                  <SignOut size={12} />
+                  <span>Logout</span>
+                </button>
               </div>
+            ) : (
+              <a href="/login" className="topbar-login-link">
+                <GithubLogo size={14} weight="bold" />
+                <span>Sign in with GitHub</span>
+              </a>
             )}
             <span className="topbar-label">PERSONAL PRACTICE</span>
           </div>

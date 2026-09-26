@@ -12,11 +12,24 @@ interface ProtectedRouteProps {
 export function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) {
   const { user, role, loading, profile } = useAuth();
 
+  useEffect(() => {
+    if (!loading && !user && typeof window !== "undefined") {
+      const currentPath = window.location.pathname + window.location.search;
+      const redirectParam = encodeURIComponent(currentPath);
+      window.location.replace(`/login?redirect=${redirectParam}`);
+    }
+  }, [user, loading]);
+
   if (loading) {
     return <Loading label="Verifying your authorization..." />;
   }
 
-  if (!user || (allowedRoles && !allowedRoles.includes(role))) {
+  if (!user) {
+    return <Loading label="Redirecting to login..." />;
+  }
+
+  // Check role-based permission
+  if (allowedRoles && !allowedRoles.includes(role)) {
     return (
       <main className="unauthorized-card content-wrap">
         <div className="unauthorized-box">
@@ -24,8 +37,20 @@ export function ProtectedRoute({ children, allowedRoles }: ProtectedRouteProps) 
           <span className="eyebrow">RESTRICTED ACCESS</span>
           <h1>Access Restricted</h1>
           <p>
-            This section requires authorized administrative access.
+            Your current role is{" "}
+            <span className="role-pill-inline">{role.toUpperCase()}</span>.
+            This area requires one of the following permissions:{" "}
+            <strong>{allowedRoles.map((r) => r.toUpperCase()).join(", ")}</strong>.
           </p>
+
+          <div className="user-details-summary">
+            <UserCircle size={22} />
+            <div>
+              <strong>{profile?.full_name || user.email}</strong>
+              <small>{user.email}</small>
+            </div>
+          </div>
+
           <div className="unauthorized-actions">
             <a href="/" className="back-btn">
               <ArrowLeft size={16} /> Return to overview

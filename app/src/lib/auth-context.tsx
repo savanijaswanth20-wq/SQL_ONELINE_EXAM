@@ -22,7 +22,7 @@ interface AuthContextType {
   loading: boolean;
   error: string | null;
   isConfigured: boolean;
-  signInWithGoogle: (redirectTo?: string) => Promise<void>;
+  signInWithGitHub: (redirectTo?: string) => Promise<void>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<Profile | null>;
   clearError: () => void;
@@ -42,6 +42,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (authUser: User): Promise<Profile | null> => {
       const client = getSupabase();
       try {
+        const githubUsername =
+          authUser.user_metadata?.user_name ||
+          authUser.user_metadata?.preferred_username ||
+          "";
+
         // First try to fetch the profile from public.profiles
         const { data, error: selectError } = await client
           .from("profiles")
@@ -50,7 +55,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .maybeSingle();
 
         if (data && !selectError) {
-          const loadedProfile = data as Profile;
+          const loadedProfile = {
+            ...(data as Profile),
+            github_username: (data as Profile).github_username || githubUsername,
+          };
           setProfile(loadedProfile);
           return loadedProfile;
         }
@@ -59,12 +67,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const fullName =
           authUser.user_metadata?.full_name ||
           authUser.user_metadata?.name ||
+          githubUsername ||
           authUser.email?.split("@")[0] ||
           "Learner";
-        const email = authUser.email || "";
+        const email = authUser.email || authUser.user_metadata?.email || "";
         const avatarUrl =
           authUser.user_metadata?.avatar_url ||
-          authUser.user_metadata?.picture ||
           "";
 
         const newProfile: Partial<Profile> = {
@@ -72,6 +80,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           full_name: fullName,
           email,
           avatar_url: avatarUrl,
+          github_username: githubUsername,
           role: "customer",
         };
 
@@ -82,7 +91,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .maybeSingle();
 
         if (inserted && !insertError) {
-          const synced = inserted as Profile;
+          const synced = {
+            ...(inserted as Profile),
+            github_username: (inserted as Profile).github_username || githubUsername,
+          };
           setProfile(synced);
           return synced;
         }
@@ -93,6 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           full_name: fullName,
           email,
           avatar_url: avatarUrl,
+          github_username: githubUsername,
           role: "customer",
           created_at: new Date().toISOString(),
         };
@@ -100,17 +113,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return fallbackProfile;
       } catch (err) {
         console.error("Failed to load or sync profile:", err);
+        const githubUsername =
+          authUser.user_metadata?.user_name ||
+          authUser.user_metadata?.preferred_username ||
+          "";
         const fallbackProfile: Profile = {
           id: authUser.id,
           full_name:
             authUser.user_metadata?.full_name ||
             authUser.user_metadata?.name ||
+            githubUsername ||
             "Learner",
           email: authUser.email || "",
           avatar_url:
             authUser.user_metadata?.avatar_url ||
-            authUser.user_metadata?.picture ||
             "",
+          github_username: githubUsername,
           role: "customer",
           created_at: new Date().toISOString(),
         };
@@ -179,7 +197,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [fetchOrCreateProfile]);
 
-  const signInWithGoogle = useCallback(
+  const signInWithGitHub = useCallback(
     async (redirectTo?: string) => {
       if (typeof window === "undefined") return;
       setError(null);
@@ -199,13 +217,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       const { error: signInError } = await client.auth.signInWithOAuth({
-        provider: "google",
+        provider: "github",
         options: {
           redirectTo: callbackUrl.toString(),
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
         },
       });
 
@@ -255,7 +269,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         loading,
         error,
         isConfigured: configured,
-        signInWithGoogle,
+        signInWithGitHub,
         signOut,
         refreshProfile,
         clearError,

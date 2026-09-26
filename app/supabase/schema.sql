@@ -1,12 +1,12 @@
 -- ==============================================================================
--- Supabase Schema for MySQL Exam Studio: Google OAuth & Role-Based Authorization
+-- Supabase Schema for MySQL Exam Studio: GitHub OAuth & Role-Based Authorization
 -- ==============================================================================
 --
 -- This script sets up:
 -- 1. The `profiles` table linked directly to `auth.users`
 -- 2. Role constraints: 'admin', 'staff', 'customer' (default: 'customer')
 -- 3. Row Level Security (RLS) policies for owner access and admin management
--- 4. An automated trigger that provisions a profile whenever a new Google OAuth user signs in
+-- 4. An automated trigger that provisions a profile whenever a new GitHub OAuth user signs in
 -- 5. Helper functions for role authorization checks
 
 -- 1. Create the profiles table
@@ -15,14 +15,19 @@ create table if not exists public.profiles (
   full_name text not null default '',
   email text not null default '',
   avatar_url text not null default '',
+  github_username text not null default '',
   role text not null default 'customer' check (role in ('admin', 'staff', 'customer')),
   created_at timestamptz not null default timezone('utc'::text, now()),
   updated_at timestamptz not null default timezone('utc'::text, now())
 );
 
+-- Ensure github_username column exists if table was created previously
+alter table public.profiles add column if not exists github_username text not null default '';
+
 -- Index for fast role & email lookups
 create index if not exists idx_profiles_role on public.profiles(role);
 create index if not exists idx_profiles_email on public.profiles(email);
+create index if not exists idx_profiles_github on public.profiles(github_username);
 
 -- 2. Enable Row Level Security (RLS)
 alter table public.profiles enable row level security;
@@ -101,7 +106,7 @@ create policy "Admins can delete profiles"
     public.is_admin()
   );
 
--- 5. Trigger Function: Automatically create profile upon Google sign-in
+-- 5. Trigger Function: Automatically create profile upon GitHub sign-in
 create or replace function public.handle_new_user()
 returns trigger
 language plpgsql
@@ -111,32 +116,41 @@ as $$
 declare
   user_full_name text;
   user_avatar text;
+  github_user text;
 begin
-  -- Extract Google user metadata
+  -- Extract GitHub user metadata
+  github_user := coalesce(
+    new.raw_user_meta_data->>'user_name',
+    new.raw_user_meta_data->>'preferred_username',
+    ''
+  );
+
   user_full_name := coalesce(
     new.raw_user_meta_data->>'full_name',
     new.raw_user_meta_data->>'name',
+    github_user,
     split_part(new.email, '@', 1)
   );
 
   user_avatar := coalesce(
     new.raw_user_meta_data->>'avatar_url',
-    new.raw_user_meta_data->>'picture',
     ''
   );
 
-  insert into public.profiles (id, full_name, email, avatar_url, role)
+  insert into public.profiles (id, full_name, email, avatar_url, github_username, role)
   values (
     new.id,
     user_full_name,
     coalesce(new.email, ''),
     user_avatar,
+    github_user,
     'customer' -- default role is always 'customer'
   )
   on conflict (id) do update set
     full_name = case when excluded.full_name <> '' then excluded.full_name else profiles.full_name end,
     email = case when excluded.email <> '' then excluded.email else profiles.email end,
     avatar_url = case when excluded.avatar_url <> '' then excluded.avatar_url else profiles.avatar_url end,
+    github_username = case when excluded.github_username <> '' then excluded.github_username else profiles.github_username end,
     updated_at = timezone('utc'::text, now());
 
   return new;
@@ -155,5 +169,5 @@ create trigger on_auth_user_created
 --
 -- UPDATE public.profiles
 -- SET role = 'admin'
--- WHERE email = 'your-google-email@example.com';
+-- WHERE email = 'your-github-email@example.com';
 -- ==============================================================================

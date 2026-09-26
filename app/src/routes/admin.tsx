@@ -93,13 +93,13 @@ function AdminDashboard() {
   };
 
   return (
-    <Shell active="overview">
+    <Shell active="admin">
       <main className="content-wrap admin-page">
         <div className="page-title">
           <span className="eyebrow">ADMINISTRATION & AUTHORIZATION</span>
           <h1>User Profiles & Role Management</h1>
           <p className="muted">
-            Manage authenticated Google user profiles and enforce role permissions (Admin, Staff, Customer).
+            Manage authenticated GitHub user profiles and enforce role permissions (Admin, Staff, Customer).
           </p>
         </div>
 
@@ -174,10 +174,13 @@ function AdminDashboard() {
                           )}
                           <div>
                             <strong>
-                              {p.full_name || "Unnamed User"}
+                              {p.full_name || p.github_username || "Unnamed User"}
                               {isCurrent && <span className="you-pill">You</span>}
                             </strong>
-                            <small className="mono">{p.id.slice(0, 8)}...</small>
+                            <small className="mono">
+                              {p.github_username ? `@${p.github_username} · ` : ""}
+                              {p.id.slice(0, 8)}...
+                            </small>
                           </div>
                         </div>
                       </td>

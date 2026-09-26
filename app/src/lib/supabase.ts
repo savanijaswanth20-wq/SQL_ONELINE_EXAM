@@ -7,6 +7,7 @@ export interface Profile {
   full_name: string;
   email: string;
   avatar_url: string;
+  github_username?: string;
   role: UserRole;
   created_at: string;
   updated_at?: string;

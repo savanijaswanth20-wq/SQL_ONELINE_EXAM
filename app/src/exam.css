@@ -26,6 +26,7 @@
 .user-profile-name-row{display:flex;align-items:center;justify-content:space-between;gap:4px}
 .user-profile-name{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .user-profile-email{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.user-profile-github{font-size:11px;font-family:"IBM Plex Mono",monospace;color:var(--accent);font-weight:550;display:flex;align-items:center;gap:4px}
 .sidebar-signout-btn{display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);border-radius:6px;color:var(--muted);padding:6px 10px;font-size:11px;cursor:pointer;transition:background .2s,color .2s}
 .sidebar-signout-btn:hover{background:var(--paper);color:var(--ink)}
 .sidebar-signin-link{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent-light);border:1px solid var(--line);border-radius:8px;color:var(--accent);padding:10px 12px;font-size:12px;font-weight:550;transition:background .2s}
@@ -41,6 +42,9 @@
 .topbar-right{display:flex;align-items:center;gap:14px}
 .topbar-user-chip{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500}
 .topbar-user-name{color:var(--ink)}
+.topbar-avatar{width:22px;height:22px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.topbar-signout-btn{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;background:none;border:1px solid var(--line);border-radius:4px;font-size:10px;color:var(--muted);cursor:pointer;transition:all .2s}
+.topbar-signout-btn:hover{background:var(--paper);color:var(--danger);border-color:var(--danger)}
 .topbar-login-link{display:flex;align-items:center;gap:6px;padding:6px 12px;background:var(--accent);color:white;border-radius:6px;font-size:11px;font-weight:500;transition:opacity .2s}
 .topbar-login-link:hover{opacity:.9}
 
@@ -49,6 +53,9 @@
 .login-header{margin-bottom:28px}
 .login-header .eyebrow{margin:18px 0 10px}
 .login-header h1{font-size:28px;margin-bottom:12px}
+.github-auth-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;background:var(--ink);color:var(--paper);border:1px solid var(--ink);border-radius:8px;padding:14px 18px;font-size:15px;font-weight:550;transition:all .2s;cursor:pointer}
+.github-auth-button:hover:not(:disabled){border-color:var(--accent);background:var(--accent);color:white}
+.github-auth-button:disabled{opacity:.6;cursor:not-allowed}
 .google-auth-button{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:14px 18px;font-size:15px;font-weight:550;transition:all .2s;cursor:pointer}
 .google-auth-button:hover:not(:disabled){border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
 .google-auth-button:disabled{opacity:.6;cursor:not-allowed}

@@ -4,8 +4,10 @@ import {ArrowLeft,ArrowRight,Flag,Check,Clock,PaperPlaneTilt,Exam as ExamIcon,Fl
 import {Shell,ErrorBox,Loading,useQueryId} from "@/components/exam-shell";
 import {api,attemptUrl} from "@/lib/exam-client";
 import {SECTION_DEFINITIONS,answeredCount} from "@/lib/exam-types";
-import type {Answer,Attempt,ExamPayload} from "@/lib/exam-types";
-export const Route=createFileRoute("/exam")({head:()=>({meta:[{title:"Examination | MySQL Exam Studio"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app/exam"}]}),component:ExamPage});
+import type {Answer,Attempt,ExamPayload,Question} from "@/lib/exam-types";
+import {ProtectedRoute} from "@/components/protected-route";
+export const Route=createFileRoute("/exam")({head:()=>({meta:[{title:"Examination | MySQL Exam Studio"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app/exam"}]}),component:ExamWrapper});
+function ExamWrapper(){return <ProtectedRoute><ExamPage/></ProtectedRoute>}
 const blank:Answer={value:"",correction:"",flagged:false,reviewMark:null,reflection:""};
 function Confirm({answered,flagged,busy,onCancel,onSubmit}:{answered:number;flagged:number;busy:boolean;onCancel:()=>void;onSubmit:()=>void}){
  const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{ref.current?.showModal();return()=>ref.current?.close()},[]);

@@ -5,7 +5,9 @@ import {Shell,ErrorBox,Loading,useQueryId} from "@/components/exam-shell";
 import {api,attemptUrl,dateLabel,durationLabel} from "@/lib/exam-client";
 import {REFLECTIONS,SECTION_DEFINITIONS} from "@/lib/exam-types";
 import type {Attempt,ExamPayload,Question} from "@/lib/exam-types";
-export const Route=createFileRoute("/reports")({head:()=>({meta:[{title:"Report cards | MySQL Exam Studio"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app/reports"}]}),component:Reports});
+import {ProtectedRoute} from "@/components/protected-route";
+export const Route=createFileRoute("/reports")({head:()=>({meta:[{title:"Report cards | MySQL Exam Studio"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app/reports"}]}),component:ReportsWrapper});
+function ReportsWrapper(){return <ProtectedRoute><Reports/></ProtectedRoute>}
 function answerText(q:Question,value:string){if(!value.trim())return "Not answered";if(q.kind==="mcq"||q.kind==="match"){const text=q.options?.[value.charCodeAt(0)-65];return text?value+". "+text:value}return value}
 function Reports(){
  const id=useQueryId();const [data,setData]=useState<ExamPayload|null>(null),[attempts,setAttempts]=useState<Attempt[]>([]),[loading,setLoading]=useState(true),[error,setError]=useState(""),[filter,setFilter]=useState("all"),[section,setSection]=useState("all"),[busy,setBusy]=useState(false),[pdfBusy,setPdfBusy]=useState(false);

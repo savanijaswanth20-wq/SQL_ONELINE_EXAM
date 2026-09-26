@@ -510,7 +510,7 @@ var require_react = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 * ```
 */
 function useIntersectionObserver(ref, callback, intersectionObserverOptions = {}, options = {}) {
-	import_react$93.useEffect(() => {
+	import_react$98.useEffect(() => {
 		if (!ref.current || options.disabled || typeof IntersectionObserver !== "function") return;
 		const observer = new IntersectionObserver(([entry]) => {
 			callback(entry);
@@ -540,15 +540,15 @@ function useIntersectionObserver(ref, callback, intersectionObserverOptions = {}
 * ```
 */
 function useForwardedRef(ref) {
-	const innerRef = import_react$93.useRef(null);
-	import_react$93.useImperativeHandle(ref, () => innerRef.current, []);
+	const innerRef = import_react$98.useRef(null);
+	import_react$98.useImperativeHandle(ref, () => innerRef.current, []);
 	return innerRef;
 }
-var import_react$93, reactUse;
+var import_react$98, reactUse;
 var init_utils$2 = __esmMin((() => {
-	import_react$93 = /* @__PURE__ */ __toESM(require_react(), 1);
-	reactUse = import_react$93.use;
-	typeof window !== "undefined" ? import_react$93.useLayoutEffect : import_react$93.useEffect;
+	import_react$98 = /* @__PURE__ */ __toESM(require_react(), 1);
+	reactUse = import_react$98.use;
+	typeof window !== "undefined" ? import_react$98.useLayoutEffect : import_react$98.useEffect;
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+router-core@1.171.14/node_modules/@tanstack/router-core/dist/esm/isServer/server.js
@@ -5239,7 +5239,7 @@ function Fo(e, r) {
 function Bo(e) {
 	return le$1 + "[" + e + "]";
 }
-function m$8(e, r) {
+function m$9(e, r) {
 	return e.mode === 1 ? Fo(e.state, r) : Bo(r);
 }
 function w$2(e, r) {
@@ -5251,7 +5251,7 @@ function Ur(e, r) {
 function Yr(e, r, t) {
 	r !== 0 && (w$2(e.base, t), e.base.flags.push({
 		type: r,
-		value: m$8(e, t)
+		value: m$9(e, t)
 	}));
 }
 function Vo(e) {
@@ -5277,7 +5277,7 @@ function qr(e, r, t) {
 function Mo(e, r, t) {
 	e.base.assignments.push({
 		t: 1,
-		s: m$8(e, r),
+		s: m$9(e, r),
 		k: o$11,
 		v: t
 	});
@@ -5285,7 +5285,7 @@ function Mo(e, r, t) {
 function ge$1(e, r, t, n) {
 	e.base.assignments.push({
 		t: 2,
-		s: m$8(e, r),
+		s: m$9(e, r),
 		k: t,
 		v: n
 	});
@@ -5293,31 +5293,31 @@ function ge$1(e, r, t, n) {
 function Xt$1(e, r, t) {
 	e.base.assignments.push({
 		t: 3,
-		s: m$8(e, r),
+		s: m$9(e, r),
 		k: t,
 		v: o$11
 	});
 }
 function Ne$1(e, r, t, n) {
-	qr(e.base, m$8(e, r) + "[" + t + "]", n);
+	qr(e.base, m$9(e, r) + "[" + t + "]", n);
 }
 function jr(e, r, t, n) {
-	qr(e.base, m$8(e, r) + "." + t, n);
+	qr(e.base, m$9(e, r) + "." + t, n);
 }
 function Lo(e, r, t, n) {
-	qr(e.base, m$8(e, r) + ".v[" + t + "]", n);
+	qr(e.base, m$9(e, r) + ".v[" + t + "]", n);
 }
 function F$1(e, r) {
 	return r.t === 4 && e.stack.includes(r.i);
 }
 function ae$1(e, r, t) {
-	return e.mode === 1 && !Ur(e.base, r) ? t : m$8(e, r) + "=" + t;
+	return e.mode === 1 && !Ur(e.base, r) ? t : m$9(e, r) + "=" + t;
 }
 function Uo(e) {
 	return L$2 + ".get(\"" + e.s + "\")";
 }
 function Qt$1(e, r, t, n) {
-	return t ? F$1(e.base, t) ? (w$2(e.base, r), Ne$1(e, r, n, m$8(e, t.i)), "") : f$3(e, t) : "";
+	return t ? F$1(e.base, t) ? (w$2(e.base, r), Ne$1(e, r, n, m$9(e, t.i)), "") : f$3(e, t) : "";
 }
 function jo(e, r) {
 	let t = r.i, n = r.a, a = n.length;
@@ -5333,7 +5333,7 @@ function en(e, r, t, n) {
 	if (typeof t == "string") {
 		let a = Number(t), s = a >= 0 && a.toString() === t || Mr(t);
 		if (F$1(e.base, n)) {
-			let i = m$8(e, n.i);
+			let i = m$9(e, n.i);
 			return w$2(e.base, r.i), s && a !== a ? jr(e, r.i, t, i) : Ne$1(e, r.i, s ? t : "\"" + t + "\"", i), "";
 		}
 		return (s ? t : "\"" + t + "\"") + ":" + f$3(e, n);
@@ -5394,7 +5394,7 @@ function Wr(e, r, t) {
 		else {
 			w$2(n, r.i);
 			let a = Ko(e, r, r.p);
-			if (a) return "(" + ae$1(e, r.i, t) + "," + a + m$8(e, r.i) + ")";
+			if (a) return "(" + ae$1(e, r.i, t) + "," + a + m$9(e, r.i) + ")";
 		}
 	}
 	return t;
@@ -5411,7 +5411,7 @@ function Zo(e, r) {
 }
 function rn(e, r, t) {
 	let n = e.base;
-	return F$1(n, t) ? (w$2(n, r), Mo(e, r, m$8(e, t.i)), "") : f$3(e, t);
+	return F$1(n, t) ? (w$2(n, r), Mo(e, r, m$9(e, t.i)), "") : f$3(e, t);
 }
 function $o(e, r) {
 	let t = wo, n = r.a, a = n.length, s = r.i;
@@ -5426,20 +5426,20 @@ function $o(e, r) {
 function tn(e, r, t, n, a) {
 	let s = e.base;
 	if (F$1(s, t)) {
-		let i = m$8(e, t.i);
-		if (w$2(s, r), F$1(s, n)) return ge$1(e, r, i, m$8(e, n.i)), "";
+		let i = m$9(e, t.i);
+		if (w$2(s, r), F$1(s, n)) return ge$1(e, r, i, m$9(e, n.i)), "";
 		if (n.t !== 4 && n.i != null && Ur(s, n.i)) {
 			let l = "(" + f$3(e, n) + ",[" + a + "," + a + "])";
-			return ge$1(e, r, i, m$8(e, n.i)), Xt$1(e, r, a), l;
+			return ge$1(e, r, i, m$9(e, n.i)), Xt$1(e, r, a), l;
 		}
 		let u = s.stack;
 		return s.stack = [], ge$1(e, r, i, f$3(e, n)), s.stack = u, "";
 	}
 	if (F$1(s, n)) {
-		let i = m$8(e, n.i);
+		let i = m$9(e, n.i);
 		if (w$2(s, r), t.t !== 4 && t.i != null && Ur(s, t.i)) {
 			let l = "(" + f$3(e, t) + ",[" + a + "," + a + "])";
-			return ge$1(e, r, m$8(e, t.i), i), Xt$1(e, r, a), l;
+			return ge$1(e, r, m$9(e, t.i), i), Xt$1(e, r, a), l;
 		}
 		let u = s.stack;
 		return s.stack = [], ge$1(e, r, f$3(e, t), i), s.stack = u, "";
@@ -5447,7 +5447,7 @@ function tn(e, r, t, n, a) {
 	return "[" + f$3(e, t) + "," + f$3(e, n) + "]";
 }
 function Xo(e, r) {
-	let t = ho, n = r.e.k, a = n.length, s = r.i, i = r.f, u = m$8(e, i.i), l = e.base;
+	let t = ho, n = r.e.k, a = n.length, s = r.i, i = r.f, u = m$9(e, i.i), l = e.base;
 	if (a > 0) {
 		let g = r.e.v;
 		l.stack.push(s);
@@ -5478,7 +5478,7 @@ function na(e, r) {
 function oa(e, r) {
 	let t, n = r.f, a = r.i, s = r.s ? zo : _o, i = e.base;
 	if (F$1(i, n)) {
-		let u = m$8(e, n.i);
+		let u = m$9(e, n.i);
 		t = s + (r.s ? "().then(" + ir([], u) + ")" : "().catch(" + Kt$1([], "throw " + u) + ")");
 	} else {
 		i.stack.push(a);
@@ -5500,11 +5500,11 @@ function sa(e, r) {
 }
 function ia(e, r) {
 	if (e.mode === 1) throw new h$4(r);
-	return q$2(e, r.a[0]) + "(" + m$8(e, r.i) + "," + f$3(e, r.a[1]) + ")";
+	return q$2(e, r.a[0]) + "(" + m$9(e, r.i) + "," + f$3(e, r.a[1]) + ")";
 }
 function ua(e, r) {
 	if (e.mode === 1) throw new h$4(r);
-	return q$2(e, r.a[0]) + "(" + m$8(e, r.i) + "," + f$3(e, r.a[1]) + ")";
+	return q$2(e, r.a[0]) + "(" + m$9(e, r.i) + "," + f$3(e, r.a[1]) + ")";
 }
 function la(e, r) {
 	let t = e.base.plugins;
@@ -5516,7 +5516,7 @@ function la(e, r) {
 }
 function ca(e, r) {
 	let t = "", n = !1;
-	return r.f.t !== 4 && (w$2(e.base, r.f.i), t = "(" + f$3(e, r.f) + ",", n = !0), t += ae$1(e, r.i, "(" + At$1 + ")(" + m$8(e, r.f.i) + ")"), n && (t += ")"), t;
+	return r.f.t !== 4 && (w$2(e.base, r.f.i), t = "(" + f$3(e, r.f) + ",", n = !0), t += ae$1(e, r.i, "(" + At$1 + ")(" + m$9(e, r.f.i) + ")"), n && (t += ")"), t;
 }
 function fa(e, r) {
 	return q$2(e, r.a[0]) + "(" + f$3(e, r.a[1]) + ")";
@@ -5524,7 +5524,7 @@ function fa(e, r) {
 function Sa(e, r) {
 	let t = r.a[0], n = r.a[1], a = e.base, s = "";
 	t.t !== 4 && (w$2(a, t.i), s += "(" + f$3(e, t)), n.t !== 4 && (w$2(a, n.i), s += (s ? "," : "(") + f$3(e, n)), s && (s += ",");
-	let i = ae$1(e, r.i, "(" + Et$1 + ")(" + m$8(e, n.i) + "," + m$8(e, t.i) + ")");
+	let i = ae$1(e, r.i, "(" + Et$1 + ")(" + m$9(e, n.i) + "," + m$9(e, t.i) + ")");
 	return s ? s + i + ")" : i;
 }
 function ma(e, r) {
@@ -5535,22 +5535,22 @@ function pa(e, r) {
 	if (n) {
 		let a = f$3(e, r.a[0]);
 		for (let s = 1; s < n; s++) a += "," + f$3(e, r.a[s]);
-		return "(" + t + "," + a + "," + m$8(e, r.i) + ")";
+		return "(" + t + "," + a + "," + m$9(e, r.i) + ")";
 	}
 	return t;
 }
 function da(e, r) {
-	return m$8(e, r.i) + ".next(" + f$3(e, r.f) + ")";
+	return m$9(e, r.i) + ".next(" + f$3(e, r.f) + ")";
 }
 function ga(e, r) {
-	return m$8(e, r.i) + ".throw(" + f$3(e, r.f) + ")";
+	return m$9(e, r.i) + ".throw(" + f$3(e, r.f) + ")";
 }
 function ya(e, r) {
-	return m$8(e, r.i) + ".return(" + f$3(e, r.f) + ")";
+	return m$9(e, r.i) + ".return(" + f$3(e, r.f) + ")";
 }
 function nn(e, r, t, n) {
 	let a = e.base;
-	return F$1(a, n) ? (w$2(a, r), Lo(e, r, t, m$8(e, n.i)), "") : f$3(e, n);
+	return F$1(a, n) ? (w$2(a, r), Lo(e, r, t, m$9(e, n.i)), "") : f$3(e, n);
 }
 function Na(e, r) {
 	let t = r.a, n = t.length, a = r.i;
@@ -5594,7 +5594,7 @@ function f$3(e, r) {
 		case 0: return "" + r.s;
 		case 1: return "\"" + r.s + "\"";
 		case 3: return r.s + "n";
-		case 4: return m$8(e, r.i);
+		case 4: return m$9(e, r.i);
 		case 23: return ia(e, r);
 		case 24: return ua(e, r);
 		case 27: return ca(e, r);
@@ -5611,7 +5611,7 @@ function f$3(e, r) {
 function fr(e, r) {
 	let t = f$3(e, r), n = r.i;
 	if (n == null) return t;
-	let a = sn(e.base), s = m$8(e, n), i = e.state.scopeId, u = i == null ? "" : le$1, l = a ? "(" + t + "," + a + s + ")" : t;
+	let a = sn(e.base), s = m$9(e, n), i = e.state.scopeId, u = i == null ? "" : le$1, l = a ? "(" + t + "," + a + s + ")" : t;
 	if (u === "") return r.t === 10 && !a ? "(" + l + ")" : l;
 	let g = i == null ? "()" : "(" + le$1 + "[\"" + y$3(i) + "\"])";
 	return "(" + ir([u], l) + ")" + g;
@@ -6792,11 +6792,11 @@ var require_jsx_runtime = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/CatchBoundary.js
 function CatchBoundary(props) {
 	const errorComponent = props.errorComponent ?? ErrorComponent;
-	return /* @__PURE__ */ (0, import_jsx_runtime$25.jsx)(CatchBoundaryImpl, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$27.jsx)(CatchBoundaryImpl, {
 		getResetKey: props.getResetKey,
 		onCatch: props.onCatch,
 		children: ({ error, reset }) => {
-			if (error) return import_react$92.createElement(errorComponent, {
+			if (error) return import_react$97.createElement(errorComponent, {
 				error,
 				reset
 			});
@@ -6805,23 +6805,23 @@ function CatchBoundary(props) {
 	});
 }
 function ErrorComponent({ error }) {
-	const [show, setShow] = import_react$92.useState(false);
-	return /* @__PURE__ */ (0, import_jsx_runtime$25.jsxs)("div", {
+	const [show, setShow] = import_react$97.useState(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime$27.jsxs)("div", {
 		style: {
 			padding: ".5rem",
 			maxWidth: "100%"
 		},
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime$25.jsxs)("div", {
+			/* @__PURE__ */ (0, import_jsx_runtime$27.jsxs)("div", {
 				style: {
 					display: "flex",
 					alignItems: "center",
 					gap: ".5rem"
 				},
-				children: [/* @__PURE__ */ (0, import_jsx_runtime$25.jsx)("strong", {
+				children: [/* @__PURE__ */ (0, import_jsx_runtime$27.jsx)("strong", {
 					style: { fontSize: "1rem" },
 					children: "Something went wrong!"
-				}), /* @__PURE__ */ (0, import_jsx_runtime$25.jsx)("button", {
+				}), /* @__PURE__ */ (0, import_jsx_runtime$27.jsx)("button", {
 					style: {
 						appearance: "none",
 						fontSize: ".6em",
@@ -6834,8 +6834,8 @@ function ErrorComponent({ error }) {
 					children: show ? "Hide Error" : "Show Error"
 				})]
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime$25.jsx)("div", { style: { height: ".25rem" } }),
-			show ? /* @__PURE__ */ (0, import_jsx_runtime$25.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime$25.jsx)("pre", {
+			/* @__PURE__ */ (0, import_jsx_runtime$27.jsx)("div", { style: { height: ".25rem" } }),
+			show ? /* @__PURE__ */ (0, import_jsx_runtime$27.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime$27.jsx)("pre", {
 				style: {
 					fontSize: ".7em",
 					border: "1px solid red",
@@ -6844,16 +6844,16 @@ function ErrorComponent({ error }) {
 					color: "red",
 					overflow: "auto"
 				},
-				children: error.message ? /* @__PURE__ */ (0, import_jsx_runtime$25.jsx)("code", { children: error.message }) : null
+				children: error.message ? /* @__PURE__ */ (0, import_jsx_runtime$27.jsx)("code", { children: error.message }) : null
 			}) }) : null
 		]
 	});
 }
-var import_react$92, import_jsx_runtime$25, CatchBoundaryImpl;
+var import_react$97, import_jsx_runtime$27, CatchBoundaryImpl;
 var init_CatchBoundary = __esmMin((() => {
-	import_react$92 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$25 = require_jsx_runtime();
-	CatchBoundaryImpl = class extends import_react$92.Component {
+	import_react$97 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$27 = require_jsx_runtime();
+	CatchBoundaryImpl = class extends import_react$97.Component {
 		constructor(..._args) {
 			super(..._args);
 			this.state = { error: null };
@@ -6905,7 +6905,7 @@ var init_CatchBoundary = __esmMin((() => {
 * ```
 */
 function ClientOnly({ children, fallback = null }) {
-	return useHydrated() ? /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(import_react$91.Fragment, { children }) : /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(import_react$91.Fragment, { children: fallback });
+	return useHydrated() ? /* @__PURE__ */ (0, import_jsx_runtime$26.jsx)(import_react$96.Fragment, { children }) : /* @__PURE__ */ (0, import_jsx_runtime$26.jsx)(import_react$96.Fragment, { children: fallback });
 }
 /**
 * Return a boolean indicating if the JS has been hydrated already.
@@ -6927,22 +6927,22 @@ function ClientOnly({ children, fallback = null }) {
 * @returns True if the JS has been hydrated already, false otherwise.
 */
 function useHydrated() {
-	return import_react$91.useSyncExternalStore(subscribe, () => true, () => false);
+	return import_react$96.useSyncExternalStore(subscribe, () => true, () => false);
 }
 function subscribe() {
 	return () => {};
 }
-var import_react$91, import_jsx_runtime$24;
+var import_react$96, import_jsx_runtime$26;
 var init_ClientOnly = __esmMin((() => {
-	import_react$91 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$24 = require_jsx_runtime();
+	import_react$96 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$26 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/routerContext.js
-var import_react$90, routerContext;
+var import_react$95, routerContext;
 var init_routerContext = __esmMin((() => {
-	import_react$90 = /* @__PURE__ */ __toESM(require_react(), 1);
-	routerContext = import_react$90.createContext(null);
+	import_react$95 = /* @__PURE__ */ __toESM(require_react(), 1);
+	routerContext = import_react$95.createContext(null);
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/useRouter.js
@@ -6957,20 +6957,20 @@ var init_routerContext = __esmMin((() => {
 * @link https://tanstack.com/router/latest/docs/framework/react/api/router/useRouterHook
 */
 function useRouter(opts) {
-	return import_react$89.useContext(routerContext);
+	return import_react$94.useContext(routerContext);
 }
-var import_react$89;
+var import_react$94;
 var init_useRouter = __esmMin((() => {
 	init_routerContext();
-	import_react$89 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$94 = /* @__PURE__ */ __toESM(require_react(), 1);
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/matchContext.js
-var import_react$88, matchContext, dummyMatchContext;
+var import_react$93, matchContext, dummyMatchContext;
 var init_matchContext = __esmMin((() => {
-	import_react$88 = /* @__PURE__ */ __toESM(require_react(), 1);
-	matchContext = import_react$88.createContext(void 0);
-	dummyMatchContext = import_react$88.createContext(void 0);
+	import_react$93 = /* @__PURE__ */ __toESM(require_react(), 1);
+	matchContext = import_react$93.createContext(void 0);
+	dummyMatchContext = import_react$93.createContext(void 0);
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+store@0.9.3/node_modules/@tanstack/store/dist/esm/alien.js
@@ -7326,17 +7326,17 @@ function defaultCompare(a, b) {
 	return a === b;
 }
 function useStore(atom, selector, compare = defaultCompare) {
-	const subscribe = (0, import_react$87.useCallback)((handleStoreChange) => {
+	const subscribe = (0, import_react$92.useCallback)((handleStoreChange) => {
 		if (!atom) return () => {};
 		const { unsubscribe } = atom.subscribe(handleStoreChange);
 		return unsubscribe;
 	}, [atom]);
-	const boundGetSnapshot = (0, import_react$87.useCallback)(() => atom?.get(), [atom]);
+	const boundGetSnapshot = (0, import_react$92.useCallback)(() => atom?.get(), [atom]);
 	return (0, import_with_selector.useSyncExternalStoreWithSelector)(subscribe, boundGetSnapshot, boundGetSnapshot, selector, compare);
 }
-var import_react$87, import_with_selector;
+var import_react$92, import_with_selector;
 var init_useStore = __esmMin((() => {
-	import_react$87 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$92 = /* @__PURE__ */ __toESM(require_react(), 1);
 	import_with_selector = require_with_selector();
 }));
 //#endregion
@@ -7348,7 +7348,7 @@ var init_esm$6 = __esmMin((() => {
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/useMatch.js
 function useStructuralSharing(opts, router) {
-	const previousResult = import_react$86.useRef();
+	const previousResult = import_react$91.useRef();
 	return (slice) => {
 		const selected = opts?.select ? opts.select(slice) : slice;
 		if (opts?.structuralSharing ?? router.options.defaultStructuralSharing) return previousResult.current = replaceEqualDeep$1(previousResult.current, selected);
@@ -7361,7 +7361,7 @@ function useStructuralSharing(opts, router) {
 */
 function useMatch(opts) {
 	const router = useRouter();
-	const nearestMatchId = import_react$86.useContext(opts.from ? dummyMatchContext : matchContext);
+	const nearestMatchId = import_react$91.useContext(opts.from ? dummyMatchContext : matchContext);
 	const matchStore = opts.from ? router.stores.getRouteMatchStore(opts.from) : router.stores.matchStores.get(nearestMatchId);
 	{
 		const match = matchStore?.get();
@@ -7376,12 +7376,12 @@ function useMatch(opts) {
 	if (matchSelection !== dummyStore) return matchSelection;
 	if (opts.shouldThrow ?? true) invariant();
 }
-var import_react$86, dummyStore;
+var import_react$91, dummyStore;
 var init_useMatch = __esmMin((() => {
 	init_matchContext();
 	init_useRouter();
 	init_esm$8();
-	import_react$86 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$91 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_esm$6();
 	init_server$4();
 	dummyStore = {
@@ -7517,17 +7517,17 @@ var init_useSearch = __esmMin((() => {
 */
 function useNavigate(_defaultOpts) {
 	const router = useRouter();
-	return import_react$85.useCallback((options) => {
+	return import_react$90.useCallback((options) => {
 		return router.navigate({
 			...options,
 			from: options.from ?? _defaultOpts?.from
 		});
 	}, [_defaultOpts?.from, router]);
 }
-var import_react$85;
+var import_react$90;
 var init_useNavigate = __esmMin((() => {
 	init_useRouter();
-	import_react$85 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$90 = /* @__PURE__ */ __toESM(require_react(), 1);
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/useRouteContext.js
@@ -7833,7 +7833,7 @@ function useLinkProps(options, forwardedRef) {
 		};
 	}
 	const isHydrated = useHydrated();
-	const _options = import_react$84.useMemo(() => options, [
+	const _options = import_react$89.useMemo(() => options, [
 		router,
 		options.from,
 		options._fromLocation,
@@ -7846,7 +7846,7 @@ function useLinkProps(options, forwardedRef) {
 		options.unsafeRelative
 	]);
 	const currentLocation = useStore(router.stores.location, (l) => l, (prev, next) => prev.href === next.href);
-	const next = import_react$84.useMemo(() => {
+	const next = import_react$89.useMemo(() => {
 		const opts = {
 			_fromLocation: currentLocation,
 			..._options
@@ -7859,13 +7859,13 @@ function useLinkProps(options, forwardedRef) {
 	]);
 	const hrefOptionPublicHref = next.maskedLocation ? next.maskedLocation.publicHref : next.publicHref;
 	const hrefOptionExternal = next.maskedLocation ? next.maskedLocation.external : next.external;
-	const hrefOption = import_react$84.useMemo(() => getHrefOption(hrefOptionPublicHref, hrefOptionExternal, router.history, disabled), [
+	const hrefOption = import_react$89.useMemo(() => getHrefOption(hrefOptionPublicHref, hrefOptionExternal, router.history, disabled), [
 		disabled,
 		hrefOptionExternal,
 		hrefOptionPublicHref,
 		router.history
 	]);
-	const externalLink = import_react$84.useMemo(() => {
+	const externalLink = import_react$89.useMemo(() => {
 		if (hrefOption?.external) {
 			if (isDangerousProtocol(hrefOption.href, router.protocolAllowlist)) return;
 			return hrefOption.href;
@@ -7882,7 +7882,7 @@ function useLinkProps(options, forwardedRef) {
 		hrefOption,
 		router.protocolAllowlist
 	]);
-	const isActive = import_react$84.useMemo(() => {
+	const isActive = import_react$89.useMemo(() => {
 		if (externalLink) return false;
 		if (activeOptions?.exact) {
 			if (!exactPathTest(currentLocation.pathname, next.pathname, router.basepath)) return false;
@@ -7924,11 +7924,11 @@ function useLinkProps(options, forwardedRef) {
 		...resolvedActiveProps.style,
 		...resolvedInactiveProps.style
 	};
-	const [isTransitioning, setIsTransitioning] = import_react$84.useState(false);
-	const hasRenderFetched = import_react$84.useRef(false);
+	const [isTransitioning, setIsTransitioning] = import_react$89.useState(false);
+	const hasRenderFetched = import_react$89.useRef(false);
 	const preload = options.reloadDocument || externalLink ? false : userPreload ?? router.options.defaultPreload;
 	const preloadDelay = userPreloadDelay ?? router.options.defaultPreloadDelay ?? 0;
-	const doPreload = import_react$84.useCallback(() => {
+	const doPreload = import_react$89.useCallback(() => {
 		router.preloadRoute({
 			..._options,
 			_builtLocation: next
@@ -7941,10 +7941,10 @@ function useLinkProps(options, forwardedRef) {
 		_options,
 		next
 	]);
-	useIntersectionObserver(innerRef, import_react$84.useCallback((entry) => {
+	useIntersectionObserver(innerRef, import_react$89.useCallback((entry) => {
 		if (entry?.isIntersecting) doPreload();
 	}, [doPreload]), intersectionObserverOptions, { disabled: !!disabled || !(preload === "viewport") });
-	import_react$84.useEffect(() => {
+	import_react$89.useEffect(() => {
 		if (hasRenderFetched.current) return;
 		if (!disabled && preload === "render") {
 			doPreload();
@@ -8062,13 +8062,13 @@ function isSafeInternal(to) {
 function isCtrlEvent(e) {
 	return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 }
-var import_react$84, import_react_dom, STATIC_EMPTY_OBJECT, STATIC_ACTIVE_OBJECT, STATIC_DISABLED_PROPS, STATIC_ACTIVE_PROPS, STATIC_TRANSITIONING_PROPS, timeoutMap, intersectionObserverOptions, composeHandlers, Link;
+var import_react$89, import_react_dom, STATIC_EMPTY_OBJECT, STATIC_ACTIVE_OBJECT, STATIC_DISABLED_PROPS, STATIC_ACTIVE_PROPS, STATIC_TRANSITIONING_PROPS, timeoutMap, intersectionObserverOptions, composeHandlers, Link;
 var init_link = __esmMin((() => {
 	init_utils$2();
 	init_ClientOnly();
 	init_useRouter();
 	init_esm$8();
-	import_react$84 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$89 = /* @__PURE__ */ __toESM(require_react(), 1);
 	require_jsx_runtime();
 	init_esm$6();
 	init_server$4();
@@ -8093,15 +8093,15 @@ var init_link = __esmMin((() => {
 			handler(e);
 		}
 	};
-	Link = import_react$84.forwardRef((props, ref) => {
+	Link = import_react$89.forwardRef((props, ref) => {
 		const { _asChild, ...rest } = props;
 		const { type: _type, ...linkProps } = useLinkProps(rest, ref);
 		const children = typeof rest.children === "function" ? rest.children({ isActive: linkProps["data-status"] === "active" }) : rest.children;
 		if (!_asChild) {
 			const { disabled: _, ...rest } = linkProps;
-			return import_react$84.createElement("a", rest, children);
+			return import_react$89.createElement("a", rest, children);
 		}
-		return import_react$84.createElement(_asChild, linkProps, children);
+		return import_react$89.createElement(_asChild, linkProps, children);
 	});
 }));
 //#endregion
@@ -8147,7 +8147,7 @@ function createRootRouteWithContext() {
 function createRootRoute(options) {
 	return new RootRoute(options);
 }
-var import_react$83, import_jsx_runtime$22, Route$11, RootRoute;
+var import_react$88, import_jsx_runtime$24, Route$11, RootRoute;
 var init_route = __esmMin((() => {
 	init_useMatch();
 	init_useLoaderData();
@@ -8158,8 +8158,8 @@ var init_route = __esmMin((() => {
 	init_useRouteContext();
 	init_link();
 	init_esm$8();
-	import_react$83 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$22 = require_jsx_runtime();
+	import_react$88 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$24 = require_jsx_runtime();
 	Route$11 = class extends BaseRoute {
 		/**
 		* @deprecated Use the `createRoute` function instead.
@@ -8208,8 +8208,8 @@ var init_route = __esmMin((() => {
 			this.useNavigate = () => {
 				return useNavigate({ from: this.fullPath });
 			};
-			this.Link = import_react$83.forwardRef((props, ref) => {
-				return /* @__PURE__ */ (0, import_jsx_runtime$22.jsx)(Link, {
+			this.Link = import_react$88.forwardRef((props, ref) => {
+				return /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(Link, {
 					ref,
 					from: this.fullPath,
 					...props
@@ -8265,8 +8265,8 @@ var init_route = __esmMin((() => {
 			this.useNavigate = () => {
 				return useNavigate({ from: this.fullPath });
 			};
-			this.Link = import_react$83.forwardRef((props, ref) => {
-				return /* @__PURE__ */ (0, import_jsx_runtime$22.jsx)(Link, {
+			this.Link = import_react$88.forwardRef((props, ref) => {
+				return /* @__PURE__ */ (0, import_jsx_runtime$24.jsx)(Link, {
 					ref,
 					from: this.fullPath,
 					...props
@@ -8348,16 +8348,16 @@ function lazyRouteComponent(importer, exportName) {
 		if (error) throw error;
 		if (!comp) if (reactUse) reactUse(load());
 		else throw load();
-		return import_react$82.createElement(comp, props);
+		return import_react$87.createElement(comp, props);
 	};
 	lazyComp.preload = load;
 	return lazyComp;
 }
-var import_react$82;
+var import_react$87;
 var init_lazyRouteComponent = __esmMin((() => {
 	init_utils$2();
 	init_esm$8();
-	import_react$82 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$87 = /* @__PURE__ */ __toESM(require_react(), 1);
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/not-found.js
@@ -8365,7 +8365,7 @@ function CatchNotFound(props) {
 	const router = useRouter();
 	{
 		const resetKey = `not-found-${router.stores.location.get().pathname}-${router.stores.status.get()}`;
-		return /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CatchBoundary, {
+		return /* @__PURE__ */ (0, import_jsx_runtime$23.jsx)(CatchBoundary, {
 			getResetKey: () => resetKey,
 			onCatch: (error, errorInfo) => {
 				if (isNotFound(error)) props.onCatch?.(error, errorInfo);
@@ -8379,7 +8379,7 @@ function CatchNotFound(props) {
 		});
 	}
 	const resetKey = `not-found-${useStore(router.stores.location, (location) => location.pathname)}-${useStore(router.stores.status, (status) => status)}`;
-	return /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CatchBoundary, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$23.jsx)(CatchBoundary, {
 		getResetKey: () => resetKey,
 		onCatch: (error, errorInfo) => {
 			if (isNotFound(error)) props.onCatch?.(error, errorInfo);
@@ -8393,15 +8393,15 @@ function CatchNotFound(props) {
 	});
 }
 function DefaultGlobalNotFound() {
-	return /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("p", { children: "Not Found" });
+	return /* @__PURE__ */ (0, import_jsx_runtime$23.jsx)("p", { children: "Not Found" });
 }
-var import_jsx_runtime$21;
+var import_jsx_runtime$23;
 var init_not_found = __esmMin((() => {
 	init_CatchBoundary();
 	init_useRouter();
 	init_esm$8();
 	require_react();
-	import_jsx_runtime$21 = require_jsx_runtime();
+	import_jsx_runtime$23 = require_jsx_runtime();
 	init_esm$6();
 	init_server$4();
 }));
@@ -8412,26 +8412,26 @@ var init_not_found = __esmMin((() => {
 */
 function ScriptOnce({ children }) {
 	const router = useRouter();
-	return /* @__PURE__ */ (0, import_jsx_runtime$20.jsx)("script", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$22.jsx)("script", {
 		nonce: router.options.ssr?.nonce,
 		dangerouslySetInnerHTML: { __html: children + ";document.currentScript.remove()" }
 	});
 }
-var import_jsx_runtime$20;
+var import_jsx_runtime$22;
 var init_ScriptOnce = __esmMin((() => {
 	init_useRouter();
-	import_jsx_runtime$20 = require_jsx_runtime();
+	import_jsx_runtime$22 = require_jsx_runtime();
 	init_server$4();
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/SafeFragment.js
 function SafeFragment(props) {
-	return /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)(import_jsx_runtime$19.Fragment, { children: props.children });
+	return /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(import_jsx_runtime$21.Fragment, { children: props.children });
 }
-var import_jsx_runtime$19;
+var import_jsx_runtime$21;
 var init_SafeFragment = __esmMin((() => {
 	require_react();
-	import_jsx_runtime$19 = require_jsx_runtime();
+	import_jsx_runtime$21 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/renderRouteNotFound.js
@@ -8445,16 +8445,16 @@ var init_SafeFragment = __esmMin((() => {
 */
 function renderRouteNotFound(router, route, data) {
 	if (!route.options.notFoundComponent) {
-		if (router.options.defaultNotFoundComponent) return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(router.options.defaultNotFoundComponent, { ...data });
-		return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(DefaultGlobalNotFound, {});
+		if (router.options.defaultNotFoundComponent) return /* @__PURE__ */ (0, import_jsx_runtime$20.jsx)(router.options.defaultNotFoundComponent, { ...data });
+		return /* @__PURE__ */ (0, import_jsx_runtime$20.jsx)(DefaultGlobalNotFound, {});
 	}
-	return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(route.options.notFoundComponent, { ...data });
+	return /* @__PURE__ */ (0, import_jsx_runtime$20.jsx)(route.options.notFoundComponent, { ...data });
 }
-var import_jsx_runtime$18;
+var import_jsx_runtime$20;
 var init_renderRouteNotFound = __esmMin((() => {
 	init_not_found();
 	require_react();
-	import_jsx_runtime$18 = require_jsx_runtime();
+	import_jsx_runtime$20 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+router-core@1.171.14/node_modules/@tanstack/router-core/dist/esm/scroll-restoration-script/client.js
@@ -8467,13 +8467,13 @@ var init_client$1 = __esmMin((() => {}));
 function ScrollRestoration() {
 	const script = getScrollRestorationScriptForRouter(useRouter());
 	if (!script) return null;
-	return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(ScriptOnce, { children: script });
+	return /* @__PURE__ */ (0, import_jsx_runtime$19.jsx)(ScriptOnce, { children: script });
 }
-var import_jsx_runtime$17;
+var import_jsx_runtime$19;
 var init_scroll_restoration = __esmMin((() => {
 	init_useRouter();
 	init_ScriptOnce();
-	import_jsx_runtime$17 = require_jsx_runtime();
+	import_jsx_runtime$19 = require_jsx_runtime();
 	init_client$1();
 }));
 //#endregion
@@ -8481,19 +8481,19 @@ var init_scroll_restoration = __esmMin((() => {
 function MatchView({ router, matchId, resetKey, matchState }) {
 	const route = router.routesById[matchState.routeId];
 	const PendingComponent = route.options.pendingComponent ?? router.options.defaultPendingComponent;
-	const pendingElement = PendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(PendingComponent, {}) : null;
+	const pendingElement = PendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(PendingComponent, {}) : null;
 	const routeErrorComponent = route.options.errorComponent ?? router.options.defaultErrorComponent;
 	const routeOnCatch = route.options.onCatch ?? router.options.defaultOnCatch;
 	const routeNotFoundComponent = route.isRoot ? route.options.notFoundComponent ?? router.options.notFoundRoute?.options.component : route.options.notFoundComponent;
 	const resolvedNoSsr = matchState.ssr === false || matchState.ssr === "data-only";
-	const ResolvedSuspenseBoundary = (!route.isRoot || route.options.wrapInSuspense || resolvedNoSsr) && (route.options.wrapInSuspense ?? PendingComponent ?? (route.options.errorComponent?.preload || resolvedNoSsr)) ? import_react$78.Suspense : SafeFragment;
+	const ResolvedSuspenseBoundary = (!route.isRoot || route.options.wrapInSuspense || resolvedNoSsr) && (route.options.wrapInSuspense ?? PendingComponent ?? (route.options.errorComponent?.preload || resolvedNoSsr)) ? import_react$83.Suspense : SafeFragment;
 	const ResolvedCatchBoundary = routeErrorComponent ? CatchBoundary : SafeFragment;
 	const ResolvedNotFoundBoundary = routeNotFoundComponent ? CatchNotFound : SafeFragment;
-	return /* @__PURE__ */ (0, import_jsx_runtime$16.jsxs)(route.isRoot ? route.options.shellComponent ?? SafeFragment : SafeFragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(matchContext.Provider, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$18.jsxs)(route.isRoot ? route.options.shellComponent ?? SafeFragment : SafeFragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(matchContext.Provider, {
 		value: matchId,
-		children: /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(ResolvedSuspenseBoundary, {
+		children: /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(ResolvedSuspenseBoundary, {
 			fallback: pendingElement,
-			children: /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(ResolvedCatchBoundary, {
+			children: /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(ResolvedCatchBoundary, {
 				getResetKey: () => resetKey,
 				errorComponent: routeErrorComponent || ErrorComponent,
 				onCatch: (error, errorInfo) => {
@@ -8503,26 +8503,26 @@ function MatchView({ router, matchId, resetKey, matchState }) {
 					}
 					routeOnCatch?.(error, errorInfo);
 				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(ResolvedNotFoundBoundary, {
+				children: /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(ResolvedNotFoundBoundary, {
 					fallback: (error) => {
 						error.routeId ??= matchState.routeId;
 						if (!routeNotFoundComponent || error.routeId && error.routeId !== matchState.routeId || !error.routeId && !route.isRoot) throw error;
-						return import_react$78.createElement(routeNotFoundComponent, error);
+						return import_react$83.createElement(routeNotFoundComponent, error);
 					},
-					children: resolvedNoSsr || matchState._displayPending ? /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(ClientOnly, {
+					children: resolvedNoSsr || matchState._displayPending ? /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(ClientOnly, {
 						fallback: pendingElement,
-						children: /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(MatchInner, { matchId })
-					}) : /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(MatchInner, { matchId })
+						children: /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(MatchInner, { matchId })
+					}) : /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(MatchInner, { matchId })
 				})
 			})
 		})
-	}), matchState.parentRouteId === "__root__" ? /* @__PURE__ */ (0, import_jsx_runtime$16.jsxs)(import_jsx_runtime$16.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(OnRendered, {}), router.options.scrollRestoration && true ? /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(ScrollRestoration, {}) : null] }) : null] });
+	}), matchState.parentRouteId === "__root__" ? /* @__PURE__ */ (0, import_jsx_runtime$18.jsxs)(import_jsx_runtime$18.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(OnRendered, {}), router.options.scrollRestoration && true ? /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(ScrollRestoration, {}) : null] }) : null] });
 }
 function OnRendered() {
 	useRouter();
 	return null;
 }
-var import_react$78, import_jsx_runtime$16, matchViewFieldsEqual, Match, MatchInner, Outlet;
+var import_react$83, import_jsx_runtime$18, matchViewFieldsEqual, Match, MatchInner, Outlet;
 var init_Match = __esmMin((() => {
 	init_utils$2();
 	init_CatchBoundary();
@@ -8534,19 +8534,19 @@ var init_Match = __esmMin((() => {
 	init_renderRouteNotFound();
 	init_scroll_restoration();
 	init_esm$8();
-	import_react$78 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$16 = require_jsx_runtime();
+	import_react$83 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$18 = require_jsx_runtime();
 	init_esm$6();
 	init_server$4();
 	matchViewFieldsEqual = (a, b) => a.routeId === b.routeId && a._displayPending === b._displayPending;
-	Match = import_react$78.memo(function MatchImpl({ matchId }) {
+	Match = import_react$83.memo(function MatchImpl({ matchId }) {
 		const router = useRouter();
 		{
 			const match = router.stores.matchStores.get(matchId)?.get();
 			if (!match) invariant();
 			const routeId = match.routeId;
 			const parentRouteId = router.routesById[routeId].parentRoute?.id;
-			return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(MatchView, {
+			return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(MatchView, {
 				router,
 				matchId,
 				resetKey: router.stores.loadedAt.get(),
@@ -8562,11 +8562,11 @@ var init_Match = __esmMin((() => {
 		if (!matchStore) invariant();
 		const resetKey = useStore(router.stores.loadedAt, (loadedAt) => loadedAt);
 		const match = useStore(matchStore, (value) => value, matchViewFieldsEqual);
-		return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(MatchView, {
+		return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(MatchView, {
 			router,
 			matchId,
 			resetKey,
-			matchState: import_react$78.useMemo(() => {
+			matchState: import_react$83.useMemo(() => {
 				const routeId = match.routeId;
 				const parentRouteId = router.routesById[routeId].parentRoute?.id;
 				return {
@@ -8583,7 +8583,7 @@ var init_Match = __esmMin((() => {
 			])
 		});
 	});
-	MatchInner = import_react$78.memo(function MatchInnerImpl({ matchId }) {
+	MatchInner = import_react$83.memo(function MatchInnerImpl({ matchId }) {
 		const router = useRouter();
 		const getMatchPromise = (match, key) => {
 			return router.getMatch(match.id)?._nonReactive[key] ?? match._nonReactive[key];
@@ -8601,7 +8601,7 @@ var init_Match = __esmMin((() => {
 			});
 			const key = remountDeps ? JSON.stringify(remountDeps) : void 0;
 			const Comp = route.options.component ?? router.options.defaultComponent;
-			const out = Comp ? /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Comp, {}, key) : /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Outlet, {});
+			const out = Comp ? /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(Comp, {}, key) : /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(Outlet, {});
 			if (match._displayPending) throw getMatchPromise(match, "displayPendingPromise");
 			if (match._forcePending) throw getMatchPromise(match, "minPendingPromise");
 			if (match.status === "pending") throw getMatchPromise(match, "loadPromise");
@@ -8613,7 +8613,7 @@ var init_Match = __esmMin((() => {
 				if (!isRedirect(match.error)) invariant();
 				throw getMatchPromise(match, "loadPromise");
 			}
-			if (match.status === "error") return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)((route.options.errorComponent ?? router.options.defaultErrorComponent) || ErrorComponent, {
+			if (match.status === "error") return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)((route.options.errorComponent ?? router.options.defaultErrorComponent) || ErrorComponent, {
 				error: match.error,
 				reset: void 0,
 				info: { componentStack: "" }
@@ -8625,7 +8625,7 @@ var init_Match = __esmMin((() => {
 		const match = useStore(matchStore, (value) => value);
 		const routeId = match.routeId;
 		const route = router.routesById[routeId];
-		const key = import_react$78.useMemo(() => {
+		const key = import_react$83.useMemo(() => {
 			const remountDeps = (router.routesById[routeId].options.remountDeps ?? router.options.defaultRemountDeps)?.({
 				routeId,
 				loaderDeps: match.loaderDeps,
@@ -8641,10 +8641,10 @@ var init_Match = __esmMin((() => {
 			router.options.defaultRemountDeps,
 			router.routesById
 		]);
-		const out = import_react$78.useMemo(() => {
+		const out = import_react$83.useMemo(() => {
 			const Comp = route.options.component ?? router.options.defaultComponent;
-			if (Comp) return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Comp, {}, key);
-			return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Outlet, {});
+			if (Comp) return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(Comp, {}, key);
+			return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(Outlet, {});
 		}, [
 			key,
 			route.options.component,
@@ -8667,16 +8667,16 @@ var init_Match = __esmMin((() => {
 			if (!isRedirect(match.error)) invariant();
 			throw getMatchPromise(match, "loadPromise");
 		}
-		if (match.status === "error") return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)((route.options.errorComponent ?? router.options.defaultErrorComponent) || ErrorComponent, {
+		if (match.status === "error") return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)((route.options.errorComponent ?? router.options.defaultErrorComponent) || ErrorComponent, {
 			error: match.error,
 			reset: void 0,
 			info: { componentStack: "" }
 		});
 		return out;
 	});
-	Outlet = import_react$78.memo(function OutletImpl() {
+	Outlet = import_react$83.memo(function OutletImpl() {
 		const router = useRouter();
-		const matchId = import_react$78.useContext(matchContext);
+		const matchId = import_react$83.useContext(matchContext);
 		let routeId;
 		let parentGlobalNotFound = false;
 		let childMatchId;
@@ -8689,14 +8689,14 @@ var init_Match = __esmMin((() => {
 			childMatchId = parentIndex >= 0 ? matches[parentIndex + 1]?.id : void 0;
 		}
 		const route = routeId ? router.routesById[routeId] : void 0;
-		const pendingElement = router.options.defaultPendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(router.options.defaultPendingComponent, {}) : null;
+		const pendingElement = router.options.defaultPendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(router.options.defaultPendingComponent, {}) : null;
 		if (parentGlobalNotFound) {
 			if (!route) invariant();
 			return renderRouteNotFound(router, route, void 0);
 		}
 		if (!childMatchId) return null;
-		const nextMatch = /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Match, { matchId: childMatchId });
-		if (routeId === "__root__") return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(import_react$78.Suspense, {
+		const nextMatch = /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(Match, { matchId: childMatchId });
+		if (routeId === "__root__") return /* @__PURE__ */ (0, import_jsx_runtime$18.jsx)(import_react$83.Suspense, {
 			fallback: pendingElement,
 			children: nextMatch
 		});
@@ -8719,21 +8719,21 @@ var init_Transitioner = __esmMin((() => {
 function Matches() {
 	const router = useRouter();
 	const PendingComponent = router.routesById["__root__"].options.pendingComponent ?? router.options.defaultPendingComponent;
-	const pendingElement = PendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(PendingComponent, {}) : null;
-	const inner = /* @__PURE__ */ (0, import_jsx_runtime$15.jsxs)(SafeFragment, {
+	const pendingElement = PendingComponent ? /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(PendingComponent, {}) : null;
+	const inner = /* @__PURE__ */ (0, import_jsx_runtime$17.jsxs)(SafeFragment, {
 		fallback: pendingElement,
-		children: [false, /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(MatchesInner, {})]
+		children: [false, /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(MatchesInner, {})]
 	});
-	return router.options.InnerWrap ? /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(router.options.InnerWrap, { children: inner }) : inner;
+	return router.options.InnerWrap ? /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(router.options.InnerWrap, { children: inner }) : inner;
 }
 function MatchesInner() {
 	const router = useRouter();
 	const matchId = router.stores.firstId.get();
 	const resetKey = router.stores.loadedAt.get();
-	const matchComponent = matchId ? /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(Match, { matchId }) : null;
-	return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(matchContext.Provider, {
+	const matchComponent = matchId ? /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(Match, { matchId }) : null;
+	return /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(matchContext.Provider, {
 		value: matchId,
-		children: router.options.disableGlobalCatchBoundary ? matchComponent : /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(CatchBoundary, {
+		children: router.options.disableGlobalCatchBoundary ? matchComponent : /* @__PURE__ */ (0, import_jsx_runtime$17.jsx)(CatchBoundary, {
 			getResetKey: () => resetKey,
 			errorComponent: ErrorComponent,
 			onCatch: void 0,
@@ -8741,7 +8741,7 @@ function MatchesInner() {
 		})
 	});
 }
-var import_jsx_runtime$15;
+var import_jsx_runtime$17;
 var init_Matches = __esmMin((() => {
 	init_CatchBoundary();
 	init_matchContext();
@@ -8751,7 +8751,7 @@ var init_Matches = __esmMin((() => {
 	init_Match();
 	init_esm$8();
 	require_react();
-	import_jsx_runtime$15 = require_jsx_runtime();
+	import_jsx_runtime$17 = require_jsx_runtime();
 	init_esm$6();
 	init_server$4();
 }));
@@ -8800,11 +8800,11 @@ function RouterContextProvider({ router, children, ...rest }) {
 			...rest.context
 		}
 	});
-	const provider = /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(routerContext.Provider, {
+	const provider = /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(routerContext.Provider, {
 		value: router,
 		children
 	});
-	if (router.options.Wrap) return /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(router.options.Wrap, { children: provider });
+	if (router.options.Wrap) return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(router.options.Wrap, { children: provider });
 	return provider;
 }
 /**
@@ -8817,19 +8817,19 @@ function RouterContextProvider({ router, children, ...rest }) {
 * @link https://tanstack.com/router/latest/docs/framework/react/api/router/createRouterFunction
 */
 function RouterProvider({ router, ...rest }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(RouterContextProvider, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(RouterContextProvider, {
 		router,
 		...rest,
-		children: /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Matches, {})
+		children: /* @__PURE__ */ (0, import_jsx_runtime$16.jsx)(Matches, {})
 	});
 }
-var import_jsx_runtime$14;
+var import_jsx_runtime$16;
 var init_RouterProvider = __esmMin((() => {
 	init_routerContext();
 	init_Matches();
 	init_esm$8();
 	require_react();
-	import_jsx_runtime$14 = require_jsx_runtime();
+	import_jsx_runtime$16 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/Asset.js
@@ -8840,16 +8840,16 @@ function setScriptAttrs(script, attrs) {
 function Asset(asset) {
 	const { attrs, children, nonce, preventScriptHoist } = asset;
 	switch (asset.tag) {
-		case "title": return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("title", {
+		case "title": return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("title", {
 			...attrs,
 			suppressHydrationWarning: true,
 			children
 		});
-		case "meta": return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("meta", {
+		case "meta": return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("meta", {
 			...attrs,
 			suppressHydrationWarning: true
 		});
-		case "link": return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("link", {
+		case "link": return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("link", {
 			...attrs,
 			precedence: attrs?.precedence ?? (attrs?.rel === "stylesheet" ? "default" : void 0),
 			nonce,
@@ -8857,12 +8857,12 @@ function Asset(asset) {
 		});
 		case "style":
 			if (asset.inlineCss && false);
-			return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("style", {
+			return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("style", {
 				...attrs,
 				dangerouslySetInnerHTML: { __html: children },
 				nonce
 			});
-		case "script": return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Script, {
+		case "script": return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)(Script, {
 			attrs,
 			preventScriptHoist,
 			children
@@ -8874,7 +8874,7 @@ function Script({ attrs, children, preventScriptHoist }) {
 	useRouter();
 	useHydrated();
 	const dataScript = typeof attrs?.type === "string" && attrs.type !== "" && attrs.type !== "text/javascript" && attrs.type !== "module";
-	import_react$74.useEffect(() => {
+	import_react$79.useEffect(() => {
 		if (dataScript) return;
 		if (attrs?.src) {
 			const normSrc = (() => {
@@ -8912,29 +8912,29 @@ function Script({ attrs, children, preventScriptHoist }) {
 		dataScript
 	]);
 	if (attrs?.src) {
-		if (!preventScriptHoist) return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("script", {
+		if (!preventScriptHoist) return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("script", {
 			...attrs,
 			suppressHydrationWarning: true
 		});
-		return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("script", {
+		return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("script", {
 			...attrs,
 			onLoad: noopScriptHandler,
 			suppressHydrationWarning: true
 		});
 	}
-	if (typeof children === "string") return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("script", {
+	if (typeof children === "string") return /* @__PURE__ */ (0, import_jsx_runtime$15.jsx)("script", {
 		...attrs,
 		dangerouslySetInnerHTML: { __html: children },
 		suppressHydrationWarning: true
 	});
 	return null;
 }
-var import_react$74, import_jsx_runtime$13, noopScriptHandler;
+var import_react$79, import_jsx_runtime$15, noopScriptHandler;
 var init_Asset = __esmMin((() => {
 	init_ClientOnly();
 	init_useRouter();
-	import_react$74 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$13 = require_jsx_runtime();
+	import_react$79 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$15 = require_jsx_runtime();
 	init_server$4();
 	noopScriptHandler = () => {};
 }));
@@ -9081,19 +9081,19 @@ var init_headContentUtils = __esmMin((() => {
 function HeadContent(props) {
 	const tags = useTags(props.assetCrossOrigin);
 	const nonce = useRouter().options.ssr?.nonce;
-	return /* @__PURE__ */ (0, import_jsx_runtime$12.jsx)(import_jsx_runtime$12.Fragment, { children: tags.map((tag) => /* @__PURE__ */ (0, import_react$72.createElement)(Asset, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(import_jsx_runtime$14.Fragment, { children: tags.map((tag) => /* @__PURE__ */ (0, import_react$77.createElement)(Asset, {
 		...tag,
 		key: `tsr-meta-${JSON.stringify(tag)}`,
 		nonce
 	})) });
 }
-var import_react$72, import_jsx_runtime$12;
+var import_react$77, import_jsx_runtime$14;
 var init_HeadContent = __esmMin((() => {
 	init_useRouter();
 	init_Asset();
 	init_headContentUtils();
-	import_react$72 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$12 = require_jsx_runtime();
+	import_react$77 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$14 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-router@1.170.17+7492c01c6988791b/node_modules/@tanstack/react-router/dist/esm/Scripts.js
@@ -9103,18 +9103,18 @@ function renderScripts(router, scripts, assetScripts) {
 		const serverBufferedScript = router.serverSsr.takeBufferedScripts();
 		if (serverBufferedScript) allScripts.unshift(serverBufferedScript);
 	}
-	return /* @__PURE__ */ (0, import_jsx_runtime$11.jsx)(import_jsx_runtime$11.Fragment, { children: allScripts.map((asset, i) => /* @__PURE__ */ (0, import_react$71.createElement)(Asset, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(import_jsx_runtime$13.Fragment, { children: allScripts.map((asset, i) => /* @__PURE__ */ (0, import_react$76.createElement)(Asset, {
 		...asset,
 		key: `tsr-scripts-${asset.tag}-${i}`
 	})) });
 }
-var import_react$71, import_jsx_runtime$11, Scripts;
+var import_react$76, import_jsx_runtime$13, Scripts;
 var init_Scripts = __esmMin((() => {
 	init_useRouter();
 	init_Asset();
 	init_esm$8();
-	import_react$71 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$11 = require_jsx_runtime();
+	import_react$76 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$13 = require_jsx_runtime();
 	init_esm$6();
 	init_server$4();
 	Scripts = () => {
@@ -9174,13 +9174,13 @@ var init_esm$5 = __esmMin((() => {
 //#endregion
 //#region node_modules/.bun/@tanstack+react-start-server@1.167.21+c6770b95556804bf/node_modules/@tanstack/react-start-server/dist/esm/StartServer.js
 function StartServer(props) {
-	return /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)(RouterProvider, { router: props.router });
+	return /* @__PURE__ */ (0, import_jsx_runtime$12.jsx)(RouterProvider, { router: props.router });
 }
-var import_jsx_runtime$10;
+var import_jsx_runtime$12;
 var init_StartServer = __esmMin((() => {
 	require_react();
 	init_esm$5();
-	import_jsx_runtime$10 = require_jsx_runtime();
+	import_jsx_runtime$12 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/react-dom@19.2.7+e14d3f224186685e/node_modules/react-dom/cjs/react-dom-server.edge.production.js
@@ -18492,16 +18492,16 @@ var init_server$2 = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-start-server@1.167.21+c6770b95556804bf/node_modules/@tanstack/react-start-server/dist/esm/defaultStreamHandler.js
-var import_jsx_runtime$9, defaultStreamHandler;
+var import_jsx_runtime$11, defaultStreamHandler;
 var init_defaultStreamHandler = __esmMin((() => {
 	init_StartServer();
-	import_jsx_runtime$9 = require_jsx_runtime();
+	import_jsx_runtime$11 = require_jsx_runtime();
 	init_server$2();
 	defaultStreamHandler = defineHandlerCallback(({ request, router, responseHeaders }) => renderRouterToStream({
 		request,
 		router,
 		responseHeaders,
-		children: /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(StartServer, { router })
+		children: /* @__PURE__ */ (0, import_jsx_runtime$11.jsx)(StartServer, { router })
 	}));
 }));
 //#endregion
@@ -18898,67 +18898,84 @@ var init__tanstack_start_manifest_v = __esmMin((() => {
 				"/api/exam",
 				"/auth/callback"
 			],
-			preloads: ["/assets/index-BhVZGaDG.js", "/assets/rolldown-runtime-Bh1tDfsg.js"],
+			preloads: ["/assets/index-CnwstQ5c.js", "/assets/rolldown-runtime-Bh1tDfsg.js"],
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-BhVZGaDG.js"
+				src: "/assets/index-CnwstQ5c.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-n2XsT1SR.js",
-				"/assets/exam-client-B1JCEA8K.js",
-				"/assets/exam-shell-26vfHPgu.js",
-				"/assets/CheckCircle.es-ZIA8PcWc.js",
-				"/assets/Clock.es-DTKsCKRq.js",
-				"/assets/FileText.es-CWzuPVJh.js"
+				"/assets/routes-BWtubCK8.js",
+				"/assets/exam-client-ClEnerEz.js",
+				"/assets/ArrowRight.es-BpNiiLoJ.js",
+				"/assets/exam-shell-D51z86Yh.js",
+				"/assets/CheckCircle.es-CCeuO6vd.js",
+				"/assets/Clock.es-JNaTg2PY.js",
+				"/assets/FileText.es-BIhzgQpK.js",
+				"/assets/LockKey.es-61R4Y0im.js"
 			]
 		},
 		"/admin": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-DzMmjAof.js",
-				"/assets/ArrowLeft.es-BskiWG1F.js",
-				"/assets/exam-shell-26vfHPgu.js",
-				"/assets/CheckCircle.es-ZIA8PcWc.js",
-				"/assets/Clock.es-DTKsCKRq.js"
+				"/assets/admin-Dme1hAFZ.js",
+				"/assets/protected-route-DMX-cZjG.js",
+				"/assets/exam-shell-D51z86Yh.js",
+				"/assets/CheckCircle.es-CCeuO6vd.js",
+				"/assets/Clock.es-JNaTg2PY.js"
 			]
 		},
 		"/exam": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/exam.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/exam-BEl-JDrE.js",
-				"/assets/exam-client-B1JCEA8K.js",
-				"/assets/ArrowLeft.es-BskiWG1F.js",
-				"/assets/exam-shell-26vfHPgu.js",
-				"/assets/Clock.es-DTKsCKRq.js"
+				"/assets/exam-Dy6cd_XS.js",
+				"/assets/exam-client-ClEnerEz.js",
+				"/assets/protected-route-DMX-cZjG.js",
+				"/assets/ArrowRight.es-BpNiiLoJ.js",
+				"/assets/exam-shell-D51z86Yh.js",
+				"/assets/Clock.es-JNaTg2PY.js"
 			]
 		},
 		"/login": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/login.tsx",
 			children: void 0,
-			preloads: ["/assets/login-DWdF10av.js"]
+			preloads: [
+				"/assets/login-UbCjWHbN.js",
+				"/assets/exam-shell-D51z86Yh.js",
+				"/assets/CheckCircle.es-CCeuO6vd.js",
+				"/assets/LockKey.es-61R4Y0im.js",
+				"/assets/WarningCircle.es-D0pV5we6.js"
+			]
 		},
 		"/reports": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-CMc42ihB.js",
-				"/assets/exam-client-B1JCEA8K.js",
-				"/assets/exam-shell-26vfHPgu.js",
-				"/assets/CheckCircle.es-ZIA8PcWc.js",
-				"/assets/FileText.es-CWzuPVJh.js"
+				"/assets/reports-DQBU1qqj.js",
+				"/assets/exam-client-ClEnerEz.js",
+				"/assets/protected-route-DMX-cZjG.js",
+				"/assets/ArrowRight.es-BpNiiLoJ.js",
+				"/assets/exam-shell-D51z86Yh.js",
+				"/assets/CheckCircle.es-CCeuO6vd.js",
+				"/assets/FileText.es-BIhzgQpK.js",
+				"/assets/WarningCircle.es-D0pV5we6.js"
 			]
 		},
 		"/auth/callback": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/auth/callback.tsx",
 			children: void 0,
-			preloads: ["/assets/callback-DWdF10av.js"]
+			preloads: [
+				"/assets/callback-CGK4gHBA.js",
+				"/assets/ArrowRight.es-BpNiiLoJ.js",
+				"/assets/exam-shell-D51z86Yh.js",
+				"/assets/WarningCircle.es-D0pV5we6.js"
+			]
 		}
 	} });
 }));
@@ -21955,19 +21972,19 @@ var init_modern$1 = __esmMin((() => {
 var init_types$3 = __esmMin((() => {}));
 //#endregion
 //#region node_modules/.bun/@tanstack+react-query@5.101.2+e14d3f224186685e/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js
-var import_react$69, import_jsx_runtime$8, QueryClientContext, QueryClientProvider;
+var import_react$74, import_jsx_runtime$10, QueryClientContext, QueryClientProvider;
 var init_QueryClientProvider = __esmMin((() => {
-	import_react$69 = /* @__PURE__ */ __toESM(require_react(), 1);
-	import_jsx_runtime$8 = require_jsx_runtime();
-	QueryClientContext = import_react$69.createContext(void 0);
+	import_react$74 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_jsx_runtime$10 = require_jsx_runtime();
+	QueryClientContext = import_react$74.createContext(void 0);
 	QueryClientProvider = ({ client, children }) => {
-		import_react$69.useEffect(() => {
+		import_react$74.useEffect(() => {
 			client.mount();
 			return () => {
 				client.unmount();
 			};
 		}, [client]);
-		return /* @__PURE__ */ (0, import_jsx_runtime$8.jsx)(QueryClientContext.Provider, {
+		return /* @__PURE__ */ (0, import_jsx_runtime$10.jsx)(QueryClientContext.Provider, {
 			value: client,
 			children
 		});
@@ -21988,7 +22005,7 @@ var init_styles$1 = __esmMin((() => {}));
 var styles_default;
 var init_styles = __esmMin((() => {
 	init_styles$1();
-	styles_default = "/assets/styles-kcCEPIDH.css";
+	styles_default = "/assets/styles-yo9wjcoT.css";
 })), og_title, og_description, og_image_url, favicon_url, marketplace_cover_url, theme_color, app_meta_default;
 var init_app_meta = __esmMin((() => {
 	og_title = "MySQL Exam Studio";
@@ -43098,34 +43115,42 @@ var init_supabase = __esmMin((() => {
 //#endregion
 //#region src/lib/auth-context.tsx
 function AuthProvider({ children }) {
-	const [user, setUser] = (0, import_react$68.useState)(null);
-	const [profile, setProfile] = (0, import_react$68.useState)(null);
-	const [session, setSession] = (0, import_react$68.useState)(null);
-	const [loading, setLoading] = (0, import_react$68.useState)(true);
-	const [error, setError] = (0, import_react$68.useState)(null);
+	const [user, setUser] = (0, import_react$73.useState)(null);
+	const [profile, setProfile] = (0, import_react$73.useState)(null);
+	const [session, setSession] = (0, import_react$73.useState)(null);
+	const [loading, setLoading] = (0, import_react$73.useState)(true);
+	const [error, setError] = (0, import_react$73.useState)(null);
 	const configured = isSupabaseConfigured();
-	const fetchOrCreateProfile = (0, import_react$68.useCallback)(async (authUser) => {
+	const fetchOrCreateProfile = (0, import_react$73.useCallback)(async (authUser) => {
 		const client = getSupabase();
 		try {
+			const githubUsername = authUser.user_metadata?.user_name || authUser.user_metadata?.preferred_username || "";
 			const { data, error: selectError } = await client.from("profiles").select("*").eq("id", authUser.id).maybeSingle();
 			if (data && !selectError) {
-				const loadedProfile = data;
+				const loadedProfile = {
+					...data,
+					github_username: data.github_username || githubUsername
+				};
 				setProfile(loadedProfile);
 				return loadedProfile;
 			}
-			const fullName = authUser.user_metadata?.full_name || authUser.user_metadata?.name || authUser.email?.split("@")[0] || "Learner";
-			const email = authUser.email || "";
-			const avatarUrl = authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || "";
+			const fullName = authUser.user_metadata?.full_name || authUser.user_metadata?.name || githubUsername || authUser.email?.split("@")[0] || "Learner";
+			const email = authUser.email || authUser.user_metadata?.email || "";
+			const avatarUrl = authUser.user_metadata?.avatar_url || "";
 			const newProfile = {
 				id: authUser.id,
 				full_name: fullName,
 				email,
 				avatar_url: avatarUrl,
+				github_username: githubUsername,
 				role: "customer"
 			};
 			const { data: inserted, error: insertError } = await client.from("profiles").upsert(newProfile, { onConflict: "id" }).select().maybeSingle();
 			if (inserted && !insertError) {
-				const synced = inserted;
+				const synced = {
+					...inserted,
+					github_username: inserted.github_username || githubUsername
+				};
 				setProfile(synced);
 				return synced;
 			}
@@ -43134,6 +43159,7 @@ function AuthProvider({ children }) {
 				full_name: fullName,
 				email,
 				avatar_url: avatarUrl,
+				github_username: githubUsername,
 				role: "customer",
 				created_at: (/* @__PURE__ */ new Date()).toISOString()
 			};
@@ -43141,11 +43167,13 @@ function AuthProvider({ children }) {
 			return fallbackProfile;
 		} catch (err) {
 			console.error("Failed to load or sync profile:", err);
+			const githubUsername = authUser.user_metadata?.user_name || authUser.user_metadata?.preferred_username || "";
 			const fallbackProfile = {
 				id: authUser.id,
-				full_name: authUser.user_metadata?.full_name || authUser.user_metadata?.name || "Learner",
+				full_name: authUser.user_metadata?.full_name || authUser.user_metadata?.name || githubUsername || "Learner",
 				email: authUser.email || "",
-				avatar_url: authUser.user_metadata?.avatar_url || authUser.user_metadata?.picture || "",
+				avatar_url: authUser.user_metadata?.avatar_url || "",
+				github_username: githubUsername,
 				role: "customer",
 				created_at: (/* @__PURE__ */ new Date()).toISOString()
 			};
@@ -43153,7 +43181,7 @@ function AuthProvider({ children }) {
 			return fallbackProfile;
 		}
 	}, []);
-	(0, import_react$68.useEffect)(() => {
+	(0, import_react$73.useEffect)(() => {
 		if (typeof window === "undefined") {
 			setLoading(false);
 			return;
@@ -43190,7 +43218,7 @@ function AuthProvider({ children }) {
 			subscription.unsubscribe();
 		};
 	}, [fetchOrCreateProfile]);
-	const signInWithGoogle = (0, import_react$68.useCallback)(async (redirectTo) => {
+	const signInWithGitHub = (0, import_react$73.useCallback)(async (redirectTo) => {
 		if (typeof window === "undefined") return;
 		setError(null);
 		if (!configured) {
@@ -43202,21 +43230,15 @@ function AuthProvider({ children }) {
 		const callbackUrl = new URL("/auth/callback", origin);
 		if (redirectTo) callbackUrl.searchParams.set("next", redirectTo);
 		const { error: signInError } = await client.auth.signInWithOAuth({
-			provider: "google",
-			options: {
-				redirectTo: callbackUrl.toString(),
-				queryParams: {
-					access_type: "offline",
-					prompt: "consent"
-				}
-			}
+			provider: "github",
+			options: { redirectTo: callbackUrl.toString() }
 		});
 		if (signInError) {
 			setError(signInError.message);
 			throw signInError;
 		}
 	}, [configured]);
-	const signOut = (0, import_react$68.useCallback)(async () => {
+	const signOut = (0, import_react$73.useCallback)(async () => {
 		if (typeof window === "undefined") return;
 		setError(null);
 		const client = getSupabase();
@@ -43234,13 +43256,13 @@ function AuthProvider({ children }) {
 			window.location.assign("/login");
 		}
 	}, []);
-	const refreshProfile = (0, import_react$68.useCallback)(async () => {
+	const refreshProfile = (0, import_react$73.useCallback)(async () => {
 		if (!user) return null;
 		return fetchOrCreateProfile(user);
 	}, [user, fetchOrCreateProfile]);
-	const clearError = (0, import_react$68.useCallback)(() => setError(null), []);
+	const clearError = (0, import_react$73.useCallback)(() => setError(null), []);
 	const role = profile?.role || "customer";
-	return /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(AuthContext.Provider, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$9.jsx)(AuthContext.Provider, {
 		value: {
 			user,
 			profile,
@@ -43249,7 +43271,7 @@ function AuthProvider({ children }) {
 			loading,
 			error,
 			isConfigured: configured,
-			signInWithGoogle,
+			signInWithGitHub,
 			signOut,
 			refreshProfile,
 			clearError
@@ -43258,41 +43280,41 @@ function AuthProvider({ children }) {
 	});
 }
 function useAuth() {
-	const context = (0, import_react$68.useContext)(AuthContext);
+	const context = (0, import_react$73.useContext)(AuthContext);
 	if (!context) throw new Error("useAuth must be used within an AuthProvider");
 	return context;
 }
-var import_react$68, import_jsx_runtime$7, AuthContext;
+var import_react$73, import_jsx_runtime$9, AuthContext;
 var init_auth_context = __esmMin((() => {
-	import_react$68 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$73 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_supabase();
-	import_jsx_runtime$7 = require_jsx_runtime();
-	AuthContext = (0, import_react$68.createContext)(void 0);
+	import_jsx_runtime$9 = require_jsx_runtime();
+	AuthContext = (0, import_react$73.createContext)(void 0);
 }));
 //#endregion
 //#region src/routes/__root.tsx
 function RootShell({ children }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("html", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$8.jsxs)("html", {
 		lang: "en",
 		style: { colorScheme: "light" },
-		children: [/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("head", { children: /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(HeadContent, {}) }), /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("body", { children: [children, /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(Scripts, {})] })]
+		children: [/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("head", { children: /* @__PURE__ */ (0, import_jsx_runtime$8.jsx)(HeadContent, {}) }), /* @__PURE__ */ (0, import_jsx_runtime$8.jsxs)("body", { children: [children, /* @__PURE__ */ (0, import_jsx_runtime$8.jsx)(Scripts, {})] })]
 	});
 }
 function RootComponent() {
 	const { queryClient } = Route$10.useRouteContext();
-	(0, import_react$67.useEffect)(() => {}, []);
-	return /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(QueryClientProvider, {
+	(0, import_react$72.useEffect)(() => {}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime$8.jsx)(QueryClientProvider, {
 		client: queryClient,
-		children: /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(AuthProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(Outlet, {}) })
+		children: /* @__PURE__ */ (0, import_jsx_runtime$8.jsx)(AuthProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime$8.jsx)(Outlet, {}) })
 	});
 }
 function NotFound() {
-	return /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("main", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$8.jsxs)("main", {
 		className: "root-error",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("h1", { children: "Page not found." }),
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("p", { children: "Return to your assessment workspace." }),
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("a", {
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("h1", { children: "Page not found." }),
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("p", { children: "Return to your assessment workspace." }),
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("a", {
 				href: "/",
 				children: "Go to overview"
 			})
@@ -43301,33 +43323,33 @@ function NotFound() {
 }
 function ErrorPage({ reset }) {
 	const router = useRouter();
-	return /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("main", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$8.jsxs)("main", {
 		className: "root-error",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("h1", { children: "We could not open this page." }),
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("p", { children: "Your saved answers are retained. Please try again." }),
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("button", {
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("h1", { children: "We could not open this page." }),
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("p", { children: "Your saved answers are retained. Please try again." }),
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("button", {
 				onClick: () => {
 					router.invalidate();
 					reset();
 				},
 				children: "Try again"
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("a", {
+			/* @__PURE__ */ (0, import_jsx_runtime$8.jsx)("a", {
 				href: "/",
 				children: "Go to overview"
 			})
 		]
 	});
 }
-var import_react$67, import_jsx_runtime$6, origin, Route$10;
+var import_react$72, import_jsx_runtime$8, origin, Route$10;
 var init___root = __esmMin((() => {
 	init_modern();
 	init_esm$5();
-	import_react$67 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$72 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_styles();
 	init_app_meta();
-	import_jsx_runtime$6 = require_jsx_runtime();
+	import_jsx_runtime$8 = require_jsx_runtime();
 	init_auth_context();
 	origin = "https://mysql-exam-studio.higgsfield.app";
 	Route$10 = createRootRouteWithContext()({
@@ -43425,503 +43447,537 @@ var init_robots___txt = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ArrowCounterClockwise.es.js
-var import_react$66, e$23;
+var import_react$71, e$24;
 var init_ArrowCounterClockwise_es$1 = __esmMin((() => {
-	import_react$66 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$23 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M228,128a100,100,0,0,1-98.66,100H128a99.39,99.39,0,0,1-68.62-27.29,12,12,0,0,1,16.48-17.45,76,76,0,1,0-1.57-109c-.13.13-.25.25-.39.37L54.89,92H72a12,12,0,0,1,0,24H24a12,12,0,0,1-12-12V56a12,12,0,0,1,24,0V76.72L57.48,57.06A100,100,0,0,1,228,128Z" }))],
-		["duotone", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", {
+	import_react$71 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$24 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$71.createElement(import_react$71.Fragment, null, /* @__PURE__ */ import_react$71.createElement("path", { d: "M228,128a100,100,0,0,1-98.66,100H128a99.39,99.39,0,0,1-68.62-27.29,12,12,0,0,1,16.48-17.45,76,76,0,1,0-1.57-109c-.13.13-.25.25-.39.37L54.89,92H72a12,12,0,0,1,0,24H24a12,12,0,0,1-12-12V56a12,12,0,0,1,24,0V76.72L57.48,57.06A100,100,0,0,1,228,128Z" }))],
+		["duotone", /* @__PURE__ */ import_react$71.createElement(import_react$71.Fragment, null, /* @__PURE__ */ import_react$71.createElement("path", {
 			d: "M216,128a88,88,0,1,1-88-88A88,88,0,0,1,216,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$66.createElement("path", { d: "M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z" }))],
-		["fill", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L60.63,81.29l17,17A8,8,0,0,1,72,112H24a8,8,0,0,1-8-8V56A8,8,0,0,1,29.66,50.3L49.31,70,60.25,60A96,96,0,0,1,224,128Z" }))],
-		["light", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M222,128a94,94,0,0,1-92.74,94H128a93.43,93.43,0,0,1-64.5-25.65,6,6,0,1,1,8.24-8.72A82,82,0,1,0,70,70l-.19.19L39.44,98H72a6,6,0,0,1,0,12H24a6,6,0,0,1-6-6V56a6,6,0,0,1,12,0V90.34L61.63,61.4A94,94,0,0,1,222,128Z" }))],
-		["regular", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z" }))],
-		["thin", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M220,128a92,92,0,0,1-90.77,92H128a91.47,91.47,0,0,1-63.13-25.1,4,4,0,1,1,5.5-5.82A84,84,0,1,0,68.6,68.57l-.13.12L34.3,100H72a4,4,0,0,1,0,8H24a4,4,0,0,1-4-4V56a4,4,0,0,1,8,0V94.89l35-32A92,92,0,0,1,220,128Z" }))]
+		}), /* @__PURE__ */ import_react$71.createElement("path", { d: "M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z" }))],
+		["fill", /* @__PURE__ */ import_react$71.createElement(import_react$71.Fragment, null, /* @__PURE__ */ import_react$71.createElement("path", { d: "M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L60.63,81.29l17,17A8,8,0,0,1,72,112H24a8,8,0,0,1-8-8V56A8,8,0,0,1,29.66,50.3L49.31,70,60.25,60A96,96,0,0,1,224,128Z" }))],
+		["light", /* @__PURE__ */ import_react$71.createElement(import_react$71.Fragment, null, /* @__PURE__ */ import_react$71.createElement("path", { d: "M222,128a94,94,0,0,1-92.74,94H128a93.43,93.43,0,0,1-64.5-25.65,6,6,0,1,1,8.24-8.72A82,82,0,1,0,70,70l-.19.19L39.44,98H72a6,6,0,0,1,0,12H24a6,6,0,0,1-6-6V56a6,6,0,0,1,12,0V90.34L61.63,61.4A94,94,0,0,1,222,128Z" }))],
+		["regular", /* @__PURE__ */ import_react$71.createElement(import_react$71.Fragment, null, /* @__PURE__ */ import_react$71.createElement("path", { d: "M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z" }))],
+		["thin", /* @__PURE__ */ import_react$71.createElement(import_react$71.Fragment, null, /* @__PURE__ */ import_react$71.createElement("path", { d: "M220,128a92,92,0,0,1-90.77,92H128a91.47,91.47,0,0,1-63.13-25.1,4,4,0,1,1,5.5-5.82A84,84,0,1,0,68.6,68.57l-.13.12L34.3,100H72a4,4,0,0,1,0,8H24a4,4,0,0,1-4-4V56a4,4,0,0,1,8,0V94.89l35-32A92,92,0,0,1,220,128Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ArrowLeft.es.js
-var import_react$65, a$14;
+var import_react$70, a$15;
 var init_ArrowLeft_es$1 = __esmMin((() => {
-	import_react$65 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$14 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z" }))],
-		["duotone", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", {
+	import_react$70 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$15 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$70.createElement(import_react$70.Fragment, null, /* @__PURE__ */ import_react$70.createElement("path", { d: "M228,128a12,12,0,0,1-12,12H69l51.52,51.51a12,12,0,0,1-17,17l-72-72a12,12,0,0,1,0-17l72-72a12,12,0,0,1,17,17L69,116H216A12,12,0,0,1,228,128Z" }))],
+		["duotone", /* @__PURE__ */ import_react$70.createElement(import_react$70.Fragment, null, /* @__PURE__ */ import_react$70.createElement("path", {
 			d: "M112,56V200L40,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$65.createElement("path", { d: "M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z" }))],
-		["fill", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M224,128a8,8,0,0,1-8,8H120v64a8,8,0,0,1-13.66,5.66l-72-72a8,8,0,0,1,0-11.32l72-72A8,8,0,0,1,120,56v64h96A8,8,0,0,1,224,128Z" }))],
-		["light", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M222,128a6,6,0,0,1-6,6H54.49l61.75,61.76a6,6,0,1,1-8.48,8.48l-72-72a6,6,0,0,1,0-8.48l72-72a6,6,0,0,1,8.48,8.48L54.49,122H216A6,6,0,0,1,222,128Z" }))],
-		["regular", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z" }))],
-		["thin", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M220,128a4,4,0,0,1-4,4H49.66l65.17,65.17a4,4,0,0,1-5.66,5.66l-72-72a4,4,0,0,1,0-5.66l72-72a4,4,0,0,1,5.66,5.66L49.66,124H216A4,4,0,0,1,220,128Z" }))]
+		}), /* @__PURE__ */ import_react$70.createElement("path", { d: "M216,120H120V56a8,8,0,0,0-13.66-5.66l-72,72a8,8,0,0,0,0,11.32l72,72A8,8,0,0,0,120,200V136h96a8,8,0,0,0,0-16ZM104,180.69,51.31,128,104,75.31Z" }))],
+		["fill", /* @__PURE__ */ import_react$70.createElement(import_react$70.Fragment, null, /* @__PURE__ */ import_react$70.createElement("path", { d: "M224,128a8,8,0,0,1-8,8H120v64a8,8,0,0,1-13.66,5.66l-72-72a8,8,0,0,1,0-11.32l72-72A8,8,0,0,1,120,56v64h96A8,8,0,0,1,224,128Z" }))],
+		["light", /* @__PURE__ */ import_react$70.createElement(import_react$70.Fragment, null, /* @__PURE__ */ import_react$70.createElement("path", { d: "M222,128a6,6,0,0,1-6,6H54.49l61.75,61.76a6,6,0,1,1-8.48,8.48l-72-72a6,6,0,0,1,0-8.48l72-72a6,6,0,0,1,8.48,8.48L54.49,122H216A6,6,0,0,1,222,128Z" }))],
+		["regular", /* @__PURE__ */ import_react$70.createElement(import_react$70.Fragment, null, /* @__PURE__ */ import_react$70.createElement("path", { d: "M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z" }))],
+		["thin", /* @__PURE__ */ import_react$70.createElement(import_react$70.Fragment, null, /* @__PURE__ */ import_react$70.createElement("path", { d: "M220,128a4,4,0,0,1-4,4H49.66l65.17,65.17a4,4,0,0,1-5.66,5.66l-72-72a4,4,0,0,1,0-5.66l72-72a4,4,0,0,1,5.66,5.66L49.66,124H216A4,4,0,0,1,220,128Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ArrowRight.es.js
-var import_react$64, a$13;
+var import_react$69, a$14;
 var init_ArrowRight_es$1 = __esmMin((() => {
-	import_react$64 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$13 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z" }))],
-		["duotone", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", {
+	import_react$69 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$14 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$69.createElement(import_react$69.Fragment, null, /* @__PURE__ */ import_react$69.createElement("path", { d: "M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z" }))],
+		["duotone", /* @__PURE__ */ import_react$69.createElement(import_react$69.Fragment, null, /* @__PURE__ */ import_react$69.createElement("path", {
 			d: "M216,128l-72,72V56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$64.createElement("path", { d: "M221.66,122.34l-72-72A8,8,0,0,0,136,56v64H40a8,8,0,0,0,0,16h96v64a8,8,0,0,0,13.66,5.66l72-72A8,8,0,0,0,221.66,122.34ZM152,180.69V75.31L204.69,128Z" }))],
-		["fill", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M221.66,133.66l-72,72A8,8,0,0,1,136,200V136H40a8,8,0,0,1,0-16h96V56a8,8,0,0,1,13.66-5.66l72,72A8,8,0,0,1,221.66,133.66Z" }))],
-		["light", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" }))],
-		["regular", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" }))],
-		["thin", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z" }))]
+		}), /* @__PURE__ */ import_react$69.createElement("path", { d: "M221.66,122.34l-72-72A8,8,0,0,0,136,56v64H40a8,8,0,0,0,0,16h96v64a8,8,0,0,0,13.66,5.66l72-72A8,8,0,0,0,221.66,122.34ZM152,180.69V75.31L204.69,128Z" }))],
+		["fill", /* @__PURE__ */ import_react$69.createElement(import_react$69.Fragment, null, /* @__PURE__ */ import_react$69.createElement("path", { d: "M221.66,133.66l-72,72A8,8,0,0,1,136,200V136H40a8,8,0,0,1,0-16h96V56a8,8,0,0,1,13.66-5.66l72,72A8,8,0,0,1,221.66,133.66Z" }))],
+		["light", /* @__PURE__ */ import_react$69.createElement(import_react$69.Fragment, null, /* @__PURE__ */ import_react$69.createElement("path", { d: "M220.24,132.24l-72,72a6,6,0,0,1-8.48-8.48L201.51,134H40a6,6,0,0,1,0-12H201.51L139.76,60.24a6,6,0,0,1,8.48-8.48l72,72A6,6,0,0,1,220.24,132.24Z" }))],
+		["regular", /* @__PURE__ */ import_react$69.createElement(import_react$69.Fragment, null, /* @__PURE__ */ import_react$69.createElement("path", { d: "M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" }))],
+		["thin", /* @__PURE__ */ import_react$69.createElement(import_react$69.Fragment, null, /* @__PURE__ */ import_react$69.createElement("path", { d: "M218.83,130.83l-72,72a4,4,0,0,1-5.66-5.66L206.34,132H40a4,4,0,0,1,0-8H206.34L141.17,58.83a4,4,0,0,1,5.66-5.66l72,72A4,4,0,0,1,218.83,130.83Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ArrowUpRight.es.js
-var import_react$63, a$12;
+var import_react$68, a$13;
 var init_ArrowUpRight_es$1 = __esmMin((() => {
-	import_react$63 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$12 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z" }))],
-		["duotone", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", {
+	import_react$68 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$13 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$68.createElement(import_react$68.Fragment, null, /* @__PURE__ */ import_react$68.createElement("path", { d: "M204,64V168a12,12,0,0,1-24,0V93L72.49,200.49a12,12,0,0,1-17-17L163,76H88a12,12,0,0,1,0-24H192A12,12,0,0,1,204,64Z" }))],
+		["duotone", /* @__PURE__ */ import_react$68.createElement(import_react$68.Fragment, null, /* @__PURE__ */ import_react$68.createElement("path", {
 			d: "M192,64V168L88,64Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$63.createElement("path", { d: "M192,56H88a8,8,0,0,0-5.66,13.66L128.69,116,58.34,186.34a8,8,0,0,0,11.32,11.32L140,127.31l46.34,46.35A8,8,0,0,0,200,168V64A8,8,0,0,0,192,56Zm-8,92.69-38.34-38.34h0L107.31,72H184Z" }))],
-		["fill", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M200,64V168a8,8,0,0,1-13.66,5.66L140,127.31,69.66,197.66a8,8,0,0,1-11.32-11.32L128.69,116,82.34,69.66A8,8,0,0,1,88,56H192A8,8,0,0,1,200,64Z" }))],
-		["light", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M198,64V168a6,6,0,0,1-12,0V78.48L68.24,196.24a6,6,0,0,1-8.48-8.48L177.52,70H88a6,6,0,0,1,0-12H192A6,6,0,0,1,198,64Z" }))],
-		["regular", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" }))],
-		["thin", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M196,64V168a4,4,0,0,1-8,0V73.66L66.83,194.83a4,4,0,0,1-5.66-5.66L182.34,68H88a4,4,0,0,1,0-8H192A4,4,0,0,1,196,64Z" }))]
+		}), /* @__PURE__ */ import_react$68.createElement("path", { d: "M192,56H88a8,8,0,0,0-5.66,13.66L128.69,116,58.34,186.34a8,8,0,0,0,11.32,11.32L140,127.31l46.34,46.35A8,8,0,0,0,200,168V64A8,8,0,0,0,192,56Zm-8,92.69-38.34-38.34h0L107.31,72H184Z" }))],
+		["fill", /* @__PURE__ */ import_react$68.createElement(import_react$68.Fragment, null, /* @__PURE__ */ import_react$68.createElement("path", { d: "M200,64V168a8,8,0,0,1-13.66,5.66L140,127.31,69.66,197.66a8,8,0,0,1-11.32-11.32L128.69,116,82.34,69.66A8,8,0,0,1,88,56H192A8,8,0,0,1,200,64Z" }))],
+		["light", /* @__PURE__ */ import_react$68.createElement(import_react$68.Fragment, null, /* @__PURE__ */ import_react$68.createElement("path", { d: "M198,64V168a6,6,0,0,1-12,0V78.48L68.24,196.24a6,6,0,0,1-8.48-8.48L177.52,70H88a6,6,0,0,1,0-12H192A6,6,0,0,1,198,64Z" }))],
+		["regular", /* @__PURE__ */ import_react$68.createElement(import_react$68.Fragment, null, /* @__PURE__ */ import_react$68.createElement("path", { d: "M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z" }))],
+		["thin", /* @__PURE__ */ import_react$68.createElement(import_react$68.Fragment, null, /* @__PURE__ */ import_react$68.createElement("path", { d: "M196,64V168a4,4,0,0,1-8,0V73.66L66.83,194.83a4,4,0,0,1-5.66-5.66L182.34,68H88a4,4,0,0,1,0-8H192A4,4,0,0,1,196,64Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ArrowsClockwise.es.js
-var import_react$62, e$22;
+var import_react$67, e$23;
 var init_ArrowsClockwise_es$1 = __esmMin((() => {
-	import_react$62 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$22 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M228,48V96a12,12,0,0,1-12,12H168a12,12,0,0,1,0-24h19l-7.8-7.8a75.55,75.55,0,0,0-53.32-22.26h-.43A75.49,75.49,0,0,0,72.39,75.57,12,12,0,1,1,55.61,58.41a99.38,99.38,0,0,1,69.87-28.47H126A99.42,99.42,0,0,1,196.2,59.23L204,67V48a12,12,0,0,1,24,0ZM183.61,180.43a75.49,75.49,0,0,1-53.09,21.63h-.43A75.55,75.55,0,0,1,76.77,179.8L69,172H88a12,12,0,0,0,0-24H40a12,12,0,0,0-12,12v48a12,12,0,0,0,24,0V189l7.8,7.8A99.42,99.42,0,0,0,130,226.06h.56a99.38,99.38,0,0,0,69.87-28.47,12,12,0,0,0-16.78-17.16Z" }))],
-		["duotone", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", {
+	import_react$67 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$23 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$67.createElement(import_react$67.Fragment, null, /* @__PURE__ */ import_react$67.createElement("path", { d: "M228,48V96a12,12,0,0,1-12,12H168a12,12,0,0,1,0-24h19l-7.8-7.8a75.55,75.55,0,0,0-53.32-22.26h-.43A75.49,75.49,0,0,0,72.39,75.57,12,12,0,1,1,55.61,58.41a99.38,99.38,0,0,1,69.87-28.47H126A99.42,99.42,0,0,1,196.2,59.23L204,67V48a12,12,0,0,1,24,0ZM183.61,180.43a75.49,75.49,0,0,1-53.09,21.63h-.43A75.55,75.55,0,0,1,76.77,179.8L69,172H88a12,12,0,0,0,0-24H40a12,12,0,0,0-12,12v48a12,12,0,0,0,24,0V189l7.8,7.8A99.42,99.42,0,0,0,130,226.06h.56a99.38,99.38,0,0,0,69.87-28.47,12,12,0,0,0-16.78-17.16Z" }))],
+		["duotone", /* @__PURE__ */ import_react$67.createElement(import_react$67.Fragment, null, /* @__PURE__ */ import_react$67.createElement("path", {
 			d: "M216,128a88,88,0,1,1-88-88A88,88,0,0,1,216,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$62.createElement("path", { d: "M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z" }))],
-		["fill", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1-5.66-13.66L180.65,72a79.48,79.48,0,0,0-54.72-22.09h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27,96,96,0,0,1,192,60.7l18.36-18.36A8,8,0,0,1,224,48ZM186.41,183.29A80,80,0,0,1,75.35,184l18.31-18.31A8,8,0,0,0,88,152H40a8,8,0,0,0-8,8v48a8,8,0,0,0,13.66,5.66L64,195.3a95.42,95.42,0,0,0,66,26.76h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z" }))],
-		["light", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M222,48V96a6,6,0,0,1-6,6H168a6,6,0,0,1,0-12h33.52L183.47,72a81.51,81.51,0,0,0-57.53-24h-.46A81.5,81.5,0,0,0,68.19,71.28a6,6,0,1,1-8.38-8.58,93.38,93.38,0,0,1,65.67-26.76H126a93.45,93.45,0,0,1,66,27.53l18,18V48a6,6,0,0,1,12,0ZM187.81,184.72a81.5,81.5,0,0,1-57.29,23.34h-.46a81.51,81.51,0,0,1-57.53-24L54.48,166H88a6,6,0,0,0,0-12H40a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V174.48l18,18.05a93.45,93.45,0,0,0,66,27.53h.52a93.38,93.38,0,0,0,65.67-26.76,6,6,0,1,0-8.38-8.58Z" }))],
-		["regular", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z" }))],
-		["thin", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M220,48V96a4,4,0,0,1-4,4H168a4,4,0,0,1,0-8h38.34L184.89,70.54A84,84,0,0,0,66.8,69.85a4,4,0,1,1-5.6-5.72,92,92,0,0,1,129.34.76L212,86.34V48a4,4,0,0,1,8,0ZM189.2,186.15a83.44,83.44,0,0,1-58.68,23.91h-.47a83.52,83.52,0,0,1-58.94-24.6L49.66,164H88a4,4,0,0,0,0-8H40a4,4,0,0,0-4,4v48a4,4,0,0,0,8,0V169.66l21.46,21.45A91.43,91.43,0,0,0,130,218.06h.51a91.45,91.45,0,0,0,64.28-26.19,4,4,0,1,0-5.6-5.72Z" }))]
+		}), /* @__PURE__ */ import_react$67.createElement("path", { d: "M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z" }))],
+		["fill", /* @__PURE__ */ import_react$67.createElement(import_react$67.Fragment, null, /* @__PURE__ */ import_react$67.createElement("path", { d: "M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1-5.66-13.66L180.65,72a79.48,79.48,0,0,0-54.72-22.09h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27,96,96,0,0,1,192,60.7l18.36-18.36A8,8,0,0,1,224,48ZM186.41,183.29A80,80,0,0,1,75.35,184l18.31-18.31A8,8,0,0,0,88,152H40a8,8,0,0,0-8,8v48a8,8,0,0,0,13.66,5.66L64,195.3a95.42,95.42,0,0,0,66,26.76h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z" }))],
+		["light", /* @__PURE__ */ import_react$67.createElement(import_react$67.Fragment, null, /* @__PURE__ */ import_react$67.createElement("path", { d: "M222,48V96a6,6,0,0,1-6,6H168a6,6,0,0,1,0-12h33.52L183.47,72a81.51,81.51,0,0,0-57.53-24h-.46A81.5,81.5,0,0,0,68.19,71.28a6,6,0,1,1-8.38-8.58,93.38,93.38,0,0,1,65.67-26.76H126a93.45,93.45,0,0,1,66,27.53l18,18V48a6,6,0,0,1,12,0ZM187.81,184.72a81.5,81.5,0,0,1-57.29,23.34h-.46a81.51,81.51,0,0,1-57.53-24L54.48,166H88a6,6,0,0,0,0-12H40a6,6,0,0,0-6,6v48a6,6,0,0,0,12,0V174.48l18,18.05a93.45,93.45,0,0,0,66,27.53h.52a93.38,93.38,0,0,0,65.67-26.76,6,6,0,1,0-8.38-8.58Z" }))],
+		["regular", /* @__PURE__ */ import_react$67.createElement(import_react$67.Fragment, null, /* @__PURE__ */ import_react$67.createElement("path", { d: "M224,48V96a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h28.69L182.06,73.37a79.56,79.56,0,0,0-56.13-23.43h-.45A79.52,79.52,0,0,0,69.59,72.71,8,8,0,0,1,58.41,61.27a96,96,0,0,1,135,.79L208,76.69V48a8,8,0,0,1,16,0ZM186.41,183.29a80,80,0,0,1-112.47-.66L59.31,168H88a8,8,0,0,0,0-16H40a8,8,0,0,0-8,8v48a8,8,0,0,0,16,0V179.31l14.63,14.63A95.43,95.43,0,0,0,130,222.06h.53a95.36,95.36,0,0,0,67.07-27.33,8,8,0,0,0-11.18-11.44Z" }))],
+		["thin", /* @__PURE__ */ import_react$67.createElement(import_react$67.Fragment, null, /* @__PURE__ */ import_react$67.createElement("path", { d: "M220,48V96a4,4,0,0,1-4,4H168a4,4,0,0,1,0-8h38.34L184.89,70.54A84,84,0,0,0,66.8,69.85a4,4,0,1,1-5.6-5.72,92,92,0,0,1,129.34.76L212,86.34V48a4,4,0,0,1,8,0ZM189.2,186.15a83.44,83.44,0,0,1-58.68,23.91h-.47a83.52,83.52,0,0,1-58.94-24.6L49.66,164H88a4,4,0,0,0,0-8H40a4,4,0,0,0-4,4v48a4,4,0,0,0,8,0V169.66l21.46,21.45A91.43,91.43,0,0,0,130,218.06h.51a91.45,91.45,0,0,0,64.28-26.19,4,4,0,1,0-5.6-5.72Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/BookOpen.es.js
-var import_react$61, e$21;
+var import_react$66, e$22;
 var init_BookOpen_es$1 = __esmMin((() => {
-	import_react$61 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$21 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M232,44H160a43.86,43.86,0,0,0-32,13.85A43.86,43.86,0,0,0,96,44H24A12,12,0,0,0,12,56V200a12,12,0,0,0,12,12H96a20,20,0,0,1,20,20,12,12,0,0,0,24,0,20,20,0,0,1,20-20h72a12,12,0,0,0,12-12V56A12,12,0,0,0,232,44ZM96,188H36V68H96a20,20,0,0,1,20,20V192.81A43.79,43.79,0,0,0,96,188Zm124,0H160a43.71,43.71,0,0,0-20,4.83V88a20,20,0,0,1,20-20h60Z" }))],
-		["duotone", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", {
+	import_react$66 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$22 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M232,44H160a43.86,43.86,0,0,0-32,13.85A43.86,43.86,0,0,0,96,44H24A12,12,0,0,0,12,56V200a12,12,0,0,0,12,12H96a20,20,0,0,1,20,20,12,12,0,0,0,24,0,20,20,0,0,1,20-20h72a12,12,0,0,0,12-12V56A12,12,0,0,0,232,44ZM96,188H36V68H96a20,20,0,0,1,20,20V192.81A43.79,43.79,0,0,0,96,188Zm124,0H160a43.71,43.71,0,0,0-20,4.83V88a20,20,0,0,1,20-20h60Z" }))],
+		["duotone", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", {
 			d: "M232,56V200H160a32,32,0,0,0-32,32,32,32,0,0,0-32-32H24V56H96a32,32,0,0,1,32,32,32,32,0,0,1,32-32Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$61.createElement("path", { d: "M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z" }))],
-		["fill", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M240,56V200a8,8,0,0,1-8,8H160a24,24,0,0,0-24,23.94,7.9,7.9,0,0,1-5.12,7.55A8,8,0,0,1,120,232a24,24,0,0,0-24-24H24a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8H88a32,32,0,0,1,32,32v87.73a8.17,8.17,0,0,0,7.47,8.25,8,8,0,0,0,8.53-8V80a32,32,0,0,1,32-32h64A8,8,0,0,1,240,56Z" }))],
-		["light", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M232,50H160a38,38,0,0,0-32,17.55A38,38,0,0,0,96,50H24a6,6,0,0,0-6,6V200a6,6,0,0,0,6,6H96a26,26,0,0,1,26,26,6,6,0,0,0,12,0,26,26,0,0,1,26-26h72a6,6,0,0,0,6-6V56A6,6,0,0,0,232,50ZM96,194H30V62H96a26,26,0,0,1,26,26V204.31A37.86,37.86,0,0,0,96,194Zm130,0H160a37.87,37.87,0,0,0-26,10.32V88a26,26,0,0,1,26-26h66Z" }))],
-		["regular", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z" }))],
-		["thin", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M232,52H160a36,36,0,0,0-32,19.54A36,36,0,0,0,96,52H24a4,4,0,0,0-4,4V200a4,4,0,0,0,4,4H96a28,28,0,0,1,28,28,4,4,0,0,0,8,0,28,28,0,0,1,28-28h72a4,4,0,0,0,4-4V56A4,4,0,0,0,232,52ZM96,196H28V60H96a28,28,0,0,1,28,28V209.4A35.93,35.93,0,0,0,96,196Zm132,0H160a35.94,35.94,0,0,0-28,13.41V88a28,28,0,0,1,28-28h68Z" }))]
+		}), /* @__PURE__ */ import_react$66.createElement("path", { d: "M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z" }))],
+		["fill", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M240,56V200a8,8,0,0,1-8,8H160a24,24,0,0,0-24,23.94,7.9,7.9,0,0,1-5.12,7.55A8,8,0,0,1,120,232a24,24,0,0,0-24-24H24a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8H88a32,32,0,0,1,32,32v87.73a8.17,8.17,0,0,0,7.47,8.25,8,8,0,0,0,8.53-8V80a32,32,0,0,1,32-32h64A8,8,0,0,1,240,56Z" }))],
+		["light", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M232,50H160a38,38,0,0,0-32,17.55A38,38,0,0,0,96,50H24a6,6,0,0,0-6,6V200a6,6,0,0,0,6,6H96a26,26,0,0,1,26,26,6,6,0,0,0,12,0,26,26,0,0,1,26-26h72a6,6,0,0,0,6-6V56A6,6,0,0,0,232,50ZM96,194H30V62H96a26,26,0,0,1,26,26V204.31A37.86,37.86,0,0,0,96,194Zm130,0H160a37.87,37.87,0,0,0-26,10.32V88a26,26,0,0,1,26-26h66Z" }))],
+		["regular", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z" }))],
+		["thin", /* @__PURE__ */ import_react$66.createElement(import_react$66.Fragment, null, /* @__PURE__ */ import_react$66.createElement("path", { d: "M232,52H160a36,36,0,0,0-32,19.54A36,36,0,0,0,96,52H24a4,4,0,0,0-4,4V200a4,4,0,0,0,4,4H96a28,28,0,0,1,28,28,4,4,0,0,0,8,0,28,28,0,0,1,28-28h72a4,4,0,0,0,4-4V56A4,4,0,0,0,232,52ZM96,196H28V60H96a28,28,0,0,1,28,28V209.4A35.93,35.93,0,0,0,96,196Zm132,0H160a35.94,35.94,0,0,0-28,13.41V88a28,28,0,0,1,28-28h68Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/BracketsCurly.es.js
-var import_react$60, c$10;
+var import_react$65, c$10;
 var init_BracketsCurly_es$1 = __esmMin((() => {
-	import_react$60 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$65 = /* @__PURE__ */ __toESM(require_react(), 1);
 	c$10 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M54.8,119.49A35.06,35.06,0,0,1,49.05,128a35.06,35.06,0,0,1,5.75,8.51C60,147.24,60,159.83,60,172c0,25.94,1.84,32,20,32a12,12,0,0,1,0,24c-19.14,0-32.2-6.9-38.8-20.51C36,196.76,36,184.17,36,172c0-25.94-1.84-32-20-32a12,12,0,0,1,0-24c18.16,0,20-6.06,20-32,0-12.17,0-24.76,5.2-35.49C47.8,34.9,60.86,28,80,28a12,12,0,0,1,0,24c-18.16,0-20,6.06-20,32C60,96.17,60,108.76,54.8,119.49ZM240,116c-18.16,0-20-6.06-20-32,0-12.17,0-24.76-5.2-35.49C208.2,34.9,195.14,28,176,28a12,12,0,0,0,0,24c18.16,0,20,6.06,20,32,0,12.17,0,24.76,5.2,35.49A35.06,35.06,0,0,0,207,128a35.06,35.06,0,0,0-5.75,8.51C196,147.24,196,159.83,196,172c0,25.94-1.84,32-20,32a12,12,0,0,0,0,24c19.14,0,32.2-6.9,38.8-20.51C220,196.76,220,184.17,220,172c0-25.94,1.84-32,20-32a12,12,0,0,0,0-24Z" }))],
-		["duotone", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M54.8,119.49A35.06,35.06,0,0,1,49.05,128a35.06,35.06,0,0,1,5.75,8.51C60,147.24,60,159.83,60,172c0,25.94,1.84,32,20,32a12,12,0,0,1,0,24c-19.14,0-32.2-6.9-38.8-20.51C36,196.76,36,184.17,36,172c0-25.94-1.84-32-20-32a12,12,0,0,1,0-24c18.16,0,20-6.06,20-32,0-12.17,0-24.76,5.2-35.49C47.8,34.9,60.86,28,80,28a12,12,0,0,1,0,24c-18.16,0-20,6.06-20,32C60,96.17,60,108.76,54.8,119.49ZM240,116c-18.16,0-20-6.06-20-32,0-12.17,0-24.76-5.2-35.49C208.2,34.9,195.14,28,176,28a12,12,0,0,0,0,24c18.16,0,20,6.06,20,32,0,12.17,0,24.76,5.2,35.49A35.06,35.06,0,0,0,207,128a35.06,35.06,0,0,0-5.75,8.51C196,147.24,196,159.83,196,172c0,25.94-1.84,32-20,32a12,12,0,0,0,0,24c19.14,0,32.2-6.9,38.8-20.51C220,196.76,220,184.17,220,172c0-25.94,1.84-32,20-32a12,12,0,0,0,0-24Z" }))],
+		["duotone", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", {
 			d: "M240,128c-64,0,0,88-64,88H80c-64,0,0-88-64-88,64,0,0-88,64-88h96C240,40,176,128,240,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$60.createElement("path", { d: "M43.18,128a29.78,29.78,0,0,1,8,10.26c4.8,9.9,4.8,22,4.8,33.74,0,24.31,1,36,24,36a8,8,0,0,1,0,16c-17.48,0-29.32-6.14-35.2-18.26-4.8-9.9-4.8-22-4.8-33.74,0-24.31-1-36-24-36a8,8,0,0,1,0-16c23,0,24-11.69,24-36,0-11.72,0-23.84,4.8-33.74C50.68,38.14,62.52,32,80,32a8,8,0,0,1,0,16C57,48,56,59.69,56,84c0,11.72,0,23.84-4.8,33.74A29.78,29.78,0,0,1,43.18,128ZM240,120c-23,0-24-11.69-24-36,0-11.72,0-23.84-4.8-33.74C205.32,38.14,193.48,32,176,32a8,8,0,0,0,0,16c23,0,24,11.69,24,36,0,11.72,0,23.84,4.8,33.74a29.78,29.78,0,0,0,8,10.26,29.78,29.78,0,0,0-8,10.26c-4.8,9.9-4.8,22-4.8,33.74,0,24.31-1,36-24,36a8,8,0,0,0,0,16c17.48,0,29.32-6.14,35.2-18.26,4.8-9.9,4.8-22,4.8-33.74,0-24.31,1-36,24-36a8,8,0,0,0,0-16Z" }))],
-		["fill", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM88,155.84c.29,14.26.41,20.16,16,20.16a8,8,0,0,1,0,16c-31.27,0-31.72-22.43-32-35.84C71.71,141.9,71.59,136,56,136a8,8,0,0,1,0-16c15.59,0,15.71-5.9,16-20.16C72.28,86.43,72.73,64,104,64a8,8,0,0,1,0,16c-15.59,0-15.71,5.9-16,20.16-.17,8.31-.41,20.09-8,27.84C87.59,135.75,87.83,147.53,88,155.84ZM200,136c-15.59,0-15.71,5.9-16,20.16-.28,13.41-.73,35.84-32,35.84a8,8,0,0,1,0-16c15.59,0,15.71-5.9,16-20.16.17-8.31.41-20.09,8-27.84-7.6-7.75-7.84-19.53-8-27.84C167.71,85.9,167.59,80,152,80a8,8,0,0,1,0-16c31.27,0,31.72,22.43,32,35.84.29,14.26.41,20.16,16,20.16a8,8,0,0,1,0,16Z" }))],
-		["light", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M39.91,128a27.68,27.68,0,0,1,9.49,11.13C54,148.62,54,160.51,54,172c0,24.27,1.21,38,26,38a6,6,0,0,1,0,12c-16.88,0-27.81-5.6-33.4-17.13C42,195.38,42,183.49,42,172c0-24.27-1.21-38-26-38a6,6,0,0,1,0-12c24.79,0,26-13.73,26-38,0-11.49,0-23.38,4.6-32.87C52.19,39.6,63.12,34,80,34a6,6,0,0,1,0,12C55.21,46,54,59.73,54,84c0,11.49,0,23.38-4.6,32.87A27.68,27.68,0,0,1,39.91,128ZM240,122c-24.79,0-26-13.73-26-38,0-11.49,0-23.38-4.6-32.87C203.81,39.6,192.88,34,176,34a6,6,0,0,0,0,12c24.79,0,26,13.73,26,38,0,11.49,0,23.38,4.6,32.87A27.68,27.68,0,0,0,216.09,128a27.68,27.68,0,0,0-9.49,11.13C202,148.62,202,160.51,202,172c0,24.27-1.21,38-26,38a6,6,0,0,0,0,12c16.88,0,27.81-5.6,33.4-17.13,4.6-9.49,4.6-21.38,4.6-32.87,0-24.27,1.21-38,26-38a6,6,0,0,0,0-12Z" }))],
-		["regular", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M43.18,128a29.78,29.78,0,0,1,8,10.26c4.8,9.9,4.8,22,4.8,33.74,0,24.31,1,36,24,36a8,8,0,0,1,0,16c-17.48,0-29.32-6.14-35.2-18.26-4.8-9.9-4.8-22-4.8-33.74,0-24.31-1-36-24-36a8,8,0,0,1,0-16c23,0,24-11.69,24-36,0-11.72,0-23.84,4.8-33.74C50.68,38.14,62.52,32,80,32a8,8,0,0,1,0,16C57,48,56,59.69,56,84c0,11.72,0,23.84-4.8,33.74A29.78,29.78,0,0,1,43.18,128ZM240,120c-23,0-24-11.69-24-36,0-11.72,0-23.84-4.8-33.74C205.32,38.14,193.48,32,176,32a8,8,0,0,0,0,16c23,0,24,11.69,24,36,0,11.72,0,23.84,4.8,33.74a29.78,29.78,0,0,0,8,10.26,29.78,29.78,0,0,0-8,10.26c-4.8,9.9-4.8,22-4.8,33.74,0,24.31-1,36-24,36a8,8,0,0,0,0,16c17.48,0,29.32-6.14,35.2-18.26,4.8-9.9,4.8-22,4.8-33.74,0-24.31,1-36,24-36a8,8,0,0,0,0-16Z" }))],
-		["thin", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M35.89,128C52,136.23,52,155.64,52,172c0,24.8,1.35,40,28,40a4,4,0,0,1,0,8c-36,0-36-26.61-36-48,0-24.8-1.35-40-28-40a4,4,0,0,1,0-8c26.65,0,28-15.2,28-40,0-21.39,0-48,36-48a4,4,0,0,1,0,8C53.35,44,52,59.2,52,84,52,100.36,52,119.77,35.89,128ZM240,124c-26.65,0-28-15.2-28-40,0-21.39,0-48-36-48a4,4,0,0,0,0,8c26.65,0,28,15.2,28,40,0,16.36,0,35.77,16.11,44C204,136.23,204,155.64,204,172c0,24.8-1.35,40-28,40a4,4,0,0,0,0,8c36,0,36-26.61,36-48,0-24.8,1.35-40,28-40a4,4,0,0,0,0-8Z" }))]
+		}), /* @__PURE__ */ import_react$65.createElement("path", { d: "M43.18,128a29.78,29.78,0,0,1,8,10.26c4.8,9.9,4.8,22,4.8,33.74,0,24.31,1,36,24,36a8,8,0,0,1,0,16c-17.48,0-29.32-6.14-35.2-18.26-4.8-9.9-4.8-22-4.8-33.74,0-24.31-1-36-24-36a8,8,0,0,1,0-16c23,0,24-11.69,24-36,0-11.72,0-23.84,4.8-33.74C50.68,38.14,62.52,32,80,32a8,8,0,0,1,0,16C57,48,56,59.69,56,84c0,11.72,0,23.84-4.8,33.74A29.78,29.78,0,0,1,43.18,128ZM240,120c-23,0-24-11.69-24-36,0-11.72,0-23.84-4.8-33.74C205.32,38.14,193.48,32,176,32a8,8,0,0,0,0,16c23,0,24,11.69,24,36,0,11.72,0,23.84,4.8,33.74a29.78,29.78,0,0,0,8,10.26,29.78,29.78,0,0,0-8,10.26c-4.8,9.9-4.8,22-4.8,33.74,0,24.31-1,36-24,36a8,8,0,0,0,0,16c17.48,0,29.32-6.14,35.2-18.26,4.8-9.9,4.8-22,4.8-33.74,0-24.31,1-36,24-36a8,8,0,0,0,0-16Z" }))],
+		["fill", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM88,155.84c.29,14.26.41,20.16,16,20.16a8,8,0,0,1,0,16c-31.27,0-31.72-22.43-32-35.84C71.71,141.9,71.59,136,56,136a8,8,0,0,1,0-16c15.59,0,15.71-5.9,16-20.16C72.28,86.43,72.73,64,104,64a8,8,0,0,1,0,16c-15.59,0-15.71,5.9-16,20.16-.17,8.31-.41,20.09-8,27.84C87.59,135.75,87.83,147.53,88,155.84ZM200,136c-15.59,0-15.71,5.9-16,20.16-.28,13.41-.73,35.84-32,35.84a8,8,0,0,1,0-16c15.59,0,15.71-5.9,16-20.16.17-8.31.41-20.09,8-27.84-7.6-7.75-7.84-19.53-8-27.84C167.71,85.9,167.59,80,152,80a8,8,0,0,1,0-16c31.27,0,31.72,22.43,32,35.84.29,14.26.41,20.16,16,20.16a8,8,0,0,1,0,16Z" }))],
+		["light", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M39.91,128a27.68,27.68,0,0,1,9.49,11.13C54,148.62,54,160.51,54,172c0,24.27,1.21,38,26,38a6,6,0,0,1,0,12c-16.88,0-27.81-5.6-33.4-17.13C42,195.38,42,183.49,42,172c0-24.27-1.21-38-26-38a6,6,0,0,1,0-12c24.79,0,26-13.73,26-38,0-11.49,0-23.38,4.6-32.87C52.19,39.6,63.12,34,80,34a6,6,0,0,1,0,12C55.21,46,54,59.73,54,84c0,11.49,0,23.38-4.6,32.87A27.68,27.68,0,0,1,39.91,128ZM240,122c-24.79,0-26-13.73-26-38,0-11.49,0-23.38-4.6-32.87C203.81,39.6,192.88,34,176,34a6,6,0,0,0,0,12c24.79,0,26,13.73,26,38,0,11.49,0,23.38,4.6,32.87A27.68,27.68,0,0,0,216.09,128a27.68,27.68,0,0,0-9.49,11.13C202,148.62,202,160.51,202,172c0,24.27-1.21,38-26,38a6,6,0,0,0,0,12c16.88,0,27.81-5.6,33.4-17.13,4.6-9.49,4.6-21.38,4.6-32.87,0-24.27,1.21-38,26-38a6,6,0,0,0,0-12Z" }))],
+		["regular", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M43.18,128a29.78,29.78,0,0,1,8,10.26c4.8,9.9,4.8,22,4.8,33.74,0,24.31,1,36,24,36a8,8,0,0,1,0,16c-17.48,0-29.32-6.14-35.2-18.26-4.8-9.9-4.8-22-4.8-33.74,0-24.31-1-36-24-36a8,8,0,0,1,0-16c23,0,24-11.69,24-36,0-11.72,0-23.84,4.8-33.74C50.68,38.14,62.52,32,80,32a8,8,0,0,1,0,16C57,48,56,59.69,56,84c0,11.72,0,23.84-4.8,33.74A29.78,29.78,0,0,1,43.18,128ZM240,120c-23,0-24-11.69-24-36,0-11.72,0-23.84-4.8-33.74C205.32,38.14,193.48,32,176,32a8,8,0,0,0,0,16c23,0,24,11.69,24,36,0,11.72,0,23.84,4.8,33.74a29.78,29.78,0,0,0,8,10.26,29.78,29.78,0,0,0-8,10.26c-4.8,9.9-4.8,22-4.8,33.74,0,24.31-1,36-24,36a8,8,0,0,0,0,16c17.48,0,29.32-6.14,35.2-18.26,4.8-9.9,4.8-22,4.8-33.74,0-24.31,1-36,24-36a8,8,0,0,0,0-16Z" }))],
+		["thin", /* @__PURE__ */ import_react$65.createElement(import_react$65.Fragment, null, /* @__PURE__ */ import_react$65.createElement("path", { d: "M35.89,128C52,136.23,52,155.64,52,172c0,24.8,1.35,40,28,40a4,4,0,0,1,0,8c-36,0-36-26.61-36-48,0-24.8-1.35-40-28-40a4,4,0,0,1,0-8c26.65,0,28-15.2,28-40,0-21.39,0-48,36-48a4,4,0,0,1,0,8C53.35,44,52,59.2,52,84,52,100.36,52,119.77,35.89,128ZM240,124c-26.65,0-28-15.2-28-40,0-21.39,0-48-36-48a4,4,0,0,0,0,8c26.65,0,28,15.2,28,40,0,16.36,0,35.77,16.11,44C204,136.23,204,155.64,204,172c0,24.8-1.35,40-28,40a4,4,0,0,0,0,8c36,0,36-26.61,36-48,0-24.8,1.35-40,28-40a4,4,0,0,0,0-8Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ChartBar.es.js
-var import_react$59, e$20;
+var import_react$64, e$21;
 var init_ChartBar_es$1 = __esmMin((() => {
-	import_react$59 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$20 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M224,196h-4V40a12,12,0,0,0-12-12H152a12,12,0,0,0-12,12V76H96A12,12,0,0,0,84,88v36H48a12,12,0,0,0-12,12v60H32a12,12,0,0,0,0,24H224a12,12,0,0,0,0-24ZM164,52h32V196H164Zm-56,48h32v96H108ZM60,148H84v48H60Z" }))],
-		["duotone", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", {
+	import_react$64 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$21 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M224,196h-4V40a12,12,0,0,0-12-12H152a12,12,0,0,0-12,12V76H96A12,12,0,0,0,84,88v36H48a12,12,0,0,0-12,12v60H32a12,12,0,0,0,0,24H224a12,12,0,0,0,0-24ZM164,52h32V196H164Zm-56,48h32v96H108ZM60,148H84v48H60Z" }))],
+		["duotone", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", {
 			d: "M208,40V208H152V40Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$59.createElement("path", { d: "M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z" }))],
-		["fill", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16h8V136a8,8,0,0,1,8-8H72a8,8,0,0,1,8,8v64H96V88a8,8,0,0,1,8-8h32a8,8,0,0,1,8,8V200h16V40a8,8,0,0,1,8-8h40a8,8,0,0,1,8,8V200h8A8,8,0,0,1,232,208Z" }))],
-		["light", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M224,202H214V40a6,6,0,0,0-6-6H152a6,6,0,0,0-6,6V82H96a6,6,0,0,0-6,6v42H48a6,6,0,0,0-6,6v66H32a6,6,0,0,0,0,12H224a6,6,0,0,0,0-12ZM158,46h44V202H158ZM102,94h44V202H102ZM54,142H90v60H54Z" }))],
-		["regular", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z" }))],
-		["thin", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M224,204H212V40a4,4,0,0,0-4-4H152a4,4,0,0,0-4,4V84H96a4,4,0,0,0-4,4v44H48a4,4,0,0,0-4,4v68H32a4,4,0,0,0,0,8H224a4,4,0,0,0,0-8ZM156,44h48V204H156ZM100,92h48V204H100ZM52,140H92v64H52Z" }))]
+		}), /* @__PURE__ */ import_react$64.createElement("path", { d: "M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z" }))],
+		["fill", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1,0-16h8V136a8,8,0,0,1,8-8H72a8,8,0,0,1,8,8v64H96V88a8,8,0,0,1,8-8h32a8,8,0,0,1,8,8V200h16V40a8,8,0,0,1,8-8h40a8,8,0,0,1,8,8V200h8A8,8,0,0,1,232,208Z" }))],
+		["light", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M224,202H214V40a6,6,0,0,0-6-6H152a6,6,0,0,0-6,6V82H96a6,6,0,0,0-6,6v42H48a6,6,0,0,0-6,6v66H32a6,6,0,0,0,0,12H224a6,6,0,0,0,0-12ZM158,46h44V202H158ZM102,94h44V202H102ZM54,142H90v60H54Z" }))],
+		["regular", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z" }))],
+		["thin", /* @__PURE__ */ import_react$64.createElement(import_react$64.Fragment, null, /* @__PURE__ */ import_react$64.createElement("path", { d: "M224,204H212V40a4,4,0,0,0-4-4H152a4,4,0,0,0-4,4V84H96a4,4,0,0,0-4,4v44H48a4,4,0,0,0-4,4v68H32a4,4,0,0,0,0,8H224a4,4,0,0,0,0-8ZM156,44h48V204H156ZM100,92h48V204H100ZM52,140H92v64H52Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Check.es.js
-var import_react$58, a$11;
+var import_react$63, a$12;
 var init_Check_es$1 = __esmMin((() => {
-	import_react$58 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$11 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z" }))],
-		["duotone", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", {
+	import_react$63 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$12 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z" }))],
+		["duotone", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", {
 			d: "M232,56V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$58.createElement("path", { d: "M205.66,85.66l-96,96a8,8,0,0,1-11.32,0l-40-40a8,8,0,0,1,11.32-11.32L104,164.69l90.34-90.35a8,8,0,0,1,11.32,11.32Z" }))],
-		["fill", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM205.66,85.66l-96,96a8,8,0,0,1-11.32,0l-40-40a8,8,0,0,1,11.32-11.32L104,164.69l90.34-90.35a8,8,0,0,1,11.32,11.32Z" }))],
-		["light", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z" }))],
-		["regular", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z" }))],
-		["thin", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M226.83,74.83l-128,128a4,4,0,0,1-5.66,0l-56-56a4,4,0,0,1,5.66-5.66L96,194.34,221.17,69.17a4,4,0,1,1,5.66,5.66Z" }))]
+		}), /* @__PURE__ */ import_react$63.createElement("path", { d: "M205.66,85.66l-96,96a8,8,0,0,1-11.32,0l-40-40a8,8,0,0,1,11.32-11.32L104,164.69l90.34-90.35a8,8,0,0,1,11.32,11.32Z" }))],
+		["fill", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM205.66,85.66l-96,96a8,8,0,0,1-11.32,0l-40-40a8,8,0,0,1,11.32-11.32L104,164.69l90.34-90.35a8,8,0,0,1,11.32,11.32Z" }))],
+		["light", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M228.24,76.24l-128,128a6,6,0,0,1-8.48,0l-56-56a6,6,0,0,1,8.48-8.48L96,191.51,219.76,67.76a6,6,0,0,1,8.48,8.48Z" }))],
+		["regular", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z" }))],
+		["thin", /* @__PURE__ */ import_react$63.createElement(import_react$63.Fragment, null, /* @__PURE__ */ import_react$63.createElement("path", { d: "M226.83,74.83l-128,128a4,4,0,0,1-5.66,0l-56-56a4,4,0,0,1,5.66-5.66L96,194.34,221.17,69.17a4,4,0,1,1,5.66,5.66Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/CheckCircle.es.js
-var import_react$57, a$10;
+var import_react$62, a$11;
 var init_CheckCircle_es$1 = __esmMin((() => {
-	import_react$57 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$10 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M176.49,95.51a12,12,0,0,1,0,17l-56,56a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L112,143l47.51-47.52A12,12,0,0,1,176.49,95.51ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Z" }))],
-		["duotone", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", {
+	import_react$62 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$11 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M176.49,95.51a12,12,0,0,1,0,17l-56,56a12,12,0,0,1-17,0l-24-24a12,12,0,1,1,17-17L112,143l47.51-47.52A12,12,0,0,1,176.49,95.51ZM236,128A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Z" }))],
+		["duotone", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", {
 			d: "M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$57.createElement("path", { d: "M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z" }))],
-		["fill", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" }))],
-		["light", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76ZM230,128A102,102,0,1,1,128,26,102.12,102.12,0,0,1,230,128Zm-12,0a90,90,0,1,0-90,90A90.1,90.1,0,0,0,218,128Z" }))],
-		["regular", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z" }))],
-		["thin", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M170.83,101.17a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17ZM228,128A100,100,0,1,1,128,28,100.11,100.11,0,0,1,228,128Zm-8,0a92,92,0,1,0-92,92A92.1,92.1,0,0,0,220,128Z" }))]
+		}), /* @__PURE__ */ import_react$62.createElement("path", { d: "M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z" }))],
+		["fill", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" }))],
+		["light", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76ZM230,128A102,102,0,1,1,128,26,102.12,102.12,0,0,1,230,128Zm-12,0a90,90,0,1,0-90,90A90.1,90.1,0,0,0,218,128Z" }))],
+		["regular", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z" }))],
+		["thin", /* @__PURE__ */ import_react$62.createElement(import_react$62.Fragment, null, /* @__PURE__ */ import_react$62.createElement("path", { d: "M170.83,101.17a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17ZM228,128A100,100,0,1,1,128,28,100.11,100.11,0,0,1,228,128Zm-8,0a92,92,0,1,0-92,92A92.1,92.1,0,0,0,220,128Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Clock.es.js
-var import_react$56, a$9;
+var import_react$61, a$10;
 var init_Clock_es$1 = __esmMin((() => {
-	import_react$56 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$9 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z" }))],
-		["duotone", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", {
+	import_react$61 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$10 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z" }))],
+		["duotone", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", {
 			d: "M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$56.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z" }))],
-		["fill", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm56,112H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48a8,8,0,0,1,0,16Z" }))],
-		["light", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm62-90a6,6,0,0,1-6,6H128a6,6,0,0,1-6-6V72a6,6,0,0,1,12,0v50h50A6,6,0,0,1,190,128Z" }))],
-		["regular", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z" }))],
-		["thin", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm60-92a4,4,0,0,1-4,4H128a4,4,0,0,1-4-4V72a4,4,0,0,1,8,0v52h52A4,4,0,0,1,188,128Z" }))]
+		}), /* @__PURE__ */ import_react$61.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z" }))],
+		["fill", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm56,112H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48a8,8,0,0,1,0,16Z" }))],
+		["light", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm62-90a6,6,0,0,1-6,6H128a6,6,0,0,1-6-6V72a6,6,0,0,1,12,0v50h50A6,6,0,0,1,190,128Z" }))],
+		["regular", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z" }))],
+		["thin", /* @__PURE__ */ import_react$61.createElement(import_react$61.Fragment, null, /* @__PURE__ */ import_react$61.createElement("path", { d: "M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm60-92a4,4,0,0,1-4,4H128a4,4,0,0,1-4-4V72a4,4,0,0,1,8,0v52h52A4,4,0,0,1,188,128Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/CodeBlock.es.js
-var import_react$55, e$19;
+var import_react$60, e$20;
 var init_CodeBlock_es$1 = __esmMin((() => {
-	import_react$55 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$19 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M51.51,104.49l-32-32a12,12,0,0,1,0-17l32-32a12,12,0,1,1,17,17L45,64,68.49,87.51a12,12,0,0,1-17,17Zm48,0a12,12,0,0,0,17,0l32-32a12,12,0,0,0,0-17l-32-32a12,12,0,1,0-17,17L123,64,99.51,87.51A12,12,0,0,0,99.51,104.49ZM200,36H180a12,12,0,0,0,0,24h16V196H60V140a12,12,0,0,0-24,0v60a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Z" }))],
-		["duotone", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", {
+	import_react$60 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$20 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M51.51,104.49l-32-32a12,12,0,0,1,0-17l32-32a12,12,0,1,1,17,17L45,64,68.49,87.51a12,12,0,0,1-17,17Zm48,0a12,12,0,0,0,17,0l32-32a12,12,0,0,0,0-17l-32-32a12,12,0,1,0-17,17L123,64,99.51,87.51A12,12,0,0,0,99.51,104.49ZM200,36H180a12,12,0,0,0,0,24h16V196H60V140a12,12,0,0,0-24,0v60a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Z" }))],
+		["duotone", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", {
 			d: "M152,32V96a16,16,0,0,1-16,16H32A16,16,0,0,1,16,96V32A16,16,0,0,1,32,16H136A16,16,0,0,1,152,32Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$55.createElement("path", { d: "M58.34,101.66l-32-32a8,8,0,0,1,0-11.32l32-32A8,8,0,0,1,69.66,37.66L43.31,64,69.66,90.34a8,8,0,0,1-11.32,11.32Zm40,0a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0,0-11.32l-32-32A8,8,0,0,0,98.34,37.66L124.69,64,98.34,90.34A8,8,0,0,0,98.34,101.66ZM200,40H176a8,8,0,0,0,0,16h24V200H56V136a8,8,0,0,0-16,0v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Z" }))],
-		["fill", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M200,40H168a16,16,0,0,0-16-16H32A16,16,0,0,0,16,40v80a16,16,0,0,0,16,16h8v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40ZM106.34,61.66a8,8,0,0,1,11.32-11.32l24,24a8,8,0,0,1,0,11.32l-24,24a8,8,0,0,1-11.32-11.32L124.69,80Zm-64,24a8,8,0,0,1,0-11.32l24-24A8,8,0,0,1,77.66,61.66L59.31,80,77.66,98.34a8,8,0,0,1-11.32,11.32ZM200,200H56V136h96a16,16,0,0,0,16-16V56h32Z" }))],
-		["light", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M59.76,100.24l-32-32a6,6,0,0,1,0-8.48l32-32a6,6,0,1,1,8.48,8.48L40.49,64,68.24,91.76a6,6,0,1,1-8.48,8.48Zm40,0a6,6,0,0,0,8.48,0l32-32a6,6,0,0,0,0-8.48l-32-32a6,6,0,1,0-8.48,8.48L127.51,64,99.76,91.76A6,6,0,0,0,99.76,100.24ZM200,42H176a6,6,0,0,0,0,12h24a2,2,0,0,1,2,2V200a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V136a6,6,0,0,0-12,0v64a14,14,0,0,0,14,14H200a14,14,0,0,0,14-14V56A14,14,0,0,0,200,42Z" }))],
-		["regular", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M58.34,101.66l-32-32a8,8,0,0,1,0-11.32l32-32A8,8,0,0,1,69.66,37.66L43.31,64,69.66,90.34a8,8,0,0,1-11.32,11.32Zm40,0a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0,0-11.32l-32-32A8,8,0,0,0,98.34,37.66L124.69,64,98.34,90.34A8,8,0,0,0,98.34,101.66ZM200,40H176a8,8,0,0,0,0,16h24V200H56V136a8,8,0,0,0-16,0v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Z" }))],
-		["thin", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M61.17,98.83l-32-32a4,4,0,0,1,0-5.66l32-32a4,4,0,0,1,5.66,5.66L37.66,64,66.83,93.17a4,4,0,0,1-5.66,5.66Zm40,0a4,4,0,0,0,5.66,0l32-32a4,4,0,0,0,0-5.66l-32-32a4,4,0,0,0-5.66,5.66L130.34,64,101.17,93.17A4,4,0,0,0,101.17,98.83ZM200,44H176a4,4,0,0,0,0,8h24a4,4,0,0,1,4,4V200a4,4,0,0,1-4,4H56a4,4,0,0,1-4-4V136a4,4,0,0,0-8,0v64a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12V56A12,12,0,0,0,200,44Z" }))]
+		}), /* @__PURE__ */ import_react$60.createElement("path", { d: "M58.34,101.66l-32-32a8,8,0,0,1,0-11.32l32-32A8,8,0,0,1,69.66,37.66L43.31,64,69.66,90.34a8,8,0,0,1-11.32,11.32Zm40,0a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0,0-11.32l-32-32A8,8,0,0,0,98.34,37.66L124.69,64,98.34,90.34A8,8,0,0,0,98.34,101.66ZM200,40H176a8,8,0,0,0,0,16h24V200H56V136a8,8,0,0,0-16,0v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Z" }))],
+		["fill", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M200,40H168a16,16,0,0,0-16-16H32A16,16,0,0,0,16,40v80a16,16,0,0,0,16,16h8v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40ZM106.34,61.66a8,8,0,0,1,11.32-11.32l24,24a8,8,0,0,1,0,11.32l-24,24a8,8,0,0,1-11.32-11.32L124.69,80Zm-64,24a8,8,0,0,1,0-11.32l24-24A8,8,0,0,1,77.66,61.66L59.31,80,77.66,98.34a8,8,0,0,1-11.32,11.32ZM200,200H56V136h96a16,16,0,0,0,16-16V56h32Z" }))],
+		["light", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M59.76,100.24l-32-32a6,6,0,0,1,0-8.48l32-32a6,6,0,1,1,8.48,8.48L40.49,64,68.24,91.76a6,6,0,1,1-8.48,8.48Zm40,0a6,6,0,0,0,8.48,0l32-32a6,6,0,0,0,0-8.48l-32-32a6,6,0,1,0-8.48,8.48L127.51,64,99.76,91.76A6,6,0,0,0,99.76,100.24ZM200,42H176a6,6,0,0,0,0,12h24a2,2,0,0,1,2,2V200a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V136a6,6,0,0,0-12,0v64a14,14,0,0,0,14,14H200a14,14,0,0,0,14-14V56A14,14,0,0,0,200,42Z" }))],
+		["regular", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M58.34,101.66l-32-32a8,8,0,0,1,0-11.32l32-32A8,8,0,0,1,69.66,37.66L43.31,64,69.66,90.34a8,8,0,0,1-11.32,11.32Zm40,0a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0,0-11.32l-32-32A8,8,0,0,0,98.34,37.66L124.69,64,98.34,90.34A8,8,0,0,0,98.34,101.66ZM200,40H176a8,8,0,0,0,0,16h24V200H56V136a8,8,0,0,0-16,0v64a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Z" }))],
+		["thin", /* @__PURE__ */ import_react$60.createElement(import_react$60.Fragment, null, /* @__PURE__ */ import_react$60.createElement("path", { d: "M61.17,98.83l-32-32a4,4,0,0,1,0-5.66l32-32a4,4,0,0,1,5.66,5.66L37.66,64,66.83,93.17a4,4,0,0,1-5.66,5.66Zm40,0a4,4,0,0,0,5.66,0l32-32a4,4,0,0,0,0-5.66l-32-32a4,4,0,0,0-5.66,5.66L130.34,64,101.17,93.17A4,4,0,0,0,101.17,98.83ZM200,44H176a4,4,0,0,0,0,8h24a4,4,0,0,1,4,4V200a4,4,0,0,1-4,4H56a4,4,0,0,1-4-4V136a4,4,0,0,0-8,0v64a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12V56A12,12,0,0,0,200,44Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Database.es.js
-var import_react$54, t$3;
+var import_react$59, t$4;
 var init_Database_es$1 = __esmMin((() => {
-	import_react$54 = /* @__PURE__ */ __toESM(require_react(), 1);
-	t$3 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M196,35.52C177.62,25.51,153.48,20,128,20S78.38,25.51,60,35.52C39.37,46.79,28,62.58,28,80v96c0,17.42,11.37,33.21,32,44.48,18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52c20.66-11.27,32-27.06,32-44.48V80C228,62.58,216.63,46.79,196,35.52ZM204,128c0,17-31.21,36-76,36s-76-19-76-36v-8.46a88.9,88.9,0,0,0,8,4.94c18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52a88.9,88.9,0,0,0,8-4.94ZM128,44c44.79,0,76,19,76,36s-31.21,36-76,36S52,97,52,80,83.21,44,128,44Zm0,168c-44.79,0-76-19-76-36v-8.46a88.9,88.9,0,0,0,8,4.94c18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52a88.9,88.9,0,0,0,8-4.94V176C204,193,172.79,212,128,212Z" }))],
-		["duotone", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", {
+	import_react$59 = /* @__PURE__ */ __toESM(require_react(), 1);
+	t$4 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M196,35.52C177.62,25.51,153.48,20,128,20S78.38,25.51,60,35.52C39.37,46.79,28,62.58,28,80v96c0,17.42,11.37,33.21,32,44.48,18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52c20.66-11.27,32-27.06,32-44.48V80C228,62.58,216.63,46.79,196,35.52ZM204,128c0,17-31.21,36-76,36s-76-19-76-36v-8.46a88.9,88.9,0,0,0,8,4.94c18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52a88.9,88.9,0,0,0,8-4.94ZM128,44c44.79,0,76,19,76,36s-31.21,36-76,36S52,97,52,80,83.21,44,128,44Zm0,168c-44.79,0-76-19-76-36v-8.46a88.9,88.9,0,0,0,8,4.94c18.35,10,42.49,15.52,68,15.52s49.62-5.51,68-15.52a88.9,88.9,0,0,0,8-4.94V176C204,193,172.79,212,128,212Z" }))],
+		["duotone", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", {
 			d: "M216,80c0,26.51-39.4,48-88,48S40,106.51,40,80s39.4-48,88-48S216,53.49,216,80Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$54.createElement("path", { d: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z" }))],
-		["fill", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64Zm-21.61,74.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z" }))],
-		["light", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M128,26C75.29,26,34,49.72,34,80v96c0,30.28,41.29,54,94,54s94-23.72,94-54V80C222,49.72,180.71,26,128,26Zm0,12c44.45,0,82,19.23,82,42s-37.55,42-82,42S46,102.77,46,80,83.55,38,128,38Zm82,138c0,22.77-37.55,42-82,42s-82-19.23-82-42V154.79C62,171.16,92.37,182,128,182s66-10.84,82-27.21Zm0-48c0,22.77-37.55,42-82,42s-82-19.23-82-42V106.79C62,123.16,92.37,134,128,134s66-10.84,82-27.21Z" }))],
-		["regular", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z" }))],
-		["thin", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M192.14,42.55C174.94,33.17,152.16,28,128,28S81.06,33.17,63.86,42.55C45.89,52.35,36,65.65,36,80v96c0,14.35,9.89,27.65,27.86,37.45,17.2,9.38,40,14.55,64.14,14.55s46.94-5.17,64.14-14.55c18-9.8,27.86-23.1,27.86-37.45V80C220,65.65,210.11,52.35,192.14,42.55ZM212,176c0,11.29-8.41,22.1-23.69,30.43C172.27,215.18,150.85,220,128,220s-44.27-4.82-60.31-13.57C52.41,198.1,44,187.29,44,176V149.48c4.69,5.93,11.37,11.34,19.86,16,17.2,9.38,40,14.55,64.14,14.55s46.94-5.17,64.14-14.55c8.49-4.63,15.17-10,19.86-16Zm0-48c0,11.29-8.41,22.1-23.69,30.43C172.27,167.18,150.85,172,128,172s-44.27-4.82-60.31-13.57C52.41,150.1,44,139.29,44,128V101.48c4.69,5.93,11.37,11.34,19.86,16,17.2,9.38,40,14.55,64.14,14.55s46.94-5.17,64.14-14.55c8.49-4.63,15.17-10,19.86-16Zm-23.69-17.57C172.27,119.18,150.85,124,128,124s-44.27-4.82-60.31-13.57C52.41,102.1,44,91.29,44,80s8.41-22.1,23.69-30.43C83.73,40.82,105.15,36,128,36s44.27,4.82,60.31,13.57C203.59,57.9,212,68.71,212,80S203.59,102.1,188.31,110.43Z" }))]
+		}), /* @__PURE__ */ import_react$59.createElement("path", { d: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z" }))],
+		["fill", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64Zm-21.61,74.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z" }))],
+		["light", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M128,26C75.29,26,34,49.72,34,80v96c0,30.28,41.29,54,94,54s94-23.72,94-54V80C222,49.72,180.71,26,128,26Zm0,12c44.45,0,82,19.23,82,42s-37.55,42-82,42S46,102.77,46,80,83.55,38,128,38Zm82,138c0,22.77-37.55,42-82,42s-82-19.23-82-42V154.79C62,171.16,92.37,182,128,182s66-10.84,82-27.21Zm0-48c0,22.77-37.55,42-82,42s-82-19.23-82-42V106.79C62,123.16,92.37,134,128,134s66-10.84,82-27.21Z" }))],
+		["regular", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z" }))],
+		["thin", /* @__PURE__ */ import_react$59.createElement(import_react$59.Fragment, null, /* @__PURE__ */ import_react$59.createElement("path", { d: "M192.14,42.55C174.94,33.17,152.16,28,128,28S81.06,33.17,63.86,42.55C45.89,52.35,36,65.65,36,80v96c0,14.35,9.89,27.65,27.86,37.45,17.2,9.38,40,14.55,64.14,14.55s46.94-5.17,64.14-14.55c18-9.8,27.86-23.1,27.86-37.45V80C220,65.65,210.11,52.35,192.14,42.55ZM212,176c0,11.29-8.41,22.1-23.69,30.43C172.27,215.18,150.85,220,128,220s-44.27-4.82-60.31-13.57C52.41,198.1,44,187.29,44,176V149.48c4.69,5.93,11.37,11.34,19.86,16,17.2,9.38,40,14.55,64.14,14.55s46.94-5.17,64.14-14.55c8.49-4.63,15.17-10,19.86-16Zm0-48c0,11.29-8.41,22.1-23.69,30.43C172.27,167.18,150.85,172,128,172s-44.27-4.82-60.31-13.57C52.41,150.1,44,139.29,44,128V101.48c4.69,5.93,11.37,11.34,19.86,16,17.2,9.38,40,14.55,64.14,14.55s46.94-5.17,64.14-14.55c8.49-4.63,15.17-10,19.86-16Zm-23.69-17.57C172.27,119.18,150.85,124,128,124s-44.27-4.82-60.31-13.57C52.41,102.1,44,91.29,44,80s8.41-22.1,23.69-30.43C83.73,40.82,105.15,36,128,36s44.27,4.82,60.31,13.57C203.59,57.9,212,68.71,212,80S203.59,102.1,188.31,110.43Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/DownloadSimple.es.js
-var import_react$53, e$18;
+var import_react$58, e$19;
 var init_DownloadSimple_es$1 = __esmMin((() => {
-	import_react$53 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$18 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M228,144v64a12,12,0,0,1-12,12H40a12,12,0,0,1-12-12V144a12,12,0,0,1,24,0v52H204V144a12,12,0,0,1,24,0Zm-108.49,8.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0-17-17L140,115V32a12,12,0,0,0-24,0v83L96.49,95.51a12,12,0,0,0-17,17Z" }))],
-		["duotone", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", {
+	import_react$58 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$19 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M228,144v64a12,12,0,0,1-12,12H40a12,12,0,0,1-12-12V144a12,12,0,0,1,24,0v52H204V144a12,12,0,0,1,24,0Zm-108.49,8.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0-17-17L140,115V32a12,12,0,0,0-24,0v83L96.49,95.51a12,12,0,0,0-17,17Z" }))],
+		["duotone", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", {
 			d: "M216,48V208H40V48A16,16,0,0,1,56,32H200A16,16,0,0,1,216,48Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$53.createElement("path", { d: "M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z" }))],
-		["fill", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,168,96H136V32a8,8,0,0,0-16,0V96H88a8,8,0,0,0-5.66,13.66Z" }))],
-		["light", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M222,144v64a6,6,0,0,1-6,6H40a6,6,0,0,1-6-6V144a6,6,0,0,1,12,0v58H210V144a6,6,0,0,1,12,0Zm-98.24,4.24a6,6,0,0,0,8.48,0l40-40a6,6,0,0,0-8.48-8.48L134,129.51V32a6,6,0,0,0-12,0v97.51L92.24,99.76a6,6,0,0,0-8.48,8.48Z" }))],
-		["regular", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z" }))],
-		["thin", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M220,144v64a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V144a4,4,0,0,1,8,0v60H212V144a4,4,0,0,1,8,0Zm-94.83,2.83a4,4,0,0,0,5.66,0l40-40a4,4,0,1,0-5.66-5.66L132,134.34V32a4,4,0,0,0-8,0V134.34L90.83,101.17a4,4,0,0,0-5.66,5.66Z" }))]
+		}), /* @__PURE__ */ import_react$58.createElement("path", { d: "M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z" }))],
+		["fill", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40A8,8,0,0,0,168,96H136V32a8,8,0,0,0-16,0V96H88a8,8,0,0,0-5.66,13.66Z" }))],
+		["light", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M222,144v64a6,6,0,0,1-6,6H40a6,6,0,0,1-6-6V144a6,6,0,0,1,12,0v58H210V144a6,6,0,0,1,12,0Zm-98.24,4.24a6,6,0,0,0,8.48,0l40-40a6,6,0,0,0-8.48-8.48L134,129.51V32a6,6,0,0,0-12,0v97.51L92.24,99.76a6,6,0,0,0-8.48,8.48Z" }))],
+		["regular", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z" }))],
+		["thin", /* @__PURE__ */ import_react$58.createElement(import_react$58.Fragment, null, /* @__PURE__ */ import_react$58.createElement("path", { d: "M220,144v64a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V144a4,4,0,0,1,8,0v60H212V144a4,4,0,0,1,8,0Zm-94.83,2.83a4,4,0,0,0,5.66,0l40-40a4,4,0,1,0-5.66-5.66L132,134.34V32a4,4,0,0,0-8,0V134.34L90.83,101.17a4,4,0,0,0-5.66,5.66Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Exam.es.js
-var import_react$52, l$3;
+var import_react$57, l$3;
 var init_Exam_es$1 = __esmMin((() => {
-	import_react$52 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$57 = /* @__PURE__ */ __toESM(require_react(), 1);
 	l$3 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M216,36H40A20,20,0,0,0,20,56V216a12,12,0,0,0,17.37,10.73L64,213.42l26.63,13.31a12,12,0,0,0,10.74,0L128,213.42l26.63,13.31a12,12,0,0,0,10.74,0L192,213.42l26.63,13.31A12,12,0,0,0,236,216V56A20,20,0,0,0,216,36Zm-4,160.58-14.63-7.31a12,12,0,0,0-10.74,0L160,202.58l-26.63-13.31a12,12,0,0,0-10.74,0L96,202.58,69.37,189.27a12,12,0,0,0-10.74,0L44,196.58V60H212ZM62.63,170.73a12,12,0,0,0,16.1-5.36L81.42,160h37.16l2.69,5.37a12,12,0,1,0,21.46-10.74l-32-64a12,12,0,0,0-21.46,0l-32,64A12,12,0,0,0,62.63,170.73ZM106.58,136H93.42L100,122.83ZM144,128a12,12,0,0,1,12-12h4v-4a12,12,0,0,1,24,0v4h4a12,12,0,0,1,0,24h-4v4a12,12,0,0,1-24,0v-4h-4A12,12,0,0,1,144,128Z" }))],
-		["duotone", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M216,36H40A20,20,0,0,0,20,56V216a12,12,0,0,0,17.37,10.73L64,213.42l26.63,13.31a12,12,0,0,0,10.74,0L128,213.42l26.63,13.31a12,12,0,0,0,10.74,0L192,213.42l26.63,13.31A12,12,0,0,0,236,216V56A20,20,0,0,0,216,36Zm-4,160.58-14.63-7.31a12,12,0,0,0-10.74,0L160,202.58l-26.63-13.31a12,12,0,0,0-10.74,0L96,202.58,69.37,189.27a12,12,0,0,0-10.74,0L44,196.58V60H212ZM62.63,170.73a12,12,0,0,0,16.1-5.36L81.42,160h37.16l2.69,5.37a12,12,0,1,0,21.46-10.74l-32-64a12,12,0,0,0-21.46,0l-32,64A12,12,0,0,0,62.63,170.73ZM106.58,136H93.42L100,122.83ZM144,128a12,12,0,0,1,12-12h4v-4a12,12,0,0,1,24,0v4h4a12,12,0,0,1,0,24h-4v4a12,12,0,0,1-24,0v-4h-4A12,12,0,0,1,144,128Z" }))],
+		["duotone", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", {
 			d: "M224,56V216l-32-16-32,16-32-16L96,216,64,200,32,216V56a8,8,0,0,1,8-8H216A8,8,0,0,1,224,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$52.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V216a8,8,0,0,0,11.58,7.16L64,208.94l28.42,14.22a8,8,0,0,0,7.16,0L128,208.94l28.42,14.22a8,8,0,0,0,7.16,0L192,208.94l28.42,14.22A8,8,0,0,0,232,216V56A16,16,0,0,0,216,40Zm0,163.06-20.42-10.22a8,8,0,0,0-7.16,0L160,207.06l-28.42-14.22a8,8,0,0,0-7.16,0L96,207.06,67.58,192.84a8,8,0,0,0-7.16,0L40,203.06V56H216ZM60.42,167.16a8,8,0,0,0,10.74-3.58L76.94,152h38.12l5.78,11.58a8,8,0,1,0,14.32-7.16l-32-64a8,8,0,0,0-14.32,0l-32,64A8,8,0,0,0,60.42,167.16ZM96,113.89,107.06,136H84.94ZM136,128a8,8,0,0,1,8-8h16V104a8,8,0,0,1,16,0v16h16a8,8,0,0,1,0,16H176v16a8,8,0,0,1-16,0V136H144A8,8,0,0,1,136,128Z" }))],
-		["fill", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M96,113.89,107.06,136H84.94ZM232,56V216a8,8,0,0,1-11.58,7.16L192,208.94l-28.42,14.22a8,8,0,0,1-7.16,0L128,208.94,99.58,223.16a8,8,0,0,1-7.16,0L64,208.94,35.58,223.16A8,8,0,0,1,24,216V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM135.16,156.42l-32-64a8,8,0,0,0-14.32,0l-32,64a8,8,0,0,0,14.32,7.16L76.94,152h38.12l5.78,11.58a8,8,0,1,0,14.32-7.16ZM208,128a8,8,0,0,0-8-8H184V104a8,8,0,0,0-16,0v16H152a8,8,0,0,0,0,16h16v16a8,8,0,0,0,16,0V136h16A8,8,0,0,0,208,128Z" }))],
-		["light", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M216,42H40A14,14,0,0,0,26,56V216a6,6,0,0,0,8.68,5.37L64,206.71l29.32,14.66a6,6,0,0,0,5.36,0L128,206.71l29.32,14.66a6,6,0,0,0,5.36,0L192,206.71l29.32,14.66A6,6,0,0,0,224,222a5.93,5.93,0,0,0,3.15-.9A6,6,0,0,0,230,216V56A14,14,0,0,0,216,42Zm2,164.29-23.32-11.66a6,6,0,0,0-5.36,0L160,209.29l-29.32-14.66a6,6,0,0,0-5.36,0L96,209.29,66.68,194.63a6,6,0,0,0-5.36,0L38,206.29V56a2,2,0,0,1,2-2H216a2,2,0,0,1,2,2Zm-116.63-113a6,6,0,0,0-10.74,0l-32,64a6,6,0,1,0,10.74,5.36L75.71,150h40.58l6.34,12.68a6,6,0,1,0,10.74-5.36ZM81.71,138,96,109.42,110.29,138ZM198,128a6,6,0,0,1-6,6H174v18a6,6,0,0,1-12,0V134H144a6,6,0,0,1,0-12h18V104a6,6,0,0,1,12,0v18h18A6,6,0,0,1,198,128Z" }))],
-		["regular", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V216a8,8,0,0,0,11.58,7.16L64,208.94l28.42,14.22a8,8,0,0,0,7.16,0L128,208.94l28.42,14.22a8,8,0,0,0,7.16,0L192,208.94l28.42,14.22A8,8,0,0,0,232,216V56A16,16,0,0,0,216,40Zm0,163.06-20.42-10.22a8,8,0,0,0-7.16,0L160,207.06l-28.42-14.22a8,8,0,0,0-7.16,0L96,207.06,67.58,192.84a8,8,0,0,0-7.16,0L40,203.06V56H216ZM60.42,167.16a8,8,0,0,0,10.74-3.58L76.94,152h38.12l5.78,11.58a8,8,0,1,0,14.32-7.16l-32-64a8,8,0,0,0-14.32,0l-32,64A8,8,0,0,0,60.42,167.16ZM96,113.89,107.06,136H84.94ZM136,128a8,8,0,0,1,8-8h16V104a8,8,0,0,1,16,0v16h16a8,8,0,0,1,0,16H176v16a8,8,0,0,1-16,0V136H144A8,8,0,0,1,136,128Z" }))],
-		["thin", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M216,44H40A12,12,0,0,0,28,56V216a4,4,0,0,0,5.79,3.58L64,204.47l30.21,15.11a4,4,0,0,0,3.58,0L128,204.47l30.21,15.11a4,4,0,0,0,3.58,0L192,204.47l30.21,15.11A4.05,4.05,0,0,0,224,220a4,4,0,0,0,4-4V56A12,12,0,0,0,216,44Zm4,165.53-26.21-13.11a4,4,0,0,0-3.58,0L160,211.53l-30.21-15.11a4,4,0,0,0-3.58,0L96,211.53,65.79,196.42a4,4,0,0,0-3.58,0L36,209.53V56a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4ZM99.58,94.21a4,4,0,0,0-7.16,0l-32,64a4,4,0,0,0,7.16,3.58L74.47,148h43.06l6.89,13.79A4,4,0,0,0,128,164a4.12,4.12,0,0,0,1.79-.42,4,4,0,0,0,1.79-5.37ZM78.47,140,96,104.94,113.53,140ZM196,128a4,4,0,0,1-4,4H172v20a4,4,0,0,1-8,0V132H144a4,4,0,0,1,0-8h20V104a4,4,0,0,1,8,0v20h20A4,4,0,0,1,196,128Z" }))]
+		}), /* @__PURE__ */ import_react$57.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V216a8,8,0,0,0,11.58,7.16L64,208.94l28.42,14.22a8,8,0,0,0,7.16,0L128,208.94l28.42,14.22a8,8,0,0,0,7.16,0L192,208.94l28.42,14.22A8,8,0,0,0,232,216V56A16,16,0,0,0,216,40Zm0,163.06-20.42-10.22a8,8,0,0,0-7.16,0L160,207.06l-28.42-14.22a8,8,0,0,0-7.16,0L96,207.06,67.58,192.84a8,8,0,0,0-7.16,0L40,203.06V56H216ZM60.42,167.16a8,8,0,0,0,10.74-3.58L76.94,152h38.12l5.78,11.58a8,8,0,1,0,14.32-7.16l-32-64a8,8,0,0,0-14.32,0l-32,64A8,8,0,0,0,60.42,167.16ZM96,113.89,107.06,136H84.94ZM136,128a8,8,0,0,1,8-8h16V104a8,8,0,0,1,16,0v16h16a8,8,0,0,1,0,16H176v16a8,8,0,0,1-16,0V136H144A8,8,0,0,1,136,128Z" }))],
+		["fill", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M96,113.89,107.06,136H84.94ZM232,56V216a8,8,0,0,1-11.58,7.16L192,208.94l-28.42,14.22a8,8,0,0,1-7.16,0L128,208.94,99.58,223.16a8,8,0,0,1-7.16,0L64,208.94,35.58,223.16A8,8,0,0,1,24,216V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM135.16,156.42l-32-64a8,8,0,0,0-14.32,0l-32,64a8,8,0,0,0,14.32,7.16L76.94,152h38.12l5.78,11.58a8,8,0,1,0,14.32-7.16ZM208,128a8,8,0,0,0-8-8H184V104a8,8,0,0,0-16,0v16H152a8,8,0,0,0,0,16h16v16a8,8,0,0,0,16,0V136h16A8,8,0,0,0,208,128Z" }))],
+		["light", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M216,42H40A14,14,0,0,0,26,56V216a6,6,0,0,0,8.68,5.37L64,206.71l29.32,14.66a6,6,0,0,0,5.36,0L128,206.71l29.32,14.66a6,6,0,0,0,5.36,0L192,206.71l29.32,14.66A6,6,0,0,0,224,222a5.93,5.93,0,0,0,3.15-.9A6,6,0,0,0,230,216V56A14,14,0,0,0,216,42Zm2,164.29-23.32-11.66a6,6,0,0,0-5.36,0L160,209.29l-29.32-14.66a6,6,0,0,0-5.36,0L96,209.29,66.68,194.63a6,6,0,0,0-5.36,0L38,206.29V56a2,2,0,0,1,2-2H216a2,2,0,0,1,2,2Zm-116.63-113a6,6,0,0,0-10.74,0l-32,64a6,6,0,1,0,10.74,5.36L75.71,150h40.58l6.34,12.68a6,6,0,1,0,10.74-5.36ZM81.71,138,96,109.42,110.29,138ZM198,128a6,6,0,0,1-6,6H174v18a6,6,0,0,1-12,0V134H144a6,6,0,0,1,0-12h18V104a6,6,0,0,1,12,0v18h18A6,6,0,0,1,198,128Z" }))],
+		["regular", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M216,40H40A16,16,0,0,0,24,56V216a8,8,0,0,0,11.58,7.16L64,208.94l28.42,14.22a8,8,0,0,0,7.16,0L128,208.94l28.42,14.22a8,8,0,0,0,7.16,0L192,208.94l28.42,14.22A8,8,0,0,0,232,216V56A16,16,0,0,0,216,40Zm0,163.06-20.42-10.22a8,8,0,0,0-7.16,0L160,207.06l-28.42-14.22a8,8,0,0,0-7.16,0L96,207.06,67.58,192.84a8,8,0,0,0-7.16,0L40,203.06V56H216ZM60.42,167.16a8,8,0,0,0,10.74-3.58L76.94,152h38.12l5.78,11.58a8,8,0,1,0,14.32-7.16l-32-64a8,8,0,0,0-14.32,0l-32,64A8,8,0,0,0,60.42,167.16ZM96,113.89,107.06,136H84.94ZM136,128a8,8,0,0,1,8-8h16V104a8,8,0,0,1,16,0v16h16a8,8,0,0,1,0,16H176v16a8,8,0,0,1-16,0V136H144A8,8,0,0,1,136,128Z" }))],
+		["thin", /* @__PURE__ */ import_react$57.createElement(import_react$57.Fragment, null, /* @__PURE__ */ import_react$57.createElement("path", { d: "M216,44H40A12,12,0,0,0,28,56V216a4,4,0,0,0,5.79,3.58L64,204.47l30.21,15.11a4,4,0,0,0,3.58,0L128,204.47l30.21,15.11a4,4,0,0,0,3.58,0L192,204.47l30.21,15.11A4.05,4.05,0,0,0,224,220a4,4,0,0,0,4-4V56A12,12,0,0,0,216,44Zm4,165.53-26.21-13.11a4,4,0,0,0-3.58,0L160,211.53l-30.21-15.11a4,4,0,0,0-3.58,0L96,211.53,65.79,196.42a4,4,0,0,0-3.58,0L36,209.53V56a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4ZM99.58,94.21a4,4,0,0,0-7.16,0l-32,64a4,4,0,0,0,7.16,3.58L74.47,148h43.06l6.89,13.79A4,4,0,0,0,128,164a4.12,4.12,0,0,0,1.79-.42,4,4,0,0,0,1.79-5.37ZM78.47,140,96,104.94,113.53,140ZM196,128a4,4,0,0,1-4,4H172v20a4,4,0,0,1-8,0V132H144a4,4,0,0,1,0-8h20V104a4,4,0,0,1,8,0v20h20A4,4,0,0,1,196,128Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/FileText.es.js
-var import_react$51, e$17;
+var import_react$56, e$18;
 var init_FileText_es$1 = __esmMin((() => {
-	import_react$51 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$17 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M216.49,79.52l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V88A12,12,0,0,0,216.49,79.52ZM160,57l23,23H160ZM60,212V44h76V92a12,12,0,0,0,12,12h48V212Zm112-80a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,132Zm0,40a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,172Z" }))],
-		["duotone", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", {
+	import_react$56 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$18 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M216.49,79.52l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V88A12,12,0,0,0,216.49,79.52ZM160,57l23,23H160ZM60,212V44h76V92a12,12,0,0,0,12,12h48V212Zm112-80a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,132Zm0,40a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,172Z" }))],
+		["duotone", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", {
 			d: "M208,88H152V32Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$51.createElement("path", { d: "M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z" }))],
-		["fill", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,176H96a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H96a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm-8-56V44l44,44Z" }))],
-		["light", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M212.24,83.76l-56-56A6,6,0,0,0,152,26H56A14,14,0,0,0,42,40V216a14,14,0,0,0,14,14H200a14,14,0,0,0,14-14V88A6,6,0,0,0,212.24,83.76ZM158,46.48,193.52,82H158ZM200,218H56a2,2,0,0,1-2-2V40a2,2,0,0,1,2-2h90V88a6,6,0,0,0,6,6h50V216A2,2,0,0,1,200,218Zm-34-82a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h64A6,6,0,0,1,166,136Zm0,32a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h64A6,6,0,0,1,166,168Z" }))],
-		["regular", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z" }))],
-		["thin", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M210.83,85.17l-56-56A4,4,0,0,0,152,28H56A12,12,0,0,0,44,40V216a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12V88A4,4,0,0,0,210.83,85.17ZM156,41.65,198.34,84H156ZM200,220H56a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4h92V88a4,4,0,0,0,4,4h52V216A4,4,0,0,1,200,220Zm-36-84a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,136Zm0,32a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,168Z" }))]
+		}), /* @__PURE__ */ import_react$56.createElement("path", { d: "M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z" }))],
+		["fill", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,176H96a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H96a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm-8-56V44l44,44Z" }))],
+		["light", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M212.24,83.76l-56-56A6,6,0,0,0,152,26H56A14,14,0,0,0,42,40V216a14,14,0,0,0,14,14H200a14,14,0,0,0,14-14V88A6,6,0,0,0,212.24,83.76ZM158,46.48,193.52,82H158ZM200,218H56a2,2,0,0,1-2-2V40a2,2,0,0,1,2-2h90V88a6,6,0,0,0,6,6h50V216A2,2,0,0,1,200,218Zm-34-82a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h64A6,6,0,0,1,166,136Zm0,32a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h64A6,6,0,0,1,166,168Z" }))],
+		["regular", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z" }))],
+		["thin", /* @__PURE__ */ import_react$56.createElement(import_react$56.Fragment, null, /* @__PURE__ */ import_react$56.createElement("path", { d: "M210.83,85.17l-56-56A4,4,0,0,0,152,28H56A12,12,0,0,0,44,40V216a12,12,0,0,0,12,12H200a12,12,0,0,0,12-12V88A4,4,0,0,0,210.83,85.17ZM156,41.65,198.34,84H156ZM200,220H56a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4h92V88a4,4,0,0,0,4,4h52V216A4,4,0,0,1,200,220Zm-36-84a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,136Zm0,32a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h64A4,4,0,0,1,164,168Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Flag.es.js
-var import_react$50, t$2;
+var import_react$55, t$3;
 var init_Flag_es$1 = __esmMin((() => {
-	import_react$50 = /* @__PURE__ */ __toESM(require_react(), 1);
-	t$2 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M40.14,46.88A12,12,0,0,0,36,56V224a12,12,0,0,0,24,0V181.72c22.84-17.12,42.1-9.12,70.68,5,16.23,8,34.74,17.2,54.8,17.2,14.72,0,30.28-4.94,46.38-18.88A12,12,0,0,0,236,176V56a12,12,0,0,0-19.86-9.07c-24.71,21.41-44.53,13.31-74.82-1.68C113.19,31.27,78.17,13.94,40.14,46.88ZM212,170.26c-22.84,17.13-42.1,9.11-70.68-5C118.16,153.76,90.33,140,60,153.87V61.69c22.84-17.12,42.1-9.12,70.68,5,16.23,8,34.74,17.2,54.8,17.2A63,63,0,0,0,212,78.08Z" }))],
-		["duotone", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", {
+	import_react$55 = /* @__PURE__ */ __toESM(require_react(), 1);
+	t$3 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M40.14,46.88A12,12,0,0,0,36,56V224a12,12,0,0,0,24,0V181.72c22.84-17.12,42.1-9.12,70.68,5,16.23,8,34.74,17.2,54.8,17.2,14.72,0,30.28-4.94,46.38-18.88A12,12,0,0,0,236,176V56a12,12,0,0,0-19.86-9.07c-24.71,21.41-44.53,13.31-74.82-1.68C113.19,31.27,78.17,13.94,40.14,46.88ZM212,170.26c-22.84,17.13-42.1,9.11-70.68-5C118.16,153.76,90.33,140,60,153.87V61.69c22.84-17.12,42.1-9.12,70.68,5,16.23,8,34.74,17.2,54.8,17.2A63,63,0,0,0,212,78.08Z" }))],
+		["duotone", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", {
 			d: "M224,56V176c-64,55.43-112-55.43-176,0V56C112,.57,160,111.43,224,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$50.createElement("path", { d: "M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z" }))],
-		["fill", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M232,56V176a8,8,0,0,1-2.76,6c-15.28,13.23-29.89,18-43.82,18-18.91,0-36.57-8.74-53-16.85C105.87,170,82.79,158.61,56,179.77V224a8,8,0,0,1-16,0V56a8,8,0,0,1,2.77-6h0c36-31.18,68.31-15.21,96.79-1.12C167,62.46,190.79,74.2,218.76,50A8,8,0,0,1,232,56Z" }))],
-		["light", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M44.08,51.37A6,6,0,0,0,42,55.9V224a6,6,0,0,0,12,0V178.78c28.08-22.79,51.88-11,79.34,2.57,16.12,8,33.49,16.58,52,16.58,13.57,0,27.76-4.6,42.56-17.42A6,6,0,0,0,230,176V55.9a6,6,0,0,0-9.93-4.54c-29,25.12-53.28,13.09-81.41-.84C110.77,36.71,79,21.16,44.08,51.37ZM218,173.17c-28.08,22.8-51.88,11-79.34-2.58C113.4,158.08,85.09,144.07,54,164V58.72c28.08-22.8,51.88-11,79.34,2.56C158.6,73.79,186.91,87.8,218,67.91Z" }))],
-		["regular", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z" }))],
-		["thin", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M45.39,53.06a4,4,0,0,0-1.39,3V224a4,4,0,0,0,8,0V177.87c29.41-24.39,55.08-11.69,82.23,1.73,16.5,8.17,33.33,16.5,51.13,16.5,13.14,0,26.81-4.55,41.26-17.06a4,4,0,0,0,1.38-3v-120a4,4,0,0,0-6.62-3c-30,26-56,13.07-83.61-.57C109.07,38.28,79.4,23.62,45.39,53.06ZM220,174.17c-29.41,24.4-55.08,11.7-82.23-1.73-26.82-13.27-54.5-27-85.77-4.66V57.92c29.41-24.4,55.08-11.7,82.23,1.73,26.82,13.27,54.5,27,85.77,4.66Z" }))]
+		}), /* @__PURE__ */ import_react$55.createElement("path", { d: "M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z" }))],
+		["fill", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M232,56V176a8,8,0,0,1-2.76,6c-15.28,13.23-29.89,18-43.82,18-18.91,0-36.57-8.74-53-16.85C105.87,170,82.79,158.61,56,179.77V224a8,8,0,0,1-16,0V56a8,8,0,0,1,2.77-6h0c36-31.18,68.31-15.21,96.79-1.12C167,62.46,190.79,74.2,218.76,50A8,8,0,0,1,232,56Z" }))],
+		["light", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M44.08,51.37A6,6,0,0,0,42,55.9V224a6,6,0,0,0,12,0V178.78c28.08-22.79,51.88-11,79.34,2.57,16.12,8,33.49,16.58,52,16.58,13.57,0,27.76-4.6,42.56-17.42A6,6,0,0,0,230,176V55.9a6,6,0,0,0-9.93-4.54c-29,25.12-53.28,13.09-81.41-.84C110.77,36.71,79,21.16,44.08,51.37ZM218,173.17c-28.08,22.8-51.88,11-79.34-2.58C113.4,158.08,85.09,144.07,54,164V58.72c28.08-22.8,51.88-11,79.34,2.56C158.6,73.79,186.91,87.8,218,67.91Z" }))],
+		["regular", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z" }))],
+		["thin", /* @__PURE__ */ import_react$55.createElement(import_react$55.Fragment, null, /* @__PURE__ */ import_react$55.createElement("path", { d: "M45.39,53.06a4,4,0,0,0-1.39,3V224a4,4,0,0,0,8,0V177.87c29.41-24.39,55.08-11.69,82.23,1.73,16.5,8.17,33.33,16.5,51.13,16.5,13.14,0,26.81-4.55,41.26-17.06a4,4,0,0,0,1.38-3v-120a4,4,0,0,0-6.62-3c-30,26-56,13.07-83.61-.57C109.07,38.28,79.4,23.62,45.39,53.06ZM220,174.17c-29.41,24.4-55.08,11.7-82.23-1.73-26.82-13.27-54.5-27-85.77-4.66V57.92c29.41-24.4,55.08-11.7,82.23,1.73,26.82,13.27,54.5,27,85.77,4.66Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/FloppyDisk.es.js
-var import_react$49, e$16;
+var import_react$54, e$17;
 var init_FloppyDisk_es$1 = __esmMin((() => {
-	import_react$49 = /* @__PURE__ */ __toESM(require_react(), 1);
-	e$16 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M222.14,69.17,186.83,33.86A19.86,19.86,0,0,0,172.69,28H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V83.31A19.86,19.86,0,0,0,222.14,69.17ZM164,204H92V160h72Zm40,0H188V156a20,20,0,0,0-20-20H88a20,20,0,0,0-20,20v48H52V52H171l33,33ZM164,84a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h56A12,12,0,0,1,164,84Z" }))],
-		["duotone", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", {
+	import_react$54 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$17 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M222.14,69.17,186.83,33.86A19.86,19.86,0,0,0,172.69,28H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V83.31A19.86,19.86,0,0,0,222.14,69.17ZM164,204H92V160h72Zm40,0H188V156a20,20,0,0,0-20-20H88a20,20,0,0,0-20,20v48H52V52H171l33,33ZM164,84a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h56A12,12,0,0,1,164,84Z" }))],
+		["duotone", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", {
 			d: "M216,83.31V208a8,8,0,0,1-8,8H176V152a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8v64H48a8,8,0,0,1-8-8V48a8,8,0,0,1,8-8H172.69a8,8,0,0,1,5.65,2.34l35.32,35.32A8,8,0,0,1,216,83.31Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$49.createElement("path", { d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z" }))],
-		["fill", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM208,208H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z" }))],
-		["light", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M217.9,73.42,182.58,38.1a13.9,13.9,0,0,0-9.89-4.1H48A14,14,0,0,0,34,48V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V83.31A13.9,13.9,0,0,0,217.9,73.42ZM170,210H86V152a2,2,0,0,1,2-2h80a2,2,0,0,1,2,2Zm40-2a2,2,0,0,1-2,2H182V152a14,14,0,0,0-14-14H88a14,14,0,0,0-14,14v58H48a2,2,0,0,1-2-2V48a2,2,0,0,1,2-2H172.69a2,2,0,0,1,1.41.58L209.42,81.9a2,2,0,0,1,.58,1.41ZM158,72a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h56A6,6,0,0,1,158,72Z" }))],
-		["regular", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z" }))],
-		["thin", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M216.49,74.83,181.17,39.51A11.93,11.93,0,0,0,172.69,36H48A12,12,0,0,0,36,48V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V83.31A11.93,11.93,0,0,0,216.49,74.83ZM172,212H84V152a4,4,0,0,1,4-4h80a4,4,0,0,1,4,4Zm40-4a4,4,0,0,1-4,4H180V152a12,12,0,0,0-12-12H88a12,12,0,0,0-12,12v60H48a4,4,0,0,1-4-4V48a4,4,0,0,1,4-4H172.69a4,4,0,0,1,2.82,1.17l35.32,35.32A4,4,0,0,1,212,83.31ZM156,72a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h56A4,4,0,0,1,156,72Z" }))]
+		}), /* @__PURE__ */ import_react$54.createElement("path", { d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z" }))],
+		["fill", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM208,208H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z" }))],
+		["light", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M217.9,73.42,182.58,38.1a13.9,13.9,0,0,0-9.89-4.1H48A14,14,0,0,0,34,48V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V83.31A13.9,13.9,0,0,0,217.9,73.42ZM170,210H86V152a2,2,0,0,1,2-2h80a2,2,0,0,1,2,2Zm40-2a2,2,0,0,1-2,2H182V152a14,14,0,0,0-14-14H88a14,14,0,0,0-14,14v58H48a2,2,0,0,1-2-2V48a2,2,0,0,1,2-2H172.69a2,2,0,0,1,1.41.58L209.42,81.9a2,2,0,0,1,.58,1.41ZM158,72a6,6,0,0,1-6,6H96a6,6,0,0,1,0-12h56A6,6,0,0,1,158,72Z" }))],
+		["regular", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M219.31,72,184,36.69A15.86,15.86,0,0,0,172.69,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V83.31A15.86,15.86,0,0,0,219.31,72ZM168,208H88V152h80Zm40,0H184V152a16,16,0,0,0-16-16H88a16,16,0,0,0-16,16v56H48V48H172.69L208,83.31ZM160,72a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h56A8,8,0,0,1,160,72Z" }))],
+		["thin", /* @__PURE__ */ import_react$54.createElement(import_react$54.Fragment, null, /* @__PURE__ */ import_react$54.createElement("path", { d: "M216.49,74.83,181.17,39.51A11.93,11.93,0,0,0,172.69,36H48A12,12,0,0,0,36,48V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V83.31A11.93,11.93,0,0,0,216.49,74.83ZM172,212H84V152a4,4,0,0,1,4-4h80a4,4,0,0,1,4,4Zm40-4a4,4,0,0,1-4,4H180V152a12,12,0,0,0-12-12H88a12,12,0,0,0-12,12v60H48a4,4,0,0,1-4-4V48a4,4,0,0,1,4-4H172.69a4,4,0,0,1,2.82,1.17l35.32,35.32A4,4,0,0,1,212,83.31ZM156,72a4,4,0,0,1-4,4H96a4,4,0,0,1,0-8h56A4,4,0,0,1,156,72Z" }))]
+	]);
+}));
+//#endregion
+//#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/GithubLogo.es.js
+var import_react$53, e$16;
+var init_GithubLogo_es$1 = __esmMin((() => {
+	import_react$53 = /* @__PURE__ */ __toESM(require_react(), 1);
+	e$16 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M212.62,75.17A63.7,63.7,0,0,0,206.39,26,12,12,0,0,0,196,20a63.71,63.71,0,0,0-50,24H126A63.71,63.71,0,0,0,76,20a12,12,0,0,0-10.39,6,63.7,63.7,0,0,0-6.23,49.17A61.5,61.5,0,0,0,52,104v8a60.1,60.1,0,0,0,45.76,58.28A43.66,43.66,0,0,0,92,192v4H76a20,20,0,0,1-20-20,44.05,44.05,0,0,0-44-44,12,12,0,0,0,0,24,20,20,0,0,1,20,20,44.05,44.05,0,0,0,44,44H92v12a12,12,0,0,0,24,0V192a20,20,0,0,1,40,0v40a12,12,0,0,0,24,0V192a43.66,43.66,0,0,0-5.76-21.72A60.1,60.1,0,0,0,220,112v-8A61.5,61.5,0,0,0,212.62,75.17ZM196,112a36,36,0,0,1-36,36H112a36,36,0,0,1-36-36v-8a37.87,37.87,0,0,1,6.13-20.12,11.65,11.65,0,0,0,1.58-11.49,39.9,39.9,0,0,1-.4-27.72,39.87,39.87,0,0,1,26.41,17.8A12,12,0,0,0,119.82,68h32.35a12,12,0,0,0,10.11-5.53,39.84,39.84,0,0,1,26.41-17.8,39.9,39.9,0,0,1-.4,27.72,12,12,0,0,0,1.61,11.53A37.85,37.85,0,0,1,196,104Z" }))],
+		["duotone", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", {
+			d: "M208,104v8a48,48,0,0,1-48,48H136a32,32,0,0,1,32,32v40H104V192a32,32,0,0,1,32-32H112a48,48,0,0,1-48-48v-8a49.28,49.28,0,0,1,8.51-27.3A51.92,51.92,0,0,1,76,32a52,52,0,0,1,43.83,24h32.34A52,52,0,0,1,196,32a51.92,51.92,0,0,1,3.49,44.7A49.28,49.28,0,0,1,208,104Z",
+			opacity: "0.2"
+		}), /* @__PURE__ */ import_react$53.createElement("path", { d: "M208.3,75.68A59.74,59.74,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58,58,0,0,0,208.3,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.76,41.76,0,0,1,200,104Z" }))],
+		["fill", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M216,104v8a56.06,56.06,0,0,1-48.44,55.47A39.8,39.8,0,0,1,176,192v40a8,8,0,0,1-8,8H104a8,8,0,0,1-8-8V216H72a40,40,0,0,1-40-40A24,24,0,0,0,8,152a8,8,0,0,1,0-16,40,40,0,0,1,40,40,24,24,0,0,0,24,24H96v-8a39.8,39.8,0,0,1,8.44-24.53A56.06,56.06,0,0,1,56,112v-8a58.14,58.14,0,0,1,7.69-28.32A59.78,59.78,0,0,1,69.07,28,8,8,0,0,1,76,24a59.75,59.75,0,0,1,48,24h24a59.75,59.75,0,0,1,48-24,8,8,0,0,1,6.93,4,59.74,59.74,0,0,1,5.37,47.68A58,58,0,0,1,216,104Z" }))],
+		["light", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M206.13,75.92A57.79,57.79,0,0,0,201.2,29a6,6,0,0,0-5.2-3,57.77,57.77,0,0,0-47,24H123A57.77,57.77,0,0,0,76,26a6,6,0,0,0-5.2,3,57.79,57.79,0,0,0-4.93,46.92A55.88,55.88,0,0,0,58,104v8a54.06,54.06,0,0,0,50.45,53.87A37.85,37.85,0,0,0,98,192v10H72a26,26,0,0,1-26-26A38,38,0,0,0,8,138a6,6,0,0,0,0,12,26,26,0,0,1,26,26,38,38,0,0,0,38,38H98v18a6,6,0,0,0,12,0V192a26,26,0,0,1,52,0v40a6,6,0,0,0,12,0V192a37.85,37.85,0,0,0-10.45-26.13A54.06,54.06,0,0,0,214,112v-8A55.88,55.88,0,0,0,206.13,75.92ZM202,112a42,42,0,0,1-42,42H112a42,42,0,0,1-42-42v-8a43.86,43.86,0,0,1,7.3-23.69,6,6,0,0,0,.81-5.76,45.85,45.85,0,0,1,1.43-36.42,45.85,45.85,0,0,1,35.23,21.1A6,6,0,0,0,119.83,62h32.34a6,6,0,0,0,5.06-2.76,45.83,45.83,0,0,1,35.23-21.11,45.85,45.85,0,0,1,1.43,36.42,6,6,0,0,0,.79,5.74A43.78,43.78,0,0,1,202,104Z" }))],
+		["regular", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z" }))],
+		["thin", /* @__PURE__ */ import_react$53.createElement(import_react$53.Fragment, null, /* @__PURE__ */ import_react$53.createElement("path", { d: "M203.94,76.16A55.73,55.73,0,0,0,199.46,30,4,4,0,0,0,196,28a55.78,55.78,0,0,0-46,24H122A55.78,55.78,0,0,0,76,28a4,4,0,0,0-3.46,2,55.73,55.73,0,0,0-4.48,46.16A53.78,53.78,0,0,0,60,104v8a52.06,52.06,0,0,0,52,52h1.41A36,36,0,0,0,100,192v12H72a28,28,0,0,1-28-28A36,36,0,0,0,8,140a4,4,0,0,0,0,8,28,28,0,0,1,28,28,36,36,0,0,0,36,36h28v20a4,4,0,0,0,8,0V192a28,28,0,0,1,56,0v40a4,4,0,0,0,8,0V192a36,36,0,0,0-13.41-28H160a52.06,52.06,0,0,0,52-52v-8A53.78,53.78,0,0,0,203.94,76.16ZM204,112a44.05,44.05,0,0,1-44,44H112a44.05,44.05,0,0,1-44-44v-8a45.76,45.76,0,0,1,7.71-24.89,4,4,0,0,0,.53-3.84,47.82,47.82,0,0,1,2.1-39.21,47.8,47.8,0,0,1,38.12,22.1A4,4,0,0,0,119.83,60h32.34a4,4,0,0,0,3.37-1.84,47.8,47.8,0,0,1,38.12-22.1,47.82,47.82,0,0,1,2.1,39.21,4,4,0,0,0,.53,3.83A45.85,45.85,0,0,1,204,104Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Key.es.js
-var import_react$48, e$15;
+var import_react$52, e$15;
 var init_Key_es$1 = __esmMin((() => {
-	import_react$48 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$52 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$15 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M196,76a16,16,0,1,1-16-16A16,16,0,0,1,196,76Zm48,22.74A84.3,84.3,0,0,1,160.11,180H160a83.52,83.52,0,0,1-23.65-3.38l-7.86,7.87A12,12,0,0,1,120,188H108v12a12,12,0,0,1-12,12H84v12a12,12,0,0,1-12,12H40a20,20,0,0,1-20-20V187.31a19.86,19.86,0,0,1,5.86-14.14l53.52-53.52A84,84,0,1,1,244,98.74ZM202.43,53.57A59.48,59.48,0,0,0,158,36c-32,1-58,27.89-58,59.89a59.69,59.69,0,0,0,4.2,22.19,12,12,0,0,1-2.55,13.21L44,189v23H60V200a12,12,0,0,1,12-12H84V176a12,12,0,0,1,12-12h19l9.65-9.65a12,12,0,0,1,13.22-2.55A59.58,59.58,0,0,0,160,156h.08c32,0,58.87-26.07,59.89-58A59.55,59.55,0,0,0,202.43,53.57Z" }))],
-		["duotone", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M196,76a16,16,0,1,1-16-16A16,16,0,0,1,196,76Zm48,22.74A84.3,84.3,0,0,1,160.11,180H160a83.52,83.52,0,0,1-23.65-3.38l-7.86,7.87A12,12,0,0,1,120,188H108v12a12,12,0,0,1-12,12H84v12a12,12,0,0,1-12,12H40a20,20,0,0,1-20-20V187.31a19.86,19.86,0,0,1,5.86-14.14l53.52-53.52A84,84,0,1,1,244,98.74ZM202.43,53.57A59.48,59.48,0,0,0,158,36c-32,1-58,27.89-58,59.89a59.69,59.69,0,0,0,4.2,22.19,12,12,0,0,1-2.55,13.21L44,189v23H60V200a12,12,0,0,1,12-12H84V176a12,12,0,0,1,12-12h19l9.65-9.65a12,12,0,0,1,13.22-2.55A59.58,59.58,0,0,0,160,156h.08c32,0,58.87-26.07,59.89-58A59.55,59.55,0,0,0,202.43,53.57Z" }))],
+		["duotone", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", {
 			d: "M232,98.36C230.73,136.92,198.67,168,160.09,168a71.68,71.68,0,0,1-26.92-5.17h0L120,176H96v24H72v24H40a8,8,0,0,1-8-8V187.31a8,8,0,0,1,2.34-5.65l58.83-58.83h0A71.68,71.68,0,0,1,88,95.91c0-38.58,31.08-70.64,69.64-71.87A72,72,0,0,1,232,98.36Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$48.createElement("path", { d: "M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,95.92c0-34.14,27.81-62.8,61.9-63.89A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z" }))],
-		["fill", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM180,92a16,16,0,1,1,16-16A16,16,0,0,1,180,92Z" }))],
-		["light", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M215.15,40.85A78,78,0,0,0,86.2,121.31l-56.1,56.1a13.94,13.94,0,0,0-4.1,9.9V216a14,14,0,0,0,14,14H72a6,6,0,0,0,6-6V206H96a6,6,0,0,0,6-6V182h18a6,6,0,0,0,4.24-1.76l10.45-10.44A77.59,77.59,0,0,0,160,174h.1A78,78,0,0,0,215.15,40.85ZM226,98.16c-1.12,35.16-30.67,63.8-65.88,63.84a65.93,65.93,0,0,1-24.51-4.67,6,6,0,0,0-6.64,1.26L117.51,170H96a6,6,0,0,0-6,6v18H72a6,6,0,0,0-6,6v18H40a2,2,0,0,1-2-2V187.31a2,2,0,0,1,.58-1.41l58.83-58.83a6,6,0,0,0,1.26-6.64A65.61,65.61,0,0,1,94,95.92C94,60.71,122.68,31.16,157.83,30A66,66,0,0,1,226,98.16ZM190,76a10,10,0,1,1-10-10A10,10,0,0,1,190,76Z" }))],
-		["regular", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,95.92c0-34.14,27.81-62.8,61.9-63.89A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z" }))],
-		["thin", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M213.74,42.26A76,76,0,0,0,88.51,121.84l-57,57A11.93,11.93,0,0,0,28,187.31V216a12,12,0,0,0,12,12H72a4,4,0,0,0,4-4V204H96a4,4,0,0,0,4-4V180h20a4,4,0,0,0,2.83-1.17l11.33-11.34A75.72,75.72,0,0,0,160,172h.1A76,76,0,0,0,213.74,42.26Zm14.22,56c-1.15,36.22-31.6,65.72-67.87,65.77H160a67.52,67.52,0,0,1-25.21-4.83,4,4,0,0,0-4.45.83l-12,12H96a4,4,0,0,0-4,4v20H72a4,4,0,0,0-4,4v20H40a4,4,0,0,1-4-4V187.31a4.06,4.06,0,0,1,1.17-2.83L96,125.66a4,4,0,0,0,.83-4.45A67.51,67.51,0,0,1,92,95.91C92,59.64,121.55,29.19,157.77,28A68,68,0,0,1,228,98.23ZM188,76a8,8,0,1,1-8-8A8,8,0,0,1,188,76Z" }))]
+		}), /* @__PURE__ */ import_react$52.createElement("path", { d: "M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,95.92c0-34.14,27.81-62.8,61.9-63.89A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z" }))],
+		["fill", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM180,92a16,16,0,1,1,16-16A16,16,0,0,1,180,92Z" }))],
+		["light", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M215.15,40.85A78,78,0,0,0,86.2,121.31l-56.1,56.1a13.94,13.94,0,0,0-4.1,9.9V216a14,14,0,0,0,14,14H72a6,6,0,0,0,6-6V206H96a6,6,0,0,0,6-6V182h18a6,6,0,0,0,4.24-1.76l10.45-10.44A77.59,77.59,0,0,0,160,174h.1A78,78,0,0,0,215.15,40.85ZM226,98.16c-1.12,35.16-30.67,63.8-65.88,63.84a65.93,65.93,0,0,1-24.51-4.67,6,6,0,0,0-6.64,1.26L117.51,170H96a6,6,0,0,0-6,6v18H72a6,6,0,0,0-6,6v18H40a2,2,0,0,1-2-2V187.31a2,2,0,0,1,.58-1.41l58.83-58.83a6,6,0,0,0,1.26-6.64A65.61,65.61,0,0,1,94,95.92C94,60.71,122.68,31.16,157.83,30A66,66,0,0,1,226,98.16ZM190,76a10,10,0,1,1-10-10A10,10,0,0,1,190,76Z" }))],
+		["regular", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,95.92c0-34.14,27.81-62.8,61.9-63.89A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z" }))],
+		["thin", /* @__PURE__ */ import_react$52.createElement(import_react$52.Fragment, null, /* @__PURE__ */ import_react$52.createElement("path", { d: "M213.74,42.26A76,76,0,0,0,88.51,121.84l-57,57A11.93,11.93,0,0,0,28,187.31V216a12,12,0,0,0,12,12H72a4,4,0,0,0,4-4V204H96a4,4,0,0,0,4-4V180h20a4,4,0,0,0,2.83-1.17l11.33-11.34A75.72,75.72,0,0,0,160,172h.1A76,76,0,0,0,213.74,42.26Zm14.22,56c-1.15,36.22-31.6,65.72-67.87,65.77H160a67.52,67.52,0,0,1-25.21-4.83,4,4,0,0,0-4.45.83l-12,12H96a4,4,0,0,0-4,4v20H72a4,4,0,0,0-4,4v20H40a4,4,0,0,1-4-4V187.31a4.06,4.06,0,0,1,1.17-2.83L96,125.66a4,4,0,0,0,.83-4.45A67.51,67.51,0,0,1,92,95.91C92,59.64,121.55,29.19,157.77,28A68,68,0,0,1,228,98.23ZM188,76a8,8,0,1,1-8-8A8,8,0,0,1,188,76Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/LockKey.es.js
-var import_react$47, e$14;
+var import_react$51, e$14;
 var init_LockKey_es$1 = __esmMin((() => {
-	import_react$47 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$51 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$14 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Zm-76-92a32,32,0,0,0-12,61.66V180a12,12,0,0,0,24,0v-6.34A32,32,0,0,0,128,112Zm0,24a8,8,0,1,1-8,8A8,8,0,0,1,128,136Z" }))],
-		["duotone", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M208,76H180V56A52,52,0,0,0,76,56V76H48A20,20,0,0,0,28,96V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V96A20,20,0,0,0,208,76ZM100,56a28,28,0,0,1,56,0V76H100ZM204,204H52V100H204Zm-76-92a32,32,0,0,0-12,61.66V180a12,12,0,0,0,24,0v-6.34A32,32,0,0,0,128,112Zm0,24a8,8,0,1,1-8,8A8,8,0,0,1,128,136Z" }))],
+		["duotone", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", {
 			d: "M208,88H48a8,8,0,0,0-8,8V208a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V96A8,8,0,0,0,208,88Zm-80,72a20,20,0,1,1,20-20A20,20,0,0,1,128,160Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-80-96a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Z" }))],
-		["fill", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-72,78.63V184a8,8,0,0,1-16,0V158.63a24,24,0,1,1,16,0ZM160,80H96V56a32,32,0,0,1,64,0Z" }))],
-		["light", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,82H174V56a46,46,0,0,0-92,0V82H48A14,14,0,0,0,34,96V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V96A14,14,0,0,0,208,82ZM94,56a34,34,0,0,1,68,0V82H94ZM210,208a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V96a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Zm-82-94a26,26,0,0,0-6,51.29V184a6,6,0,0,0,12,0V165.29A26,26,0,0,0,128,114Zm0,40a14,14,0,1,1,14-14A14,14,0,0,1,128,154Z" }))],
-		["regular", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M128,112a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Zm80-72H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z" }))],
-		["thin", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,84H172V56a44,44,0,0,0-88,0V84H48A12,12,0,0,0,36,96V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V96A12,12,0,0,0,208,84ZM92,56a36,36,0,0,1,72,0V84H92ZM212,208a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V96a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-84-92a24,24,0,0,0-4,47.66V184a4,4,0,0,0,8,0V163.66A24,24,0,0,0,128,116Zm0,40a16,16,0,1,1,16-16A16,16,0,0,1,128,156Z" }))]
+		}), /* @__PURE__ */ import_react$51.createElement("path", { d: "M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-80-96a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Z" }))],
+		["fill", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-72,78.63V184a8,8,0,0,1-16,0V158.63a24,24,0,1,1,16,0ZM160,80H96V56a32,32,0,0,1,64,0Z" }))],
+		["light", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M208,82H174V56a46,46,0,0,0-92,0V82H48A14,14,0,0,0,34,96V208a14,14,0,0,0,14,14H208a14,14,0,0,0,14-14V96A14,14,0,0,0,208,82ZM94,56a34,34,0,0,1,68,0V82H94ZM210,208a2,2,0,0,1-2,2H48a2,2,0,0,1-2-2V96a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Zm-82-94a26,26,0,0,0-6,51.29V184a6,6,0,0,0,12,0V165.29A26,26,0,0,0,128,114Zm0,40a14,14,0,1,1,14-14A14,14,0,0,1,128,154Z" }))],
+		["regular", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M128,112a28,28,0,0,0-8,54.83V184a8,8,0,0,0,16,0V166.83A28,28,0,0,0,128,112Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,128,152Zm80-72H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Z" }))],
+		["thin", /* @__PURE__ */ import_react$51.createElement(import_react$51.Fragment, null, /* @__PURE__ */ import_react$51.createElement("path", { d: "M208,84H172V56a44,44,0,0,0-88,0V84H48A12,12,0,0,0,36,96V208a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V96A12,12,0,0,0,208,84ZM92,56a36,36,0,0,1,72,0V84H92ZM212,208a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V96a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-84-92a24,24,0,0,0-4,47.66V184a4,4,0,0,0,8,0V163.66A24,24,0,0,0,128,116Zm0,40a16,16,0,1,1,16-16A16,16,0,0,1,128,156Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/PaperPlaneTilt.es.js
-var import_react$46, e$13;
+var import_react$50, e$13;
 var init_PaperPlaneTilt_es$1 = __esmMin((() => {
-	import_react$46 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$50 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$13 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3.06,37.25L99,157l40.71,83.65a19.81,19.81,0,0,0,18,11.38c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM156.91,221.07l-34.37-70.64,46-45.95a12,12,0,0,0-17-17l-46,46L34.93,99.09,210,46Z" }))],
-		["duotone", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3.06,37.25L99,157l40.71,83.65a19.81,19.81,0,0,0,18,11.38c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM156.91,221.07l-34.37-70.64,46-45.95a12,12,0,0,0-17-17l-46,46L34.93,99.09,210,46Z" }))],
+		["duotone", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", {
 			d: "M223.69,42.18l-58.22,192a8,8,0,0,1-14.92,1.25L108,148,20.58,105.45a8,8,0,0,1,1.25-14.92l192-58.22A8,8,0,0,1,223.69,42.18Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$46.createElement("path", { d: "M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z" }))],
-		["fill", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z" }))],
-		["light", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M225.88,30.12a13.83,13.83,0,0,0-13.7-3.58l-.11,0L20.14,84.77A14,14,0,0,0,18,110.85l85.56,41.64L145.12,238a13.87,13.87,0,0,0,12.61,8c.4,0,.81,0,1.21-.05a13.9,13.9,0,0,0,12.29-10.09l58.2-191.93,0-.11A13.83,13.83,0,0,0,225.88,30.12Zm-8,10.4L159.73,232.43l0,.11a2,2,0,0,1-3.76.26l-40.68-83.58,49-49a6,6,0,1,0-8.49-8.49l-49,49L23.15,100a2,2,0,0,1,.31-3.74l.11,0L215.48,38.08a1.94,1.94,0,0,1,1.92.52A2,2,0,0,1,217.92,40.52Z" }))],
-		["regular", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z" }))],
-		["thin", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M224.47,31.52a11.87,11.87,0,0,0-11.82-3L20.74,86.67a12,12,0,0,0-1.91,22.38L105,151l41.92,86.15A11.88,11.88,0,0,0,157.74,244c.34,0,.69,0,1,0a11.89,11.89,0,0,0,10.52-8.63l58.21-192,0-.08A11.85,11.85,0,0,0,224.47,31.52Zm-4.62,9.54-58.23,192a4,4,0,0,1-7.48.59l-41.3-84.86,50-50a4,4,0,1,0-5.66-5.66l-50,50-84.9-41.31a3.88,3.88,0,0,1-2.27-4,3.93,3.93,0,0,1,3-3.54L214.9,36.16A3.93,3.93,0,0,1,216,36a4,4,0,0,1,2.79,1.19A3.93,3.93,0,0,1,219.85,41.06Z" }))]
+		}), /* @__PURE__ */ import_react$50.createElement("path", { d: "M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z" }))],
+		["fill", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M231.4,44.34s0,.1,0,.15l-58.2,191.94a15.88,15.88,0,0,1-14,11.51q-.69.06-1.38.06a15.86,15.86,0,0,1-14.42-9.15L107,164.15a4,4,0,0,1,.77-4.58l57.92-57.92a8,8,0,0,0-11.31-11.31L96.43,148.26a4,4,0,0,1-4.58.77L17.08,112.64a16,16,0,0,1,2.49-29.8l191.94-58.2.15,0A16,16,0,0,1,231.4,44.34Z" }))],
+		["light", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M225.88,30.12a13.83,13.83,0,0,0-13.7-3.58l-.11,0L20.14,84.77A14,14,0,0,0,18,110.85l85.56,41.64L145.12,238a13.87,13.87,0,0,0,12.61,8c.4,0,.81,0,1.21-.05a13.9,13.9,0,0,0,12.29-10.09l58.2-191.93,0-.11A13.83,13.83,0,0,0,225.88,30.12Zm-8,10.4L159.73,232.43l0,.11a2,2,0,0,1-3.76.26l-40.68-83.58,49-49a6,6,0,1,0-8.49-8.49l-49,49L23.15,100a2,2,0,0,1,.31-3.74l.11,0L215.48,38.08a1.94,1.94,0,0,1,1.92.52A2,2,0,0,1,217.92,40.52Z" }))],
+		["regular", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z" }))],
+		["thin", /* @__PURE__ */ import_react$50.createElement(import_react$50.Fragment, null, /* @__PURE__ */ import_react$50.createElement("path", { d: "M224.47,31.52a11.87,11.87,0,0,0-11.82-3L20.74,86.67a12,12,0,0,0-1.91,22.38L105,151l41.92,86.15A11.88,11.88,0,0,0,157.74,244c.34,0,.69,0,1,0a11.89,11.89,0,0,0,10.52-8.63l58.21-192,0-.08A11.85,11.85,0,0,0,224.47,31.52Zm-4.62,9.54-58.23,192a4,4,0,0,1-7.48.59l-41.3-84.86,50-50a4,4,0,1,0-5.66-5.66l-50,50-84.9-41.31a3.88,3.88,0,0,1-2.27-4,3.93,3.93,0,0,1,3-3.54L214.9,36.16A3.93,3.93,0,0,1,216,36a4,4,0,0,1,2.79,1.19A3.93,3.93,0,0,1,219.85,41.06Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Printer.es.js
-var import_react$45, H$1;
+var import_react$49, H$1;
 var init_Printer_es$1 = __esmMin((() => {
-	import_react$45 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$49 = /* @__PURE__ */ __toESM(require_react(), 1);
 	H$1 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M214.67,68H204V40a12,12,0,0,0-12-12H64A12,12,0,0,0,52,40V68H41.33C25.16,68,12,80.56,12,96v80a12,12,0,0,0,12,12H52v28a12,12,0,0,0,12,12H192a12,12,0,0,0,12-12V188h28a12,12,0,0,0,12-12V96C244,80.56,230.84,68,214.67,68ZM76,52H180V68H76ZM180,204H76V172H180Zm40-40H204v-4a12,12,0,0,0-12-12H64a12,12,0,0,0-12,12v4H36V96c0-2.17,2.44-4,5.33-4H214.67c2.89,0,5.33,1.83,5.33,4Zm-16-44a16,16,0,1,1-16-16A16,16,0,0,1,204,120Z" }))],
-		["duotone", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M214.67,68H204V40a12,12,0,0,0-12-12H64A12,12,0,0,0,52,40V68H41.33C25.16,68,12,80.56,12,96v80a12,12,0,0,0,12,12H52v28a12,12,0,0,0,12,12H192a12,12,0,0,0,12-12V188h28a12,12,0,0,0,12-12V96C244,80.56,230.84,68,214.67,68ZM76,52H180V68H76ZM180,204H76V172H180Zm40-40H204v-4a12,12,0,0,0-12-12H64a12,12,0,0,0-12,12v4H36V96c0-2.17,2.44-4,5.33-4H214.67c2.89,0,5.33,1.83,5.33,4Zm-16-44a16,16,0,1,1-16-16A16,16,0,0,1,204,120Z" }))],
+		["duotone", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", {
 			d: "M232,96v80H192V152H64v24H24V96c0-8.84,7.76-16,17.33-16H214.67C224.24,80,232,87.16,232,96Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$45.createElement("path", { d: "M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z" }))],
-		["fill", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M240,96v80a8,8,0,0,1-8,8H200v32a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V184H24a8,8,0,0,1-8-8V96c0-13.23,11.36-24,25.33-24H56V40a8,8,0,0,1,8-8H192a8,8,0,0,1,8,8V72h14.67C228.64,72,240,82.77,240,96ZM72,72H184V48H72Zm112,88H72v48H184Zm16-44a12,12,0,1,0-12,12A12,12,0,0,0,200,116Z" }))],
-		["light", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M214.67,74H198V40a6,6,0,0,0-6-6H64a6,6,0,0,0-6,6V74H41.33C28.47,74,18,83.87,18,96v80a6,6,0,0,0,6,6H58v34a6,6,0,0,0,6,6H192a6,6,0,0,0,6-6V182h34a6,6,0,0,0,6-6V96C238,83.87,227.53,74,214.67,74ZM70,46H186V74H70ZM186,210H70V158H186Zm40-40H198V152a6,6,0,0,0-6-6H64a6,6,0,0,0-6,6v18H30V96c0-5.51,5.08-10,11.33-10H214.67C220.92,86,226,90.49,226,96Zm-28-54a10,10,0,1,1-10-10A10,10,0,0,1,198,116Z" }))],
-		["regular", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z" }))],
-		["thin", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M214.67,76H196V40a4,4,0,0,0-4-4H64a4,4,0,0,0-4,4V76H41.33C29.57,76,20,85,20,96v80a4,4,0,0,0,4,4H60v36a4,4,0,0,0,4,4H192a4,4,0,0,0,4-4V180h36a4,4,0,0,0,4-4V96C236,85,226.43,76,214.67,76ZM68,44H188V76H68ZM188,212H68V156H188Zm40-40H196V152a4,4,0,0,0-4-4H64a4,4,0,0,0-4,4v20H28V96c0-6.62,6-12,13.33-12H214.67C222,84,228,89.38,228,96Zm-32-56a8,8,0,1,1-8-8A8,8,0,0,1,196,116Z" }))]
+		}), /* @__PURE__ */ import_react$49.createElement("path", { d: "M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z" }))],
+		["fill", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M240,96v80a8,8,0,0,1-8,8H200v32a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V184H24a8,8,0,0,1-8-8V96c0-13.23,11.36-24,25.33-24H56V40a8,8,0,0,1,8-8H192a8,8,0,0,1,8,8V72h14.67C228.64,72,240,82.77,240,96ZM72,72H184V48H72Zm112,88H72v48H184Zm16-44a12,12,0,1,0-12,12A12,12,0,0,0,200,116Z" }))],
+		["light", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M214.67,74H198V40a6,6,0,0,0-6-6H64a6,6,0,0,0-6,6V74H41.33C28.47,74,18,83.87,18,96v80a6,6,0,0,0,6,6H58v34a6,6,0,0,0,6,6H192a6,6,0,0,0,6-6V182h34a6,6,0,0,0,6-6V96C238,83.87,227.53,74,214.67,74ZM70,46H186V74H70ZM186,210H70V158H186Zm40-40H198V152a6,6,0,0,0-6-6H64a6,6,0,0,0-6,6v18H30V96c0-5.51,5.08-10,11.33-10H214.67C220.92,86,226,90.49,226,96Zm-28-54a10,10,0,1,1-10-10A10,10,0,0,1,198,116Z" }))],
+		["regular", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z" }))],
+		["thin", /* @__PURE__ */ import_react$49.createElement(import_react$49.Fragment, null, /* @__PURE__ */ import_react$49.createElement("path", { d: "M214.67,76H196V40a4,4,0,0,0-4-4H64a4,4,0,0,0-4,4V76H41.33C29.57,76,20,85,20,96v80a4,4,0,0,0,4,4H60v36a4,4,0,0,0,4,4H192a4,4,0,0,0,4-4V180h36a4,4,0,0,0,4-4V96C236,85,226.43,76,214.67,76ZM68,44H188V76H68ZM188,212H68V156H188Zm40-40H196V152a4,4,0,0,0-4-4H64a4,4,0,0,0-4,4v20H28V96c0-6.62,6-12,13.33-12H214.67C222,84,228,89.38,228,96Zm-32-56a8,8,0,1,1-8-8A8,8,0,0,1,196,116Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Shield.es.js
-var import_react$44, a$8;
+var import_react$48, a$9;
 var init_Shield_es$1 = __esmMin((() => {
-	import_react$44 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$8 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204Z" }))],
-		["duotone", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", {
+	import_react$48 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$9 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204Z" }))],
+		["duotone", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", {
 			d: "M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$44.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0Z" }))],
-		["fill", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Z" }))],
-		["light", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Z" }))],
-		["regular", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0Z" }))],
-		["thin", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Z" }))]
+		}), /* @__PURE__ */ import_react$48.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0Z" }))],
+		["fill", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Z" }))],
+		["light", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2Z" }))],
+		["regular", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0Z" }))],
+		["thin", /* @__PURE__ */ import_react$48.createElement(import_react$48.Fragment, null, /* @__PURE__ */ import_react$48.createElement("path", { d: "M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ShieldCheck.es.js
-var import_react$43, e$12;
+var import_react$47, e$12;
 var init_ShieldCheck_es$1 = __esmMin((() => {
-	import_react$43 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$47 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$12 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z" }))],
-		["duotone", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z" }))],
+		["duotone", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", {
 			d: "M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$43.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z" }))],
-		["fill", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm-34.32,69.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" }))],
-		["light", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z" }))],
-		["regular", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z" }))],
-		["thin", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-41.17-10.83a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z" }))]
+		}), /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z" }))],
+		["fill", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm-34.32,69.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" }))],
+		["light", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,42H48A14,14,0,0,0,34,56v56c0,51.94,25.12,83.4,46.2,100.64,22.73,18.6,45.27,24.89,46.22,25.15a6,6,0,0,0,3.16,0c.95-.26,23.49-6.55,46.22-25.15C196.88,195.4,222,163.94,222,112V56A14,14,0,0,0,208,42Zm2,70c0,37.76-13.94,68.39-41.44,91.06A131.17,131.17,0,0,1,128,225.72a130.94,130.94,0,0,1-40.56-22.66C59.94,180.39,46,149.76,46,112V56a2,2,0,0,1,2-2H208a2,2,0,0,1,2,2ZM172.24,99.76a6,6,0,0,1,0,8.48l-56,56a6,6,0,0,1-8.48,0l-24-24a6,6,0,0,1,8.48-8.48L112,151.51l51.76-51.75A6,6,0,0,1,172.24,99.76Z" }))],
+		["regular", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z" }))],
+		["thin", /* @__PURE__ */ import_react$47.createElement(import_react$47.Fragment, null, /* @__PURE__ */ import_react$47.createElement("path", { d: "M208,44H48A12,12,0,0,0,36,56v56c0,51.16,24.73,82.12,45.47,99.1,22.4,18.32,44.55,24.5,45.48,24.76a4,4,0,0,0,2.1,0c.93-.26,23.08-6.44,45.48-24.76,20.74-17,45.47-47.94,45.47-99.1V56A12,12,0,0,0,208,44Zm4,68c0,38.44-14.23,69.63-42.29,92.71A132.45,132.45,0,0,1,128,227.82a132.23,132.23,0,0,1-41.71-23.11C58.23,181.63,44,150.44,44,112V56a4,4,0,0,1,4-4H208a4,4,0,0,1,4,4Zm-41.17-10.83a4,4,0,0,1,0,5.66l-56,56a4,4,0,0,1-5.66,0l-24-24a4,4,0,0,1,5.66-5.66L112,154.34l53.17-53.17A4,4,0,0,1,170.83,101.17Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/ShieldWarning.es.js
-var import_react$42, e$11;
+var import_react$46, e$11;
 var init_ShieldWarning_es$1 = __esmMin((() => {
-	import_react$42 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$46 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$11 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M116,132V96a12,12,0,0,1,24,0v36a12,12,0,0,1-24,0Zm12,56a16,16,0,1,0-16-16A16,16,0,0,0,128,188ZM228,56v56c0,54.29-26.32,87.22-48.4,105.29-23.71,19.39-47.44,26-48.44,26.29a12.1,12.1,0,0,1-6.32,0c-1-.28-24.73-6.9-48.44-26.29C54.32,199.22,28,166.29,28,112V56A20,20,0,0,1,48,36H208A20,20,0,0,1,228,56Zm-24,4H52v52c0,35.71,13.09,64.69,38.91,86.15A126.14,126.14,0,0,0,128,219.38a126.28,126.28,0,0,0,37.09-21.23C190.91,176.69,204,147.71,204,112Z" }))],
-		["duotone", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M116,132V96a12,12,0,0,1,24,0v36a12,12,0,0,1-24,0Zm12,56a16,16,0,1,0-16-16A16,16,0,0,0,128,188ZM228,56v56c0,54.29-26.32,87.22-48.4,105.29-23.71,19.39-47.44,26-48.44,26.29a12.1,12.1,0,0,1-6.32,0c-1-.28-24.73-6.9-48.44-26.29C54.32,199.22,28,166.29,28,112V56A20,20,0,0,1,48,36H208A20,20,0,0,1,228,56Zm-24,4H52v52c0,35.71,13.09,64.69,38.91,86.15A126.14,126.14,0,0,0,128,219.38a126.28,126.28,0,0,0,37.09-21.23C190.91,176.69,204,147.71,204,112Z" }))],
+		["duotone", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", {
 			d: "M216,56v56c0,96-88,120-88,120S40,208,40,112V56a8,8,0,0,1,8-8H208A8,8,0,0,1,216,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$42.createElement("path", { d: "M120,136V96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,48a12,12,0,1,0-12-12A12,12,0,0,0,128,184ZM224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Zm-16,0L48,56l0,56c0,37.3,13.82,67.51,41.07,89.81A128.25,128.25,0,0,0,128,223.62a129.3,129.3,0,0,0,39.41-22.2C194.34,179.16,208,149.07,208,112Z" }))],
-		["fill", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40ZM120,96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,88a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z" }))],
-		["light", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M122,136V96a6,6,0,0,1,12,0v40a6,6,0,0,1-12,0Zm6,26a10,10,0,1,0,10,10A10,10,0,0,0,128,162ZM222,56v56c0,51.94-25.12,83.4-46.2,100.64-22.73,18.6-45.27,24.89-46.22,25.15a6,6,0,0,1-3.16,0c-1-.26-23.49-6.55-46.22-25.15C59.12,195.4,34,163.94,34,112V56A14,14,0,0,1,48,42H208A14,14,0,0,1,222,56Zm-12,0a2,2,0,0,0-2-2H48a2,2,0,0,0-2,2v56c0,37.75,13.94,68.39,41.44,91.06A130.94,130.94,0,0,0,128,225.72a131.17,131.17,0,0,0,40.56-22.66C196.06,180.39,210,149.75,210,112Z" }))],
-		["regular", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M120,136V96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,48a12,12,0,1,0-12-12A12,12,0,0,0,128,184ZM224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Zm-16,0L48,56l0,56c0,37.3,13.82,67.51,41.07,89.81A128.25,128.25,0,0,0,128,223.62a129.3,129.3,0,0,0,39.41-22.2C194.34,179.16,208,149.07,208,112Z" }))],
-		["thin", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M124,136V96a4,4,0,0,1,8,0v40a4,4,0,0,1-8,0Zm4,28a8,8,0,1,0,8,8A8,8,0,0,0,128,164ZM220,56v56c0,51.16-24.73,82.12-45.47,99.1-22.4,18.32-44.55,24.5-45.48,24.76a4,4,0,0,1-2.1,0c-.93-.26-23.08-6.44-45.48-24.76C60.73,194.12,36,163.16,36,112V56A12,12,0,0,1,48,44H208A12,12,0,0,1,220,56Zm-8,0a4,4,0,0,0-4-4H48a4,4,0,0,0-4,4v56c0,38.44,14.23,69.63,42.29,92.71A132.23,132.23,0,0,0,128,227.82a132.45,132.45,0,0,0,41.71-23.11C197.77,181.63,212,150.44,212,112Z" }))]
+		}), /* @__PURE__ */ import_react$46.createElement("path", { d: "M120,136V96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,48a12,12,0,1,0-12-12A12,12,0,0,0,128,184ZM224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Zm-16,0L48,56l0,56c0,37.3,13.82,67.51,41.07,89.81A128.25,128.25,0,0,0,128,223.62a129.3,129.3,0,0,0,39.41-22.2C194.34,179.16,208,149.07,208,112Z" }))],
+		["fill", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.27,47,25.53a8,8,0,0,0,4.2,0c1-.26,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40ZM120,96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,88a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z" }))],
+		["light", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M122,136V96a6,6,0,0,1,12,0v40a6,6,0,0,1-12,0Zm6,26a10,10,0,1,0,10,10A10,10,0,0,0,128,162ZM222,56v56c0,51.94-25.12,83.4-46.2,100.64-22.73,18.6-45.27,24.89-46.22,25.15a6,6,0,0,1-3.16,0c-1-.26-23.49-6.55-46.22-25.15C59.12,195.4,34,163.94,34,112V56A14,14,0,0,1,48,42H208A14,14,0,0,1,222,56Zm-12,0a2,2,0,0,0-2-2H48a2,2,0,0,0-2,2v56c0,37.75,13.94,68.39,41.44,91.06A130.94,130.94,0,0,0,128,225.72a131.17,131.17,0,0,0,40.56-22.66C196.06,180.39,210,149.75,210,112Z" }))],
+		["regular", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M120,136V96a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm8,48a12,12,0,1,0-12-12A12,12,0,0,0,128,184ZM224,56v56c0,52.72-25.52,84.67-46.93,102.19-23.06,18.86-46,25.27-47,25.53a8,8,0,0,1-4.2,0c-1-.26-23.91-6.67-47-25.53C57.52,196.67,32,164.72,32,112V56A16,16,0,0,1,48,40H208A16,16,0,0,1,224,56Zm-16,0L48,56l0,56c0,37.3,13.82,67.51,41.07,89.81A128.25,128.25,0,0,0,128,223.62a129.3,129.3,0,0,0,39.41-22.2C194.34,179.16,208,149.07,208,112Z" }))],
+		["thin", /* @__PURE__ */ import_react$46.createElement(import_react$46.Fragment, null, /* @__PURE__ */ import_react$46.createElement("path", { d: "M124,136V96a4,4,0,0,1,8,0v40a4,4,0,0,1-8,0Zm4,28a8,8,0,1,0,8,8A8,8,0,0,0,128,164ZM220,56v56c0,51.16-24.73,82.12-45.47,99.1-22.4,18.32-44.55,24.5-45.48,24.76a4,4,0,0,1-2.1,0c-.93-.26-23.08-6.44-45.48-24.76C60.73,194.12,36,163.16,36,112V56A12,12,0,0,1,48,44H208A12,12,0,0,1,220,56Zm-8,0a4,4,0,0,0-4-4H48a4,4,0,0,0-4,4v56c0,38.44,14.23,69.63,42.29,92.71A132.23,132.23,0,0,0,128,227.82a132.45,132.45,0,0,0,41.71-23.11C197.77,181.63,212,150.44,212,112Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/SignOut.es.js
-var import_react$41, e$10;
+var import_react$45, e$10;
 var init_SignOut_es$1 = __esmMin((() => {
-	import_react$41 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$45 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$10 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M124,216a12,12,0,0,1-12,12H48a12,12,0,0,1-12-12V40A12,12,0,0,1,48,28h64a12,12,0,0,1,0,24H60V204h52A12,12,0,0,1,124,216Zm108.49-96.49-40-40a12,12,0,0,0-17,17L195,116H112a12,12,0,0,0,0,24h83l-19.52,19.51a12,12,0,0,0,17,17l40-40A12,12,0,0,0,232.49,119.51Z" }))],
-		["duotone", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M124,216a12,12,0,0,1-12,12H48a12,12,0,0,1-12-12V40A12,12,0,0,1,48,28h64a12,12,0,0,1,0,24H60V204h52A12,12,0,0,1,124,216Zm108.49-96.49-40-40a12,12,0,0,0-17,17L195,116H112a12,12,0,0,0,0,24h83l-19.52,19.51a12,12,0,0,0,17,17l40-40A12,12,0,0,0,232.49,119.51Z" }))],
+		["duotone", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", {
 			d: "M224,56V200a16,16,0,0,1-16,16H48V40H208A16,16,0,0,1,224,56Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$41.createElement("path", { d: "M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z" }))],
-		["fill", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40A8,8,0,0,0,176,88v32H112a8,8,0,0,0,0,16h64v32a8,8,0,0,0,13.66,5.66l40-40A8,8,0,0,0,229.66,122.34Z" }))],
-		["light", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M118,216a6,6,0,0,1-6,6H48a6,6,0,0,1-6-6V40a6,6,0,0,1,6-6h64a6,6,0,0,1,0,12H54V210h58A6,6,0,0,1,118,216Zm110.24-92.24-40-40a6,6,0,0,0-8.48,8.48L209.51,122H112a6,6,0,0,0,0,12h97.51l-29.75,29.76a6,6,0,1,0,8.48,8.48l40-40A6,6,0,0,0,228.24,123.76Z" }))],
-		["regular", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z" }))],
-		["thin", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M116,216a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4h64a4,4,0,0,1,0,8H52V212h60A4,4,0,0,1,116,216Zm110.83-90.83-40-40a4,4,0,0,0-5.66,5.66L214.34,124H112a4,4,0,0,0,0,8H214.34l-33.17,33.17a4,4,0,0,0,5.66,5.66l40-40A4,4,0,0,0,226.83,125.17Z" }))]
+		}), /* @__PURE__ */ import_react$45.createElement("path", { d: "M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z" }))],
+		["fill", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40A8,8,0,0,0,176,88v32H112a8,8,0,0,0,0,16h64v32a8,8,0,0,0,13.66,5.66l40-40A8,8,0,0,0,229.66,122.34Z" }))],
+		["light", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M118,216a6,6,0,0,1-6,6H48a6,6,0,0,1-6-6V40a6,6,0,0,1,6-6h64a6,6,0,0,1,0,12H54V210h58A6,6,0,0,1,118,216Zm110.24-92.24-40-40a6,6,0,0,0-8.48,8.48L209.51,122H112a6,6,0,0,0,0,12h97.51l-29.75,29.76a6,6,0,1,0,8.48,8.48l40-40A6,6,0,0,0,228.24,123.76Z" }))],
+		["regular", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z" }))],
+		["thin", /* @__PURE__ */ import_react$45.createElement(import_react$45.Fragment, null, /* @__PURE__ */ import_react$45.createElement("path", { d: "M116,216a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V40a4,4,0,0,1,4-4h64a4,4,0,0,1,0,8H52V212h60A4,4,0,0,1,116,216Zm110.83-90.83-40-40a4,4,0,0,0-5.66,5.66L214.34,124H112a4,4,0,0,0,0,8H214.34l-33.17,33.17a4,4,0,0,0,5.66,5.66l40-40A4,4,0,0,0,226.83,125.17Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/SquaresFour.es.js
-var import_react$40, e$9;
+var import_react$44, e$9;
 var init_SquaresFour_es$1 = __esmMin((() => {
-	import_react$40 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$44 = /* @__PURE__ */ __toESM(require_react(), 1);
 	e$9 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$40.createElement(import_react$40.Fragment, null, /* @__PURE__ */ import_react$40.createElement("path", { d: "M100,36H56A20,20,0,0,0,36,56v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,100,36ZM96,96H60V60H96ZM200,36H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Zm-4,60H160V60h36Zm-96,40H56a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,100,136Zm-4,60H60V160H96Zm104-60H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,200,136Zm-4,60H160V160h36Z" }))],
-		["duotone", /* @__PURE__ */ import_react$40.createElement(import_react$40.Fragment, null, /* @__PURE__ */ import_react$40.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M100,36H56A20,20,0,0,0,36,56v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,100,36ZM96,96H60V60H96ZM200,36H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Zm-4,60H160V60h36Zm-96,40H56a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,100,136Zm-4,60H60V160H96Zm104-60H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,200,136Zm-4,60H160V160h36Z" }))],
+		["duotone", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", {
 			d: "M112,56v48a8,8,0,0,1-8,8H56a8,8,0,0,1-8-8V56a8,8,0,0,1,8-8h48A8,8,0,0,1,112,56Zm88-8H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V56A8,8,0,0,0,200,48Zm-96,96H56a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,104,144Zm96,0H152a8,8,0,0,0-8,8v48a8,8,0,0,0,8,8h48a8,8,0,0,0,8-8V152A8,8,0,0,0,200,144Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$40.createElement("path", { d: "M200,136H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48ZM104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Z" }))],
-		["fill", /* @__PURE__ */ import_react$40.createElement(import_react$40.Fragment, null, /* @__PURE__ */ import_react$40.createElement("path", { d: "M120,56v48a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40h48A16,16,0,0,1,120,56Zm80-16H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-96,96H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm96,0H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Z" }))],
-		["light", /* @__PURE__ */ import_react$40.createElement(import_react$40.Fragment, null, /* @__PURE__ */ import_react$40.createElement("path", { d: "M104,42H56A14,14,0,0,0,42,56v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V56A14,14,0,0,0,104,42Zm2,62a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm94-62H152a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V56A14,14,0,0,0,200,42Zm2,62a2,2,0,0,1-2,2H152a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm-98,34H56a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V152A14,14,0,0,0,104,138Zm2,62a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V152a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm94-62H152a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V152A14,14,0,0,0,200,138Zm2,62a2,2,0,0,1-2,2H152a2,2,0,0,1-2-2V152a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Z" }))],
-		["regular", /* @__PURE__ */ import_react$40.createElement(import_react$40.Fragment, null, /* @__PURE__ */ import_react$40.createElement("path", { d: "M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z" }))],
-		["thin", /* @__PURE__ */ import_react$40.createElement(import_react$40.Fragment, null, /* @__PURE__ */ import_react$40.createElement("path", { d: "M104,44H56A12,12,0,0,0,44,56v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V56A12,12,0,0,0,104,44Zm4,60a4,4,0,0,1-4,4H56a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4Zm92-60H152a12,12,0,0,0-12,12v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V56A12,12,0,0,0,200,44Zm4,60a4,4,0,0,1-4,4H152a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4ZM104,140H56a12,12,0,0,0-12,12v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V152A12,12,0,0,0,104,140Zm4,60a4,4,0,0,1-4,4H56a4,4,0,0,1-4-4V152a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4Zm92-60H152a12,12,0,0,0-12,12v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V152A12,12,0,0,0,200,140Zm4,60a4,4,0,0,1-4,4H152a4,4,0,0,1-4-4V152a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4Z" }))]
+		}), /* @__PURE__ */ import_react$44.createElement("path", { d: "M200,136H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48ZM104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Z" }))],
+		["fill", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M120,56v48a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40h48A16,16,0,0,1,120,56Zm80-16H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-96,96H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm96,0H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Z" }))],
+		["light", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M104,42H56A14,14,0,0,0,42,56v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V56A14,14,0,0,0,104,42Zm2,62a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm94-62H152a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V56A14,14,0,0,0,200,42Zm2,62a2,2,0,0,1-2,2H152a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm-98,34H56a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V152A14,14,0,0,0,104,138Zm2,62a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V152a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm94-62H152a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V152A14,14,0,0,0,200,138Zm2,62a2,2,0,0,1-2,2H152a2,2,0,0,1-2-2V152a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Z" }))],
+		["regular", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z" }))],
+		["thin", /* @__PURE__ */ import_react$44.createElement(import_react$44.Fragment, null, /* @__PURE__ */ import_react$44.createElement("path", { d: "M104,44H56A12,12,0,0,0,44,56v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V56A12,12,0,0,0,104,44Zm4,60a4,4,0,0,1-4,4H56a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4Zm92-60H152a12,12,0,0,0-12,12v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V56A12,12,0,0,0,200,44Zm4,60a4,4,0,0,1-4,4H152a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4ZM104,140H56a12,12,0,0,0-12,12v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V152A12,12,0,0,0,104,140Zm4,60a4,4,0,0,1-4,4H56a4,4,0,0,1-4-4V152a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4Zm92-60H152a12,12,0,0,0-12,12v48a12,12,0,0,0,12,12h48a12,12,0,0,0,12-12V152A12,12,0,0,0,200,140Zm4,60a4,4,0,0,1-4,4H152a4,4,0,0,1-4-4V152a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/Target.es.js
-var import_react$39, a$7;
+var import_react$43, a$8;
 var init_Target_es$1 = __esmMin((() => {
-	import_react$39 = /* @__PURE__ */ __toESM(require_react(), 1);
-	a$7 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$39.createElement(import_react$39.Fragment, null, /* @__PURE__ */ import_react$39.createElement("path", { d: "M229.26,90.4a108,108,0,0,1-177.63,114A108,108,0,0,1,195.41,43.63l20.1-20.11a12,12,0,0,1,17,17l-96,96a12,12,0,1,1-17-17l24-24a36,36,0,1,0,19.76,39.65,12,12,0,0,1,23.53,4.74,60,60,0,1,1-25.73-62L178.3,60.74a84,84,0,1,0,28.46,38,12,12,0,1,1,22.5-8.35Z" }))],
-		["duotone", /* @__PURE__ */ import_react$39.createElement(import_react$39.Fragment, null, /* @__PURE__ */ import_react$39.createElement("path", {
+	import_react$43 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$8 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M229.26,90.4a108,108,0,0,1-177.63,114A108,108,0,0,1,195.41,43.63l20.1-20.11a12,12,0,0,1,17,17l-96,96a12,12,0,1,1-17-17l24-24a36,36,0,1,0,19.76,39.65,12,12,0,0,1,23.53,4.74,60,60,0,1,1-25.73-62L178.3,60.74a84,84,0,1,0,28.46,38,12,12,0,1,1,22.5-8.35Z" }))],
+		["duotone", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", {
 			d: "M176,128a48,48,0,1,1-48-48A48,48,0,0,1,176,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$39.createElement("path", { d: "M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z" }))],
-		["fill", /* @__PURE__ */ import_react$39.createElement(import_react$39.Fragment, null, /* @__PURE__ */ import_react$39.createElement("path", { d: "M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32L167.6,99.71h0l-37.71,37.71-23.95,23.95a40,40,0,0,0,62-35.67,8,8,0,1,1,16-.9,56,56,0,0,1-95.5,42.79h0a56,56,0,0,1,73.13-84.43L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z" }))],
-		["light", /* @__PURE__ */ import_react$39.createElement(import_react$39.Fragment, null, /* @__PURE__ */ import_react$39.createElement("path", { d: "M220.06,84a102.06,102.06,0,1,1-24.31-32.27l24-24a6,6,0,0,1,8.48,8.49l-96,96a6,6,0,1,1-8.48-8.49l29.39-29.4a42,42,0,1,0,16.78,31.24,6,6,0,1,1,12-.68A54,54,0,1,1,161.7,85.83l25.54-25.55a89.91,89.91,0,1,0,22,28.93A6,6,0,1,1,220.06,84Z" }))],
-		["regular", /* @__PURE__ */ import_react$39.createElement(import_react$39.Fragment, null, /* @__PURE__ */ import_react$39.createElement("path", { d: "M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z" }))],
-		["thin", /* @__PURE__ */ import_react$39.createElement(import_react$39.Fragment, null, /* @__PURE__ */ import_react$39.createElement("path", { d: "M218.26,84.89a100.16,100.16,0,1,1-22.44-30.37l25.35-25.35a4,4,0,1,1,5.66,5.66l-96,96a4,4,0,0,1-5.66-5.66l31-31a44,44,0,1,0,15.78,31.3,4,4,0,0,1,8-.46,52,52,0,1,1-18.1-36.51l28.34-28.33A92,92,0,0,0,63,193.05,92,92,0,0,0,211,88.33a4,4,0,1,1,7.22-3.44Z" }))]
+		}), /* @__PURE__ */ import_react$43.createElement("path", { d: "M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z" }))],
+		["fill", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32L167.6,99.71h0l-37.71,37.71-23.95,23.95a40,40,0,0,0,62-35.67,8,8,0,1,1,16-.9,56,56,0,0,1-95.5,42.79h0a56,56,0,0,1,73.13-84.43L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z" }))],
+		["light", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M220.06,84a102.06,102.06,0,1,1-24.31-32.27l24-24a6,6,0,0,1,8.48,8.49l-96,96a6,6,0,1,1-8.48-8.49l29.39-29.4a42,42,0,1,0,16.78,31.24,6,6,0,1,1,12-.68A54,54,0,1,1,161.7,85.83l25.54-25.55a89.91,89.91,0,1,0,22,28.93A6,6,0,1,1,220.06,84Z" }))],
+		["regular", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z" }))],
+		["thin", /* @__PURE__ */ import_react$43.createElement(import_react$43.Fragment, null, /* @__PURE__ */ import_react$43.createElement("path", { d: "M218.26,84.89a100.16,100.16,0,1,1-22.44-30.37l25.35-25.35a4,4,0,1,1,5.66,5.66l-96,96a4,4,0,0,1-5.66-5.66l31-31a44,44,0,1,0,15.78,31.3,4,4,0,0,1,8-.46,52,52,0,1,1-18.1-36.51l28.34-28.33A92,92,0,0,0,63,193.05,92,92,0,0,0,211,88.33a4,4,0,1,1,7.22-3.44Z" }))]
+	]);
+}));
+//#endregion
+//#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/UserCircle.es.js
+var import_react$42, a$7;
+var init_UserCircle_es$1 = __esmMin((() => {
+	import_react$42 = /* @__PURE__ */ __toESM(require_react(), 1);
+	a$7 = /* @__PURE__ */ new Map([
+		["bold", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20ZM79.57,196.57a60,60,0,0,1,96.86,0,83.72,83.72,0,0,1-96.86,0ZM100,120a28,28,0,1,1,28,28A28,28,0,0,1,100,120ZM194,179.94a83.48,83.48,0,0,0-29-23.42,52,52,0,1,0-74,0,83.48,83.48,0,0,0-29,23.42,84,84,0,1,1,131.9,0Z" }))],
+		["duotone", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", {
+			d: "M224,128a95.76,95.76,0,0,1-31.8,71.37A72,72,0,0,0,128,160a40,40,0,1,0-40-40,40,40,0,0,0,40,40,72,72,0,0,0-64.2,39.37h0A96,96,0,1,1,224,128Z",
+			opacity: "0.2"
+		}), /* @__PURE__ */ import_react$42.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z" }))],
+		["fill", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M172,120a44,44,0,1,1-44-44A44.05,44.05,0,0,1,172,120Zm60,8A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88.09,88.09,0,0,0-91.47-87.93C77.43,41.89,39.87,81.12,40,128.25a87.65,87.65,0,0,0,22.24,58.16A79.71,79.71,0,0,1,84,165.1a4,4,0,0,1,4.83.32,59.83,59.83,0,0,0,78.28,0,4,4,0,0,1,4.83-.32,79.71,79.71,0,0,1,21.79,21.31A87.62,87.62,0,0,0,216,128Z" }))],
+		["light", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26ZM71.44,198a66,66,0,0,1,113.12,0,89.8,89.8,0,0,1-113.12,0ZM94,120a34,34,0,1,1,34,34A34,34,0,0,1,94,120Zm99.51,69.64a77.53,77.53,0,0,0-40-31.38,46,46,0,1,0-51,0,77.53,77.53,0,0,0-40,31.38,90,90,0,1,1,131,0Z" }))],
+		["regular", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z" }))],
+		["thin", /* @__PURE__ */ import_react$42.createElement(import_react$42.Fragment, null, /* @__PURE__ */ import_react$42.createElement("path", { d: "M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28ZM68.87,198.42a68,68,0,0,1,118.26,0,91.8,91.8,0,0,1-118.26,0Zm124.3-5.55a75.61,75.61,0,0,0-44.51-34,44,44,0,1,0-41.32,0,75.61,75.61,0,0,0-44.51,34,92,92,0,1,1,130.34,0ZM128,156a36,36,0,1,1,36-36A36,36,0,0,1,128,156Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/defs/WarningCircle.es.js
-var import_react$38, a$6;
+var import_react$41, a$6;
 var init_WarningCircle_es$1 = __esmMin((() => {
-	import_react$38 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$41 = /* @__PURE__ */ __toESM(require_react(), 1);
 	a$6 = /* @__PURE__ */ new Map([
-		["bold", /* @__PURE__ */ import_react$38.createElement(import_react$38.Fragment, null, /* @__PURE__ */ import_react$38.createElement("path", { d: "M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm-12-80V80a12,12,0,0,1,24,0v52a12,12,0,0,1-24,0Zm28,40a16,16,0,1,1-16-16A16,16,0,0,1,144,172Z" }))],
-		["duotone", /* @__PURE__ */ import_react$38.createElement(import_react$38.Fragment, null, /* @__PURE__ */ import_react$38.createElement("path", {
+		["bold", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm-12-80V80a12,12,0,0,1,24,0v52a12,12,0,0,1-24,0Zm28,40a16,16,0,1,1-16-16A16,16,0,0,1,144,172Z" }))],
+		["duotone", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", {
 			d: "M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z",
 			opacity: "0.2"
-		}), /* @__PURE__ */ import_react$38.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z" }))],
-		["fill", /* @__PURE__ */ import_react$38.createElement(import_react$38.Fragment, null, /* @__PURE__ */ import_react$38.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-8,56a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm8,104a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z" }))],
-		["light", /* @__PURE__ */ import_react$38.createElement(import_react$38.Fragment, null, /* @__PURE__ */ import_react$38.createElement("path", { d: "M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm-6-82V80a6,6,0,0,1,12,0v56a6,6,0,0,1-12,0Zm16,36a10,10,0,1,1-10-10A10,10,0,0,1,138,172Z" }))],
-		["regular", /* @__PURE__ */ import_react$38.createElement(import_react$38.Fragment, null, /* @__PURE__ */ import_react$38.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z" }))],
-		["thin", /* @__PURE__ */ import_react$38.createElement(import_react$38.Fragment, null, /* @__PURE__ */ import_react$38.createElement("path", { d: "M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm-4-84V80a4,4,0,0,1,8,0v56a4,4,0,0,1-8,0Zm12,36a8,8,0,1,1-8-8A8,8,0,0,1,136,172Z" }))]
+		}), /* @__PURE__ */ import_react$41.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z" }))],
+		["fill", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-8,56a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm8,104a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z" }))],
+		["light", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M128,26A102,102,0,1,0,230,128,102.12,102.12,0,0,0,128,26Zm0,192a90,90,0,1,1,90-90A90.1,90.1,0,0,1,128,218Zm-6-82V80a6,6,0,0,1,12,0v56a6,6,0,0,1-12,0Zm16,36a10,10,0,1,1-10-10A10,10,0,0,1,138,172Z" }))],
+		["regular", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z" }))],
+		["thin", /* @__PURE__ */ import_react$41.createElement(import_react$41.Fragment, null, /* @__PURE__ */ import_react$41.createElement("path", { d: "M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm-4-84V80a4,4,0,0,1,8,0v56a4,4,0,0,1-8,0Zm12,36a8,8,0,1,1-8-8A8,8,0,0,1,136,172Z" }))]
 	]);
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/lib/context.es.js
-var import_react$37, o$9;
+var import_react$40, o$9;
 var init_context_es = __esmMin((() => {
-	import_react$37 = /* @__PURE__ */ __toESM(require_react(), 1);
-	o$9 = (0, import_react$37.createContext)({
+	import_react$40 = /* @__PURE__ */ __toESM(require_react(), 1);
+	o$9 = (0, import_react$40.createContext)({
 		color: "currentColor",
 		size: "1em",
 		weight: "regular",
@@ -43930,13 +43986,13 @@ var init_context_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/lib/IconBase.es.js
-var import_react$36, p$3;
+var import_react$39, p$3;
 var init_IconBase_es = __esmMin((() => {
-	import_react$36 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$39 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_context_es();
-	p$3 = import_react$36.forwardRef((s, a) => {
-		const { alt: n, color: r, size: t, weight: o, mirrored: c, children: i, weights: m, ...x } = s, { color: d = "currentColor", size: l, weight: f = "regular", mirrored: g = !1, ...w } = import_react$36.useContext(o$9);
-		return /* @__PURE__ */ import_react$36.createElement("svg", {
+	p$3 = import_react$39.forwardRef((s, a) => {
+		const { alt: n, color: r, size: t, weight: o, mirrored: c, children: i, weights: m, ...x } = s, { color: d = "currentColor", size: l, weight: f = "regular", mirrored: g = !1, ...w } = import_react$39.useContext(o$9);
+		return /* @__PURE__ */ import_react$39.createElement("svg", {
 			ref: a,
 			xmlns: "http://www.w3.org/2000/svg",
 			width: t != null ? t : l,
@@ -43946,108 +44002,108 @@ var init_IconBase_es = __esmMin((() => {
 			transform: c || g ? "scale(-1, 1)" : void 0,
 			...w,
 			...x
-		}, !!n && /* @__PURE__ */ import_react$36.createElement("title", null, n), i, m.get(o != null ? o : f));
+		}, !!n && /* @__PURE__ */ import_react$39.createElement("title", null, n), i, m.get(o != null ? o : f));
 	});
 	p$3.displayName = "IconBase";
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ArrowCounterClockwise.es.js
-var import_react$35, r$6, i$3;
+var import_react$38, r$7, i$3;
 var init_ArrowCounterClockwise_es = __esmMin((() => {
-	import_react$35 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$38 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ArrowCounterClockwise_es$1();
-	r$6 = import_react$35.forwardRef((e, t) => /* @__PURE__ */ import_react$35.createElement(p$3, {
+	r$7 = import_react$38.forwardRef((e, t) => /* @__PURE__ */ import_react$38.createElement(p$3, {
 		ref: t,
 		...e,
-		weights: e$23
+		weights: e$24
 	}));
-	r$6.displayName = "ArrowCounterClockwiseIcon";
-	i$3 = r$6;
+	r$7.displayName = "ArrowCounterClockwiseIcon";
+	i$3 = r$7;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ArrowLeft.es.js
-var import_react$34, r$5, s$6;
+var import_react$37, r$6, s$7;
 var init_ArrowLeft_es = __esmMin((() => {
-	import_react$34 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$37 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ArrowLeft_es$1();
-	r$5 = import_react$34.forwardRef((e, t) => /* @__PURE__ */ import_react$34.createElement(p$3, {
+	r$6 = import_react$37.forwardRef((e, t) => /* @__PURE__ */ import_react$37.createElement(p$3, {
 		ref: t,
 		...e,
-		weights: a$14
+		weights: a$15
 	}));
-	r$5.displayName = "ArrowLeftIcon";
-	s$6 = r$5;
+	r$6.displayName = "ArrowLeftIcon";
+	s$7 = r$6;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ArrowRight.es.js
-var import_react$33, r$4, s$5;
+var import_react$36, r$5, s$6;
 var init_ArrowRight_es = __esmMin((() => {
-	import_react$33 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$36 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ArrowRight_es$1();
-	r$4 = import_react$33.forwardRef((t, e) => /* @__PURE__ */ import_react$33.createElement(p$3, {
+	r$5 = import_react$36.forwardRef((t, e) => /* @__PURE__ */ import_react$36.createElement(p$3, {
+		ref: e,
+		...t,
+		weights: a$14
+	}));
+	r$5.displayName = "ArrowRightIcon";
+	s$6 = r$5;
+}));
+//#endregion
+//#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ArrowUpRight.es.js
+var import_react$35, r$4, c$9;
+var init_ArrowUpRight_es = __esmMin((() => {
+	import_react$35 = /* @__PURE__ */ __toESM(require_react(), 1);
+	init_IconBase_es();
+	init_ArrowUpRight_es$1();
+	r$4 = import_react$35.forwardRef((t, e) => /* @__PURE__ */ import_react$35.createElement(p$3, {
 		ref: e,
 		...t,
 		weights: a$13
 	}));
-	r$4.displayName = "ArrowRightIcon";
-	s$5 = r$4;
-}));
-//#endregion
-//#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ArrowUpRight.es.js
-var import_react$32, r$3, c$9;
-var init_ArrowUpRight_es = __esmMin((() => {
-	import_react$32 = /* @__PURE__ */ __toESM(require_react(), 1);
-	init_IconBase_es();
-	init_ArrowUpRight_es$1();
-	r$3 = import_react$32.forwardRef((t, e) => /* @__PURE__ */ import_react$32.createElement(p$3, {
-		ref: e,
-		...t,
-		weights: a$12
-	}));
-	r$3.displayName = "ArrowUpRightIcon";
-	c$9 = r$3;
+	r$4.displayName = "ArrowUpRightIcon";
+	c$9 = r$4;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ArrowsClockwise.es.js
-var import_react$31, r$2, m$6;
+var import_react$34, r$3, m$7;
 var init_ArrowsClockwise_es = __esmMin((() => {
-	import_react$31 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$34 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ArrowsClockwise_es$1();
-	r$2 = import_react$31.forwardRef((e, s) => /* @__PURE__ */ import_react$31.createElement(p$3, {
+	r$3 = import_react$34.forwardRef((e, s) => /* @__PURE__ */ import_react$34.createElement(p$3, {
 		ref: s,
 		...e,
-		weights: e$22
+		weights: e$23
 	}));
-	r$2.displayName = "ArrowsClockwiseIcon";
-	m$6 = r$2;
+	r$3.displayName = "ArrowsClockwiseIcon";
+	m$7 = r$3;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/BookOpen.es.js
-var import_react$30, e$8, c$8;
+var import_react$33, e$8, c$8;
 var init_BookOpen_es = __esmMin((() => {
-	import_react$30 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$33 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_BookOpen_es$1();
-	e$8 = import_react$30.forwardRef((r, t) => /* @__PURE__ */ import_react$30.createElement(p$3, {
+	e$8 = import_react$33.forwardRef((r, t) => /* @__PURE__ */ import_react$33.createElement(p$3, {
 		ref: t,
 		...r,
-		weights: e$21
+		weights: e$22
 	}));
 	e$8.displayName = "BookOpenIcon";
 	c$8 = e$8;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/BracketsCurly.es.js
-var import_react$29, e$7, n$12;
+var import_react$32, e$7, n$12;
 var init_BracketsCurly_es = __esmMin((() => {
-	import_react$29 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$32 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_BracketsCurly_es$1();
-	e$7 = import_react$29.forwardRef((o, t) => /* @__PURE__ */ import_react$29.createElement(p$3, {
+	e$7 = import_react$32.forwardRef((o, t) => /* @__PURE__ */ import_react$32.createElement(p$3, {
 		ref: t,
 		...o,
 		weights: c$10
@@ -44057,117 +44113,117 @@ var init_BracketsCurly_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ChartBar.es.js
-var import_react$28, a$5, n$11;
+var import_react$31, a$5, n$11;
 var init_ChartBar_es = __esmMin((() => {
-	import_react$28 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$31 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ChartBar_es$1();
-	a$5 = import_react$28.forwardRef((o, t) => /* @__PURE__ */ import_react$28.createElement(p$3, {
+	a$5 = import_react$31.forwardRef((o, t) => /* @__PURE__ */ import_react$31.createElement(p$3, {
 		ref: t,
 		...o,
-		weights: e$20
+		weights: e$21
 	}));
 	a$5.displayName = "ChartBarIcon";
 	n$11 = a$5;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Check.es.js
-var import_react$27, o$8, n$10;
+var import_react$30, o$8, n$10;
 var init_Check_es = __esmMin((() => {
-	import_react$27 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$30 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Check_es$1();
-	o$8 = import_react$27.forwardRef((c, r) => /* @__PURE__ */ import_react$27.createElement(p$3, {
+	o$8 = import_react$30.forwardRef((c, r) => /* @__PURE__ */ import_react$30.createElement(p$3, {
 		ref: r,
 		...c,
-		weights: a$11
+		weights: a$12
 	}));
 	o$8.displayName = "CheckIcon";
 	n$10 = o$8;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/CheckCircle.es.js
-var import_react$26, c$7, s$4;
+var import_react$29, c$7, s$5;
 var init_CheckCircle_es = __esmMin((() => {
-	import_react$26 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$29 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_CheckCircle_es$1();
-	c$7 = import_react$26.forwardRef((o, r) => /* @__PURE__ */ import_react$26.createElement(p$3, {
+	c$7 = import_react$29.forwardRef((o, r) => /* @__PURE__ */ import_react$29.createElement(p$3, {
 		ref: r,
 		...o,
-		weights: a$10
+		weights: a$11
 	}));
 	c$7.displayName = "CheckCircleIcon";
-	s$4 = c$7;
+	s$5 = c$7;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Clock.es.js
-var import_react$25, c$6, n$9;
+var import_react$28, c$6, n$9;
 var init_Clock_es = __esmMin((() => {
-	import_react$25 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$28 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Clock_es$1();
-	c$6 = import_react$25.forwardRef((e, r) => /* @__PURE__ */ import_react$25.createElement(p$3, {
+	c$6 = import_react$28.forwardRef((e, r) => /* @__PURE__ */ import_react$28.createElement(p$3, {
 		ref: r,
 		...e,
-		weights: a$9
+		weights: a$10
 	}));
 	c$6.displayName = "ClockIcon";
 	n$9 = c$6;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/CodeBlock.es.js
-var import_react$24, e$6, n$8;
+var import_react$27, e$6, n$8;
 var init_CodeBlock_es = __esmMin((() => {
-	import_react$24 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$27 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_CodeBlock_es$1();
-	e$6 = import_react$24.forwardRef((c, r) => /* @__PURE__ */ import_react$24.createElement(p$3, {
+	e$6 = import_react$27.forwardRef((c, r) => /* @__PURE__ */ import_react$27.createElement(p$3, {
 		ref: r,
 		...c,
-		weights: e$19
+		weights: e$20
 	}));
 	e$6.displayName = "CodeBlockIcon";
 	n$8 = e$6;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Database.es.js
-var import_react$23, e$5, n$7;
+var import_react$26, e$5, n$7;
 var init_Database_es = __esmMin((() => {
-	import_react$23 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$26 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Database_es$1();
-	e$5 = import_react$23.forwardRef((o, t) => /* @__PURE__ */ import_react$23.createElement(p$3, {
+	e$5 = import_react$26.forwardRef((o, t) => /* @__PURE__ */ import_react$26.createElement(p$3, {
 		ref: t,
 		...o,
-		weights: t$3
+		weights: t$4
 	}));
 	e$5.displayName = "DatabaseIcon";
 	n$7 = e$5;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/DownloadSimple.es.js
-var import_react$22, e$4, l$2;
+var import_react$25, e$4, l$2;
 var init_DownloadSimple_es = __esmMin((() => {
-	import_react$22 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$25 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_DownloadSimple_es$1();
-	e$4 = import_react$22.forwardRef((a, m) => /* @__PURE__ */ import_react$22.createElement(p$3, {
+	e$4 = import_react$25.forwardRef((a, m) => /* @__PURE__ */ import_react$25.createElement(p$3, {
 		ref: m,
 		...a,
-		weights: e$18
+		weights: e$19
 	}));
 	e$4.displayName = "DownloadSimpleIcon";
 	l$2 = e$4;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Exam.es.js
-var import_react$21, a$4, n$6;
+var import_react$24, a$4, n$6;
 var init_Exam_es = __esmMin((() => {
-	import_react$21 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$24 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Exam_es$1();
-	a$4 = import_react$21.forwardRef((m, e) => /* @__PURE__ */ import_react$21.createElement(p$3, {
+	a$4 = import_react$24.forwardRef((m, e) => /* @__PURE__ */ import_react$24.createElement(p$3, {
 		ref: e,
 		...m,
 		weights: l$3
@@ -44177,57 +44233,72 @@ var init_Exam_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/FileText.es.js
-var import_react$20, o$7, s$3;
+var import_react$23, o$7, s$4;
 var init_FileText_es = __esmMin((() => {
-	import_react$20 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$23 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_FileText_es$1();
-	o$7 = import_react$20.forwardRef((t, r) => /* @__PURE__ */ import_react$20.createElement(p$3, {
+	o$7 = import_react$23.forwardRef((t, r) => /* @__PURE__ */ import_react$23.createElement(p$3, {
 		ref: r,
 		...t,
-		weights: e$17
+		weights: e$18
 	}));
 	o$7.displayName = "FileTextIcon";
-	s$3 = o$7;
+	s$4 = o$7;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Flag.es.js
-var import_react$19, a$3, n$5;
+var import_react$22, a$3, n$5;
 var init_Flag_es = __esmMin((() => {
-	import_react$19 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$22 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Flag_es$1();
-	a$3 = import_react$19.forwardRef((e, r) => /* @__PURE__ */ import_react$19.createElement(p$3, {
+	a$3 = import_react$22.forwardRef((e, r) => /* @__PURE__ */ import_react$22.createElement(p$3, {
 		ref: r,
 		...e,
-		weights: t$2
+		weights: t$3
 	}));
 	a$3.displayName = "FlagIcon";
 	n$5 = a$3;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/FloppyDisk.es.js
-var import_react$18, p$2, m$5;
+var import_react$21, p$2, m$6;
 var init_FloppyDisk_es = __esmMin((() => {
-	import_react$18 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$21 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_FloppyDisk_es$1();
-	p$2 = import_react$18.forwardRef((e, r) => /* @__PURE__ */ import_react$18.createElement(p$3, {
+	p$2 = import_react$21.forwardRef((e, r) => /* @__PURE__ */ import_react$21.createElement(p$3, {
+		ref: r,
+		...e,
+		weights: e$17
+	}));
+	p$2.displayName = "FloppyDiskIcon";
+	m$6 = p$2;
+}));
+//#endregion
+//#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/GithubLogo.es.js
+var import_react$20, t$2, s$3;
+var init_GithubLogo_es = __esmMin((() => {
+	import_react$20 = /* @__PURE__ */ __toESM(require_react(), 1);
+	init_IconBase_es();
+	init_GithubLogo_es$1();
+	t$2 = import_react$20.forwardRef((e, r) => /* @__PURE__ */ import_react$20.createElement(p$3, {
 		ref: r,
 		...e,
 		weights: e$16
 	}));
-	p$2.displayName = "FloppyDiskIcon";
-	m$5 = p$2;
+	t$2.displayName = "GithubLogoIcon";
+	s$3 = t$2;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Key.es.js
-var import_react$17, o$6, n$4;
+var import_react$19, o$6, n$4;
 var init_Key_es = __esmMin((() => {
-	import_react$17 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$19 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Key_es$1();
-	o$6 = import_react$17.forwardRef((r, t) => /* @__PURE__ */ import_react$17.createElement(p$3, {
+	o$6 = import_react$19.forwardRef((r, t) => /* @__PURE__ */ import_react$19.createElement(p$3, {
 		ref: t,
 		...r,
 		weights: e$15
@@ -44237,12 +44308,12 @@ var init_Key_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/LockKey.es.js
-var import_react$16, e$3, n$3;
+var import_react$18, e$3, n$3;
 var init_LockKey_es = __esmMin((() => {
-	import_react$16 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$18 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_LockKey_es$1();
-	e$3 = import_react$16.forwardRef((c, r) => /* @__PURE__ */ import_react$16.createElement(p$3, {
+	e$3 = import_react$18.forwardRef((c, r) => /* @__PURE__ */ import_react$18.createElement(p$3, {
 		ref: r,
 		...c,
 		weights: e$14
@@ -44252,27 +44323,27 @@ var init_LockKey_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/PaperPlaneTilt.es.js
-var import_react$15, a$2, m$4;
+var import_react$17, a$2, m$5;
 var init_PaperPlaneTilt_es = __esmMin((() => {
-	import_react$15 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$17 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_PaperPlaneTilt_es$1();
-	a$2 = import_react$15.forwardRef((o, r) => /* @__PURE__ */ import_react$15.createElement(p$3, {
+	a$2 = import_react$17.forwardRef((o, r) => /* @__PURE__ */ import_react$17.createElement(p$3, {
 		ref: r,
 		...o,
 		weights: e$13
 	}));
 	a$2.displayName = "PaperPlaneTiltIcon";
-	m$4 = a$2;
+	m$5 = a$2;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Printer.es.js
-var import_react$14, e$2, c$5;
+var import_react$16, e$2, c$5;
 var init_Printer_es = __esmMin((() => {
-	import_react$14 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$16 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Printer_es$1();
-	e$2 = import_react$14.forwardRef((o, t) => /* @__PURE__ */ import_react$14.createElement(p$3, {
+	e$2 = import_react$16.forwardRef((o, t) => /* @__PURE__ */ import_react$16.createElement(p$3, {
 		ref: t,
 		...o,
 		weights: H$1
@@ -44282,27 +44353,27 @@ var init_Printer_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Shield.es.js
-var import_react$13, o$5, s$2;
+var import_react$15, o$5, s$2;
 var init_Shield_es = __esmMin((() => {
-	import_react$13 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$15 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Shield_es$1();
-	o$5 = import_react$13.forwardRef((r, t) => /* @__PURE__ */ import_react$13.createElement(p$3, {
+	o$5 = import_react$15.forwardRef((r, t) => /* @__PURE__ */ import_react$15.createElement(p$3, {
 		ref: t,
 		...r,
-		weights: a$8
+		weights: a$9
 	}));
 	o$5.displayName = "ShieldIcon";
 	s$2 = o$5;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ShieldCheck.es.js
-var import_react$12, o$4, h$2;
+var import_react$14, o$4, h$2;
 var init_ShieldCheck_es = __esmMin((() => {
-	import_react$12 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$14 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ShieldCheck_es$1();
-	o$4 = import_react$12.forwardRef((c, r) => /* @__PURE__ */ import_react$12.createElement(p$3, {
+	o$4 = import_react$14.forwardRef((c, r) => /* @__PURE__ */ import_react$14.createElement(p$3, {
 		ref: r,
 		...c,
 		weights: e$12
@@ -44312,12 +44383,12 @@ var init_ShieldCheck_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/ShieldWarning.es.js
-var import_react$11, o$3, c$4;
+var import_react$13, o$3, c$4;
 var init_ShieldWarning_es = __esmMin((() => {
-	import_react$11 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$13 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_ShieldWarning_es$1();
-	o$3 = import_react$11.forwardRef((r, n) => /* @__PURE__ */ import_react$11.createElement(p$3, {
+	o$3 = import_react$13.forwardRef((r, n) => /* @__PURE__ */ import_react$13.createElement(p$3, {
 		ref: n,
 		...r,
 		weights: e$11
@@ -44327,12 +44398,12 @@ var init_ShieldWarning_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/SignOut.es.js
-var import_react$10, t$1, c$3;
+var import_react$12, t$1, c$3;
 var init_SignOut_es = __esmMin((() => {
-	import_react$10 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$12 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_SignOut_es$1();
-	t$1 = import_react$10.forwardRef((e, r) => /* @__PURE__ */ import_react$10.createElement(p$3, {
+	t$1 = import_react$12.forwardRef((e, r) => /* @__PURE__ */ import_react$12.createElement(p$3, {
 		ref: r,
 		...e,
 		weights: e$10
@@ -44342,42 +44413,57 @@ var init_SignOut_es = __esmMin((() => {
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/SquaresFour.es.js
-var import_react$9, r$1, n$2;
+var import_react$11, r$2, n$2;
 var init_SquaresFour_es = __esmMin((() => {
-	import_react$9 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$11 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_SquaresFour_es$1();
-	r$1 = import_react$9.forwardRef((e, a) => /* @__PURE__ */ import_react$9.createElement(p$3, {
+	r$2 = import_react$11.forwardRef((e, a) => /* @__PURE__ */ import_react$11.createElement(p$3, {
 		ref: a,
 		...e,
 		weights: e$9
 	}));
-	r$1.displayName = "SquaresFourIcon";
-	n$2 = r$1;
+	r$2.displayName = "SquaresFourIcon";
+	n$2 = r$2;
 }));
 //#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/Target.es.js
-var import_react$8, o$2, n$1;
+var import_react$10, o$2, n$1;
 var init_Target_es = __esmMin((() => {
-	import_react$8 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$10 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_Target_es$1();
-	o$2 = import_react$8.forwardRef((r, t) => /* @__PURE__ */ import_react$8.createElement(p$3, {
+	o$2 = import_react$10.forwardRef((r, t) => /* @__PURE__ */ import_react$10.createElement(p$3, {
 		ref: t,
 		...r,
-		weights: a$7
+		weights: a$8
 	}));
 	o$2.displayName = "TargetIcon";
 	n$1 = o$2;
 }));
 //#endregion
+//#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/UserCircle.es.js
+var import_react$9, r$1, m$4;
+var init_UserCircle_es = __esmMin((() => {
+	import_react$9 = /* @__PURE__ */ __toESM(require_react(), 1);
+	init_IconBase_es();
+	init_UserCircle_es$1();
+	r$1 = import_react$9.forwardRef((o, c) => /* @__PURE__ */ import_react$9.createElement(p$3, {
+		ref: c,
+		...o,
+		weights: a$7
+	}));
+	r$1.displayName = "UserCircleIcon";
+	m$4 = r$1;
+}));
+//#endregion
 //#region node_modules/.bun/@phosphor-icons+react@2.1.10+7492c01c6988791b/node_modules/@phosphor-icons/react/dist/csr/WarningCircle.es.js
-var import_react$7, e$1, m$3;
+var import_react$8, e$1, m$3;
 var init_WarningCircle_es = __esmMin((() => {
-	import_react$7 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$8 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_IconBase_es();
 	init_WarningCircle_es$1();
-	e$1 = import_react$7.forwardRef((o, n) => /* @__PURE__ */ import_react$7.createElement(p$3, {
+	e$1 = import_react$8.forwardRef((o, n) => /* @__PURE__ */ import_react$8.createElement(p$3, {
 		ref: n,
 		...o,
 		weights: a$6
@@ -44406,6 +44492,7 @@ var init_index_es$1 = __esmMin((() => {
 	init_FileText_es();
 	init_Flag_es();
 	init_FloppyDisk_es();
+	init_GithubLogo_es();
 	init_Key_es();
 	init_LockKey_es();
 	init_PaperPlaneTilt_es();
@@ -44416,22 +44503,23 @@ var init_index_es$1 = __esmMin((() => {
 	init_SignOut_es();
 	init_SquaresFour_es();
 	init_Target_es();
+	init_UserCircle_es();
 	init_WarningCircle_es();
 }));
 //#endregion
 //#region src/components/exam-shell.tsx
 function Brand() {
-	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
 		href: "/",
 		className: "brand",
 		"aria-label": "MySQL Exam Studio home",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
 			className: "brand-mark",
-			children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(n$7, {
+			children: /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(n$7, {
 				size: 23,
 				weight: "duotone"
 			})
-		}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("span", { children: ["MySQL", /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
+		}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("span", { children: ["MySQL", /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
 			className: "brand-small",
 			children: "Exam Studio"
 		})] })]
@@ -44439,182 +44527,225 @@ function Brand() {
 }
 function Shell({ active, children }) {
 	const { user, profile, role, signOut, loading } = useAuth();
-	const [avatarError, setAvatarError] = (0, import_react$6.useState)(false);
-	const displayName = profile?.full_name || user?.email?.split("@")[0] || "Learner";
+	const [avatarError, setAvatarError] = (0, import_react$7.useState)(false);
+	const githubUsername = user?.user_metadata?.user_name || user?.user_metadata?.preferred_username || profile?.github_username || "";
+	const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.user_metadata?.name || githubUsername || user?.email?.split("@")[0] || "Learner";
 	const displayEmail = profile?.email || user?.email || "";
-	const avatarUrl = profile?.avatar_url;
-	const initial = (displayName || "U").charAt(0).toUpperCase();
-	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+	const avatarUrl = profile?.avatar_url || user?.user_metadata?.avatar_url;
+	const initial = (displayName || githubUsername || "U").charAt(0).toUpperCase();
+	return /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 		className: "app-layout",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("aside", {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("aside", {
 			className: "sidebar",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Brand, {}),
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(Brand, {}),
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", {
 					className: "nav-caption",
 					children: "YOUR WORKSPACE"
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("nav", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("nav", {
 					"aria-label": "Main navigation",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
 							href: "/",
 							className: active === "overview" ? "current" : "",
 							"aria-current": active === "overview" ? "page" : void 0,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(n$2, { size: 20 }), "Overview"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(n$2, { size: 20 }), "Overview"]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
 							href: "/exam",
 							className: active === "exam" ? "current" : "",
 							"aria-current": active === "exam" ? "page" : void 0,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(n$6, { size: 20 }), "Examination"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(n$6, { size: 20 }), "Examination"]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
 							href: "/reports",
 							className: active === "reports" ? "current" : "",
 							"aria-current": active === "reports" ? "page" : void 0,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(n$11, { size: 20 }), "Report cards"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(n$11, { size: 20 }), "Report cards"]
 						}),
-						role === "admin" && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
+						role === "admin" && /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
 							href: "/admin",
 							className: active === "admin" ? "current" : "",
 							"aria-current": active === "admin" ? "page" : void 0,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(s$2, { size: 20 }), "Admin portal"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(s$2, { size: 20 }), "Admin portal"]
 						})
 					]
 				}),
-				user && /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", {
 					className: "sidebar-account-section",
-					children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+					children: loading ? /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
+						className: "sidebar-account-loading",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", { className: "avatar-placeholder" }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", { className: "text-placeholder" })]
+					}) : user ? /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 						className: "user-profile-box",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 							className: "user-profile-identity",
-							children: [avatarUrl && !avatarError ? /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("img", {
+							children: [avatarUrl && !avatarError ? /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("img", {
 								src: avatarUrl,
 								alt: displayName,
 								className: "user-profile-avatar",
 								referrerPolicy: "no-referrer",
 								onError: () => setAvatarError(true)
-							}) : /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
+							}) : /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", {
 								className: "user-profile-initial",
 								"aria-hidden": "true",
 								children: initial
-							}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+							}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 								className: "user-profile-meta",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
-									className: "user-profile-name-row",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", {
-										className: "user-profile-name",
-										title: displayName,
-										children: displayName
-									}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
-										className: `role-badge role-badge-${role}`,
-										children: role.toUpperCase()
-									})]
-								}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
-									className: "user-profile-email",
-									title: displayEmail,
-									children: displayEmail
-								})]
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
+										className: "user-profile-name-row",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("strong", {
+											className: "user-profile-name",
+											title: displayName,
+											children: displayName
+										}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
+											className: `role-badge role-badge-${role}`,
+											children: role.toUpperCase()
+										})]
+									}),
+									githubUsername && /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("span", {
+										className: "user-profile-github",
+										title: `@${githubUsername}`,
+										children: ["@", githubUsername]
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
+										className: "user-profile-email",
+										title: displayEmail,
+										children: displayEmail
+									})
+								]
 							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("button", {
+						}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("button", {
 							type: "button",
 							className: "sidebar-signout-btn",
 							onClick: () => void signOut(),
-							title: "Sign out",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(c$3, { size: 15 }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "Sign out" })]
+							title: "Sign out of your GitHub account",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(c$3, { size: 15 }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "Sign out" })]
 						})]
+					}) : /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
+						href: "/login",
+						className: "sidebar-signin-link",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(s$3, {
+							size: 18,
+							weight: "bold"
+						}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "Continue with GitHub" })]
 					})
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 					className: "sidebar-note",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(h$2, { size: 24 }),
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: "Your progress, saved." }),
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "Attempts are saved in your local session. Take exams whenever you are ready." })
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(h$2, { size: 24 }),
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("strong", { children: "Developer progress, saved." }),
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", { children: "Authenticated attempts and certificates are synced to your GitHub account." })
 					]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 					className: "sidebar-footer",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "MySQL core concepts" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("span", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "MySQL core concepts" }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("span", {
 						className: "mono",
-						children: ["Practice with purpose ", /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(c$9, { size: 13 })]
+						children: ["Practice with purpose ", /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(c$9, { size: 13 })]
 					})]
 				})
 			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+		}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 			className: "main-column",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("header", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("header", {
 					className: "topbar",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("span", { children: [
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("span", { children: [
 						"Assessment workspace ",
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
 							className: "topbar-slash",
 							children: "/"
 						}),
 						" ",
-						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: active === "overview" ? "Overview" : active === "exam" ? "Examination" : active === "reports" ? "Report cards" : "Admin portal" })
-					] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("strong", { children: active === "overview" ? "Overview" : active === "exam" ? "Examination" : active === "reports" ? "Report cards" : "Admin portal" })
+					] }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 						className: "topbar-right",
-						children: [user && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+						children: [user ? /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 							className: "topbar-user-chip",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
-								className: `role-badge role-badge-${role}`,
-								children: role.toUpperCase()
-							}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
-								className: "topbar-user-name",
-								children: displayName
-							})]
-						}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
+							children: [
+								avatarUrl && /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("img", {
+									src: avatarUrl,
+									alt: displayName,
+									className: "topbar-avatar",
+									referrerPolicy: "no-referrer",
+									onError: () => {}
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
+									className: `role-badge role-badge-${role}`,
+									children: role.toUpperCase()
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("span", {
+									className: "topbar-user-name",
+									children: [displayName, githubUsername ? ` (@${githubUsername})` : ""]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("button", {
+									type: "button",
+									className: "topbar-signout-btn",
+									onClick: () => void signOut(),
+									title: "Sign out",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(c$3, { size: 12 }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "Logout" })]
+								})
+							]
+						}) : /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("a", {
+							href: "/login",
+							className: "topbar-login-link",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)(s$3, {
+								size: 14,
+								weight: "bold"
+							}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "Sign in with GitHub" })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", {
 							className: "topbar-label",
 							children: "PERSONAL PRACTICE"
 						})]
 					})]
 				}),
 				children,
-				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("footer", {
+				/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("footer", {
 					className: "page-footer",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "MySQL Exam Studio" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "Built for focused practice. Based on MySQL 8.4 concepts." })]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "MySQL Exam Studio" }), /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("span", { children: "Built for focused practice. Based on MySQL 8.4 concepts." })]
 				})
 			]
 		})]
 	});
 }
 function ErrorBox({ message, retry }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 		className: "error-box",
 		role: "alert",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: message }), retry && /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("button", {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("p", { children: message }), retry && /* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("button", {
 			onClick: retry,
 			children: "Try again"
 		})]
 	});
 }
 function Loading({ label = "Loading your workspace" }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("div", {
 		className: "loading-surface",
 		"aria-live": "polite",
 		"aria-busy": "true",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("p", { children: [label, "..."] }),
-			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {}),
-			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {}),
-			/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {})
+			/* @__PURE__ */ (0, import_jsx_runtime$7.jsxs)("p", { children: [label, "..."] }),
+			/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", {}),
+			/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", {}),
+			/* @__PURE__ */ (0, import_jsx_runtime$7.jsx)("div", {})
 		]
 	});
 }
 function useQueryId() {
-	const [id, setId] = (0, import_react$6.useState)(null);
-	(0, import_react$6.useEffect)(() => setId(new URLSearchParams(window.location.search).get("id") ?? ""), []);
+	const [id, setId] = (0, import_react$7.useState)(null);
+	(0, import_react$7.useEffect)(() => setId(new URLSearchParams(window.location.search).get("id") ?? ""), []);
 	return id;
 }
-var import_react$6, import_jsx_runtime$5;
+var import_react$7, import_jsx_runtime$7;
 var init_exam_shell = __esmMin((() => {
-	import_react$6 = /* @__PURE__ */ __toESM(require_react(), 1);
+	import_react$7 = /* @__PURE__ */ __toESM(require_react(), 1);
 	init_index_es$1();
 	init_auth_context();
-	import_jsx_runtime$5 = require_jsx_runtime();
+	import_jsx_runtime$7 = require_jsx_runtime();
 }));
 //#endregion
 //#region src/lib/exam-client.ts
@@ -44737,6 +44868,70 @@ var init_exam_types = __esmMin((() => {
 			body: "CREATE, ALTER, DROP, TRUNCATE, RENAME, INSERT, UPDATE, DELETE, SELECT, USE, SHOW, DESCRIBE, GRANT, REVOKE, COMMIT, ROLLBACK, SAVEPOINT"
 		}
 	];
+}));
+//#endregion
+//#region src/components/protected-route.tsx
+function ProtectedRoute({ children, allowedRoles }) {
+	const { user, role, loading, profile } = useAuth();
+	(0, import_react$6.useEffect)(() => {
+		if (!loading && !user && typeof window !== "undefined") {
+			const currentPath = window.location.pathname + window.location.search;
+			const redirectParam = encodeURIComponent(currentPath);
+			window.location.replace(`/login?redirect=${redirectParam}`);
+		}
+	}, [user, loading]);
+	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(Loading, { label: "Verifying your authorization..." });
+	if (!user) return /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(Loading, { label: "Redirecting to login..." });
+	if (allowedRoles && !allowedRoles.includes(role)) return /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("main", {
+		className: "unauthorized-card content-wrap",
+		children: /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("div", {
+			className: "unauthorized-box",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(c$4, {
+					size: 48,
+					className: "unauthorized-icon"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("span", {
+					className: "eyebrow",
+					children: "RESTRICTED ACCESS"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("h1", { children: "Access Restricted" }),
+				/* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("p", { children: [
+					"Your current role is",
+					" ",
+					/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("span", {
+						className: "role-pill-inline",
+						children: role.toUpperCase()
+					}),
+					". This area requires one of the following permissions:",
+					" ",
+					/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("strong", { children: allowedRoles.map((r) => r.toUpperCase()).join(", ") }),
+					"."
+				] }),
+				/* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("div", {
+					className: "user-details-summary",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(m$4, { size: 22 }), /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("strong", { children: profile?.full_name || user.email }), /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("small", { children: user.email })] })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)("div", {
+					className: "unauthorized-actions",
+					children: /* @__PURE__ */ (0, import_jsx_runtime$6.jsxs)("a", {
+						href: "/",
+						className: "back-btn",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(s$7, { size: 16 }), " Return to overview"]
+					})
+				})
+			]
+		})
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime$6.jsx)(import_jsx_runtime$6.Fragment, { children });
+}
+var import_react$6, import_jsx_runtime$6;
+var init_protected_route = __esmMin((() => {
+	import_react$6 = /* @__PURE__ */ __toESM(require_react(), 1);
+	init_auth_context();
+	init_exam_shell();
+	init_index_es$1();
+	import_jsx_runtime$6 = require_jsx_runtime();
 }));
 //#endregion
 //#region node_modules/.bun/@babel+runtime@7.29.7/node_modules/@babel/runtime/helpers/esm/typeof.js
@@ -86962,7 +87157,10 @@ var init_report_pdf = __esmMin((() => {
 }));
 //#endregion
 //#region src/routes/reports.tsx?tsr-split=component
-var reports_exports = /* @__PURE__ */ __exportAll({ component: () => Reports });
+var reports_exports = /* @__PURE__ */ __exportAll({ component: () => ReportsWrapper });
+function ReportsWrapper() {
+	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(ProtectedRoute, { children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Reports, {}) });
+}
 function answerText(q, value) {
 	if (!value.trim()) return "Not answered";
 	if (q.kind === "mcq" || q.kind === "match") {
@@ -87025,122 +87223,122 @@ function Reports() {
 	const r = data?.report, a = data?.attempt;
 	const reviewQuestions = data?.questions.filter((q) => (section === "all" || q.section === section) && (filter === "all" || filter === "missed" && (data.feedback?.[q.id].mark ?? q.points) < q.points || filter === "pending" && data.feedback?.[q.id].mark === null || filter === "flagged" && data.answers[q.id]?.flagged)) ?? [];
 	const weak = r?.topics.filter((t) => !t.pending && t.score < t.max).sort((a, b) => a.score / a.max - b.score / b.max) ?? [];
-	return /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(Shell, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Shell, {
 		active: "reports",
-		children: /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("main", {
+		children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("main", {
 			className: "report-page content-wrap",
-			children: loading ? /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(Loading, { label: "Loading your report cards" }) : /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)(import_jsx_runtime$4.Fragment, { children: [error && /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(ErrorBox, {
+			children: loading ? /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(Loading, { label: "Loading your report cards" }) : /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)(import_jsx_runtime$5.Fragment, { children: [error && /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(ErrorBox, {
 				message: error,
 				retry: () => void load()
-			}), !data ? /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)(import_jsx_runtime$4.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+			}), !data ? /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)(import_jsx_runtime$5.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 				className: "page-title",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", {
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
 						className: "eyebrow",
 						children: "YOUR LEARNING RECORD"
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h1", { children: "Progress, on the record." }),
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Revisit a result. Review your thinking. Take the next step." })
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h1", { children: "Progress, on the record." }),
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "Revisit a result. Review your thinking. Take the next step." })
 				]
-			}), attempts.length ? /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+			}), attempts.length ? /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
 				className: "history-list",
-				children: attempts.map((a) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("a", {
+				children: attempts.map((a) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
 					className: "history-row",
 					href: attemptUrl(a.id, a.status),
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$3, { size: 27 }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: a.name }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("small", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(s$4, { size: 27 }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: a.name }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("small", { children: [
 							dateLabel(a.startedAt),
 							" · ",
 							a.answered,
 							"/65 answered"
 						] })] }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: a.status === "active" ? "Continue exam" : a.pending ? "Written review pending" : a.automatic + a.written + " / 100" }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(c$9, { size: 21 })
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: a.status === "active" ? "Continue exam" : a.pending ? "Written review pending" : a.automatic + a.written + " / 100" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(c$9, { size: 21 })
 					]
 				}, a.id))
-			}) : /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+			}) : /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 				className: "empty-state",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$3, { size: 48 }),
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: "Your first report starts here." }),
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Complete an exam to see your score, section breakdown, and answer review." }),
-					/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("a", {
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(s$4, { size: 48 }),
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: "Your first report starts here." }),
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "Complete an exam to see your score, section breakdown, and answer review." }),
+					/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
 						href: "/#begin",
-						children: ["Start an attempt ", /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$5, { size: 18 })]
+						children: ["Start an attempt ", /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(s$6, { size: 18 })]
 					})
 				]
-			})] }) : r && a && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)(import_jsx_runtime$4.Fragment, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+			})] }) : r && a && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)(import_jsx_runtime$5.Fragment, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 					className: "report-heading",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
 							className: "eyebrow",
 							children: "MYSQL CORE CONCEPTS"
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h1", { children: "Your skills, in focus." }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: r.pending ? "Your automatic score is ready. Review written answers to complete your report." : "Your assessment is complete. Use the answer review to plan what comes next." })
-					] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h1", { children: "Your skills, in focus." }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: r.pending ? "Your automatic score is ready. Review written answers to complete your report." : "Your assessment is complete. Use the answer review to plan what comes next." })
+					] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 						className: "report-actions no-print",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("button", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("button", {
 							className: "download-report",
 							onClick: () => void download(),
 							disabled: pdfBusy,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(l$2, { size: 20 }), pdfBusy ? "Creating PDF..." : "Download report"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("button", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(l$2, { size: 20 }), pdfBusy ? "Creating PDF..." : "Download report"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("button", {
 							className: "print-report",
 							onClick: () => window.print(),
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(c$5, { size: 19 }), "Print / Save PDF"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(c$5, { size: 19 }), "Print / Save PDF"]
 						})]
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("section", {
 					className: "result-card",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 							className: "result-identity",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: a.name }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: [a.studentId, a.cohort].filter(Boolean).join(" · ") || "Personal practice attempt" })] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: dateLabel(a.startedAt) }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("span", { children: [
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: a.name }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: [a.studentId, a.cohort].filter(Boolean).join(" · ") || "Personal practice attempt" })] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: dateLabel(a.startedAt) }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("span", { children: [
 								durationLabel(a.startedAt, a.submittedAt ?? a.startedAt),
 								" · ",
 								r.answered,
 								"/65 answered"
 							] })] })]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 							className: "result-main",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 								className: "score-display",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
 									className: "score-ring",
 									style: { "--score": (r.total ?? r.automatic) / (r.total === null ? 50 : 100) * 100 + "%" },
-									children: /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: r.total ?? r.automatic }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("span", { children: ["out of ", r.total === null ? 50 : 100] })] })
-								}), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+									children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: r.total ?? r.automatic }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("span", { children: ["out of ", r.total === null ? 50 : 100] })] })
+								}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 									className: "score-caption",
 									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: r.pending ? "Automatic score" : r.passed ? "Keep building on it." : "A clear place to start." }),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: r.pending ? "Overall grade pending" : r.grade + " · " + r.percentage + "% · " + (r.passed ? "Pass" : "Needs practice") }),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: r.pending ? "Automatic score" : r.passed ? "Keep building on it." : "A clear place to start." }),
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: r.pending ? "Overall grade pending" : r.grade + " · " + r.percentage + "% · " + (r.passed ? "Pass" : "Needs practice") }),
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
 											className: "status-label",
 											children: r.pending ? "Provisional result" : "Self-reviewed practice"
 										})
 									]
 								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 								className: "score-breakdown",
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: "Automatic marking" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("strong", { children: [r.automatic, /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("small", { children: "/ 50" })] })] }),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: "Written marking" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("strong", { children: [r.written, /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("small", { children: ["/ 50 ", r.pending ? "so far" : ""] })] })] }),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: "Overall score" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: r.total === null ? "Pending" : r.total + " / 100" })] })
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "Automatic marking" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("strong", { children: [r.automatic, /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("small", { children: "/ 50" })] })] }),
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "Written marking" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("strong", { children: [r.written, /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("small", { children: ["/ 50 ", r.pending ? "so far" : ""] })] })] }),
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "Overall score" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: r.total === null ? "Pending" : r.total + " / 100" })] })
 								]
 							})]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 							className: "result-footnote",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(m$3, { size: 17 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("p", { children: [r.pending ? r.pending + " written answers need review. They are excluded from an overall grade until reviewed." : "Written marks use self-review. This report is a practice record, not an institution-verified result.", " Blank answers receive zero marks."] })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(m$3, { size: 17 }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("p", { children: [r.pending ? r.pending + " written answers need review. They are excluded from an overall grade until reviewed." : "Written marks use self-review. This report is a practice record, not an institution-verified result.", " Blank answers receive zero marks."] })]
 						})
 					]
 				}),
-				r.pending > 0 && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("a", {
+				r.pending > 0 && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
 					href: "#answer-review",
 					className: "review-callout no-print",
 					onClick: () => {
@@ -87148,123 +87346,123 @@ function Reports() {
 						setSection("all");
 					},
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(c$8, { size: 24 }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Complete your written review" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: "Compare each answer with the model answer and award marks using the rubric." })] }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$5, { size: 22 })
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(c$8, { size: 24 }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: "Complete your written review" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "Compare each answer with the model answer and award marks using the rubric." })] }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(s$6, { size: 22 })
 					]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 					className: "report-analysis",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("section", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("section", {
 						className: "section-results",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: "Section by section." }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: "Section by section." }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
 							className: "results-table",
-							children: r.sections.map((s) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							children: r.sections.map((s) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 								className: "result-row",
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", {
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
 										className: "section-letter",
 										children: s.code
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: s.title }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: s.title }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
 										className: "thin-bar",
-										children: /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { style: { width: s.score / s.max * 100 + "%" } })
+										children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { style: { width: s.score / s.max * 100 + "%" } })
 									})] }),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("strong", {
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("strong", {
 										className: "mono",
 										children: [
 											s.score,
 											" / ",
 											s.max
 										]
-									}), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("small", { children: s.pending ? s.pending + " pending" : s.code < "E" ? "Automatic" : "Self-reviewed" })] })
+									}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("small", { children: s.pending ? s.pending + " pending" : s.code < "E" ? "Automatic" : "Self-reviewed" })] })
 								]
 							}, s.code))
 						})]
-					}), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("section", {
+					}), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("section", {
 						className: "topic-results",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(n$1, { size: 29 }),
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: "Where to focus next." }),
-							weak.length ? /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("p", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(n$1, { size: 29 }),
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: "Where to focus next." }),
+							weak.length ? /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("p", { children: [
 								"Start with ",
-								/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: weak[0].topic.toLowerCase() }),
+								/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: weak[0].topic.toLowerCase() }),
 								", your lowest fully reviewed topic."
-							] }) : /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: r.pending ? "Complete the written review for a full picture of your strengths." : "You earned full marks across the assessed topics. Keep practising your explanations." }),
-							r.topics.map((t) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							] }) : /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: r.pending ? "Complete the written review for a full picture of your strengths." : "You earned full marks across the assessed topics. Keep practising your explanations." }),
+							r.topics.map((t) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 								className: "topic-score",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: t.topic }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("strong", { children: [
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: t.topic }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("strong", { children: [
 									t.score,
 									"/",
 									t.max,
 									t.pending ? " *" : ""
-								] })] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+								] })] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
 									className: "thin-bar",
-									children: /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { style: { width: t.score / t.max * 100 + "%" } })
+									children: /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { style: { width: t.score / t.max * 100 + "%" } })
 								})]
 							}, t.topic)),
-							r.pending > 0 && /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("small", {
+							r.pending > 0 && /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("small", {
 								className: "muted",
 								children: "* Incomplete while written marks are pending."
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 								className: "grade-key",
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Grading guide" }),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: "A+ 90+ · A 80+ · B 70+ · C 60+ · D 50+" }),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("small", { children: "Pass threshold: 50 / 100" })
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: "Grading guide" }),
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: "A+ 90+ · A 80+ · B 70+ · C 60+ · D 50+" }),
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("small", { children: "Pass threshold: 50 / 100" })
 								]
 							})
 						]
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("section", {
 					className: "reflection-summary",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: "Understand the mistake." }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Use A-E in each answer review to record why you missed it." })] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: "Understand the mistake." }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "Use A-E in each answer review to record why you missed it." })] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("div", {
 						className: "reflection-grid",
-						children: Object.entries(REFLECTIONS).map(([key, label]) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: key }),
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: Object.values(data.answers).filter((a) => a.reflection === key).length }),
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: label })
+						children: Object.entries(REFLECTIONS).map(([key, label]) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", { children: key }),
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: Object.values(data.answers).filter((a) => a.reflection === key).length }),
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: label })
 						] }, key))
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("section", {
 					id: "answer-review",
 					className: "answer-review",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 							className: "review-heading",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: "Review the reasoning." }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Accepted equivalents are noted in the model answers. Written marks are your own assessment." })] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: "Review the reasoning." }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "Accepted equivalents are noted in the model answers. Written marks are your own assessment." })] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 								className: "review-filters no-print",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("label", { children: ["Show", /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("select", {
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("label", { children: ["Show", /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("select", {
 									value: filter,
 									onChange: (e) => setFilter(e.target.value),
 									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 											value: "all",
 											children: "All answers"
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 											value: "missed",
 											children: "Marks missed"
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 											value: "pending",
 											children: "Written review pending"
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 											value: "flagged",
 											children: "Flagged questions"
 										})
 									]
-								})] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("label", { children: ["Section", /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("select", {
+								})] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("label", { children: ["Section", /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("select", {
 									value: section,
 									onChange: (e) => setSection(e.target.value),
-									children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 										value: "all",
 										children: "All sections"
-									}), SECTION_DEFINITIONS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("option", {
+									}), SECTION_DEFINITIONS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("option", {
 										value: s.code,
 										children: [
 											s.code,
@@ -87275,53 +87473,53 @@ function Reports() {
 								})] })]
 							})]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("p", {
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("p", {
 							className: "small muted",
 							children: [reviewQuestions.length, " questions shown"]
 						}),
-						reviewQuestions.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+						reviewQuestions.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 							className: "empty-review",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$4, { size: 30 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "No questions match this filter." })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(s$5, { size: 30 }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "No questions match this filter." })]
 						}),
 						reviewQuestions.map((q) => {
 							const answer = data.answers[q.id], feedback = data.feedback[q.id];
-							return /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("details", {
+							return /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("details", {
 								className: "review-item",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("summary", { children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("span", {
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("summary", { children: [
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("span", {
 										className: "mono",
 										children: ["Q", String(q.id).padStart(2, "0")]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: q.prompt }),
-									/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", {
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("strong", { children: q.prompt }),
+									/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("span", {
 										className: feedback.mark === null ? "mark-pending" : feedback.mark === q.points ? "mark-correct" : "mark-missed",
 										children: feedback.mark === null ? "Pending" : feedback.mark + " / " + q.points
 									})
-								] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+								] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 									className: "review-content",
 									children: [
-										q.code && /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("pre", {
+										q.code && /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("pre", {
 											className: "sql-code",
 											children: q.code
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 											className: "answer-comparison",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h3", { children: "Your answer" }),
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("pre", { children: answerText(q, answer?.value ?? "") }),
-												answer?.correction && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)(import_jsx_runtime$4.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h4", { children: "Your correction" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: answer.correction })] })
-											] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h3", { children: q.kind === "written" ? "Model answer" : "Correct answer" }),
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("pre", { children: feedback.model }),
-												q.kind !== "written" && /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: feedback.explanation })
+											children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h3", { children: "Your answer" }),
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("pre", { children: answerText(q, answer?.value ?? "") }),
+												answer?.correction && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)(import_jsx_runtime$5.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h4", { children: "Your correction" }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: answer.correction })] })
+											] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h3", { children: q.kind === "written" ? "Model answer" : "Correct answer" }),
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("pre", { children: feedback.model }),
+												q.kind !== "written" && /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: feedback.explanation })
 											] })]
 										}),
-										q.kind === "written" && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+										q.kind === "written" && /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 											className: "rubric",
 											children: [
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h3", { children: "Marking guide" }),
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("ul", { children: feedback.rubric.map((item) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("li", { children: item }, item)) }),
-												answer?.value.trim() ? /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("label", { children: ["Self-review mark ", /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("select", {
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h3", { children: "Marking guide" }),
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("ul", { children: feedback.rubric.map((item) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("li", { children: item }, item)) }),
+												answer?.value.trim() ? /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("label", { children: ["Self-review mark ", /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("select", {
 													disabled: busy,
 													value: answer.reviewMark ?? "",
 													onChange: (e) => {
@@ -87334,10 +87532,10 @@ function Reports() {
 															}]
 														});
 													},
-													children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+													children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 														value: "",
 														children: "Choose a mark"
-													}), Array.from({ length: q.points + 1 }, (_, i) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("option", {
+													}), Array.from({ length: q.points + 1 }, (_, i) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("option", {
 														value: i,
 														children: [
 															i,
@@ -87345,19 +87543,19 @@ function Reports() {
 															q.points
 														]
 													}, i))]
-												})] }) : /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", {
+												})] }) : /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", {
 													className: "small",
 													children: "Unanswered: 0 marks. No review is needed."
 												}),
-												/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", {
+												/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", {
 													className: "small muted",
 													children: "Each rubric item is worth 1 mark. This is self-review, not verified teacher grading."
 												})
 											]
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("label", {
+										/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("label", {
 											className: "reflection-select",
-											children: ["What explains this result?", /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("select", {
+											children: ["What explains this result?", /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("select", {
 												disabled: busy,
 												value: answer?.reflection ?? "",
 												onChange: (e) => void update({
@@ -87366,10 +87564,10 @@ function Reports() {
 													qid: q.id,
 													reason: e.target.value
 												}),
-												children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("option", {
+												children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("option", {
 													value: "",
 													children: "Choose a reflection (optional)"
-												}), Object.entries(REFLECTIONS).map(([key, label]) => /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("option", {
+												}), Object.entries(REFLECTIONS).map(([key, label]) => /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("option", {
 													value: key,
 													children: [
 														key,
@@ -87385,62 +87583,63 @@ function Reports() {
 						})
 					]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("section", {
 					className: "next-attempt no-print",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h2", { children: "A clearer next attempt." }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Review the concepts you missed, then come back and try again." })] }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("a", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h2", { children: "A clearer next attempt." }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("p", { children: "Review the concepts you missed, then come back and try again." })] }), /* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("a", {
 						href: "/#begin",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(i$3, { size: 20 }), "Retake exam"]
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)(i$3, { size: 20 }), "Retake exam"]
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("div", {
 					className: "sources-note",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h3", { children: "Reference notes" }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("p", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("h3", { children: "Reference notes" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("p", { children: [
 							"MySQL 8.4 documentation: ",
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("a", {
 								href: "https://dev.mysql.com/doc/refman/8.4/en/data-types.html",
 								target: "_blank",
 								rel: "noreferrer",
 								children: "Data types"
 							}),
 							" · ",
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("a", {
 								href: "https://dev.mysql.com/doc/refman/8.4/en/delete.html",
 								target: "_blank",
 								rel: "noreferrer",
 								children: "DELETE"
 							}),
 							" · ",
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("a", {
 								href: "https://dev.mysql.com/doc/refman/8.4/en/truncate-table.html",
 								target: "_blank",
 								rel: "noreferrer",
 								children: "TRUNCATE"
 							}),
 							" · ",
-							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime$5.jsx)("a", {
 								href: "https://dev.mysql.com/doc/refman/8.4/en/spatial-type-overview.html",
 								target: "_blank",
 								rel: "noreferrer",
 								children: "Spatial types"
 							})
 						] }),
-						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("small", { children: ["Attempt ID: ", a.id] })
+						/* @__PURE__ */ (0, import_jsx_runtime$5.jsxs)("small", { children: ["Attempt ID: ", a.id] })
 					]
 				})
 			] })] })
 		})
 	});
 }
-var import_react$5, import_jsx_runtime$4;
+var import_react$5, import_jsx_runtime$5;
 var init_reports$1 = __esmMin((() => {
 	import_react$5 = /* @__PURE__ */ __toESM(require_react());
 	init_index_es$1();
 	init_exam_shell();
 	init_exam_client();
 	init_exam_types();
-	import_jsx_runtime$4 = require_jsx_runtime();
+	init_protected_route();
+	import_jsx_runtime$5 = require_jsx_runtime();
 }));
 //#endregion
 //#region src/routes/reports.tsx
@@ -87464,16 +87663,136 @@ var init_reports = __esmMin((() => {
 }));
 //#endregion
 //#region src/routes/login.tsx?tsr-split=component
-var login_exports = /* @__PURE__ */ __exportAll({ component: () => LoginRedirect });
-function LoginRedirect() {
+var login_exports = /* @__PURE__ */ __exportAll({ component: () => LoginPage });
+function LoginPage() {
+	const { user, loading, error, isConfigured, signInWithGitHub, clearError } = useAuth();
+	const [submitting, setSubmitting] = (0, import_react$4.useState)(false);
+	const [localError, setLocalError] = (0, import_react$4.useState)("");
+	const [redirectPath, setRedirectPath] = (0, import_react$4.useState)("/");
 	(0, import_react$4.useEffect)(() => {
-		if (typeof window !== "undefined") window.location.replace("/");
+		if (typeof window !== "undefined") {
+			const search = new URLSearchParams(window.location.search);
+			const redirect = search.get("redirect") || "/";
+			const err = search.get("error");
+			setRedirectPath(redirect);
+			if (err) setLocalError(err);
+		}
 	}, []);
-	return null;
+	(0, import_react$4.useEffect)(() => {
+		if (!loading && user && typeof window !== "undefined") window.location.replace(redirectPath || "/");
+	}, [
+		user,
+		loading,
+		redirectPath
+	]);
+	const handleGitHubSignIn = async () => {
+		setSubmitting(true);
+		setLocalError("");
+		clearError();
+		try {
+			await signInWithGitHub(redirectPath);
+		} catch (err) {
+			const msg = err instanceof Error ? err.message : "Failed to initiate GitHub sign in";
+			setLocalError(msg);
+			setSubmitting(false);
+		}
+	};
+	const activeError = localError || error;
+	return /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+		className: "login-wrapper",
+		children: /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+			className: "login-card",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+					className: "login-header",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(Brand, {}),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", {
+							className: "eyebrow",
+							children: "AUTHENTICATION & ACCESS"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("h1", { children: "Sign in with GitHub" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", {
+							className: "muted",
+							children: "Authenticate using your GitHub account to access your examination workspace, track attempts, and generate verified report cards."
+						})
+					]
+				}),
+				activeError && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+					className: "error-box",
+					role: "alert",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(m$3, { size: 20 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Sign In Error" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: activeError })] })]
+				}),
+				!isConfigured && /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+					className: "config-warning-box",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(n$3, { size: 22 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Supabase Setup Required" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("p", { children: [
+							"To enable GitHub OAuth, define your Supabase credentials in your",
+							" ",
+							/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("code", { children: ".env" }),
+							" file:"
+						] }),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("pre", {
+							className: "env-snippet",
+							children: [
+								"VITE_SUPABASE_URL=https://your-project.supabase.co",
+								"\n",
+								"VITE_SUPABASE_ANON_KEY=your-anon-key"
+							]
+						})
+					] })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("div", {
+					className: "auth-action-area",
+					children: /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("button", {
+						type: "button",
+						className: "github-auth-button",
+						onClick: handleGitHubSignIn,
+						disabled: submitting || loading || !isConfigured,
+						"aria-label": "Continue with GitHub",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$3, {
+							size: 22,
+							weight: "bold"
+						}), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("span", { children: submitting ? "Connecting to GitHub..." : "Continue with GitHub" })]
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+					className: "auth-features-list",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							className: "auth-feature-item",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(h$2, { size: 18 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Verified Developer Identity" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Seamless authentication linked to your GitHub developer credentials." })] })]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							className: "auth-feature-item",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(n$7, { size: 18 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Persistent Assessment Records" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Exam progress, answers, and reviewed scores synced to your profile." })] })]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+							className: "auth-feature-item",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)(s$5, { size: 18 }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("strong", { children: "Shareable PDF Scorecards" }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "Download signed report cards displaying your name and GitHub username." })] })]
+						})
+					]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime$4.jsxs)("div", {
+					className: "login-footer",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("p", { children: "By continuing, you agree to MySQL Exam Studio terms of service and exam code of conduct." }), /* @__PURE__ */ (0, import_jsx_runtime$4.jsx)("a", {
+						href: "/",
+						className: "login-back-link",
+						children: "Return to Public Overview"
+					})]
+				})
+			]
+		})
+	});
 }
-var import_react$4;
+var import_react$4, import_jsx_runtime$4;
 var init_login$1 = __esmMin((() => {
 	import_react$4 = /* @__PURE__ */ __toESM(require_react());
+	init_auth_context();
+	init_exam_shell();
+	init_index_es$1();
+	import_jsx_runtime$4 = require_jsx_runtime();
 }));
 //#endregion
 //#region src/routes/login.tsx
@@ -87482,16 +87801,19 @@ var init_login = __esmMin((() => {
 	init_esm$5();
 	$$splitComponentImporter$4 = () => Promise.resolve().then(() => (init_login$1(), login_exports));
 	Route$6 = createFileRoute("/login")({
-		head: () => ({ meta: [{ title: "Redirecting | MySQL Exam Studio" }, {
-			name: "robots",
-			content: "noindex, nofollow"
+		head: () => ({ meta: [{ title: "Sign In with GitHub | MySQL Exam Studio" }, {
+			name: "description",
+			content: "Sign in with GitHub to access your MySQL assessments, certifications, and progress records."
 		}] }),
 		component: lazyRouteComponent($$splitComponentImporter$4, "component")
 	});
 }));
 //#endregion
 //#region src/routes/exam.tsx?tsr-split=component
-var exam_exports = /* @__PURE__ */ __exportAll({ component: () => ExamPage });
+var exam_exports = /* @__PURE__ */ __exportAll({ component: () => ExamWrapper });
+function ExamWrapper() {
+	return /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(ProtectedRoute, { children: /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(ExamPage, {}) });
+}
 function Confirm({ answered, flagged, busy, onCancel, onSubmit }) {
 	const ref = (0, import_react$3.useRef)(null);
 	(0, import_react$3.useEffect)(() => {
@@ -87507,7 +87829,7 @@ function Confirm({ answered, flagged, busy, onCancel, onSubmit }) {
 		},
 		"aria-labelledby": "submit-heading",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(m$4, { size: 35 }),
+			/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(m$5, { size: 35 }),
 			/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("h2", {
 				id: "submit-heading",
 				children: "Ready to submit?"
@@ -87726,7 +88048,7 @@ function ExamPage() {
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", { children: "Enter your details to start your 65-question assessment." }),
 					/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("a", {
 						href: "/#begin",
-						children: ["Start an attempt ", /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(s$5, { size: 19 })]
+						children: ["Start an attempt ", /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(s$6, { size: 19 })]
 					})
 				]
 			})] }) : /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)(import_jsx_runtime$3.Fragment, { children: [
@@ -87755,7 +88077,7 @@ function ExamPage() {
 					children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("span", { children: "No notes. No Google. No ChatGPT." }), /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("span", {
 						className: "save-state",
 						"aria-live": "polite",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(m$5, { size: 16 }), saveState]
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(m$6, { size: 16 }), saveState]
 					})]
 				}),
 				error && /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(ErrorBox, {
@@ -87964,7 +88286,7 @@ function ExamPage() {
 										className: "previous-question",
 										onClick: () => go(index - 1),
 										disabled: index === 0,
-										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(s$6, { size: 19 }), "Previous"]
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(s$7, { size: 19 }), "Previous"]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("span", {
 										className: "mono",
@@ -87973,7 +88295,7 @@ function ExamPage() {
 									index < 64 ? /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("button", {
 										className: "next-question",
 										onClick: () => go(index + 1),
-										children: ["Next question", /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(s$5, { size: 19 })]
+										children: ["Next question", /* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(s$6, { size: 19 })]
 									}) : /* @__PURE__ */ (0, import_jsx_runtime$3.jsxs)("button", {
 										className: "next-question",
 										onClick: () => setConfirm(true),
@@ -88034,7 +88356,7 @@ function ExamPage() {
 								className: "submit-exam",
 								onClick: () => remaining === 0 ? void finish(true) : setConfirm(true),
 								disabled: submitting,
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(m$4, { size: 18 }), submitting ? "Submitting..." : "Submit exam"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)(m$5, { size: 18 }), submitting ? "Submitting..." : "Submit exam"]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime$3.jsx)("p", {
 								className: "small muted rail-note",
@@ -88061,6 +88383,7 @@ var init_exam$2 = __esmMin((() => {
 	init_exam_shell();
 	init_exam_client();
 	init_exam_types();
+	init_protected_route();
 	import_jsx_runtime$3 = require_jsx_runtime();
 	blank = {
 		value: "",
@@ -88100,52 +88423,12 @@ var init_app = __esmMin((() => {
 	} });
 }));
 //#endregion
-//#region src/components/protected-route.tsx
-function ProtectedRoute({ children, allowedRoles }) {
-	const { user, role, loading, profile } = useAuth();
-	if (loading) return /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Loading, { label: "Verifying your authorization..." });
-	if (!user || allowedRoles && !allowedRoles.includes(role)) return /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("main", {
-		className: "unauthorized-card content-wrap",
-		children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
-			className: "unauthorized-box",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(c$4, {
-					size: 48,
-					className: "unauthorized-icon"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", {
-					className: "eyebrow",
-					children: "RESTRICTED ACCESS"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("h1", { children: "Access Restricted" }),
-				/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("p", { children: "This section requires authorized administrative access." }),
-				/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("div", {
-					className: "unauthorized-actions",
-					children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("a", {
-						href: "/",
-						className: "back-btn",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(s$6, { size: 16 }), " Return to overview"]
-					})
-				})
-			]
-		})
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(import_jsx_runtime$2.Fragment, { children });
-}
-var import_jsx_runtime$2;
-var init_protected_route = __esmMin((() => {
-	init_auth_context();
-	init_exam_shell();
-	init_index_es$1();
-	import_jsx_runtime$2 = require_jsx_runtime();
-}));
-//#endregion
 //#region src/routes/admin.tsx?tsr-split=component
 var admin_exports = /* @__PURE__ */ __exportAll({ component: () => AdminPageWrapper });
 function AdminPageWrapper() {
-	return /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ProtectedRoute, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(ProtectedRoute, {
 		allowedRoles: ["admin"],
-		children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(AdminDashboard, {})
+		children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(AdminDashboard, {})
 	});
 }
 function AdminDashboard() {
@@ -88191,124 +88474,128 @@ function AdminDashboard() {
 			setUpdatingId(null);
 		}
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Shell, {
-		active: "overview",
-		children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("main", {
+	return /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Shell, {
+		active: "admin",
+		children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("main", {
 			className: "content-wrap admin-page",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 					className: "page-title",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", {
 							className: "eyebrow",
 							children: "ADMINISTRATION & AUTHORIZATION"
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("h1", { children: "User Profiles & Role Management" }),
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("h1", { children: "User Profiles & Role Management" }),
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("p", {
 							className: "muted",
-							children: "Manage authenticated Google user profiles and enforce role permissions (Admin, Staff, Customer)."
+							children: "Manage authenticated GitHub user profiles and enforce role permissions (Admin, Staff, Customer)."
 						})
 					]
 				}),
-				error && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ErrorBox, {
+				error && /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(ErrorBox, {
 					message: error,
 					retry: fetchProfiles
 				}),
-				success && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+				success && /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 					className: "success-banner",
 					role: "status",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$4, { size: 20 }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: success })]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(s$5, { size: 20 }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", { children: success })]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 					className: "admin-actions-bar",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 							className: "stat-card",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "TOTAL PROFILES" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: profiles.length })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", { children: "TOTAL PROFILES" }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("strong", { children: profiles.length })]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 							className: "stat-card",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "ADMINISTRATORS" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: profiles.filter((p) => p.role === "admin").length })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", { children: "ADMINISTRATORS" }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("strong", { children: profiles.filter((p) => p.role === "admin").length })]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 							className: "stat-card",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "STAFF" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: profiles.filter((p) => p.role === "staff").length })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", { children: "STAFF" }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("strong", { children: profiles.filter((p) => p.role === "staff").length })]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 							className: "stat-card",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "CUSTOMERS" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: profiles.filter((p) => p.role === "customer").length })]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", { children: "CUSTOMERS" }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("strong", { children: profiles.filter((p) => p.role === "customer").length })]
 						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("button", {
+						/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("button", {
 							type: "button",
 							className: "refresh-btn",
 							onClick: fetchProfiles,
 							disabled: loading,
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(m$6, { size: 16 }), " Refresh"]
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(m$7, { size: 16 }), " Refresh"]
 						})
 					]
 				}),
-				loading ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Loading, { label: "Loading registered profiles..." }) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
+				loading ? /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Loading, { label: "Loading registered profiles..." }) : /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("div", {
 					className: "admin-table-container",
-					children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("table", {
+					children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("table", {
 						className: "admin-table",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("tr", { children: [
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("th", { children: "User" }),
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("th", { children: "Email" }),
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("th", { children: "Current Role" }),
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("th", { children: "Created" }),
-							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("th", { children: "Authorize Role" })
-						] }) }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("tbody", { children: [profiles.map((p) => {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("tr", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("th", { children: "User" }),
+							/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("th", { children: "Email" }),
+							/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("th", { children: "Current Role" }),
+							/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("th", { children: "Created" }),
+							/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("th", { children: "Authorize Role" })
+						] }) }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("tbody", { children: [profiles.map((p) => {
 							const isCurrent = p.id === user?.id;
 							const isUpdating = updatingId === p.id;
-							return /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("tr", {
+							return /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("tr", {
 								className: isCurrent ? "current-user-row" : "",
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+									/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 										className: "table-user-cell",
-										children: [p.avatar_url ? /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("img", {
+										children: [p.avatar_url ? /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("img", {
 											src: p.avatar_url,
 											alt: "",
 											className: "user-avatar-small",
 											referrerPolicy: "no-referrer"
-										}) : /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
+										}) : /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("div", {
 											className: "user-avatar-fallback",
 											children: (p.full_name || p.email || "U").charAt(0).toUpperCase()
-										}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("strong", { children: [p.full_name || "Unnamed User", isCurrent && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+										}), /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("strong", { children: [p.full_name || p.github_username || "Unnamed User", isCurrent && /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", {
 											className: "you-pill",
 											children: "You"
-										})] }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("small", {
+										})] }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("small", {
 											className: "mono",
-											children: [p.id.slice(0, 8), "..."]
+											children: [
+												p.github_username ? `@${p.github_username} · ` : "",
+												p.id.slice(0, 8),
+												"..."
+											]
 										})] })]
 									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+									/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", {
 										className: "email-text",
 										children: p.email || "No email"
 									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
+									/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("span", {
 										className: `role-badge role-badge-${p.role}`,
 										children: p.role.toUpperCase()
 									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
+									/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
 										className: "date-cell",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$9, { size: 13 }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("small", { children: p.created_at ? new Date(p.created_at).toLocaleDateString() : "—" })]
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(n$9, { size: 13 }), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("small", { children: p.created_at ? new Date(p.created_at).toLocaleDateString() : "—" })]
 									}) }),
-									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("select", {
+									/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("select", {
 										className: "role-selector",
 										value: p.role,
 										disabled: isUpdating,
 										onChange: (e) => handleRoleChange(p.id, e.target.value),
 										"aria-label": `Change role for ${p.full_name || p.email}`,
 										children: [
-											/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("option", {
+											/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("option", {
 												value: "customer",
 												children: "Customer (Default)"
 											}),
-											/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("option", {
+											/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("option", {
 												value: "staff",
 												children: "Staff"
 											}),
-											/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("option", {
+											/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("option", {
 												value: "admin",
 												children: "Admin"
 											})
@@ -88316,7 +88603,7 @@ function AdminDashboard() {
 									}) })
 								]
 							}, p.id);
-						}), profiles.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("td", {
+						}), profiles.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)("td", {
 							colSpan: 5,
 							className: "empty-table-cell",
 							children: "No profiles recorded yet in the database."
@@ -88327,7 +88614,7 @@ function AdminDashboard() {
 		})
 	});
 }
-var import_react$2, import_jsx_runtime$1;
+var import_react$2, import_jsx_runtime$2;
 var init_admin$1 = __esmMin((() => {
 	import_react$2 = /* @__PURE__ */ __toESM(require_react());
 	init_exam_shell();
@@ -88335,7 +88622,7 @@ var init_admin$1 = __esmMin((() => {
 	init_auth_context();
 	init_supabase();
 	init_index_es$1();
-	import_jsx_runtime$1 = require_jsx_runtime();
+	import_jsx_runtime$2 = require_jsx_runtime();
 }));
 //#endregion
 //#region src/routes/admin.tsx
@@ -88399,169 +88686,169 @@ function Dashboard() {
 		}
 	}
 	const icons = [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$12, { size: 24 }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$3, { size: 24 }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$4, { size: 24 }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$8, { size: 24 })
+		/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$12, { size: 24 }),
+		/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$3, { size: 24 }),
+		/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$4, { size: 24 }),
+		/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$8, { size: 24 })
 	];
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Shell, {
+	return /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(Shell, {
 		active: "overview",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("main", {
+		children: /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("main", {
 			className: "dashboard content-wrap",
 			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("section", {
 					className: "welcome",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 						className: "welcome-copy",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
 								className: "eyebrow",
 								children: "THE MYSQL ASSESSMENT"
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("h1", { children: [
 								"Know it.",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Prove it." })
+								/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "Prove it." })
 							] }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("p", { children: [
 								"Put your core concepts to the test.",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("br", {}),
 								"Leave with a clear picture of your progress."
 							] }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("a", {
 								className: "enter-ticket",
 								href: active ? attemptUrl(active.id, active.status) : "#begin",
-								children: [active ? "Continue attempt" : "Take the exam", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$5, { size: 21 })]
+								children: [active ? "Continue attempt" : "Take the exam", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$6, { size: 21 })]
 							})
 						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 						className: "exam-facts",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
 								className: "facts-caption",
 								children: "YOUR NEXT CHALLENGE"
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 								className: "big-number",
-								children: ["65", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "questions" })]
+								children: ["65", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "questions" })]
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 								className: "facts-bottom",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$9, { size: 17 }), "90 minutes"] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$3, { size: 17 }), "100 marks"] })]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$9, { size: 17 }), "90 minutes"] }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("span", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$4, { size: 17 }), "100 marks"] })]
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "facts-rule" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", { className: "facts-rule" }),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("p", { children: [
 								"Data types. Constraints.",
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+								/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("br", {}),
 								"Keys. SQL commands."
 							] })
 						]
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("section", {
 					className: "stats-strip",
 					"aria-label": "Your progress",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "YOUR ATTEMPTS" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: loading ? "..." : attempts.length.toString().padStart(2, "0") })] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "COMPLETED" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: loading ? "..." : finished.length.toString().padStart(2, "0") })] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "BEST REVIEWED SCORE" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("strong", { children: [best === null ? "Not yet" : best + "%", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: best === null ? "Finish your first exam" : "Including self-reviewed marks" })] })] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "YOUR ATTEMPTS" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: loading ? "..." : attempts.length.toString().padStart(2, "0") })] }),
+						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "COMPLETED" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: loading ? "..." : finished.length.toString().padStart(2, "0") })] }),
+						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "BEST REVIEWED SCORE" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("strong", { children: [best === null ? "Not yet" : best + "%", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("small", { children: best === null ? "Finish your first exam" : "Including self-reviewed marks" })] })] }),
+						/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("a", {
 							href: "/reports",
-							children: ["View report cards ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(c$9, { size: 21 })]
+							children: ["View report cards ", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(c$9, { size: 21 })]
 						})
 					]
 				}),
-				error && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ErrorBox, {
+				error && /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(ErrorBox, {
 					message: error,
 					retry: () => void history()
 				}),
-				active && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				active && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 					className: "resume-banner",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "An exam is in progress" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [active.answered, " of 65 answered. Your original deadline still applies."] })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: "An exam is in progress" }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("p", { children: [active.answered, " of 65 answered. Your original deadline still applies."] })] }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("a", {
 						href: attemptUrl(active.id, active.status),
-						children: ["Continue attempt ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$5, { size: 18 })]
+						children: ["Continue attempt ", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$6, { size: 18 })]
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("section", {
 					className: "syllabus-section",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 						className: "section-heading",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Four foundations. One assessment." }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "A practical check of the concepts behind reliable databases." })]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("h2", { children: "Four foundations. One assessment." }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", { children: "A practical check of the concepts behind reliable databases." })]
+					}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
 						className: "syllabus-grid",
-						children: SYLLABUS.map((topic, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("details", {
+						children: SYLLABUS.map((topic, i) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("details", {
 							className: "topic",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("summary", { children: [
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("summary", { children: [
 								icons[i],
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: topic.title }),
-								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: topic.title }),
+								/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
 									className: "expand",
 									children: "+"
 								})
-							] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: topic.body })]
+							] }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", { children: topic.body })]
 						}, topic.title))
 					})]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("section", {
 					className: "assessment-layout",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 						className: "section-outline",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "From recall to real decisions." }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("h2", { children: "From recall to real decisions." }),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
 								className: "muted",
 								children: "Seven sections, with more room to explain as you go."
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("div", {
 								className: "outline-table",
-								children: SECTION_DEFINITIONS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								children: SECTION_DEFINITIONS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 									className: "outline-row",
 									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
 											className: "section-letter",
 											children: s.code
 										}),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: s.title }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("small", { children: ["Questions ", s.range] })] }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: s.title }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("small", { children: ["Questions ", s.range] })] }),
+										/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("span", {
 											className: "mono",
-											children: [s.marks, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: "marks" })]
+											children: [s.marks, /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("small", { children: "marks" })]
 										})
 									]
 								}, s.code))
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("p", {
 								className: "small muted",
 								children: [
 									"Sections A-D: 50 automatically scored marks.",
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("br", {}),
 									"Sections E-G: 50 marks reviewed against a written rubric."
 								]
 							})
 						]
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 						className: "start-panel",
 						id: "begin",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("span", {
 								className: "panel-kicker",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$4, { size: 18 }), " READY WHEN YOU ARE"]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$5, { size: 18 }), " READY WHEN YOU ARE"]
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Make it your attempt." }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("h2", { children: "Make it your attempt." }),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
 								className: "muted",
 								children: "Your details will appear on your report card."
 							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("form", {
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("form", {
 								onSubmit: start,
 								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("label", {
 										htmlFor: "name",
-										children: ["Name on report ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										children: ["Name on report ", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", {
 											"aria-hidden": "true",
 											children: "*"
 										})]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("input", {
 										id: "name",
 										value: name,
 										onChange: (e) => setName(e.target.value),
@@ -88571,21 +88858,21 @@ function Dashboard() {
 										autoComplete: "name",
 										placeholder: "Enter your full name"
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 										className: "form-pair",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("label", {
 											htmlFor: "student-id",
-											children: ["Student ID ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: "optional" })]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+											children: ["Student ID ", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("small", { children: "optional" })]
+										}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("input", {
 											id: "student-id",
 											value: studentId,
 											onChange: (e) => setStudentId(e.target.value),
 											maxLength: 40,
 											placeholder: "Roll or employee ID"
-										})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+										})] }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("label", {
 											htmlFor: "cohort",
-											children: ["Class / batch ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: "optional" })]
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+											children: ["Class / batch ", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("small", { children: "optional" })]
+										}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("input", {
 											id: "cohort",
 											value: cohort,
 											onChange: (e) => setCohort(e.target.value),
@@ -88593,25 +88880,25 @@ function Dashboard() {
 											placeholder: "Your class or batch"
 										})] })]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 										className: "rules-box",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$3, { size: 20 }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "No notes. No Google. No ChatGPT." }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Work independently. Answers appear only after submission. This is an honour-based practice exam." })] })]
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$3, { size: 20 }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: "No notes. No Google. No ChatGPT." }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", { children: "Work independently. Answers appear only after submission. This is an honour-based practice exam." })] })]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("label", {
 										className: "check-row",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("input", {
 											type: "checkbox",
 											checked: accepted,
 											onChange: (e) => setAccepted(e.target.checked),
 											required: true
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "I agree to the exam rules and the 90-minute time limit." })]
+										}), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: "I agree to the exam rules and the 90-minute time limit." })]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("button", {
 										className: "start-exam",
 										disabled: busy || !accepted,
-										children: [busy ? "Starting..." : "Start exam", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$5, { size: 20 })]
+										children: [busy ? "Starting..." : "Start exam", /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$6, { size: 20 })]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", {
 										className: "form-footnote",
 										children: "No negative marking. Timer continues when you leave. Pass mark: 50/100 after all written answers are reviewed."
 									})
@@ -88620,28 +88907,28 @@ function Dashboard() {
 						]
 					})]
 				}),
-				finished.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				finished.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("section", {
 					className: "recent",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Pick up your progress." }), finished.slice(0, 3).map((a) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("h2", { children: "Pick up your progress." }), finished.slice(0, 3).map((a) => /* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("a", {
 						href: attemptUrl(a.id, a.status),
 						className: "history-row",
 						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$3, { size: 23 }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: a.name }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: dateLabel(a.startedAt) })] }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: a.pending ? "Review pending" : a.automatic + a.written + " / 100" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(c$9, { size: 19 })
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(s$4, { size: 23 }),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("strong", { children: a.name }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("small", { children: dateLabel(a.startedAt) })] }),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("span", { children: a.pending ? "Review pending" : a.automatic + a.written + " / 100" }),
+							/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(c$9, { size: 19 })
 						]
 					}, a.id))]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, import_jsx_runtime$1.jsxs)("div", {
 					className: "privacy-note",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(n$3, { size: 17 }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Attempts are private to this browser session. Clearing cookies removes access. Download your report cards to keep a copy. No account is required." })]
+					children: [/* @__PURE__ */ (0, import_jsx_runtime$1.jsx)(n$3, { size: 17 }), /* @__PURE__ */ (0, import_jsx_runtime$1.jsx)("p", { children: "Attempts are private to this browser session. Clearing cookies removes access. Download your report cards to keep a copy. No account is required." })]
 				})
 			]
 		})
 	});
 }
-var import_react$1, import_jsx_runtime;
+var import_react$1, import_jsx_runtime$1;
 var init_routes$1 = __esmMin((() => {
 	import_react$1 = /* @__PURE__ */ __toESM(require_react());
 	init_index_es$1();
@@ -88649,7 +88936,7 @@ var init_routes$1 = __esmMin((() => {
 	init_exam_client();
 	init_exam_types();
 	init_auth_context();
-	import_jsx_runtime = require_jsx_runtime();
+	import_jsx_runtime$1 = require_jsx_runtime();
 }));
 //#endregion
 //#region src/routes/index.tsx
@@ -88667,16 +88954,68 @@ var init_routes = __esmMin((() => {
 }));
 //#endregion
 //#region src/routes/auth/callback.tsx?tsr-split=component
-var callback_exports = /* @__PURE__ */ __exportAll({ component: () => AuthCallbackRedirect });
-function AuthCallbackRedirect() {
+var callback_exports = /* @__PURE__ */ __exportAll({ component: () => AuthCallbackPage });
+function AuthCallbackPage() {
+	const [error, setError] = (0, import_react.useState)(null);
 	(0, import_react.useEffect)(() => {
-		if (typeof window !== "undefined") window.location.replace("/");
+		if (typeof window === "undefined") return;
+		const searchParams = new URL(window.location.href).searchParams;
+		const code = searchParams.get("code");
+		const errorParam = searchParams.get("error");
+		const errorDesc = searchParams.get("error_description");
+		const nextUrl = searchParams.get("next") || "/";
+		if (errorParam || errorDesc) {
+			setError(errorDesc || errorParam || "GitHub sign-in was cancelled or encountered an error.");
+			return;
+		}
+		const client = getSupabase();
+		if (code) client.auth.exchangeCodeForSession(code).then(async ({ data, error: exchangeError }) => {
+			if (exchangeError) {
+				setError(exchangeError.message);
+				return;
+			}
+			if (data.session) window.location.replace(nextUrl);
+			else window.location.replace("/");
+		}).catch((err) => {
+			const message = err instanceof Error ? err.message : "GitHub authentication exchange failed";
+			setError(message);
+		});
+		else client.auth.getSession().then(({ data: { session } }) => {
+			if (session) window.location.replace(nextUrl);
+			else {
+				const timer = setTimeout(() => {
+					window.location.replace("/login");
+				}, 2500);
+				return () => clearTimeout(timer);
+			}
+		});
 	}, []);
-	return null;
+	if (error) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
+		className: "root-error content-wrap",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "error-box",
+			role: "alert",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(m$3, { size: 28 }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Authentication Failed" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: error }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+					href: "/login",
+					className: "enter-ticket",
+					children: ["Try signing in again ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$6, { size: 18 })]
+				})
+			]
+		})
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Loading, { label: "Finalizing GitHub authorization" });
 }
-var import_react;
+var import_react, import_jsx_runtime;
 var init_callback$1 = __esmMin((() => {
 	import_react = /* @__PURE__ */ __toESM(require_react());
+	init_supabase();
+	init_exam_shell();
+	init_index_es$1();
+	import_jsx_runtime = require_jsx_runtime();
 }));
 //#endregion
 //#region src/routes/auth/callback.tsx
@@ -88685,7 +89024,7 @@ var init_callback = __esmMin((() => {
 	init_esm$5();
 	$$splitComponentImporter = () => Promise.resolve().then(() => (init_callback$1(), callback_exports));
 	Route$1 = createFileRoute("/auth/callback")({
-		head: () => ({ meta: [{ title: "Redirecting | MySQL Exam Studio" }, {
+		head: () => ({ meta: [{ title: "Authenticating | MySQL Exam Studio" }, {
 			name: "robots",
 			content: "noindex, nofollow"
 		}] }),
