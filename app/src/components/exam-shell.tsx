@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   Database,
   SignOut,
-  GoogleLogo,
   Shield,
   User,
 } from "@phosphor-icons/react";
@@ -85,14 +84,9 @@ export function Shell({
           )}
         </nav>
 
-        {/* Account / Profile Section */}
-        <div className="sidebar-account-section">
-          {loading ? (
-            <div className="sidebar-account-loading">
-              <div className="avatar-placeholder" />
-              <div className="text-placeholder" />
-            </div>
-          ) : user ? (
+        {/* Account / Profile Section (Only shown if signed in) */}
+        {user && (
+          <div className="sidebar-account-section">
             <div className="user-profile-box">
               <div className="user-profile-identity">
                 {avatarUrl && !avatarError ? (
@@ -126,24 +120,19 @@ export function Shell({
                 type="button"
                 className="sidebar-signout-btn"
                 onClick={() => void signOut()}
-                title="Sign out of your account"
+                title="Sign out"
               >
                 <SignOut size={15} />
                 <span>Sign out</span>
               </button>
             </div>
-          ) : (
-            <a href="/login" className="sidebar-signin-link">
-              <GoogleLogo size={18} weight="bold" />
-              <span>Sign in with Google</span>
-            </a>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="sidebar-note">
           <ShieldCheck size={24} />
           <strong>Your progress, saved.</strong>
-          <p>Authenticated attempts and certificates are synced to your account.</p>
+          <p>Attempts are saved in your local session. Take exams whenever you are ready.</p>
         </div>
         <div className="sidebar-footer">
           <span>MySQL core concepts</span>
@@ -168,18 +157,13 @@ export function Shell({
             </strong>
           </span>
           <div className="topbar-right">
-            {user ? (
+            {user && (
               <div className="topbar-user-chip">
                 <span className={`role-badge role-badge-${role}`}>
                   {role.toUpperCase()}
                 </span>
                 <span className="topbar-user-name">{displayName}</span>
               </div>
-            ) : (
-              <a href="/login" className="topbar-login-link">
-                <GoogleLogo size={14} weight="bold" />
-                <span>Sign in</span>
-              </a>
             )}
             <span className="topbar-label">PERSONAL PRACTICE</span>
           </div>
