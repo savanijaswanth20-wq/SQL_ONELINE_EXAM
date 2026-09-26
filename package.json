@@ -1,8 +1,0 @@
-{
-  "name": "sql-exam-studio-root",
-  "private": true,
-  "scripts": {
-    "build": "cd app && bun install && bun run build",
-    "deploy": "cd app && bun install && bun run build && npx wrangler deploy"
-  }
-}
