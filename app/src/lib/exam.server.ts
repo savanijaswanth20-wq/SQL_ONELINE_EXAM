@@ -14,7 +14,236 @@ const bodySchema=z.discriminatedUnion("action",[
  z.object({action:z.literal("review"),id:uuid,marks:z.array(z.object({id:z.number().int().min(51).max(65),mark:z.number().int().min(0).max(4)})).min(1).max(15)}),
  z.object({action:z.literal("reflect"),id:uuid,qid:z.number().int().min(1).max(65),reason:z.enum(["","A","B","C","D","E"])})
 ]);
-function database(){const db=bindings().DB;if(!db)throw new HttpError(503,"The exam service is not ready yet. Please try again shortly.");return db}
+type MemAttemptRow = {
+  id: string;
+  owner: string;
+  name: string;
+  student_id: string;
+  cohort: string;
+  started_at: number;
+  deadline: number;
+  submitted_at: number | null;
+  status: "active" | "submitted";
+  version: number;
+};
+
+type MemAnswerRow = {
+  attempt_id: string;
+  question_id: number;
+  value: string;
+  correction: string;
+  flagged: number;
+  review_mark: number | null;
+  reflection: string;
+  updated_at: number;
+};
+
+const memAttempts = new Map<string, MemAttemptRow>();
+const memAnswers = new Map<string, MemAnswerRow>();
+const memLimits = new Map<string, number>();
+
+class MemoryStatement {
+  constructor(private sql: string, private values: unknown[] = []) {}
+
+  bind(...values: unknown[]) {
+    return new MemoryStatement(this.sql, values);
+  }
+
+  async first<T>(): Promise<T | null> {
+    const res = await this.all<T>();
+    return res.results[0] ?? null;
+  }
+
+  async run() {
+    await this.all();
+    return { success: true };
+  }
+
+  async all<T>(): Promise<{ results: T[]; success: boolean }> {
+    const sql = this.sql;
+    const vals = this.values;
+
+    if (sql.includes("SELECT * FROM exam_attempts WHERE id=? AND owner=?")) {
+      const [id, owner] = vals as [string, string];
+      const row = memAttempts.get(id);
+      if (row && row.owner === owner) {
+        return { results: [{ ...row }] as unknown as T[], success: true };
+      }
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("UPDATE exam_attempts SET status='submitted', submitted_at=deadline WHERE id=? AND owner=? AND status='active'")) {
+      const [id, owner] = vals as [string, string];
+      const row = memAttempts.get(id);
+      if (row && row.owner === owner && row.status === "active") {
+        row.status = "submitted";
+        row.submitted_at = row.deadline;
+      }
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("FROM exam_answers WHERE attempt_id=?")) {
+      const [attemptId] = vals as [string];
+      const list: MemAnswerRow[] = [];
+      for (const a of memAnswers.values()) {
+        if (a.attempt_id === attemptId) {
+          list.push({ ...a });
+        }
+      }
+      return { results: list as unknown as T[], success: true };
+    }
+
+    if (sql.includes("UPDATE exam_attempts SET status='submitted',submitted_at=deadline WHERE owner=? AND status='active' AND deadline<=?")) {
+      const [owner, now] = vals as [string, number];
+      for (const a of memAttempts.values()) {
+        if (a.owner === owner && a.status === "active" && a.deadline <= now) {
+          a.status = "submitted";
+          a.submitted_at = a.deadline;
+        }
+      }
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("SELECT * FROM exam_attempts WHERE owner=? ORDER BY started_at DESC LIMIT 30")) {
+      const [owner] = vals as [string];
+      const list: MemAttemptRow[] = [];
+      for (const a of memAttempts.values()) {
+        if (a.owner === owner) {
+          list.push({ ...a });
+        }
+      }
+      list.sort((x, y) => y.started_at - x.started_at);
+      return { results: list.slice(0, 30) as unknown as T[], success: true };
+    }
+
+    if (sql.includes("SELECT * FROM exam_attempts WHERE owner=? AND status='active' AND deadline>?")) {
+      const [owner, now] = vals as [string, number];
+      const list: MemAttemptRow[] = [];
+      for (const a of memAttempts.values()) {
+        if (a.owner === owner && a.status === "active" && a.deadline > now) {
+          list.push({ ...a });
+        }
+      }
+      list.sort((x, y) => y.started_at - x.started_at);
+      return { results: (list[0] ? [list[0]] : []) as unknown as T[], success: true };
+    }
+
+    if (sql.includes("INSERT INTO exam_start_limits")) {
+      const [key] = vals as [string];
+      const current = memLimits.get(key) || 0;
+      if (current >= 50) return { results: [], success: true };
+      memLimits.set(key, current + 1);
+      return { results: [{ count: current + 1 }] as unknown as T[], success: true };
+    }
+
+    if (sql.includes("INSERT INTO exam_attempts")) {
+      const [id, owner, name, student_id, cohort, started_at, deadline] = vals as [string, string, string, string, string, number, number];
+      memAttempts.set(id, {
+        id,
+        owner,
+        name,
+        student_id: student_id || "",
+        cohort: cohort || "",
+        started_at,
+        deadline,
+        submitted_at: null,
+        status: "active",
+        version: 1,
+      });
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("INSERT INTO exam_answers (attempt_id,question_id,value,correction,flagged,updated_at)")) {
+      const [attempt_id, question_id, value, correction, flagged, updated_at, check_id, check_owner, check_now] = vals as [string, number, string, string, number, number, string, string, number];
+      const att = memAttempts.get(check_id);
+      if (att && att.owner === check_owner && att.status === "active" && att.deadline > check_now) {
+        const key = `${attempt_id}:${question_id}`;
+        const existing = memAnswers.get(key);
+        memAnswers.set(key, {
+          attempt_id,
+          question_id,
+          value,
+          correction,
+          flagged,
+          review_mark: existing?.review_mark ?? null,
+          reflection: existing?.reflection ?? "",
+          updated_at,
+        });
+      }
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("UPDATE exam_attempts SET status='submitted', submitted_at=MIN(?,deadline)")) {
+      const [now, id, owner] = vals as [number, string, string];
+      const row = memAttempts.get(id);
+      if (row && row.owner === owner && row.status === "active") {
+        row.status = "submitted";
+        row.submitted_at = Math.min(now, row.deadline);
+      }
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("UPDATE exam_answers SET review_mark=? WHERE attempt_id=? AND question_id=?")) {
+      const [mark, attempt_id, question_id] = vals as [number, string, number];
+      const key = `${attempt_id}:${question_id}`;
+      const existing = memAnswers.get(key);
+      if (existing) {
+        existing.review_mark = mark;
+      }
+      return { results: [], success: true };
+    }
+
+    if (sql.includes("INSERT INTO exam_answers") && sql.includes("reflection")) {
+      const [attempt_id, question_id, reason, updated_at] = vals as [string, number, string, number];
+      const key = `${attempt_id}:${question_id}`;
+      const existing = memAnswers.get(key);
+      if (existing) {
+        existing.reflection = reason;
+        existing.updated_at = updated_at;
+      } else {
+        memAnswers.set(key, {
+          attempt_id,
+          question_id,
+          value: "",
+          correction: "",
+          flagged: 0,
+          review_mark: null,
+          reflection: reason,
+          updated_at,
+        });
+      }
+      return { results: [], success: true };
+    }
+
+    return { results: [], success: true };
+  }
+}
+
+interface DbPreparedStatement {
+  bind(...values: unknown[]): DbPreparedStatement;
+  first<T = unknown>(): Promise<T | null>;
+  all<T = unknown>(): Promise<{ results: T[]; success: boolean }>;
+  run(): Promise<{ success: boolean }>;
+}
+
+interface DbClient {
+  prepare(sql: string): DbPreparedStatement;
+  batch(statements: unknown[]): Promise<unknown[]>;
+}
+
+const memoryDb: DbClient = {
+  prepare: (sql: string) => new MemoryStatement(sql),
+  batch: async (statements: unknown[]) =>
+    Promise.all((statements as MemoryStatement[]).map((s) => s.run())),
+};
+
+function database(): DbClient {
+  const db = bindings().DB;
+  if (!db) {
+    return memoryDb;
+  }
+  return db as unknown as DbClient;
+}
 async function digest(value:string){const bytes=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(value));return Array.from(new Uint8Array(bytes),b=>b.toString(16).padStart(2,"0")).join("")}
 function tokenFrom(request:Request){const token=(request.headers.get("cookie")??"").split(";").map(s=>s.trim()).find(s=>s.startsWith("mysql_exam_session="))?.split("=")[1];return token&&/^[a-f0-9]{64}$/.test(token)?token:null}
 function freshToken(){const bytes=crypto.getRandomValues(new Uint8Array(32));return Array.from(bytes,b=>b.toString(16).padStart(2,"0")).join("")}

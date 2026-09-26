@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { Brand } from "@/components/exam-shell";
+import { openCookieSettings } from "@/lib/cookie-consent";
 import {
   GithubLogo,
   ShieldCheck,
@@ -159,9 +160,23 @@ function LoginPage() {
           <p>
             By continuing, you agree to MySQL Exam Studio terms of service and exam code of conduct.
           </p>
-          <a href="/" className="login-back-link">
-            Return to Public Overview
-          </a>
+          <div className="login-footer-links">
+            <a href="/cookie-policy" className="login-footer-link">
+              Cookie Policy
+            </a>
+            <span className="login-footer-dot">•</span>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="login-cookie-btn"
+            >
+              Cookie Settings
+            </button>
+            <span className="login-footer-dot">•</span>
+            <a href="/" className="login-back-link">
+              Public Overview
+            </a>
+          </div>
         </div>
       </div>
     </div>

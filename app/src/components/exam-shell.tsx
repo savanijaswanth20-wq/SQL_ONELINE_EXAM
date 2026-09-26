@@ -13,6 +13,7 @@ import {
   User,
 } from "@phosphor-icons/react";
 import { useAuth } from "@/lib/auth-context";
+import { openCookieSettings } from "@/lib/cookie-consent";
 
 export function Brand() {
   return (
@@ -31,7 +32,7 @@ export function Shell({
   active,
   children,
 }: {
-  active: "overview" | "exam" | "reports" | "admin";
+  active?: "overview" | "exam" | "reports" | "admin" | "policy";
   children: ReactNode;
 }) {
   const { user, profile, role, signOut, loading } = useAuth();
@@ -213,8 +214,24 @@ export function Shell({
         </header>
         {children}
         <footer className="page-footer">
-          <span>MySQL Exam Studio</span>
-          <span>Built for focused practice. Based on MySQL 8.4 concepts.</span>
+          <div className="page-footer-left">
+            <span>MySQL Exam Studio</span>
+            <span className="page-footer-divider">|</span>
+            <span>Built for focused practice. Based on MySQL 8.4 concepts.</span>
+          </div>
+          <div className="page-footer-right">
+            <a href="/cookie-policy" className="footer-link">
+              Cookie Policy
+            </a>
+            <span className="footer-dot">•</span>
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="footer-cookie-btn"
+            >
+              Cookie Settings
+            </button>
+          </div>
         </footer>
       </div>
     </div>
@@ -260,3 +277,5 @@ export function useQueryId() {
   );
   return id;
 }
+
+export const ExamShell = Shell;
