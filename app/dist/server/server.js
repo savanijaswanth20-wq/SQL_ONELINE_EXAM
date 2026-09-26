@@ -18898,83 +18898,83 @@ var init__tanstack_start_manifest_v = __esmMin((() => {
 				"/api/exam",
 				"/auth/callback"
 			],
-			preloads: ["/assets/index-BBQtgJ8M.js", "/assets/rolldown-runtime-Bh1tDfsg.js"],
+			preloads: ["/assets/index-xd8dzUk3.js", "/assets/rolldown-runtime-Bh1tDfsg.js"],
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-BBQtgJ8M.js"
+				src: "/assets/index-xd8dzUk3.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-DN62WakI.js",
+				"/assets/routes-DQE04DA7.js",
 				"/assets/exam-client-ClEnerEz.js",
-				"/assets/ArrowRight.es-By_mI7jJ.js",
-				"/assets/exam-shell-CzdNilnC.js",
-				"/assets/CheckCircle.es-B-efDn_b.js",
-				"/assets/Clock.es-C05FpQuH.js",
-				"/assets/FileText.es-BhAs3pnK.js",
-				"/assets/LockKey.es-UdC__PJj.js"
+				"/assets/ArrowRight.es-BcrqrGng.js",
+				"/assets/exam-shell-DFyv-eCA.js",
+				"/assets/CheckCircle.es-BlHlN5fM.js",
+				"/assets/Clock.es-DXeNOER_.js",
+				"/assets/FileText.es-XvbPAnxM.js",
+				"/assets/LockKey.es-DxV2lPlf.js"
 			]
 		},
 		"/admin": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-1MxsSNfy.js",
-				"/assets/protected-route-Jso1V1rk.js",
-				"/assets/exam-shell-CzdNilnC.js",
-				"/assets/CheckCircle.es-B-efDn_b.js",
-				"/assets/Clock.es-C05FpQuH.js"
+				"/assets/admin-CsSvtGoO.js",
+				"/assets/protected-route-DLEq8vuh.js",
+				"/assets/exam-shell-DFyv-eCA.js",
+				"/assets/CheckCircle.es-BlHlN5fM.js",
+				"/assets/Clock.es-DXeNOER_.js"
 			]
 		},
 		"/exam": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/exam.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/exam-BHSRZEm0.js",
+				"/assets/exam-BwX8drME.js",
 				"/assets/exam-client-ClEnerEz.js",
-				"/assets/protected-route-Jso1V1rk.js",
-				"/assets/ArrowRight.es-By_mI7jJ.js",
-				"/assets/exam-shell-CzdNilnC.js",
-				"/assets/Clock.es-C05FpQuH.js"
+				"/assets/protected-route-DLEq8vuh.js",
+				"/assets/ArrowRight.es-BcrqrGng.js",
+				"/assets/exam-shell-DFyv-eCA.js",
+				"/assets/Clock.es-DXeNOER_.js"
 			]
 		},
 		"/login": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/login.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/login-But5XIEv.js",
-				"/assets/exam-shell-CzdNilnC.js",
-				"/assets/CheckCircle.es-B-efDn_b.js",
-				"/assets/LockKey.es-UdC__PJj.js",
-				"/assets/WarningCircle.es-CRbM9mDP.js"
+				"/assets/login-C7Ad3H25.js",
+				"/assets/exam-shell-DFyv-eCA.js",
+				"/assets/CheckCircle.es-BlHlN5fM.js",
+				"/assets/LockKey.es-DxV2lPlf.js",
+				"/assets/WarningCircle.es-md3QIBRy.js"
 			]
 		},
 		"/reports": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-BEswXXfd.js",
+				"/assets/reports-Kqr7n9n-.js",
 				"/assets/exam-client-ClEnerEz.js",
-				"/assets/protected-route-Jso1V1rk.js",
-				"/assets/ArrowRight.es-By_mI7jJ.js",
-				"/assets/exam-shell-CzdNilnC.js",
-				"/assets/CheckCircle.es-B-efDn_b.js",
-				"/assets/FileText.es-BhAs3pnK.js",
-				"/assets/WarningCircle.es-CRbM9mDP.js"
+				"/assets/protected-route-DLEq8vuh.js",
+				"/assets/ArrowRight.es-BcrqrGng.js",
+				"/assets/exam-shell-DFyv-eCA.js",
+				"/assets/CheckCircle.es-BlHlN5fM.js",
+				"/assets/FileText.es-XvbPAnxM.js",
+				"/assets/WarningCircle.es-md3QIBRy.js"
 			]
 		},
 		"/auth/callback": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/auth/callback.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/callback-CeerGRkM.js",
-				"/assets/ArrowRight.es-By_mI7jJ.js",
-				"/assets/exam-shell-CzdNilnC.js",
-				"/assets/WarningCircle.es-CRbM9mDP.js"
+				"/assets/callback-B71NK09x.js",
+				"/assets/ArrowRight.es-BcrqrGng.js",
+				"/assets/exam-shell-DFyv-eCA.js",
+				"/assets/WarningCircle.es-md3QIBRy.js"
 			]
 		}
 	} });
@@ -88973,26 +88973,45 @@ function AuthCallbackPage() {
 			return;
 		}
 		const client = getSupabase();
-		if (code) client.auth.exchangeCodeForSession(code).then(async ({ data, error: exchangeError }) => {
-			if (exchangeError) {
-				setError(exchangeError.message);
+		const { data: { subscription } } = client.auth.onAuthStateChange((event, session) => {
+			if ((event === "SIGNED_IN" || event === "INITIAL_SESSION") && session) window.location.replace(nextUrl);
+		});
+		client.auth.getSession().then(async ({ data: { session } }) => {
+			if (session) {
+				window.location.replace(nextUrl);
 				return;
 			}
-			if (data.session) window.location.replace(nextUrl);
-			else window.location.replace("/");
-		}).catch((err) => {
-			const message = err instanceof Error ? err.message : "GitHub authentication exchange failed";
-			setError(message);
-		});
-		else client.auth.getSession().then(({ data: { session } }) => {
-			if (session) window.location.replace(nextUrl);
+			if (code) try {
+				const { data, error: exchangeError } = await client.auth.exchangeCodeForSession(code);
+				if (exchangeError) {
+					const { data: { session: retrySession } } = await client.auth.getSession();
+					if (retrySession) {
+						window.location.replace(nextUrl);
+						return;
+					}
+					setError("Your login session expired or was already used. Please click below to sign in freshly.");
+					return;
+				}
+				if (data.session) window.location.replace(nextUrl);
+				else window.location.replace("/");
+			} catch {
+				const { data: { session: retrySession } } = await client.auth.getSession();
+				if (retrySession) {
+					window.location.replace(nextUrl);
+					return;
+				}
+				setError("Authentication session expired. Please click below to start a fresh sign-in.");
+			}
 			else {
 				const timer = setTimeout(() => {
 					window.location.replace("/login");
-				}, 2500);
+				}, 2e3);
 				return () => clearTimeout(timer);
 			}
 		});
+		return () => {
+			subscription.unsubscribe();
+		};
 	}, []);
 	if (error) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", {
 		className: "root-error content-wrap",
@@ -89001,12 +89020,12 @@ function AuthCallbackPage() {
 			role: "alert",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(m$3, { size: 28 }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Authentication Failed" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Authentication Notice" }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: error }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 					href: "/login",
 					className: "enter-ticket",
-					children: ["Try signing in again ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$6, { size: 18 })]
+					children: ["Sign in with GitHub ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(s$6, { size: 18 })]
 				})
 			]
 		})
