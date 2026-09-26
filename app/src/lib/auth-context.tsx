@@ -145,6 +145,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
 
+    // Forward OAuth code to callback route if redirected to root or other path
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = searchParams.get("code");
+    if (code && !window.location.pathname.startsWith("/auth/callback")) {
+      window.location.replace(`/auth/callback${window.location.search}`);
+      return;
+    }
+
     const client = getSupabase();
 
     // 1. Check for initial session on mount (restores session after refresh)

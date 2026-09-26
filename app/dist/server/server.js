@@ -18898,83 +18898,83 @@ var init__tanstack_start_manifest_v = __esmMin((() => {
 				"/api/exam",
 				"/auth/callback"
 			],
-			preloads: ["/assets/index-CnwstQ5c.js", "/assets/rolldown-runtime-Bh1tDfsg.js"],
+			preloads: ["/assets/index-BBQtgJ8M.js", "/assets/rolldown-runtime-Bh1tDfsg.js"],
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-CnwstQ5c.js"
+				src: "/assets/index-BBQtgJ8M.js"
 			} }]
 		},
 		"/": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-BWtubCK8.js",
+				"/assets/routes-DN62WakI.js",
 				"/assets/exam-client-ClEnerEz.js",
-				"/assets/ArrowRight.es-BpNiiLoJ.js",
-				"/assets/exam-shell-D51z86Yh.js",
-				"/assets/CheckCircle.es-CCeuO6vd.js",
-				"/assets/Clock.es-JNaTg2PY.js",
-				"/assets/FileText.es-BIhzgQpK.js",
-				"/assets/LockKey.es-61R4Y0im.js"
+				"/assets/ArrowRight.es-By_mI7jJ.js",
+				"/assets/exam-shell-CzdNilnC.js",
+				"/assets/CheckCircle.es-B-efDn_b.js",
+				"/assets/Clock.es-C05FpQuH.js",
+				"/assets/FileText.es-BhAs3pnK.js",
+				"/assets/LockKey.es-UdC__PJj.js"
 			]
 		},
 		"/admin": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/admin.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/admin-Dme1hAFZ.js",
-				"/assets/protected-route-DMX-cZjG.js",
-				"/assets/exam-shell-D51z86Yh.js",
-				"/assets/CheckCircle.es-CCeuO6vd.js",
-				"/assets/Clock.es-JNaTg2PY.js"
+				"/assets/admin-1MxsSNfy.js",
+				"/assets/protected-route-Jso1V1rk.js",
+				"/assets/exam-shell-CzdNilnC.js",
+				"/assets/CheckCircle.es-B-efDn_b.js",
+				"/assets/Clock.es-C05FpQuH.js"
 			]
 		},
 		"/exam": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/exam.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/exam-Dy6cd_XS.js",
+				"/assets/exam-BHSRZEm0.js",
 				"/assets/exam-client-ClEnerEz.js",
-				"/assets/protected-route-DMX-cZjG.js",
-				"/assets/ArrowRight.es-BpNiiLoJ.js",
-				"/assets/exam-shell-D51z86Yh.js",
-				"/assets/Clock.es-JNaTg2PY.js"
+				"/assets/protected-route-Jso1V1rk.js",
+				"/assets/ArrowRight.es-By_mI7jJ.js",
+				"/assets/exam-shell-CzdNilnC.js",
+				"/assets/Clock.es-C05FpQuH.js"
 			]
 		},
 		"/login": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/login.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/login-UbCjWHbN.js",
-				"/assets/exam-shell-D51z86Yh.js",
-				"/assets/CheckCircle.es-CCeuO6vd.js",
-				"/assets/LockKey.es-61R4Y0im.js",
-				"/assets/WarningCircle.es-D0pV5we6.js"
+				"/assets/login-But5XIEv.js",
+				"/assets/exam-shell-CzdNilnC.js",
+				"/assets/CheckCircle.es-B-efDn_b.js",
+				"/assets/LockKey.es-UdC__PJj.js",
+				"/assets/WarningCircle.es-CRbM9mDP.js"
 			]
 		},
 		"/reports": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-DQBU1qqj.js",
+				"/assets/reports-BEswXXfd.js",
 				"/assets/exam-client-ClEnerEz.js",
-				"/assets/protected-route-DMX-cZjG.js",
-				"/assets/ArrowRight.es-BpNiiLoJ.js",
-				"/assets/exam-shell-D51z86Yh.js",
-				"/assets/CheckCircle.es-CCeuO6vd.js",
-				"/assets/FileText.es-BIhzgQpK.js",
-				"/assets/WarningCircle.es-D0pV5we6.js"
+				"/assets/protected-route-Jso1V1rk.js",
+				"/assets/ArrowRight.es-By_mI7jJ.js",
+				"/assets/exam-shell-CzdNilnC.js",
+				"/assets/CheckCircle.es-B-efDn_b.js",
+				"/assets/FileText.es-BhAs3pnK.js",
+				"/assets/WarningCircle.es-CRbM9mDP.js"
 			]
 		},
 		"/auth/callback": {
 			filePath: "C:/SQL_exam_WEB/app/src/routes/auth/callback.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/callback-CGK4gHBA.js",
-				"/assets/ArrowRight.es-BpNiiLoJ.js",
-				"/assets/exam-shell-D51z86Yh.js",
-				"/assets/WarningCircle.es-D0pV5we6.js"
+				"/assets/callback-CeerGRkM.js",
+				"/assets/ArrowRight.es-By_mI7jJ.js",
+				"/assets/exam-shell-CzdNilnC.js",
+				"/assets/WarningCircle.es-CRbM9mDP.js"
 			]
 		}
 	} });
@@ -43184,6 +43184,10 @@ function AuthProvider({ children }) {
 	(0, import_react$73.useEffect)(() => {
 		if (typeof window === "undefined") {
 			setLoading(false);
+			return;
+		}
+		if (new URLSearchParams(window.location.search).get("code") && !window.location.pathname.startsWith("/auth/callback")) {
+			window.location.replace(`/auth/callback${window.location.search}`);
 			return;
 		}
 		const client = getSupabase();
