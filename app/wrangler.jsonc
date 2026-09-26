@@ -1,5 +1,5 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
 
   // ── BUILD / DEV CONFIG — NOT the deploy config ───────────────────
   // Used for local `wrangler dev`. It is NEVER trusted at deploy: the deploy CI
@@ -46,7 +46,7 @@
   "assets": {
     "directory": "./dist/client",
     "binding": "ASSETS",
-    "not_found_handling": "none",
+    "not_found_handling": "none"
   },
 
   // Non-secret identity for local dev/build; the deploy sets the real values.
