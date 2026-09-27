@@ -15,7 +15,7 @@ import {
   XCircle,
   Code,
   Table as TableIcon,
-  ShieldAlert,
+  WarningCircle,
   Sparkle,
   Trophy,
   CaretRight,
@@ -584,7 +584,7 @@ function SqlExamPage() {
 
                 {runResult && !runResult.success && (
                   <div className="output-error-box">
-                    <ShieldAlert size={20} />
+                    <WarningCircle size={20} />
                     <pre>{runResult.error}</pre>
                   </div>
                 )}
