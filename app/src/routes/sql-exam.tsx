@@ -276,7 +276,7 @@ function SqlExamPage() {
 
   if (loading) {
     return (
-      <Shell active="exam">
+      <Shell active="sql-exam">
         <Loading label="Initializing isolated SQL exam database" />
       </Shell>
     );
@@ -284,7 +284,7 @@ function SqlExamPage() {
 
   if (!data) {
     return (
-      <Shell active="exam">
+      <Shell active="sql-exam">
         <main className="content-wrap page-pad">
           <ErrorBox message={error || "Could not load the 30-minute SQL exam."} retry={() => void loadExam()} />
         </main>
@@ -302,7 +302,7 @@ function SqlExamPage() {
   const timerUrgent = remainingSeconds < 300;
 
   return (
-    <Shell active="exam">
+    <Shell active="sql-exam">
       <main className="sql-exam-layout content-wrap">
         {/* TOP BAR */}
         <header className="sql-exam-header">

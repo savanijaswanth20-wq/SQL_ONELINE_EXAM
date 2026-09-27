@@ -32,7 +32,7 @@ export function Shell({
   active,
   children,
 }: {
-  active?: "overview" | "exam" | "reports" | "admin" | "policy";
+  active?: "overview" | "sql-exam" | "exam" | "reports" | "admin" | "policy";
   children: ReactNode;
 }) {
   const { user, profile, role, signOut, loading } = useAuth();
@@ -61,8 +61,8 @@ export function Shell({
           </a>
           <a
             href="/sql-exam"
-            className={active === "exam" ? "current" : ""}
-            aria-current={active === "exam" ? "page" : undefined}
+            className={active === "sql-exam" ? "current" : ""}
+            aria-current={active === "sql-exam" ? "page" : undefined}
           >
             <Database size={20} />
             SQL Coding Exam (30 Min)
@@ -175,8 +175,10 @@ export function Shell({
             <strong>
               {active === "overview"
                 ? "Overview"
+                : active === "sql-exam"
+                ? "SQL Coding Exam (30 Min)"
                 : active === "exam"
-                ? "Examination"
+                ? "Theory Examination"
                 : active === "reports"
                 ? "Report cards"
                 : "Admin portal"}
