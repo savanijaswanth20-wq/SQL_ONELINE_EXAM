@@ -60,12 +60,20 @@ export function Shell({
             Overview
           </a>
           <a
+            href="/sql-exam"
+            className={active === "exam" ? "current" : ""}
+            aria-current={active === "exam" ? "page" : undefined}
+          >
+            <Database size={20} />
+            SQL Coding Exam (30 Min)
+          </a>
+          <a
             href="/exam"
             className={active === "exam" ? "current" : ""}
             aria-current={active === "exam" ? "page" : undefined}
           >
             <Exam size={20} />
-            Examination
+            Theory Examination
           </a>
           <a
             href="/reports"

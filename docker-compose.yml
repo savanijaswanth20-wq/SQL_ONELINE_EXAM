@@ -1,0 +1,77 @@
+services:
+  # ============================================================================
+  # 1. PostgreSQL Database Service (Compatible with Prisma & Supabase Schema)
+  # ============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: sql_exam_postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password123!
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - exam_net
+
+  # ============================================================================
+  # 2. Adminer: Database Management Web UI
+  # Accessible at: http://localhost:8080
+  # ============================================================================
+  adminer:
+    image: adminer:latest
+    container_name: sql_exam_adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - exam_net
+
+  # ============================================================================
+  # 3. Web Application (TanStack Start / React 19 / Bun)
+  # Accessible at: http://localhost:3000
+  # ============================================================================
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      target: development
+    container_name: sql_exam_web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: development
+      DATABASE_URL: "postgresql://postgres:Password123!@postgres:5432/postgres"
+      DIRECT_URL: "postgresql://postgres:Password123!@postgres:5432/postgres"
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - exam_net
+
+networks:
+  exam_net:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

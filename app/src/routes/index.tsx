@@ -1,12 +1,14 @@
 import {createFileRoute} from "@tanstack/react-router";
 import {useEffect,useState} from "react";
-import {ArrowRight,Clock,FileText,CheckCircle,LockKey,ArrowUpRight,CodeBlock,Key,Table as TableIcon,BracketsCurly} from "@phosphor-icons/react";
+import {ArrowRight,Clock,FileText,CheckCircle,LockKey,ArrowUpRight,CodeBlock,Key,Database,BracketsCurly} from "@phosphor-icons/react";
 import {Shell,ErrorBox} from "@/components/exam-shell";
 import {api,attemptUrl,dateLabel} from "@/lib/exam-client";
 import {SECTION_DEFINITIONS,SYLLABUS} from "@/lib/exam-types";
 import type {Attempt,ExamPayload} from "@/lib/exam-types";
 import {useAuth} from "@/lib/auth-context";
+
 export const Route=createFileRoute("/")({head:()=>({links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app"}]}),component:Dashboard});
+
 function Dashboard(){
  const {user,profile}=useAuth();
  const [attempts,setAttempts]=useState<Attempt[]>([]),[loading,setLoading]=useState(true),[error,setError]=useState(""),[busy,setBusy]=useState(false);
@@ -22,8 +24,28 @@ function Dashboard(){
  async function start(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const data=await api<ExamPayload>({action:"start",name,studentId,cohort,accepted});window.location.assign(attemptUrl(data.attempt.id,data.attempt.status))}catch(e){setError((e as Error).message);setBusy(false)}}
  const icons=[<BracketsCurly size={24}/>,<LockKey size={24}/>,<Key size={24}/>,<CodeBlock size={24}/>];
  return <Shell active="overview"><main className="dashboard content-wrap">
- <section className="welcome"><div className="welcome-copy"><span className="eyebrow">THE MYSQL ASSESSMENT</span><h1>Know it.<br/><span>Prove it.</span></h1><p>Put your core concepts to the test.<br/>Leave with a clear picture of your progress.</p><a className="enter-ticket" href={active?attemptUrl(active.id,active.status):"#begin"}>{active?"Continue attempt":"Take the exam"}<ArrowRight size={21}/></a></div>
- <div className="exam-facts"><span className="facts-caption">YOUR NEXT CHALLENGE</span><div className="big-number">65<span>questions</span></div><div className="facts-bottom"><span><Clock size={17}/>90 minutes</span><span><FileText size={17}/>100 marks</span></div><div className="facts-rule"/><p>Data types. Constraints.<br/>Keys. SQL commands.</p></div></section>
+ <section className="welcome">
+   <div className="welcome-copy">
+     <span className="eyebrow">PRACTICAL MYSQL ASSESSMENT</span>
+     <h1>SQL Coding<br/><span>Assessment</span></h1>
+     <p>Solve real-world MySQL queries on an isolated database.<br/>8 coding questions • 30-minute live timer • Automated evaluation.</p>
+     <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+       <a className="enter-ticket" href="/sql-exam">
+         Start 30-Min SQL Exam <ArrowRight size={21}/>
+       </a>
+     </div>
+   </div>
+   <div className="exam-facts">
+     <span className="facts-caption">SQL CODING ASSESSMENT</span>
+     <div className="big-number">8<span>questions</span></div>
+     <div className="facts-bottom">
+       <span><Clock size={17}/>30 minutes</span>
+       <span><FileText size={17}/>100 marks</span>
+     </div>
+     <div className="facts-rule"/>
+     <p>SELECT • JOIN • GROUP BY<br/>INSERT • UPDATE • Subqueries</p>
+   </div>
+ </section>
  <section className="stats-strip" aria-label="Your progress"><div><span>YOUR ATTEMPTS</span><strong>{loading?"...":attempts.length.toString().padStart(2,"0")}</strong></div><div><span>COMPLETED</span><strong>{loading?"...":finished.length.toString().padStart(2,"0")}</strong></div><div><span>BEST REVIEWED SCORE</span><strong>{best===null?"Not yet":best+"%"}<small>{best===null?"Finish your first exam":"Including self-reviewed marks"}</small></strong></div><a href="/reports">View report cards <ArrowUpRight size={21}/></a></section>
  {error&&<ErrorBox message={error} retry={()=>void history()}/>}
  {active&&<div className="resume-banner"><div><strong>An exam is in progress</strong><p>{active.answered} of 65 answered. Your original deadline still applies.</p></div><a href={attemptUrl(active.id,active.status)}>Continue attempt <ArrowRight size={18}/></a></div>}

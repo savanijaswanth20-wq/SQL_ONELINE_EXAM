@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SqlExamRouteImport } from './routes/sql-exam'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ReportsRouteImport } from './routes/reports'
@@ -19,8 +20,14 @@ import { Route as AppRouteImport } from './routes/app'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
+import { Route as ApiSqlExamRouteImport } from './routes/api/sql-exam'
 import { Route as ApiExamRouteImport } from './routes/api/exam'
 
+const SqlExamRoute = SqlExamRouteImport.update({
+  id: '/sql-exam',
+  path: '/sql-exam',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -71,6 +78,11 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSqlExamRoute = ApiSqlExamRouteImport.update({
+  id: '/api/sql-exam',
+  path: '/api/sql-exam',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiExamRoute = ApiExamRouteImport.update({
   id: '/api/exam',
   path: '/api/exam',
@@ -87,7 +99,9 @@ export interface FileRoutesByFullPath {
   '/reports': typeof ReportsRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sql-exam': typeof SqlExamRoute
   '/api/exam': typeof ApiExamRoute
+  '/api/sql-exam': typeof ApiSqlExamRoute
   '/auth/callback': typeof AuthCallbackRoute
 }
 export interface FileRoutesByTo {
@@ -100,7 +114,9 @@ export interface FileRoutesByTo {
   '/reports': typeof ReportsRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sql-exam': typeof SqlExamRoute
   '/api/exam': typeof ApiExamRoute
+  '/api/sql-exam': typeof ApiSqlExamRoute
   '/auth/callback': typeof AuthCallbackRoute
 }
 export interface FileRoutesById {
@@ -114,7 +130,9 @@ export interface FileRoutesById {
   '/reports': typeof ReportsRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sql-exam': typeof SqlExamRoute
   '/api/exam': typeof ApiExamRoute
+  '/api/sql-exam': typeof ApiSqlExamRoute
   '/auth/callback': typeof AuthCallbackRoute
 }
 export interface FileRouteTypes {
@@ -129,7 +147,9 @@ export interface FileRouteTypes {
     | '/reports'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/sql-exam'
     | '/api/exam'
+    | '/api/sql-exam'
     | '/auth/callback'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -142,7 +162,9 @@ export interface FileRouteTypes {
     | '/reports'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/sql-exam'
     | '/api/exam'
+    | '/api/sql-exam'
     | '/auth/callback'
   id:
     | '__root__'
@@ -155,7 +177,9 @@ export interface FileRouteTypes {
     | '/reports'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/sql-exam'
     | '/api/exam'
+    | '/api/sql-exam'
     | '/auth/callback'
   fileRoutesById: FileRoutesById
 }
@@ -169,12 +193,21 @@ export interface RootRouteChildren {
   ReportsRoute: typeof ReportsRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SqlExamRoute: typeof SqlExamRoute
   ApiExamRoute: typeof ApiExamRoute
+  ApiSqlExamRoute: typeof ApiSqlExamRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sql-exam': {
+      id: '/sql-exam'
+      path: '/sql-exam'
+      fullPath: '/sql-exam'
+      preLoaderRoute: typeof SqlExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -245,6 +278,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/sql-exam': {
+      id: '/api/sql-exam'
+      path: '/api/sql-exam'
+      fullPath: '/api/sql-exam'
+      preLoaderRoute: typeof ApiSqlExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/exam': {
       id: '/api/exam'
       path: '/api/exam'
@@ -265,7 +305,9 @@ const rootRouteChildren: RootRouteChildren = {
   ReportsRoute: ReportsRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SqlExamRoute: SqlExamRoute,
   ApiExamRoute: ApiExamRoute,
+  ApiSqlExamRoute: ApiSqlExamRoute,
   AuthCallbackRoute: AuthCallbackRoute,
 }
 export const routeTree = rootRouteImport

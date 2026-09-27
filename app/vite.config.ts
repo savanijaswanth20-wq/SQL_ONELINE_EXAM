@@ -17,6 +17,9 @@ import { fileURLToPath } from "node:url";
 const QUANTA_ICONS_SHIM = fileURLToPath(
   new URL("./src/lib/quanta-icons.ts", import.meta.url),
 );
+const CLOUDFLARE_WORKERS_SHIM = fileURLToPath(
+  new URL("./src/lib/cloudflare-shim.ts", import.meta.url),
+);
 
 export default defineConfig(({ command, mode }) => {
   const designInspectorEnabled = process.env.HF_DESIGN_INSPECTOR === "1" || mode === "design";
@@ -30,7 +33,10 @@ export default defineConfig(({ command, mode }) => {
     },
     resolve: {
       tsconfigPaths: true,
-      alias: [{ find: /^@higgsfield-ai\/icons(\/.*)?$/, replacement: QUANTA_ICONS_SHIM }],
+      alias: [
+        { find: /^@higgsfield-ai\/icons(\/.*)?$/, replacement: QUANTA_ICONS_SHIM },
+        ...(command !== "build" ? [{ find: "cloudflare:workers", replacement: CLOUDFLARE_WORKERS_SHIM }] : []),
+      ],
     },
     // The server bundle runs as a Cloudflare Worker — there is no node_modules
     // at runtime. Vite's default SSR build leaves npm deps as bare external

@@ -8,10 +8,12 @@
   ],
   "scripts": {
     "dev": "vite dev",
+    "dev:docker": "vite dev --host 0.0.0.0 --port 3000",
     "dev:design": "HF_DESIGN_INSPECTOR=1 vite dev --mode design",
     "build": "node scripts/check-ui.mjs && tsr generate && tsc --noEmit && vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "preview:docker": "vite preview --host 0.0.0.0 --port 3000",
     "postinstall": "node scripts/verify-install.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",

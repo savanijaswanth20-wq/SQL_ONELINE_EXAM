@@ -1,0 +1,11 @@
+node_modules
+dist
+.git
+.github
+.agents
+.claude
+.wrangler
+*.log
+.env.local
+.DS_Store
+Thumbs.db
