@@ -18,6 +18,7 @@ create table if not exists public.profiles (
 -- Ensure columns exist if table was created previously
 alter table public.profiles add column if not exists github_id text default '';
 alter table public.profiles add column if not exists github_username text not null default '';
+alter table public.profiles add column if not exists is_public boolean not null default false;
 alter table public.profiles alter column role set default 'student';
 
 -- Indexes for profiles
@@ -25,6 +26,7 @@ create index if not exists idx_profiles_role on public.profiles(role);
 create index if not exists idx_profiles_email on public.profiles(email);
 create index if not exists idx_profiles_github_id on public.profiles(github_id);
 create index if not exists idx_profiles_github_username on public.profiles(github_username);
+create index if not exists idx_profiles_is_public on public.profiles(is_public);
 
 -- 2. Create exam_attempts table
 create table if not exists public.exam_attempts (
@@ -111,11 +113,12 @@ drop policy if exists "Users can update their own profile and admins can update 
 drop policy if exists "Allow profile insertion by owner or admin" on public.profiles;
 drop policy if exists "Admins can delete profiles" on public.profiles;
 
-create policy "Profiles are viewable by owner or admins"
+create policy "Public profiles are viewable by anyone, private by owner or admin"
   on public.profiles for select
-  to authenticated
+  to anon, authenticated
   using (
-    (select auth.uid()) = id
+    is_public = true
+    or (select auth.uid()) = id
     or public.is_admin()
   );
 
@@ -298,3 +301,19 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function public.handle_new_user();
+
+-- 7. Community Learners Public View (Only public learners; hides ID, email, tokens)
+create or replace view public.community_learners as
+  select
+    p.github_username,
+    p.full_name as display_name,
+    p.avatar_url,
+    p.created_at as joined_at,
+    count(distinct ea.id) filter (where ea.status = 'submitted') as exams_completed,
+    coalesce(max(ea.score_total) filter (where ea.status = 'submitted'), 0) as best_score
+  from public.profiles p
+  left join public.exam_attempts ea on ea.user_id = p.id
+  where p.is_public = true
+  group by p.id, p.github_username, p.full_name, p.avatar_url, p.created_at;
+
+grant select on public.community_learners to anon, authenticated;

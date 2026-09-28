@@ -11,6 +11,7 @@ import {
   GithubLogo,
   Shield,
   User,
+  Users,
 } from "@phosphor-icons/react";
 import { useAuth } from "@/lib/auth-context";
 import { openCookieSettings } from "@/lib/cookie-consent";
@@ -33,7 +34,7 @@ export function Shell({
   active,
   children,
 }: {
-  active?: "overview" | "sql-exam" | "exam" | "reports" | "admin" | "policy";
+  active?: "overview" | "sql-exam" | "exam" | "reports" | "admin" | "policy" | "learners";
   children: ReactNode;
 }) {
   const { user, profile, role, signOut, loading } = useAuth();
@@ -83,6 +84,14 @@ export function Shell({
           >
             <ChartBar size={20} />
             Report cards
+          </a>
+          <a
+            href="/learners"
+            className={active === "learners" ? "current" : ""}
+            aria-current={active === "learners" ? "page" : undefined}
+          >
+            <Users size={20} />
+            Community Learners
           </a>
           {role === "admin" && (
             <a
@@ -182,6 +191,8 @@ export function Shell({
                 ? "Theory Examination"
                 : active === "reports"
                 ? "Report cards"
+                : active === "learners"
+                ? "Community Learners"
                 : active === "policy"
                 ? "Privacy & Cookies"
                 : "Admin portal"}

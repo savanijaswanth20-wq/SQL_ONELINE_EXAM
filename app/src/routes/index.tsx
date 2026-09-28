@@ -20,12 +20,18 @@ import {
   ChartBar,
   ShieldCheck,
   User,
+  Users,
+  MagnifyingGlass,
+  Eye,
+  EyeSlash,
 } from "@phosphor-icons/react";
 import { Shell, ErrorBox } from "@/components/exam-shell";
+import { LearnerCard } from "@/components/learner-card";
 import { api, attemptUrl, dateLabel } from "@/lib/exam-client";
 import { SECTION_DEFINITIONS, SYLLABUS } from "@/lib/exam-types";
 import type { Attempt, ExamPayload } from "@/lib/exam-types";
 import { useAuth } from "@/lib/auth-context";
+import type { PublicLearner } from "@/lib/supabase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,7 +46,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Dashboard() {
-  const { user, profile } = useAuth();
+  const { user, profile, updatePublicVisibility } = useAuth();
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -49,6 +55,65 @@ function Dashboard() {
   const [studentId, setStudentId] = useState("");
   const [cohort, setCohort] = useState("");
   const [accepted, setAccepted] = useState(false);
+
+  // Community Learners State
+  const [communityLearners, setCommunityLearners] = useState<PublicLearner[]>([]);
+  const [learnersLoading, setLearnersLoading] = useState(true);
+  const [learnersSearch, setLearnersSearch] = useState("");
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [isUpdatingVisibility, setIsUpdatingVisibility] = useState(false);
+  const [visibilityFeedback, setVisibilityFeedback] = useState<string | null>(null);
+
+  const isPublic = Boolean(profile?.is_public);
+
+  useEffect(() => {
+    let active = true;
+    async function loadCommunity() {
+      setLearnersLoading(true);
+      try {
+        const res = await fetch("/api/learners?limit=50");
+        if (res.ok) {
+          const data = await res.json();
+          if (active) {
+            setCommunityLearners(data.learners || []);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load community learners:", err);
+      } finally {
+        if (active) setLearnersLoading(false);
+      }
+    }
+    void loadCommunity();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  async function handleToggleVisibility() {
+    if (!user || isUpdatingVisibility) return;
+    setIsUpdatingVisibility(true);
+    setVisibilityFeedback(null);
+    const nextState = !isPublic;
+    const ok = await updatePublicVisibility(nextState);
+    if (ok) {
+      setVisibilityFeedback(
+        nextState
+          ? "Your profile is now publicly visible in the Community directory."
+          : "Your profile is now private (hidden from the public)."
+      );
+      try {
+        const res = await fetch("/api/learners?limit=50");
+        if (res.ok) {
+          const data = await res.json();
+          setCommunityLearners(data.learners || []);
+        }
+      } catch {}
+    } else {
+      setVisibilityFeedback("Failed to update visibility. Please try again.");
+    }
+    setIsUpdatingVisibility(false);
+  }
 
   useEffect(() => {
     if (profile?.full_name && !name) {
@@ -127,6 +192,9 @@ function Dashboard() {
             <div className="hero-action-buttons">
               <a className="hero-primary-btn" href="#available-exams">
                 Explore Examinations <ArrowRight size={18} />
+              </a>
+              <a className="hero-secondary-btn" href="#community-learners">
+                <Users size={18} /> Community Learners
               </a>
               {!user && (
                 <a className="hero-secondary-btn" href="/login">
@@ -331,6 +399,177 @@ function Dashboard() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Public Community Learners Section */}
+        <section className="learners-section" id="community-learners">
+          <div className="section-heading">
+            <span className="eyebrow">COMMUNITY DIRECTORY</span>
+            <h2>Community Learners</h2>
+            <p className="muted">
+              Meet candidates and engineers building verifiable SQL mastery. Only candidates who enable
+              public profile visibility are displayed.
+            </p>
+          </div>
+
+          {/* Profile Visibility Setting (Signed-in candidates) */}
+          {user ? (
+            <div className="learners-setting-box" aria-label="Profile visibility settings">
+              <div className="learners-setting-info">
+                <div className="learners-setting-icon">
+                  {isPublic ? <Eye size={24} weight="bold" /> : <EyeSlash size={24} weight="bold" />}
+                </div>
+                <div className="learners-setting-text">
+                  <strong>Show my profile publicly</strong>
+                  <p>
+                    Allow other community members and visitors to view your GitHub avatar, username, display name,
+                    completed exams count, best score, earned badges, and join date.
+                  </p>
+                  <small>
+                    Privacy Guarantee: Internal User ID, email, phone number, OAuth tokens, exam answers,
+                    and private report cards remain 100% hidden and protected by Supabase RLS.
+                  </small>
+                  {visibilityFeedback && (
+                    <div style={{ marginTop: "8px", fontWeight: 500, color: "var(--accent)" }}>
+                      {visibilityFeedback}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="visibility-toggle-control">
+                <span className={`visibility-toggle-status ${isPublic ? "is-public" : "is-private"}`}>
+                  {isPublic ? "Public" : "Private (Default)"}
+                </span>
+                <label className="visibility-toggle-switch" aria-label="Toggle public profile visibility">
+                  <input
+                    type="checkbox"
+                    checked={isPublic}
+                    disabled={isUpdatingVisibility}
+                    onChange={() => void handleToggleVisibility()}
+                  />
+                  <span className="visibility-toggle-slider" />
+                </label>
+              </div>
+            </div>
+          ) : (
+            <div className="guest-progress-banner" style={{ marginBottom: "28px" }}>
+              <div className="guest-progress-text">
+                <ShieldCheck size={28} />
+                <div>
+                  <strong>Showcase Your Assessment Success</strong>
+                  <p>
+                    Sign in with GitHub and complete an assessment to feature on the public directory.
+                    Public visibility is completely optional and disabled by default.
+                  </p>
+                </div>
+              </div>
+              <a href="/login" className="guest-signin-btn">
+                <GithubLogo size={18} weight="bold" />
+                <span>Sign In with GitHub</span>
+              </a>
+            </div>
+          )}
+
+          {/* Search bar & Directory Link */}
+          <div className="learners-filter-bar">
+            <div className="learners-search-wrapper">
+              <MagnifyingGlass size={18} className="learners-search-icon" />
+              <input
+                type="search"
+                className="learners-search-input"
+                placeholder="Search learners by GitHub username or name..."
+                value={learnersSearch}
+                onChange={(e) => {
+                  setLearnersSearch(e.target.value);
+                  setVisibleCount(3);
+                }}
+                aria-label="Search community learners"
+              />
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+              <span className="learners-count-badge">
+                {learnersLoading
+                  ? "Loading..."
+                  : `${
+                      communityLearners.filter(
+                        (l) =>
+                          !learnersSearch.trim() ||
+                          l.github_username.toLowerCase().includes(learnersSearch.toLowerCase().trim()) ||
+                          l.display_name.toLowerCase().includes(learnersSearch.toLowerCase().trim())
+                      ).length
+                    } Public Learners`}
+              </span>
+              <a href="/learners" className="stats-report-link" style={{ fontSize: "13px" }}>
+                View Full Directory <ArrowUpRight size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* Cards Grid */}
+          {learnersLoading && communityLearners.length === 0 ? (
+            <div className="loading-surface">
+              <p>Loading community learners...</p>
+              <div />
+              <div />
+            </div>
+          ) : (
+            (() => {
+              const filtered = communityLearners.filter(
+                (l) =>
+                  !learnersSearch.trim() ||
+                  l.github_username.toLowerCase().includes(learnersSearch.toLowerCase().trim()) ||
+                  l.display_name.toLowerCase().includes(learnersSearch.toLowerCase().trim())
+              );
+
+              if (filtered.length === 0) {
+                return (
+                  <div className="learners-empty-state">
+                    <Users size={40} weight="light" />
+                    <h3>No public learners found</h3>
+                    <p>
+                      {learnersSearch
+                        ? `No learners found matching "${learnersSearch}".`
+                        : "No community learners have enabled public visibility yet."}
+                    </p>
+                    {learnersSearch && (
+                      <button
+                        type="button"
+                        className="learners-page-btn"
+                        onClick={() => setLearnersSearch("")}
+                      >
+                        Clear search
+                      </button>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <>
+                  <div className="learners-grid">
+                    {filtered.slice(0, visibleCount).map((learner) => (
+                      <LearnerCard key={learner.github_username} learner={learner} />
+                    ))}
+                  </div>
+                  {visibleCount < filtered.length && (
+                    <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginTop: "16px" }}>
+                      <button
+                        type="button"
+                        className="learners-page-btn"
+                        onClick={() => setVisibleCount((c) => c + 3)}
+                      >
+                        Load More Learners ({filtered.length - visibleCount} remaining)
+                      </button>
+                      <a href="/learners" className="learners-page-btn">
+                        View All in Directory →
+                      </a>
+                    </div>
+                  )}
+                </>
+              );
+            })()
+          )}
         </section>
 
         {/* Simple "How It Works" Section */}

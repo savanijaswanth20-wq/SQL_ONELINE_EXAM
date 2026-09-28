@@ -15,6 +15,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LearnersRouteImport } from './routes/learners'
 import { Route as ExamRouteImport } from './routes/exam'
 import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
 import { Route as AppRouteImport } from './routes/app'
@@ -23,6 +24,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
 import { Route as ApiSqlMcqExamRouteImport } from './routes/api/sql-mcq-exam'
 import { Route as ApiSqlExamRouteImport } from './routes/api/sql-exam'
+import { Route as ApiLearnersRouteImport } from './routes/api/learners'
 import { Route as ApiExamRouteImport } from './routes/api/exam'
 
 const SqlMcqExamRoute = SqlMcqExamRouteImport.update({
@@ -53,6 +55,11 @@ const ReportsRoute = ReportsRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnersRoute = LearnersRouteImport.update({
+  id: '/learners',
+  path: '/learners',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamRoute = ExamRouteImport.update({
@@ -95,6 +102,11 @@ const ApiSqlExamRoute = ApiSqlExamRouteImport.update({
   path: '/api/sql-exam',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiLearnersRoute = ApiLearnersRouteImport.update({
+  id: '/api/learners',
+  path: '/api/learners',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiExamRoute = ApiExamRouteImport.update({
   id: '/api/exam',
   path: '/api/exam',
@@ -107,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/app': typeof AppRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/exam': typeof ExamRoute
+  '/learners': typeof LearnersRoute
   '/login': typeof LoginRoute
   '/reports': typeof ReportsRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -114,6 +127,7 @@ export interface FileRoutesByFullPath {
   '/sql-exam': typeof SqlExamRoute
   '/sql-mcq-exam': typeof SqlMcqExamRoute
   '/api/exam': typeof ApiExamRoute
+  '/api/learners': typeof ApiLearnersRoute
   '/api/sql-exam': typeof ApiSqlExamRoute
   '/api/sql-mcq-exam': typeof ApiSqlMcqExamRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -124,6 +138,7 @@ export interface FileRoutesByTo {
   '/app': typeof AppRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/exam': typeof ExamRoute
+  '/learners': typeof LearnersRoute
   '/login': typeof LoginRoute
   '/reports': typeof ReportsRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -131,6 +146,7 @@ export interface FileRoutesByTo {
   '/sql-exam': typeof SqlExamRoute
   '/sql-mcq-exam': typeof SqlMcqExamRoute
   '/api/exam': typeof ApiExamRoute
+  '/api/learners': typeof ApiLearnersRoute
   '/api/sql-exam': typeof ApiSqlExamRoute
   '/api/sql-mcq-exam': typeof ApiSqlMcqExamRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -142,6 +158,7 @@ export interface FileRoutesById {
   '/app': typeof AppRoute
   '/cookie-policy': typeof CookiePolicyRoute
   '/exam': typeof ExamRoute
+  '/learners': typeof LearnersRoute
   '/login': typeof LoginRoute
   '/reports': typeof ReportsRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -149,6 +166,7 @@ export interface FileRoutesById {
   '/sql-exam': typeof SqlExamRoute
   '/sql-mcq-exam': typeof SqlMcqExamRoute
   '/api/exam': typeof ApiExamRoute
+  '/api/learners': typeof ApiLearnersRoute
   '/api/sql-exam': typeof ApiSqlExamRoute
   '/api/sql-mcq-exam': typeof ApiSqlMcqExamRoute
   '/auth/callback': typeof AuthCallbackRoute
@@ -161,6 +179,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/cookie-policy'
     | '/exam'
+    | '/learners'
     | '/login'
     | '/reports'
     | '/robots.txt'
@@ -168,6 +187,7 @@ export interface FileRouteTypes {
     | '/sql-exam'
     | '/sql-mcq-exam'
     | '/api/exam'
+    | '/api/learners'
     | '/api/sql-exam'
     | '/api/sql-mcq-exam'
     | '/auth/callback'
@@ -178,6 +198,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/cookie-policy'
     | '/exam'
+    | '/learners'
     | '/login'
     | '/reports'
     | '/robots.txt'
@@ -185,6 +206,7 @@ export interface FileRouteTypes {
     | '/sql-exam'
     | '/sql-mcq-exam'
     | '/api/exam'
+    | '/api/learners'
     | '/api/sql-exam'
     | '/api/sql-mcq-exam'
     | '/auth/callback'
@@ -195,6 +217,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/cookie-policy'
     | '/exam'
+    | '/learners'
     | '/login'
     | '/reports'
     | '/robots.txt'
@@ -202,6 +225,7 @@ export interface FileRouteTypes {
     | '/sql-exam'
     | '/sql-mcq-exam'
     | '/api/exam'
+    | '/api/learners'
     | '/api/sql-exam'
     | '/api/sql-mcq-exam'
     | '/auth/callback'
@@ -213,6 +237,7 @@ export interface RootRouteChildren {
   AppRoute: typeof AppRoute
   CookiePolicyRoute: typeof CookiePolicyRoute
   ExamRoute: typeof ExamRoute
+  LearnersRoute: typeof LearnersRoute
   LoginRoute: typeof LoginRoute
   ReportsRoute: typeof ReportsRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
@@ -220,6 +245,7 @@ export interface RootRouteChildren {
   SqlExamRoute: typeof SqlExamRoute
   SqlMcqExamRoute: typeof SqlMcqExamRoute
   ApiExamRoute: typeof ApiExamRoute
+  ApiLearnersRoute: typeof ApiLearnersRoute
   ApiSqlExamRoute: typeof ApiSqlExamRoute
   ApiSqlMcqExamRoute: typeof ApiSqlMcqExamRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
@@ -267,6 +293,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learners': {
+      id: '/learners'
+      path: '/learners'
+      fullPath: '/learners'
+      preLoaderRoute: typeof LearnersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exam': {
@@ -325,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiSqlExamRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/learners': {
+      id: '/api/learners'
+      path: '/api/learners'
+      fullPath: '/api/learners'
+      preLoaderRoute: typeof ApiLearnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/exam': {
       id: '/api/exam'
       path: '/api/exam'
@@ -341,6 +381,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppRoute: AppRoute,
   CookiePolicyRoute: CookiePolicyRoute,
   ExamRoute: ExamRoute,
+  LearnersRoute: LearnersRoute,
   LoginRoute: LoginRoute,
   ReportsRoute: ReportsRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
@@ -348,6 +389,7 @@ const rootRouteChildren: RootRouteChildren = {
   SqlExamRoute: SqlExamRoute,
   SqlMcqExamRoute: SqlMcqExamRoute,
   ApiExamRoute: ApiExamRoute,
+  ApiLearnersRoute: ApiLearnersRoute,
   ApiSqlExamRoute: ApiSqlExamRoute,
   ApiSqlMcqExamRoute: ApiSqlMcqExamRoute,
   AuthCallbackRoute: AuthCallbackRoute,

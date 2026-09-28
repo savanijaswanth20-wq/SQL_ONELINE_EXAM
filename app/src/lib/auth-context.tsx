@@ -25,6 +25,7 @@ interface AuthContextType {
   signInWithGitHub: (redirectTo?: string) => Promise<void>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<Profile | null>;
+  updatePublicVisibility: (isPublic: boolean) => Promise<boolean>;
   clearError: () => void;
 }
 
@@ -81,6 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           email: email || profileData?.email || "",
           avatar_url: avatarUrl || profileData?.avatar_url || "",
           role: profileData?.role || "student",
+          is_public: profileData?.is_public ?? false,
           updated_at: new Date().toISOString(),
         };
 
@@ -279,6 +281,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return fetchOrCreateProfile(user);
   }, [user, fetchOrCreateProfile]);
 
+  const updatePublicVisibility = useCallback(
+    async (isPublic: boolean): Promise<boolean> => {
+      if (!user) return false;
+      const client = getSupabase();
+      try {
+        const { error: updateError } = await client
+          .from("profiles")
+          .update({ is_public: isPublic, updated_at: new Date().toISOString() })
+          .eq("id", user.id);
+
+        if (updateError) {
+          console.error("Failed to update public visibility:", updateError);
+          setError(updateError.message);
+          return false;
+        }
+
+        setProfile((prev) => (prev ? { ...prev, is_public: isPublic } : null));
+        return true;
+      } catch (err) {
+        console.error("Error updating public profile visibility:", err);
+        return false;
+      }
+    },
+    [user]
+  );
+
   const clearError = useCallback(() => setError(null), []);
 
   const role: UserRole = profile?.role || "student";
@@ -296,6 +324,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         signInWithGitHub,
         signOut,
         refreshProfile,
+        updatePublicVisibility,
         clearError,
       }}
     >

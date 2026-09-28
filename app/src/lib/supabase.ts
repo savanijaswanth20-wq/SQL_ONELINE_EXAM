@@ -10,8 +10,19 @@ export interface Profile {
   email: string;
   avatar_url: string;
   role: UserRole;
+  is_public?: boolean;
   created_at: string;
   updated_at?: string;
+}
+
+export interface PublicLearner {
+  github_username: string;
+  display_name: string;
+  avatar_url: string;
+  exams_completed: number;
+  best_score: number;
+  badges: string[];
+  joined_at: string;
 }
 
 export interface DbExamAttempt {
