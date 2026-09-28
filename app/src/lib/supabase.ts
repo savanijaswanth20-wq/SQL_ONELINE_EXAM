@@ -1,15 +1,52 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-export type UserRole = "admin" | "staff" | "customer";
+export type UserRole = "admin" | "staff" | "student" | "customer";
 
 export interface Profile {
   id: string;
+  github_id?: string;
+  github_username?: string;
   full_name: string;
   email: string;
   avatar_url: string;
-  github_username?: string;
   role: UserRole;
   created_at: string;
+  updated_at?: string;
+}
+
+export interface DbExamAttempt {
+  id: string;
+  user_id: string;
+  name: string;
+  student_id: string;
+  cohort: string;
+  started_at: number;
+  deadline: number;
+  submitted_at: number | null;
+  status: "active" | "submitted";
+  score_automatic?: number;
+  score_written?: number;
+  score_pending?: number;
+  score_total?: number;
+  percentage?: number;
+  grade?: string;
+  passed?: boolean;
+  report_card?: unknown;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface DbExamAnswer {
+  id?: string;
+  attempt_id: string;
+  user_id: string;
+  question_id: number;
+  value: string;
+  correction: string;
+  flagged: boolean;
+  review_mark: number | null;
+  reflection: string;
+  created_at?: string;
   updated_at?: string;
 }
 

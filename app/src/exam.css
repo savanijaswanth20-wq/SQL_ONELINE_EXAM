@@ -403,4 +403,177 @@
 .sample-data-dialog .modal-body { padding: 16px; overflow: auto; max-height: 450px; }
 .close-btn { background: none; border: 0; color: var(--muted); cursor: pointer; }
 
+/* SQL MCQ ASSESSMENT STYLES */
+.mcq-exam-container { display: flex; flex-direction: column; gap: 20px; padding-bottom: 50px; }
+
+.mcq-exam-header { display: flex; justify-content: space-between; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 24px; box-shadow: 4px 4px 0 var(--accent-light); flex-wrap: wrap; gap: 16px; }
+.mcq-header-left { display: flex; flex-direction: column; gap: 4px; }
+.mcq-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); background: var(--accent-light); padding: 3px 8px; border-radius: 4px; width: fit-content; }
+.mcq-exam-title { font-size: 22px; font-weight: 700; color: var(--ink); margin: 0; }
+
+.mcq-header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.mcq-timer-badge { display: flex; align-items: center; gap: 8px; background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; padding: 8px 14px; border-radius: 8px; font-family: "IBM Plex Mono", monospace; font-size: 16px; font-weight: 700; }
+.mcq-timer-badge.low-time { background: #fef2f2; border-color: #fca5a5; color: #dc2626; animation: timerPulse 1.5s infinite; }
+@keyframes timerPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.75; } }
+
+.mcq-status-pills { display: flex; gap: 8px; }
+.mcq-status-pills .pill { font-size: 11px; padding: 6px 10px; border-radius: 6px; border: 1px solid var(--line); background: var(--paper); color: var(--muted); }
+.mcq-status-pills .pill.answered { background: #dcfce7; border-color: #86efac; color: #166534; }
+.mcq-status-pills .pill.unanswered { background: #f3f4f6; border-color: #e5e7eb; color: #4b5563; }
+.mcq-status-pills .pill.flagged { background: #fef3c7; border-color: #fde047; color: #92400e; }
+
+.mcq-palette-toggle-btn { display: flex; align-items: center; gap: 6px; background: var(--paper); border: 1px solid var(--line); padding: 8px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; color: var(--ink); cursor: pointer; transition: all 0.2s; }
+.mcq-palette-toggle-btn:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+
+.mcq-alert-banner { display: flex; align-items: center; gap: 10px; background: #fffbebfb; border: 1px solid #fde68a; color: #92400e; padding: 12px 16px; border-radius: 8px; font-size: 13px; }
+
+.mcq-main-layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; }
+
+.mcq-question-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 20px; box-shadow: 4px 4px 0 var(--accent-light); min-width: 0; }
+.mcq-card-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+.mcq-q-meta { display: flex; align-items: center; gap: 12px; }
+.mcq-q-number { font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 700; color: var(--accent); }
+.mcq-q-category { background: var(--paper); border: 1px solid var(--line); font-size: 11px; font-weight: 500; color: var(--muted); padding: 4px 10px; border-radius: 6px; }
+
+.mcq-card-actions-top { display: flex; align-items: center; gap: 12px; }
+.mcq-flag-btn { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid var(--line); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; transition: all 0.2s; }
+.mcq-flag-btn:hover { border-color: #f59e0b; color: #b45309; }
+.mcq-flag-btn.active { background: #fef3c7; border-color: #f59e0b; color: #b45309; font-weight: 600; }
+.mcq-save-indicator { font-size: 11px; color: var(--muted); font-style: italic; }
+
+.mcq-prompt-box { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+.mcq-prompt-text { font-size: 16px; font-weight: 500; line-height: 1.6; color: var(--ink); margin: 0; }
+
+.mcq-options-grid { display: flex; flex-direction: column; gap: 12px; }
+.mcq-option-card { display: flex; align-items: center; gap: 16px; background: var(--panel); border: 2px solid var(--line); border-radius: 12px; padding: 16px 20px; text-align: left; cursor: pointer; transition: all 0.2s ease; width: 100%; position: relative; }
+.mcq-option-card:hover { border-color: var(--accent); background: var(--accent-light); transform: translateY(-1px); }
+.mcq-option-card.selected { border-color: var(--accent); background: var(--accent-light); box-shadow: 0 0 0 1px var(--accent); }
+.mcq-option-badge { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: var(--paper); border: 1px solid var(--line); font-family: "IBM Plex Mono", monospace; font-size: 14px; font-weight: 700; color: var(--ink); flex: none; transition: all 0.2s; }
+.mcq-option-card.selected .mcq-option-badge { background: var(--accent); border-color: var(--accent); color: white; }
+.mcq-option-text { flex: 1; font-size: 14px; line-height: 1.5; color: var(--ink); font-weight: 500; }
+.mcq-option-radio { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; flex: none; background: white; transition: all 0.2s; }
+.mcq-option-card.selected .mcq-option-radio { border-color: var(--accent); }
+.mcq-radio-inner { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+
+.mcq-card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 20px; margin-top: 10px; flex-wrap: wrap; gap: 12px; }
+.mcq-footer-right { display: flex; gap: 10px; }
+
+.mcq-btn { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
+.mcq-btn.primary { background: var(--accent); color: white; }
+.mcq-btn.primary:hover:not(:disabled) { background: #254687; }
+.mcq-btn.secondary { background: var(--paper); border-color: var(--line); color: var(--ink); }
+.mcq-btn.secondary:hover:not(:disabled) { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+.mcq-btn.ghost { background: none; border-color: var(--line); color: var(--muted); }
+.mcq-btn.ghost:hover { color: var(--ink); border-color: var(--ink); }
+.mcq-btn.submit { background: #10b981; color: white; border-color: #10b981; }
+.mcq-btn.submit:hover:not(:disabled) { background: #059669; }
+
+/* SIDEBAR PALETTE */
+.mcq-palette-sidebar { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 16px; box-shadow: 4px 4px 0 var(--accent-light); position: sticky; top: 20px; }
+.mcq-palette-header { border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+.mcq-palette-header h3 { font-size: 16px; font-weight: 700; margin: 0; }
+.palette-sub { font-size: 11px; color: var(--muted); }
+
+.mcq-palette-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; max-height: 400px; overflow-y: auto; padding-right: 4px; }
+.mcq-palette-item { position: relative; height: 36px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 600; color: var(--ink); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+.mcq-palette-item:hover { border-color: var(--accent); color: var(--accent); }
+.mcq-palette-item.answered { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+.mcq-palette-item.active { border-width: 2px; border-color: var(--ink); font-weight: 700; transform: scale(1.08); z-index: 2; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.palette-flag-icon { position: absolute; top: 2px; right: 2px; color: #f59e0b; }
+
+.mcq-palette-legend { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-top: 1px solid var(--line); padding-top: 14px; font-size: 11px; color: var(--muted); }
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-box { width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line); }
+.legend-box.current { border: 2px solid var(--ink); }
+.legend-box.answered { background: var(--accent-light); border-color: var(--accent); }
+.legend-box.unanswered { background: var(--panel); border-color: var(--line); }
+.legend-box.flagged { background: #fef3c7; border-color: #f59e0b; }
+
+.mcq-submit-sidebar-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #10b981; color: white; border: 0; padding: 12px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
+.mcq-submit-sidebar-btn:hover { background: #059669; }
+
+/* MODAL */
+.mcq-modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 999; display: grid; place-items: center; padding: 20px; }
+.mcq-modal-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; max-width: 480px; width: 100%; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); animation: modalIn 0.2s ease-out; }
+@keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.modal-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-light); display: grid; place-items: center; }
+.mcq-modal-card h2 { font-size: 22px; font-weight: 700; margin: 0; color: var(--ink); }
+.mcq-modal-card p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+.modal-summary { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+.summary-row strong { font-family: "IBM Plex Mono", monospace; }
+.modal-warning { display: flex; align-items: center; gap: 8px; background: #fef2f2; border: 1px solid #fca5a5; color: #dc2626; padding: 10px 14px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+.modal-actions { display: flex; gap: 12px; margin-top: 8px; }
+.modal-actions button { flex: 1; justify-content: center; }
+
+/* RESULTS PAGE */
+.mcq-result-container { display: flex; flex-direction: column; gap: 32px; }
+.mcq-result-hero { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 36px; display: grid; grid-template-columns: 1fr 340px; gap: 36px; box-shadow: 6px 6px 0 var(--accent-light); }
+.mcq-result-hero-content { display: flex; flex-direction: column; gap: 10px; }
+.mcq-result-eyebrow { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: var(--muted); }
+.mcq-score-big { display: flex; align-items: baseline; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+.score-num { font-family: "IBM Plex Mono", monospace; font-size: 44px; font-weight: 800; color: var(--accent); }
+.score-num span { font-size: 20px; color: var(--muted); font-weight: 500; }
+.score-percentage { font-size: 18px; font-weight: 600; color: var(--ink); }
+.score-badge.pass { background: #dcfce7; color: #166534; border: 1px solid #86efac; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.05em; }
+.score-badge.fail { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.05em; }
+
+.mcq-metrics-grid { display: grid; grid-template-columns: 1fr; gap: 12px; align-content: center; }
+.metric-card { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); }
+.metric-card.green { background: #f0fdf4; border-color: #bbf7d0; color: #15803d; }
+.metric-card.red { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+.metric-card.gray { background: #f9fafb; border-color: #e5e7eb; color: #4b5563; }
+.metric-value { font-family: "IBM Plex Mono", monospace; font-size: 24px; font-weight: 700; }
+.metric-label { font-size: 13px; font-weight: 600; }
+
+.mcq-section-performance { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+.section-title-wrap { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+.section-title-wrap h3 { font-size: 18px; font-weight: 700; margin: 0; }
+
+.category-performance-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.cat-card { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; display: flex; flex-direction: column; gap: 8px; }
+.cat-card-header { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--ink); }
+.cat-score { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); }
+.cat-bar-bg { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.cat-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease-out; }
+
+.mcq-questions-review { display: flex; flex-direction: column; gap: 20px; }
+.review-list { display: flex; flex-direction: column; gap: 16px; }
+.review-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.review-card.correct { border-left: 6px solid #10b981; }
+.review-card.wrong { border-left: 6px solid #ef4444; }
+.review-card.unanswered { border-left: 6px solid #9ca3af; }
+
+.review-card-header { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.q-badge { background: var(--accent-light); color: var(--accent); font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; }
+.q-category-tag { font-size: 11px; color: var(--muted); background: var(--paper); border: 1px solid var(--line); padding: 3px 8px; border-radius: 4px; }
+.status-pill.correct { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+.status-pill.wrong { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+.status-pill.unanswered { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+
+.review-prompt { font-size: 15px; font-weight: 600; color: var(--ink); margin: 0; line-height: 1.5; }
+.review-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.review-option-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); font-size: 13px; }
+.review-option-item.correct-choice { background: #f0fdf4; border-color: #86efac; color: #166534; font-weight: 600; }
+.review-option-item.wrong-choice { background: #fef2f2; border-color: #fca5a5; color: #991b1b; text-decoration: line-through; }
+.key-badge { font-family: "IBM Plex Mono", monospace; font-weight: 700; width: 22px; height: 22px; border-radius: 4px; background: white; border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; flex: none; }
+.review-option-item.correct-choice .key-badge { background: #10b981; color: white; border-color: #10b981; }
+.review-option-item.wrong-choice .key-badge { background: #ef4444; color: white; border-color: #ef4444; }
+.text { flex: 1; }
+.your-tag { font-size: 10px; background: #fee2e2; color: #991b1b; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: auto; }
+.correct-tag { font-size: 10px; background: #dcfce7; color: #166534; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: auto; }
+
+.exp-title { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.exp-body { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+@media (max-width: 900px) {
+  .mcq-main-layout { grid-template-columns: 1fr; }
+  .mcq-palette-sidebar { display: none; }
+  .mcq-palette-sidebar.open-mobile { display: flex; position: fixed; inset: 60px 16px 16px; z-index: 900; max-height: calc(100vh - 80px); overflow-y: auto; }
+  .mcq-result-hero { grid-template-columns: 1fr; gap: 24px; }
+  .category-performance-grid { grid-template-columns: 1fr; }
+  .review-options-grid { grid-template-columns: 1fr; }
+}
+
+
 

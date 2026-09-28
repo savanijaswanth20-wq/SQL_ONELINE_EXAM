@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Shell, ErrorBox, Loading } from "@/components/exam-shell";
 import { ProtectedRoute } from "@/components/protected-route";
 import { useAuth } from "@/lib/auth-context";
-import { getSupabase, type Profile, type UserRole } from "@/lib/supabase";
+import { getSupabase, type Profile, type UserRole, type DbExamAttempt } from "@/lib/supabase";
 import {
   Shield,
   UserCheck,
@@ -33,18 +33,21 @@ function AdminPageWrapper() {
 
 function AdminDashboard() {
   const { user } = useAuth();
+  const [activeTab, setActiveTab] = useState<"profiles" | "exams">("profiles");
   const [profiles, setProfiles] = useState<Profile[]>([]);
+  const [attempts, setAttempts] = useState<DbExamAttempt[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
 
-  const fetchProfiles = async () => {
+  const fetchData = async () => {
     setLoading(true);
     setError(null);
     try {
       const client = getSupabase();
-      const { data, error: fetchErr } = await client
+      // Fetch profiles
+      const { data: profileData, error: fetchErr } = await client
         .from("profiles")
         .select("*")
         .order("created_at", { ascending: false });
@@ -52,9 +55,19 @@ function AdminDashboard() {
       if (fetchErr) {
         throw new Error(fetchErr.message);
       }
-      setProfiles((data as Profile[]) || []);
+      setProfiles((profileData as Profile[]) || []);
+
+      // Fetch exam attempts
+      const { data: attemptData, error: attemptErr } = await client
+        .from("exam_attempts")
+        .select("*")
+        .order("started_at", { ascending: false });
+
+      if (!attemptErr && attemptData) {
+        setAttempts(attemptData as DbExamAttempt[]);
+      }
     } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : "Failed to load profiles";
+      const msg = err instanceof Error ? err.message : "Failed to load admin data";
       setError(msg);
     } finally {
       setLoading(false);
@@ -62,7 +75,7 @@ function AdminDashboard() {
   };
 
   useEffect(() => {
-    void fetchProfiles();
+    void fetchData();
   }, []);
 
   const handleRoleChange = async (userId: string, newRole: UserRole) => {
@@ -92,18 +105,44 @@ function AdminDashboard() {
     }
   };
 
+  const handleDeleteAttempt = async (attemptId: string) => {
+    if (!confirm("Are you sure you want to delete this exam attempt record?")) return;
+    setUpdatingId(attemptId);
+    setError(null);
+    setSuccess(null);
+    try {
+      const client = getSupabase();
+      const { error: deleteErr } = await client
+        .from("exam_attempts")
+        .delete()
+        .eq("id", attemptId);
+
+      if (deleteErr) {
+        throw new Error(deleteErr.message);
+      }
+
+      setAttempts((prev) => prev.filter((a) => a.id !== attemptId));
+      setSuccess("Exam attempt deleted successfully.");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to delete attempt";
+      setError(msg);
+    } finally {
+      setUpdatingId(null);
+    }
+  };
+
   return (
     <Shell active="admin">
       <main className="content-wrap admin-page">
         <div className="page-title">
           <span className="eyebrow">ADMINISTRATION & AUTHORIZATION</span>
-          <h1>User Profiles & Role Management</h1>
+          <h1>Admin Control Panel</h1>
           <p className="muted">
-            Manage authenticated GitHub user profiles and enforce role permissions (Admin, Staff, Customer).
+            View and manage all registered GitHub user profiles, role permissions, and student exam results.
           </p>
         </div>
 
-        {error && <ErrorBox message={error} retry={fetchProfiles} />}
+        {error && <ErrorBox message={error} retry={fetchData} />}
         {success && (
           <div className="success-banner" role="status">
             <CheckCircle size={20} />
@@ -117,35 +156,71 @@ function AdminDashboard() {
             <strong>{profiles.length}</strong>
           </div>
           <div className="stat-card">
+            <span>STUDENTS</span>
+            <strong>
+              {profiles.filter((p) => p.role === "student" || p.role === "customer").length}
+            </strong>
+          </div>
+          <div className="stat-card">
             <span>ADMINISTRATORS</span>
             <strong>{profiles.filter((p) => p.role === "admin").length}</strong>
           </div>
           <div className="stat-card">
-            <span>STAFF</span>
-            <strong>{profiles.filter((p) => p.role === "staff").length}</strong>
-          </div>
-          <div className="stat-card">
-            <span>CUSTOMERS</span>
-            <strong>{profiles.filter((p) => p.role === "customer").length}</strong>
+            <span>EXAM ATTEMPTS</span>
+            <strong>{attempts.length}</strong>
           </div>
           <button
             type="button"
             className="refresh-btn"
-            onClick={fetchProfiles}
+            onClick={fetchData}
             disabled={loading}
           >
             <ArrowsClockwise size={16} /> Refresh
           </button>
         </div>
 
+        <div style={{ display: "flex", gap: "12px", marginBottom: "20px" }}>
+          <button
+            type="button"
+            className={`refresh-btn ${activeTab === "profiles" ? "active-tab" : ""}`}
+            style={{
+              background: activeTab === "profiles" ? "var(--primary-color, #2563eb)" : "transparent",
+              color: activeTab === "profiles" ? "#fff" : "inherit",
+              padding: "8px 16px",
+              borderRadius: "6px",
+              border: "1px solid rgba(255,255,255,0.15)",
+              cursor: "pointer",
+            }}
+            onClick={() => setActiveTab("profiles")}
+          >
+            User Profiles ({profiles.length})
+          </button>
+          <button
+            type="button"
+            className={`refresh-btn ${activeTab === "exams" ? "active-tab" : ""}`}
+            style={{
+              background: activeTab === "exams" ? "var(--primary-color, #2563eb)" : "transparent",
+              color: activeTab === "exams" ? "#fff" : "inherit",
+              padding: "8px 16px",
+              borderRadius: "6px",
+              border: "1px solid rgba(255,255,255,0.15)",
+              cursor: "pointer",
+            }}
+            onClick={() => setActiveTab("exams")}
+          >
+            All Exam Results ({attempts.length})
+          </button>
+        </div>
+
         {loading ? (
-          <Loading label="Loading registered profiles..." />
-        ) : (
+          <Loading label="Loading admin data..." />
+        ) : activeTab === "profiles" ? (
           <div className="admin-table-container">
             <table className="admin-table">
               <thead>
                 <tr>
-                  <th>User</th>
+                  <th>User Details</th>
+                  <th>GitHub ID</th>
                   <th>Email</th>
                   <th>Current Role</th>
                   <th>Created</th>
@@ -185,6 +260,9 @@ function AdminDashboard() {
                         </div>
                       </td>
                       <td>
+                        <span className="mono">{p.github_id || "—"}</span>
+                      </td>
+                      <td>
                         <span className="email-text">{p.email || "No email"}</span>
                       </td>
                       <td>
@@ -212,7 +290,8 @@ function AdminDashboard() {
                           }
                           aria-label={`Change role for ${p.full_name || p.email}`}
                         >
-                          <option value="customer">Customer (Default)</option>
+                          <option value="student">Student (Default)</option>
+                          <option value="customer">Customer</option>
                           <option value="staff">Staff</option>
                           <option value="admin">Admin</option>
                         </select>
@@ -222,8 +301,89 @@ function AdminDashboard() {
                 })}
                 {profiles.length === 0 && (
                   <tr>
-                    <td colSpan={5} className="empty-table-cell">
-                      No profiles recorded yet in the database.
+                    <td colSpan={6} className="empty-table-cell">
+                      No user profiles recorded yet in Supabase.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <div className="admin-table-container">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Student / User</th>
+                  <th>Attempt ID</th>
+                  <th>Status</th>
+                  <th>Scores</th>
+                  <th>Grade</th>
+                  <th>Submitted</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {attempts.map((a) => {
+                  const studentProfile = profiles.find((p) => p.id === a.user_id);
+                  const isUpdating = updatingId === a.id;
+                  const totalScore = a.score_total ?? (a.score_automatic ?? 0) + (a.score_written ?? 0);
+                  return (
+                    <tr key={a.id}>
+                      <td>
+                        <div>
+                          <strong>{a.name || studentProfile?.full_name || "Student"}</strong>
+                          <div>
+                            <small className="mono">
+                              {studentProfile?.email || a.student_id || a.user_id.slice(0, 8)}
+                            </small>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span className="mono">{a.id.slice(0, 8)}...</span>
+                      </td>
+                      <td>
+                        <span className={`role-badge status-${a.status}`}>
+                          {a.status.toUpperCase()}
+                        </span>
+                      </td>
+                      <td>
+                        <strong>{a.status === "submitted" ? `${totalScore} / 100` : "In progress"}</strong>
+                        <div>
+                          <small>
+                            Auto: {a.score_automatic ?? 0} | Written: {a.score_written ?? 0}
+                          </small>
+                        </div>
+                      </td>
+                      <td>
+                        <strong>{a.grade || (a.status === "submitted" ? (totalScore >= 50 ? "PASS" : "FAIL") : "—")}</strong>
+                      </td>
+                      <td>
+                        <small>
+                          {a.submitted_at
+                            ? new Date(Number(a.submitted_at)).toLocaleString()
+                            : "Active"}
+                        </small>
+                      </td>
+                      <td>
+                        <button
+                          type="button"
+                          className="refresh-btn"
+                          style={{ color: "#ef4444", padding: "4px 8px" }}
+                          disabled={isUpdating}
+                          onClick={() => handleDeleteAttempt(a.id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+                {attempts.length === 0 && (
+                  <tr>
+                    <td colSpan={7} className="empty-table-cell">
+                      No exam attempts stored yet in Supabase.
                     </td>
                   </tr>
                 )}

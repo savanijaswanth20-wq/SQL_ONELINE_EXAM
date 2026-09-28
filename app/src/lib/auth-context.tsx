@@ -42,10 +42,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     async (authUser: User): Promise<Profile | null> => {
       const client = getSupabase();
       try {
+        const githubId =
+          authUser.user_metadata?.provider_id ||
+          authUser.user_metadata?.sub ||
+          authUser.user_metadata?.github_id ||
+          "";
+
         const githubUsername =
           authUser.user_metadata?.user_name ||
           authUser.user_metadata?.preferred_username ||
           "";
+
+        const fullName =
+          authUser.user_metadata?.full_name ||
+          authUser.user_metadata?.name ||
+          githubUsername ||
+          authUser.email?.split("@")[0] ||
+          "Student";
+
+        const email = authUser.email || authUser.user_metadata?.email || "";
+        const avatarUrl = authUser.user_metadata?.avatar_url || "";
 
         // First try to fetch the profile from public.profiles
         const { data, error: selectError } = await client
@@ -54,82 +70,82 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           .eq("id", authUser.id)
           .maybeSingle();
 
-        if (data && !selectError) {
-          const loadedProfile = {
-            ...(data as Profile),
-            github_username: (data as Profile).github_username || githubUsername,
-          };
-          setProfile(loadedProfile);
-          return loadedProfile;
-        }
+        const profileData = data as Profile | null;
 
-        // If not found or trigger has not run yet, create it as customer
-        const fullName =
-          authUser.user_metadata?.full_name ||
-          authUser.user_metadata?.name ||
-          githubUsername ||
-          authUser.email?.split("@")[0] ||
-          "Learner";
-        const email = authUser.email || authUser.user_metadata?.email || "";
-        const avatarUrl =
-          authUser.user_metadata?.avatar_url ||
-          "";
-
+        // Construct upsert data for new or returning user
         const newProfile: Partial<Profile> = {
           id: authUser.id,
-          full_name: fullName,
-          email,
-          avatar_url: avatarUrl,
-          github_username: githubUsername,
-          role: "customer",
+          github_id: githubId || profileData?.github_id || "",
+          github_username: githubUsername || profileData?.github_username || "",
+          full_name: fullName || profileData?.full_name || "Student",
+          email: email || profileData?.email || "",
+          avatar_url: avatarUrl || profileData?.avatar_url || "",
+          role: profileData?.role || "student",
+          updated_at: new Date().toISOString(),
         };
 
-        const { data: inserted, error: insertError } = await client
+        const { data: upserted, error: upsertError } = await client
           .from("profiles")
           .upsert(newProfile, { onConflict: "id" })
           .select()
           .maybeSingle();
 
-        if (inserted && !insertError) {
+        if (upserted && !upsertError) {
           const synced = {
-            ...(inserted as Profile),
-            github_username: (inserted as Profile).github_username || githubUsername,
+            ...(upserted as Profile),
+            github_id: (upserted as Profile).github_id || githubId,
+            github_username: (upserted as Profile).github_username || githubUsername,
           };
           setProfile(synced);
           return synced;
         }
 
+        if (profileData && !selectError) {
+          const loadedProfile = {
+            ...profileData,
+            github_id: profileData.github_id || githubId,
+            github_username: profileData.github_username || githubUsername,
+          };
+          setProfile(loadedProfile);
+          return loadedProfile;
+        }
+
         // Fallback in-memory profile if database is unreachable or offline
         const fallbackProfile: Profile = {
           id: authUser.id,
+          github_id: githubId,
+          github_username: githubUsername,
           full_name: fullName,
           email,
           avatar_url: avatarUrl,
-          github_username: githubUsername,
-          role: "customer",
+          role: "student",
           created_at: new Date().toISOString(),
         };
         setProfile(fallbackProfile);
         return fallbackProfile;
       } catch (err) {
         console.error("Failed to load or sync profile:", err);
+        const githubId =
+          authUser.user_metadata?.provider_id ||
+          authUser.user_metadata?.sub ||
+          authUser.user_metadata?.github_id ||
+          "";
         const githubUsername =
           authUser.user_metadata?.user_name ||
           authUser.user_metadata?.preferred_username ||
           "";
         const fallbackProfile: Profile = {
           id: authUser.id,
+          github_id: githubId,
+          github_username: githubUsername,
           full_name:
             authUser.user_metadata?.full_name ||
             authUser.user_metadata?.name ||
             githubUsername ||
-            "Learner",
+            "Student",
           email: authUser.email || "",
-          avatar_url:
-            authUser.user_metadata?.avatar_url ||
-            "",
-          github_username: githubUsername,
-          role: "customer",
+          avatar_url: authUser.user_metadata?.avatar_url || "",
+          role: "student",
           created_at: new Date().toISOString(),
         };
         setProfile(fallbackProfile);
@@ -265,7 +281,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const clearError = useCallback(() => setError(null), []);
 
-  const role: UserRole = profile?.role || "customer";
+  const role: UserRole = profile?.role || "student";
 
   return (
     <AuthContext.Provider

@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SqlMcqExamRouteImport } from './routes/sql-mcq-exam'
 import { Route as SqlExamRouteImport } from './routes/sql-exam'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
@@ -20,9 +21,15 @@ import { Route as AppRouteImport } from './routes/app'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
+import { Route as ApiSqlMcqExamRouteImport } from './routes/api/sql-mcq-exam'
 import { Route as ApiSqlExamRouteImport } from './routes/api/sql-exam'
 import { Route as ApiExamRouteImport } from './routes/api/exam'
 
+const SqlMcqExamRoute = SqlMcqExamRouteImport.update({
+  id: '/sql-mcq-exam',
+  path: '/sql-mcq-exam',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SqlExamRoute = SqlExamRouteImport.update({
   id: '/sql-exam',
   path: '/sql-exam',
@@ -78,6 +85,11 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiSqlMcqExamRoute = ApiSqlMcqExamRouteImport.update({
+  id: '/api/sql-mcq-exam',
+  path: '/api/sql-mcq-exam',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiSqlExamRoute = ApiSqlExamRouteImport.update({
   id: '/api/sql-exam',
   path: '/api/sql-exam',
@@ -100,8 +112,10 @@ export interface FileRoutesByFullPath {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sql-exam': typeof SqlExamRoute
+  '/sql-mcq-exam': typeof SqlMcqExamRoute
   '/api/exam': typeof ApiExamRoute
   '/api/sql-exam': typeof ApiSqlExamRoute
+  '/api/sql-mcq-exam': typeof ApiSqlMcqExamRoute
   '/auth/callback': typeof AuthCallbackRoute
 }
 export interface FileRoutesByTo {
@@ -115,8 +129,10 @@ export interface FileRoutesByTo {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sql-exam': typeof SqlExamRoute
+  '/sql-mcq-exam': typeof SqlMcqExamRoute
   '/api/exam': typeof ApiExamRoute
   '/api/sql-exam': typeof ApiSqlExamRoute
+  '/api/sql-mcq-exam': typeof ApiSqlMcqExamRoute
   '/auth/callback': typeof AuthCallbackRoute
 }
 export interface FileRoutesById {
@@ -131,8 +147,10 @@ export interface FileRoutesById {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sql-exam': typeof SqlExamRoute
+  '/sql-mcq-exam': typeof SqlMcqExamRoute
   '/api/exam': typeof ApiExamRoute
   '/api/sql-exam': typeof ApiSqlExamRoute
+  '/api/sql-mcq-exam': typeof ApiSqlMcqExamRoute
   '/auth/callback': typeof AuthCallbackRoute
 }
 export interface FileRouteTypes {
@@ -148,8 +166,10 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/sql-exam'
+    | '/sql-mcq-exam'
     | '/api/exam'
     | '/api/sql-exam'
+    | '/api/sql-mcq-exam'
     | '/auth/callback'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -163,8 +183,10 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/sql-exam'
+    | '/sql-mcq-exam'
     | '/api/exam'
     | '/api/sql-exam'
+    | '/api/sql-mcq-exam'
     | '/auth/callback'
   id:
     | '__root__'
@@ -178,8 +200,10 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/sql-exam'
+    | '/sql-mcq-exam'
     | '/api/exam'
     | '/api/sql-exam'
+    | '/api/sql-mcq-exam'
     | '/auth/callback'
   fileRoutesById: FileRoutesById
 }
@@ -194,13 +218,22 @@ export interface RootRouteChildren {
   RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SqlExamRoute: typeof SqlExamRoute
+  SqlMcqExamRoute: typeof SqlMcqExamRoute
   ApiExamRoute: typeof ApiExamRoute
   ApiSqlExamRoute: typeof ApiSqlExamRoute
+  ApiSqlMcqExamRoute: typeof ApiSqlMcqExamRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sql-mcq-exam': {
+      id: '/sql-mcq-exam'
+      path: '/sql-mcq-exam'
+      fullPath: '/sql-mcq-exam'
+      preLoaderRoute: typeof SqlMcqExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sql-exam': {
       id: '/sql-exam'
       path: '/sql-exam'
@@ -278,6 +311,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/sql-mcq-exam': {
+      id: '/api/sql-mcq-exam'
+      path: '/api/sql-mcq-exam'
+      fullPath: '/api/sql-mcq-exam'
+      preLoaderRoute: typeof ApiSqlMcqExamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/sql-exam': {
       id: '/api/sql-exam'
       path: '/api/sql-exam'
@@ -306,8 +346,10 @@ const rootRouteChildren: RootRouteChildren = {
   RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SqlExamRoute: SqlExamRoute,
+  SqlMcqExamRoute: SqlMcqExamRoute,
   ApiExamRoute: ApiExamRoute,
   ApiSqlExamRoute: ApiSqlExamRoute,
+  ApiSqlMcqExamRoute: ApiSqlMcqExamRoute,
   AuthCallbackRoute: AuthCallbackRoute,
 }
 export const routeTree = rootRouteImport
