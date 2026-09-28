@@ -116,11 +116,10 @@ export function CookieConsent() {
                 <Cookie size={24} weight="duotone" />
               </div>
               <div className="cookie-banner-text">
-                <h2 className="cookie-banner-title">We Value Your Privacy</h2>
+                <h2 className="cookie-banner-title">Cookie &amp; Privacy Notice</h2>
                 <p className="cookie-banner-description">
-                  We use strictly necessary cookies to ensure the assessment engine,
-                  authentication, and progress tracking function securely. With your consent, we
-                  also use non-essential cookies to analyze usage and remember your preferences.{" "}
+                  Algonex Exam Studio uses strictly necessary cookies to verify your GitHub session,
+                  synchronize your exam timer, and preserve your scorecards.{" "}
                   <a href="/cookie-policy" className="cookie-policy-link">
                     Read our Cookie Policy
                   </a>
@@ -143,7 +142,7 @@ export function CookieConsent() {
                 className="cookie-btn cookie-btn-reject"
                 onClick={handleRejectNonEssential}
               >
-                Reject Non-Essential
+                Essential Only
               </button>
               <button
                 type="button"
@@ -178,10 +177,10 @@ export function CookieConsent() {
                 </div>
                 <div>
                   <h2 id="cookie-modal-heading" className="cookie-modal-title">
-                    Cookie &amp; Privacy Preferences
+                    Cookie &amp; Storage Preferences
                   </h2>
                   <p className="cookie-modal-subtitle">
-                    Control which cookie categories you allow. Necessary cookies are required for core features.
+                    Grounded strictly in cookies actively implemented on Algonex Exam Studio.
                   </p>
                 </div>
               </div>
@@ -206,8 +205,8 @@ export function CookieConsent() {
                     </span>
                   </div>
                   <p className="cookie-category-desc">
-                    Required for the site to function properly. Enables secure GitHub authentication,
-                    exam timer synchronization, question answers caching, and CSRF protection.
+                    Required for the platform to operate. Enables secure GitHub OAuth authorization via Supabase Auth
+                    (<code>sb-*-auth-token</code>) and persistent examination timer synchronization (<code>mysql_exam_session</code>).
                     These cannot be disabled.
                   </p>
                 </div>
@@ -231,48 +230,16 @@ export function CookieConsent() {
                 </div>
               </div>
 
-              {/* Category 2: Analytics & Performance */}
+              {/* Category 2: Functional & Preferences */}
               <div className="cookie-category-item">
                 <div className="cookie-category-info">
                   <div className="cookie-category-title-row">
-                    <strong>Analytics &amp; Performance Cookies</strong>
+                    <strong>Candidate UI &amp; Consent Preferences</strong>
                     <span className="cookie-badge cookie-badge-optional">Optional</span>
                   </div>
                   <p className="cookie-category-desc">
-                    Allows us to count visits, calculate error rates, and monitor response latency
-                    so we can assess and improve exam performance. All data is aggregated and anonymized.
-                  </p>
-                </div>
-                <div className="cookie-category-toggle-wrap">
-                  <input
-                    type="checkbox"
-                    id="cookie-toggle-analytics"
-                    className="cookie-toggle-input"
-                    checked={analytics}
-                    onChange={(e) => setAnalytics(e.target.checked)}
-                    aria-label="Analytics & Performance Cookies"
-                  />
-                  <label
-                    htmlFor="cookie-toggle-analytics"
-                    className={`cookie-toggle-slider ${analytics ? "active" : ""}`}
-                  >
-                    <span className="cookie-toggle-thumb">
-                      {analytics && <Check size={11} weight="bold" />}
-                    </span>
-                  </label>
-                </div>
-              </div>
-
-              {/* Category 3: Preferences & Functionality */}
-              <div className="cookie-category-item">
-                <div className="cookie-category-info">
-                  <div className="cookie-category-title-row">
-                    <strong>Functional &amp; Preference Cookies</strong>
-                    <span className="cookie-badge cookie-badge-optional">Optional</span>
-                  </div>
-                  <p className="cookie-category-desc">
-                    Enables enhanced functionality and personalization, such as remembering your
-                    sidebar collapse preferences, code syntax styling, and assessment filter layouts.
+                    Stores your cookie banner choices (<code>cookie_consent</code>) so you are not prompted on repeat visits,
+                    and caches your scorecard question filter states.
                   </p>
                 </div>
                 <div className="cookie-category-toggle-wrap">
@@ -282,7 +249,7 @@ export function CookieConsent() {
                     className="cookie-toggle-input"
                     checked={preferences}
                     onChange={(e) => setPreferences(e.target.checked)}
-                    aria-label="Functional & Preference Cookies"
+                    aria-label="Candidate UI & Consent Preferences"
                   />
                   <label
                     htmlFor="cookie-toggle-preferences"
@@ -295,46 +262,14 @@ export function CookieConsent() {
                 </div>
               </div>
 
-              {/* Category 4: Marketing & Communications */}
-              <div className="cookie-category-item">
-                <div className="cookie-category-info">
-                  <div className="cookie-category-title-row">
-                    <strong>Marketing &amp; Announcement Cookies</strong>
-                    <span className="cookie-badge cookie-badge-optional">Optional</span>
-                  </div>
-                  <p className="cookie-category-desc">
-                    Used to measure the relevance of certification updates and curriculum announcements.
-                    We never sell your personal information or assessment results to third parties.
-                  </p>
-                </div>
-                <div className="cookie-category-toggle-wrap">
-                  <input
-                    type="checkbox"
-                    id="cookie-toggle-marketing"
-                    className="cookie-toggle-input"
-                    checked={marketing}
-                    onChange={(e) => setMarketing(e.target.checked)}
-                    aria-label="Marketing & Announcement Cookies"
-                  />
-                  <label
-                    htmlFor="cookie-toggle-marketing"
-                    className={`cookie-toggle-slider ${marketing ? "active" : ""}`}
-                  >
-                    <span className="cookie-toggle-thumb">
-                      {marketing && <Check size={11} weight="bold" />}
-                    </span>
-                  </label>
-                </div>
-              </div>
-
               <div className="cookie-modal-note">
                 <Info size={16} />
                 <span>
-                  For complete transparency, learn more in our{" "}
+                  No third-party marketing or advertising trackers are installed. Learn more in our{" "}
                   <a href="/cookie-policy" className="cookie-policy-link">
-                    Cookie Policy
+                    Cookie &amp; Privacy Policy
                   </a>
-                  . You can change your consent at any time.
+                  .
                 </span>
               </div>
             </div>

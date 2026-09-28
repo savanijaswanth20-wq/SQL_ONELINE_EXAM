@@ -7,19 +7,24 @@ import {
   CheckCircle,
   SlidersHorizontal,
   LockKey,
-  ChartLineUp,
+  Database,
   GearSix,
-  MegaphoneSimple,
 } from "@phosphor-icons/react";
 
 export const Route = createFileRoute("/cookie-policy")({
   head: () => ({
     meta: [
-      { title: "Cookie Policy | MySQL Exam Studio" },
+      { title: "Privacy & Cookies | Algonex Exam Studio" },
       {
         name: "description",
         content:
-          "Read our Cookie Policy to understand how MySQL Exam Studio uses cookies, storage mechanisms, and how to manage your privacy preferences.",
+          "Read our Cookie & Privacy Policy to understand how Algonex Exam Studio uses session storage mechanisms and how to manage your preferences.",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://algonexexam.savanijaswanth20.workers.dev/cookie-policy",
       },
     ],
   }),
@@ -31,210 +36,171 @@ function CookiePolicyPage() {
     <Shell active="policy">
       <main className="content-wrap">
         <div className="cookie-policy-page">
-        <header className="cookie-policy-header">
-          <div className="policy-badge">
-            <Cookie size={14} weight="duotone" />
-            <span>TRANSPARENCY &amp; PRIVACY</span>
-          </div>
-          <h1>Cookie Policy</h1>
-          <p className="policy-intro">
-            This Cookie Policy explains how MySQL Exam Studio uses cookies and
-            similar local storage technologies when you access our assessment
-            platform. We are committed to protecting your personal data and giving
-            you clear control over your choices.
-          </p>
-          <div className="policy-actions">
-            <button
-              type="button"
-              className="policy-settings-btn"
-              onClick={openCookieSettings}
-            >
-              <SlidersHorizontal size={16} />
-              <span>Update Cookie Preferences</span>
-            </button>
-            <span className="policy-last-updated">
-              Last revised: September 2026 • Compliant with GDPR &amp; ePrivacy
-            </span>
-          </div>
-        </header>
+          <header className="cookie-policy-header">
+            <div className="policy-badge">
+              <Cookie size={14} weight="duotone" />
+              <span>TRANSPARENCY &amp; PRIVACY</span>
+            </div>
+            <h1>Privacy &amp; Cookie Policy</h1>
+            <p className="policy-intro">
+              This policy explains how Algonex Exam Studio (Algonex IT Solutions Exam Portal) uses cookies and
+              local browser storage technologies to provide a secure, authenticated, and uninterrupted assessment experience.
+            </p>
+            <div className="policy-actions">
+              <button
+                type="button"
+                className="policy-settings-btn"
+                onClick={openCookieSettings}
+              >
+                <SlidersHorizontal size={16} />
+                <span>Update Cookie Preferences</span>
+              </button>
+              <span className="policy-last-updated">
+                Last revised: September 2026 • Grounded strictly in active platform tools
+              </span>
+            </div>
+          </header>
 
-        <section className="policy-section">
-          <h2>1. What Are Cookies?</h2>
-          <p>
-            Cookies are small text files stored on your computer or mobile device
-            when you visit a website. They allow the platform to remember your
-            actions and preferences (such as authentication state, assessment session,
-            and interface options) over a period of time, ensuring a smooth and
-            uninterrupted testing experience.
-          </p>
-        </section>
+          <section className="policy-section">
+            <h2>1. What Are Cookies &amp; Local Storage?</h2>
+            <p>
+              Cookies and local browser storage are lightweight data keys stored on your device when you interact with our
+              online assessment platform. They allow Algonex Exam Studio to verify your GitHub OAuth identity, maintain your
+              timer during an ongoing examination, and prevent loss of answers in the event of unexpected internet disruptions.
+            </p>
+          </section>
 
-        <section className="policy-section">
-          <h2>2. Categories of Cookies We Use</h2>
-          <div className="policy-categories-grid">
-            <div className="policy-category-card">
-              <div className="policy-category-card-header">
-                <div className="category-icon-box">
-                  <LockKey size={20} weight="fill" />
+          <section className="policy-section">
+            <h2>2. Implemented Storage Technologies</h2>
+            <div className="policy-categories-grid">
+              <div className="policy-category-card">
+                <div className="policy-category-card-header">
+                  <div className="category-icon-box">
+                    <LockKey size={20} weight="fill" />
+                  </div>
+                  <div>
+                    <h3>Strictly Necessary Authentication</h3>
+                    <span className="cookie-badge cookie-badge-required">
+                      Always Active
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3>Strictly Necessary Cookies</h3>
-                  <span className="cookie-badge cookie-badge-required">
-                    Always Enabled
-                  </span>
-                </div>
+                <p>
+                  Required for core platform functionality. These tokens enable secure GitHub OAuth authorization via Supabase
+                  Auth, enforce Row Level Security (RLS) on your candidate records, and preserve active examination progress.
+                </p>
               </div>
-              <p>
-                Essential for core assessment operation. These allow you to sign in
-                with GitHub, protect against Cross-Site Request Forgery (CSRF),
-                keep track of your 65-question assessment countdown timer, and
-                cache test answers locally so connection drops never cause loss of progress.
-              </p>
-            </div>
 
-            <div className="policy-category-card">
-              <div className="policy-category-card-header">
-                <div className="category-icon-box">
-                  <ChartLineUp size={20} weight="fill" />
+              <div className="policy-category-card">
+                <div className="policy-category-card-header">
+                  <div className="category-icon-box">
+                    <Database size={20} weight="fill" />
+                  </div>
+                  <div>
+                    <h3>Session Continuity &amp; Auto-Save</h3>
+                    <span className="cookie-badge cookie-badge-required">
+                      Always Active
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3>Analytics &amp; Performance</h3>
-                  <span className="cookie-badge cookie-badge-optional">
-                    Optional
-                  </span>
-                </div>
+                <p>
+                  Keeps your 90-minute or 30-minute exam timer synchronized with the server, auto-saves question responses
+                  as you type, and preserves your scorecards upon exam submission.
+                </p>
               </div>
-              <p>
-                Help us understand how candidates navigate the assessment, verify
-                system latency, identify server-side errors, and optimize question
-                rendering speeds. All data is aggregated and never linked to your
-                exam score.
-              </p>
-            </div>
 
-            <div className="policy-category-card">
-              <div className="policy-category-card-header">
-                <div className="category-icon-box">
-                  <GearSix size={20} weight="fill" />
+              <div className="policy-category-card">
+                <div className="policy-category-card-header">
+                  <div className="category-icon-box">
+                    <GearSix size={20} weight="fill" />
+                  </div>
+                  <div>
+                    <h3>User Preferences &amp; Consent</h3>
+                    <span className="cookie-badge cookie-badge-optional">
+                      Configurable
+                    </span>
+                  </div>
                 </div>
-                <div>
-                  <h3>Functional &amp; Preferences</h3>
-                  <span className="cookie-badge cookie-badge-optional">
-                    Optional
-                  </span>
-                </div>
+                <p>
+                  Remembers your cookie consent choices so the banner does not intrude on subsequent visits, and caches UI
+                  filters on the report card dashboard.
+                </p>
               </div>
-              <p>
-                Used to remember your preferred viewing modes, sidebar layout state,
-                font accessibility toggles, and syntax highlighting choices so you
-                do not have to reconfigure them each time you visit.
-              </p>
             </div>
+          </section>
 
-            <div className="policy-category-card">
-              <div className="policy-category-card-header">
-                <div className="category-icon-box">
-                  <MegaphoneSimple size={20} weight="fill" />
-                </div>
-                <div>
-                  <h3>Marketing &amp; Announcements</h3>
-                  <span className="cookie-badge cookie-badge-optional">
-                    Optional
-                  </span>
-                </div>
+          <section className="policy-section">
+            <h2>3. Active Cookie Inventory Table</h2>
+            <p>
+              Below is the comprehensive list of cookies and local storage keys actively implemented in this platform:
+            </p>
+            <div className="policy-table-wrapper">
+              <table className="policy-table">
+                <thead>
+                  <tr>
+                    <th>Cookie / Storage Key</th>
+                    <th>Classification</th>
+                    <th>Function &amp; Purpose</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>sb-*-auth-token</code></td>
+                    <td>Strictly Necessary</td>
+                    <td>Maintains authenticated GitHub OAuth session with Supabase Auth</td>
+                    <td>Session / 1 Year</td>
+                  </tr>
+                  <tr>
+                    <td><code>cookie_consent</code></td>
+                    <td>Essential Preference</td>
+                    <td>Stores candidate consent preferences so the notice remains non-blocking</td>
+                    <td>1 Year</td>
+                  </tr>
+                  <tr>
+                    <td><code>mysql_exam_session</code></td>
+                    <td>Strictly Necessary</td>
+                    <td>Cryptographic session token for persistent exam timer and attempt state</td>
+                    <td>180 Days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className="policy-section">
+            <h2>4. Managing Your Preferences</h2>
+            <p>
+              You can adjust your consent choices at any time by clicking the <strong>“Cookie Settings”</strong> button in the
+              page footer or the button below. Our cookie banner is designed to be non-blocking and respects user focus.
+            </p>
+            <div className="policy-banner-callout">
+              <ShieldCheck size={28} weight="duotone" />
+              <div>
+                <strong>Update your privacy preferences anytime</strong>
+                <p>
+                  Your selections are applied instantly without interrupting ongoing exam attempts.
+                </p>
               </div>
-              <p>
-                Allow us to notify you about relevant MySQL curriculum updates, new
-                version assessments (e.g. MySQL 8.4 LTS certifications), and special
-                evaluation tracks. We never sell your personal data.
-              </p>
+              <button
+                type="button"
+                className="policy-settings-btn"
+                onClick={openCookieSettings}
+              >
+                Manage Preferences
+              </button>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="policy-section">
-          <h2>3. Cookie Inventory Table</h2>
-          <div className="policy-table-wrapper">
-            <table className="policy-table">
-              <thead>
-                <tr>
-                  <th>Cookie Name</th>
-                  <th>Category</th>
-                  <th>Purpose</th>
-                  <th>Duration</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><code>sb-*-auth-token</code></td>
-                  <td>Strictly Necessary</td>
-                  <td>Maintains authenticated GitHub session via Supabase Auth</td>
-                  <td>Session / 1 Year</td>
-                </tr>
-                <tr>
-                  <td><code>cookie_consent</code></td>
-                  <td>Strictly Necessary</td>
-                  <td>Stores your cookie consent choices so the banner does not re-appear</td>
-                  <td>1 Year</td>
-                </tr>
-                <tr>
-                  <td><code>exam_session_lock</code></td>
-                  <td>Strictly Necessary</td>
-                  <td>Prevents concurrent attempts and guarantees assessment integrity</td>
-                  <td>Session</td>
-                </tr>
-                <tr>
-                  <td><code>_ga, _ga_*</code></td>
-                  <td>Analytics (Optional)</td>
-                  <td>Measures platform performance and anonymous page views</td>
-                  <td>2 Years (only with consent)</td>
-                </tr>
-                <tr>
-                  <td><code>user_pref_theme</code></td>
-                  <td>Functional (Optional)</td>
-                  <td>Saves interface personalization and layout preferences</td>
-                  <td>1 Year (only with consent)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className="policy-section">
-          <h2>4. Managing Your Choices</h2>
-          <p>
-            You can change or withdraw your consent at any time. When you click the
-            <strong> “Update Cookie Preferences”</strong> button below or the
-            <strong> “Cookie Settings”</strong> link in our website footer, you can
-            toggle optional cookie categories on or off.
-          </p>
-          <div className="policy-banner-callout">
-            <ShieldCheck size={28} weight="duotone" />
-            <div>
-              <strong>Ready to update your preferences?</strong>
-              <p>
-                Your changes take effect immediately and are saved across sessions.
-              </p>
-            </div>
-            <button
-              type="button"
-              className="policy-settings-btn"
-              onClick={openCookieSettings}
-            >
-              Manage Preferences
-            </button>
-          </div>
-        </section>
-
-        <section className="policy-section">
-          <h2>5. Contact Us</h2>
-          <p>
-            If you have questions about this policy or how your data is handled,
-            please contact our compliance team through our GitHub repository or
-            reach out to your system administrator.
-          </p>
-        </section>
-      </div>
+          <section className="policy-section">
+            <h2>5. Data Security Guarantee</h2>
+            <p>
+              Algonex Exam Studio strictly enforces Row Level Security (RLS) on all database tables. Passwords, GitHub OAuth tokens,
+              and private cookies are never exposed or stored in source control. GitHub is utilized exclusively for authentication
+              and source-code hosting.
+            </p>
+          </section>
+        </div>
       </main>
     </Shell>
   );

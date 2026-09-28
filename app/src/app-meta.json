@@ -1,9 +1,9 @@
 {
-  "og_title": "MySQL Exam Studio",
-  "og_description": "Practise 65 MySQL core-concept questions with a timed exam, saved attempts, detailed answer review, and a downloadable personal report card.",
+  "og_title": "Algonex Exam Studio | Professional IT & SQL Assessments",
+  "og_description": "Professional online assessment platform by Algonex IT Solutions. Take verified theory and coding examinations with automated evaluation, progress tracking, and downloadable PDF report cards.",
   "og_image_url": "/assets/mysql-exam-cover.png",
   "favicon_url": "/assets/favicon.svg",
   "marketplace_cover_url": "/assets/mysql-exam-cover.png",
   "og_video_url": null,
-  "theme_color": "#f4f6fa"
+  "theme_color": "#0b132b"
 }

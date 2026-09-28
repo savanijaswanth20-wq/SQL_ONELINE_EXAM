@@ -33,8 +33,14 @@ import type { SqlExamAnswer, SqlExamAttempt, SqlExamPayload, SqlQueryResult, Tab
 export const Route = createFileRoute("/sql-exam")({
   head: () => ({
     meta: [
-      { title: "SQL Coding Assessment (30 Mins) | MySQL Exam Studio" },
+      { title: "SQL Coding Assessment (30 Mins) | Algonex Exam Studio" },
       { name: "robots", content: "noindex, nofollow" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://algonexexam.savanijaswanth20.workers.dev/sql-exam",
+      },
     ],
   }),
   component: SqlExamWrapper,

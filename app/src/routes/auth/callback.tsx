@@ -7,7 +7,7 @@ import { WarningCircle, ArrowRight } from "@phosphor-icons/react";
 export const Route = createFileRoute("/auth/callback")({
   head: () => ({
     meta: [
-      { title: "Authenticating | MySQL Exam Studio" },
+      { title: "Authenticating | Algonex Exam Studio" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

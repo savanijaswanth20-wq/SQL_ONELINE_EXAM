@@ -26,7 +26,7 @@ import type { SqlMcqAnswer, SqlMcqExamPayload, SqlMcqQuestion } from "@/lib/sql-
 export const Route = createFileRoute("/sql-mcq-exam")({
   head: () => ({
     meta: [
-      { title: "SQL MCQ Assessment — 45 Questions | MySQL Exam Studio" },
+      { title: "SQL MCQ Assessment — 45 Questions | Algonex Exam Studio" },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
@@ -485,7 +485,7 @@ function SqlMcqExamPage() {
             <div className="mcq-result-hero">
               <div className="mcq-result-hero-content">
                 <span className="mcq-result-eyebrow">
-                  <Trophy size={20} weight="fill" color="#f59e0b" /> ASSESSMENT COMPLETED
+                  <Trophy size={20} weight="fill" className="trophy-gold" /> ASSESSMENT COMPLETED
                 </span>
                 <h2>SQL MCQ Assessment Results</h2>
                 <p>Detailed performance report and complete question explanations</p>
@@ -539,10 +539,15 @@ function SqlMcqExamPage() {
                       </div>
                       <div className="cat-bar-bg">
                         <div
-                          className="cat-bar-fill"
+                          className={`cat-bar-fill ${
+                            cat.percentage >= 70
+                              ? "fill-high"
+                              : cat.percentage >= 40
+                              ? "fill-mid"
+                              : "fill-low"
+                          }`}
                           style={{
                             width: `${Math.min(100, Math.max(0, cat.percentage))}%`,
-                            backgroundColor: cat.percentage >= 70 ? "#10b981" : cat.percentage >= 40 ? "#f59e0b" : "#ef4444",
                           }}
                         />
                       </div>
@@ -613,7 +618,7 @@ function SqlMcqExamPage() {
 
                       <div className="explanation-box">
                         <div className="exp-title">
-                          <Sparkle size={18} weight="fill" color="#3b82f6" />
+                          <Sparkle size={18} weight="fill" color="var(--accent)" />
                           <span>Explanation</span>
                         </div>
                         <p className="exp-body">{q.explanation}</p>
@@ -631,7 +636,7 @@ function SqlMcqExamPage() {
           <div className="mcq-modal-overlay">
             <div className="mcq-modal-card">
               <div className="modal-icon">
-                <PaperPlaneTilt size={32} weight="fill" color="#3b82f6" />
+                <PaperPlaneTilt size={32} weight="fill" color="var(--accent)" />
               </div>
               <h2>Submit SQL MCQ Assessment?</h2>
               <p>Are you sure you want to finish your attempt? Once submitted, your answers will be calculated automatically and cannot be modified.</p>
@@ -643,21 +648,21 @@ function SqlMcqExamPage() {
                 </div>
                 <div className="summary-row">
                   <span>Answered:</span>
-                  <strong style={{ color: "#10b981" }}>{answeredCount}</strong>
+                  <strong className="text-success">{answeredCount}</strong>
                 </div>
                 <div className="summary-row">
                   <span>Unanswered:</span>
-                  <strong style={{ color: unansweredCount > 0 ? "#ef4444" : "#6b7280" }}>{unansweredCount}</strong>
+                  <strong className={unansweredCount > 0 ? "text-danger" : "text-muted"}>{unansweredCount}</strong>
                 </div>
                 <div className="summary-row">
                   <span>Flagged:</span>
-                  <strong style={{ color: "#f59e0b" }}>{flaggedCount}</strong>
+                  <strong className="text-warning">{flaggedCount}</strong>
                 </div>
               </div>
 
               {unansweredCount > 0 && (
                 <div className="modal-warning">
-                  <WarningCircle size={18} color="#ef4444" />
+                  <WarningCircle size={18} color="var(--danger)" />
                   <span>You still have {unansweredCount} unanswered question{unansweredCount > 1 ? "s" : ""}.</span>
                 </div>
               )}

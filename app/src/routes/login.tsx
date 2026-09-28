@@ -15,11 +15,17 @@ import {
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Sign In with GitHub | MySQL Exam Studio" },
+      { title: "Sign In with GitHub | Algonex Exam Studio" },
       {
         name: "description",
         content:
-          "Sign in with GitHub to access your MySQL assessments, certifications, and progress records.",
+          "Sign in with GitHub to securely save your exam attempts, answers, and report cards on Algonex Exam Studio.",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://algonexexam.savanijaswanth20.workers.dev/login",
       },
     ],
   }),
@@ -74,10 +80,9 @@ function LoginPage() {
         <div className="login-header">
           <Brand />
           <span className="eyebrow">AUTHENTICATION & ACCESS</span>
-          <h1>Sign in with GitHub</h1>
+          <h1>Candidate Authentication</h1>
           <p className="muted">
-            Authenticate using your GitHub account to access your examination
-            workspace, track attempts, and generate verified report cards.
+            Sign in with GitHub to securely save your exam attempts, answers, and report cards.
           </p>
         </div>
 
@@ -115,13 +120,13 @@ function LoginPage() {
             className="github-auth-button"
             onClick={handleGitHubSignIn}
             disabled={submitting || loading || !isConfigured}
-            aria-label="Continue with GitHub"
+            aria-label="Sign in with GitHub"
           >
             <GithubLogo size={22} weight="bold" />
             <span>
               {submitting
                 ? "Connecting to GitHub..."
-                : "Continue with GitHub"}
+                : "Sign in with GitHub"}
             </span>
           </button>
         </div>
@@ -130,9 +135,9 @@ function LoginPage() {
           <div className="auth-feature-item">
             <ShieldCheck size={18} />
             <div>
-              <strong>Verified Developer Identity</strong>
+              <strong>Developer Identity Verification</strong>
               <p>
-                Seamless authentication linked to your GitHub developer credentials.
+                Secure OAuth authentication through GitHub, keeping your source code and keys isolated.
               </p>
             </div>
           </div>
@@ -141,16 +146,16 @@ function LoginPage() {
             <div>
               <strong>Persistent Assessment Records</strong>
               <p>
-                Exam progress, answers, and reviewed scores synced to your profile.
+                Sign in with GitHub to securely save your exam attempts, answers, and report cards.
               </p>
             </div>
           </div>
           <div className="auth-feature-item">
             <CheckCircle size={18} />
             <div>
-              <strong>Shareable PDF Scorecards</strong>
+              <strong>Downloadable PDF Report Cards</strong>
               <p>
-                Download signed report cards displaying your name and GitHub username.
+                Export verifiable, high-resolution PDF report cards detailing your scores and topic mastery.
               </p>
             </div>
           </div>
@@ -158,11 +163,11 @@ function LoginPage() {
 
         <div className="login-footer">
           <p>
-            By continuing, you agree to MySQL Exam Studio terms of service and exam code of conduct.
+            By continuing, you agree to Algonex Exam Studio terms of service and assessment code of conduct.
           </p>
           <div className="login-footer-links">
             <a href="/cookie-policy" className="login-footer-link">
-              Cookie Policy
+              Privacy &amp; Cookies
             </a>
             <span className="login-footer-dot">•</span>
             <button
@@ -174,7 +179,7 @@ function LoginPage() {
             </button>
             <span className="login-footer-dot">•</span>
             <a href="/" className="login-back-link">
-              Public Overview
+              Back to Overview
             </a>
           </div>
         </div>

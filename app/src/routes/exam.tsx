@@ -6,11 +6,11 @@ import {api,attemptUrl} from "@/lib/exam-client";
 import {SECTION_DEFINITIONS,answeredCount} from "@/lib/exam-types";
 import type {Answer,Attempt,ExamPayload,Question} from "@/lib/exam-types";
 import {ProtectedRoute} from "@/components/protected-route";
-export const Route=createFileRoute("/exam")({head:()=>({meta:[{title:"Examination | MySQL Exam Studio"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app/exam"}]}),component:ExamWrapper});
+export const Route=createFileRoute("/exam")({head:()=>({meta:[{title:"Theory Examination | Algonex Exam Studio"},{name:"robots",content:"noindex, nofollow"}],links:[{rel:"canonical",href:"https://algonexexam.savanijaswanth20.workers.dev/exam"}]}),component:ExamWrapper});
 function ExamWrapper(){return <ProtectedRoute><ExamPage/></ProtectedRoute>}
 const blank:Answer={value:"",correction:"",flagged:false,reviewMark:null,reflection:""};
 function Confirm({answered,flagged,busy,onCancel,onSubmit}:{answered:number;flagged:number;busy:boolean;onCancel:()=>void;onSubmit:()=>void}){
- const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{ref.current?.showModal();return()=>ref.current?.close()},[]);
+ const ref=useRef<HTMLDialogElement>(null);useEffect(()=>{const node=ref.current;node?.showModal();return()=>node?.close()},[]);
  return <dialog ref={ref} className="submit-dialog" onCancel={e=>{e.preventDefault();onCancel()}} aria-labelledby="submit-heading"><PaperPlaneTilt size={35}/><h2 id="submit-heading">Ready to submit?</h2><p>Your answers will be locked. You can then view your score and review the answer key.</p><div className="submit-counts"><span><strong>{answered}</strong>answered</span><span><strong>{65-answered}</strong>unanswered</span><span><strong>{flagged}</strong>flagged</span></div>{65-answered>0&&<p className="small">Unanswered questions receive zero marks.</p>}<div className="dialog-actions"><button onClick={onCancel} disabled={busy}>Keep working</button><button className="confirm-submit" onClick={onSubmit} disabled={busy}>{busy?"Submitting...":"Submit exam"}</button></div></dialog>
 }
 function ExamPage(){

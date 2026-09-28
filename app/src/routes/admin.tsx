@@ -16,8 +16,14 @@ import {
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Portal | MySQL Exam Studio" },
+      { title: "Admin Portal | Algonex Exam Studio" },
       { name: "robots", content: "noindex, nofollow" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://algonexexam.savanijaswanth20.workers.dev/admin",
+      },
     ],
   }),
   component: AdminPageWrapper,
@@ -184,11 +190,11 @@ function AdminDashboard() {
             type="button"
             className={`refresh-btn ${activeTab === "profiles" ? "active-tab" : ""}`}
             style={{
-              background: activeTab === "profiles" ? "var(--primary-color, #2563eb)" : "transparent",
-              color: activeTab === "profiles" ? "#fff" : "inherit",
+              background: activeTab === "profiles" ? "var(--accent)" : "transparent",
+              color: activeTab === "profiles" ? "var(--panel)" : "inherit",
               padding: "8px 16px",
               borderRadius: "6px",
-              border: "1px solid rgba(255,255,255,0.15)",
+              border: "1px solid var(--line)",
               cursor: "pointer",
             }}
             onClick={() => setActiveTab("profiles")}
@@ -199,11 +205,11 @@ function AdminDashboard() {
             type="button"
             className={`refresh-btn ${activeTab === "exams" ? "active-tab" : ""}`}
             style={{
-              background: activeTab === "exams" ? "var(--primary-color, #2563eb)" : "transparent",
-              color: activeTab === "exams" ? "#fff" : "inherit",
+              background: activeTab === "exams" ? "var(--accent)" : "transparent",
+              color: activeTab === "exams" ? "var(--panel)" : "inherit",
               padding: "8px 16px",
               borderRadius: "6px",
-              border: "1px solid rgba(255,255,255,0.15)",
+              border: "1px solid var(--line)",
               cursor: "pointer",
             }}
             onClick={() => setActiveTab("exams")}
@@ -370,7 +376,7 @@ function AdminDashboard() {
                         <button
                           type="button"
                           className="refresh-btn"
-                          style={{ color: "#ef4444", padding: "4px 8px" }}
+                          style={{ color: "var(--danger)", padding: "4px 8px" }}
                           disabled={isUpdating}
                           onClick={() => handleDeleteAttempt(a.id)}
                         >

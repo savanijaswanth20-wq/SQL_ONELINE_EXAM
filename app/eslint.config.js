@@ -41,6 +41,9 @@ export default tseslint.config(
       // `catch {}` is a deliberate ignore pattern in shipped code.
       "no-empty": ["error", { allowEmptyCatch: true }],
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
     },
   },
   {

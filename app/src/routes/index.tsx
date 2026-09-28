@@ -1,62 +1,567 @@
-import {createFileRoute} from "@tanstack/react-router";
-import {useEffect,useState} from "react";
-import {ArrowRight,Clock,FileText,CheckCircle,LockKey,ArrowUpRight,CodeBlock,Key,Database,BracketsCurly} from "@phosphor-icons/react";
-import {Shell,ErrorBox} from "@/components/exam-shell";
-import {api,attemptUrl,dateLabel} from "@/lib/exam-client";
-import {SECTION_DEFINITIONS,SYLLABUS} from "@/lib/exam-types";
-import type {Attempt,ExamPayload} from "@/lib/exam-types";
-import {useAuth} from "@/lib/auth-context";
+// ScrollScrub landing journey contract compatibility
+import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  Clock,
+  FileText,
+  CheckCircle,
+  LockKey,
+  ArrowUpRight,
+  CodeBlock,
+  Key,
+  Database,
+  BracketsCurly,
+  Sparkle,
+  GithubLogo,
+  Check,
+  Exam,
+  ListNumbers,
+  ChartBar,
+  ShieldCheck,
+  User,
+} from "@phosphor-icons/react";
+import { Shell, ErrorBox } from "@/components/exam-shell";
+import { api, attemptUrl, dateLabel } from "@/lib/exam-client";
+import { SECTION_DEFINITIONS, SYLLABUS } from "@/lib/exam-types";
+import type { Attempt, ExamPayload } from "@/lib/exam-types";
+import { useAuth } from "@/lib/auth-context";
 
-export const Route=createFileRoute("/")({head:()=>({links:[{rel:"canonical",href:"https://mysql-exam-studio.higgsfield.app"}]}),component:Dashboard});
+export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [
+      {
+        rel: "canonical",
+        href: "https://algonexexam.savanijaswanth20.workers.dev/",
+      },
+    ],
+  }),
+  component: Dashboard,
+});
 
-function Dashboard(){
- const {user,profile}=useAuth();
- const [attempts,setAttempts]=useState<Attempt[]>([]),[loading,setLoading]=useState(true),[error,setError]=useState(""),[busy,setBusy]=useState(false);
- const [name,setName]=useState(""),[studentId,setStudentId]=useState(""),[cohort,setCohort]=useState(""),[accepted,setAccepted]=useState(false);
- useEffect(()=>{
-  if(profile?.full_name&&!name){setName(profile.full_name)}
-  else if(user?.user_metadata?.full_name&&!name){setName(user.user_metadata.full_name)}
- },[profile,user]);
- async function history(){setLoading(true);try{const data=await api<{attempts:Attempt[]}>();setAttempts(data.attempts);setError("")}catch(e){setError((e as Error).message)}finally{setLoading(false)}}
- useEffect(()=>{void history()},[]);
- const active=attempts.find(a=>a.status==="active");const finished=attempts.filter(a=>a.status==="submitted");
- const best=finished.filter(a=>!a.pending).reduce<number|null>((best,a)=>Math.max(best??0,a.automatic+a.written),null);
- async function start(e:React.FormEvent){e.preventDefault();setBusy(true);setError("");try{const data=await api<ExamPayload>({action:"start",name,studentId,cohort,accepted});window.location.assign(attemptUrl(data.attempt.id,data.attempt.status))}catch(e){setError((e as Error).message);setBusy(false)}}
- const icons=[<BracketsCurly size={24}/>,<LockKey size={24}/>,<Key size={24}/>,<CodeBlock size={24}/>];
- return <Shell active="overview"><main className="dashboard content-wrap">
- <section className="welcome">
-   <div className="welcome-copy">
-     <span className="eyebrow">PRACTICAL MYSQL ASSESSMENT</span>
-     <h1>SQL Coding<br/><span>Assessment</span></h1>
-     <p>Solve real-world MySQL queries on an isolated database.<br/>8 coding questions • 30-minute live timer • Automated evaluation.</p>
-     <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-       <a className="enter-ticket" href="/sql-exam">
-         Start 30-Min SQL Exam <ArrowRight size={21}/>
-       </a>
-     </div>
-   </div>
-   <div className="exam-facts">
-     <span className="facts-caption">SQL CODING ASSESSMENT</span>
-     <div className="big-number">8<span>questions</span></div>
-     <div className="facts-bottom">
-       <span><Clock size={17}/>30 minutes</span>
-       <span><FileText size={17}/>100 marks</span>
-     </div>
-     <div className="facts-rule"/>
-     <p>SELECT • JOIN • GROUP BY<br/>INSERT • UPDATE • Subqueries</p>
-   </div>
- </section>
- <section className="stats-strip" aria-label="Your progress"><div><span>YOUR ATTEMPTS</span><strong>{loading?"...":attempts.length.toString().padStart(2,"0")}</strong></div><div><span>COMPLETED</span><strong>{loading?"...":finished.length.toString().padStart(2,"0")}</strong></div><div><span>BEST REVIEWED SCORE</span><strong>{best===null?"Not yet":best+"%"}<small>{best===null?"Finish your first exam":"Including self-reviewed marks"}</small></strong></div><a href="/reports">View report cards <ArrowUpRight size={21}/></a></section>
- {error&&<ErrorBox message={error} retry={()=>void history()}/>}
- {active&&<div className="resume-banner"><div><strong>An exam is in progress</strong><p>{active.answered} of 65 answered. Your original deadline still applies.</p></div><a href={attemptUrl(active.id,active.status)}>Continue attempt <ArrowRight size={18}/></a></div>}
- <section className="syllabus-section"><div className="section-heading"><h2>Four foundations. One assessment.</h2><p>A practical check of the concepts behind reliable databases.</p></div><div className="syllabus-grid">{SYLLABUS.map((topic,i)=><details className="topic" key={topic.title}><summary>{icons[i]}<span>{topic.title}</span><span className="expand">+</span></summary><p>{topic.body}</p></details>)}</div></section>
- <section className="assessment-layout"><div className="section-outline"><h2>From recall to real decisions.</h2><p className="muted">Seven sections, with more room to explain as you go.</p><div className="outline-table">{SECTION_DEFINITIONS.map(s=><div className="outline-row" key={s.code}><span className="section-letter">{s.code}</span><div><strong>{s.title}</strong><small>Questions {s.range}</small></div><span className="mono">{s.marks}<small>marks</small></span></div>)}</div><p className="small muted">Sections A-D: 50 automatically scored marks.<br/>Sections E-G: 50 marks reviewed against a written rubric.</p></div>
- <div className="start-panel" id="begin"><span className="panel-kicker"><CheckCircle size={18}/> READY WHEN YOU ARE</span><h2>Make it your attempt.</h2><p className="muted">Your details will appear on your report card.</p><form onSubmit={start}><label htmlFor="name">Name on report <span aria-hidden="true">*</span></label><input id="name" value={name} onChange={e=>setName(e.target.value)} required minLength={2} maxLength={80} autoComplete="name" placeholder="Enter your full name"/><div className="form-pair"><div><label htmlFor="student-id">Student ID <small>optional</small></label><input id="student-id" value={studentId} onChange={e=>setStudentId(e.target.value)} maxLength={40} placeholder="Roll or employee ID"/></div><div><label htmlFor="cohort">Class / batch <small>optional</small></label><input id="cohort" value={cohort} onChange={e=>setCohort(e.target.value)} maxLength={80} placeholder="Your class or batch"/></div></div>
- <div className="rules-box"><LockKey size={20}/><div><strong>No notes. No Google. No ChatGPT.</strong><p>Work independently. Answers appear only after submission. This is an honour-based practice exam.</p></div></div>
- <label className="check-row"><input type="checkbox" checked={accepted} onChange={e=>setAccepted(e.target.checked)} required/><span>I agree to the exam rules and the 90-minute time limit.</span></label>
- <button className="start-exam" disabled={busy||!accepted}>{busy?"Starting...":"Start exam"}<ArrowRight size={20}/></button>
- <p className="form-footnote">No negative marking. Timer continues when you leave. Pass mark: 50/100 after all written answers are reviewed.</p></form></div></section>
- {finished.length>0&&<section className="recent"><h2>Pick up your progress.</h2>{finished.slice(0,3).map(a=><a href={attemptUrl(a.id,a.status)} className="history-row" key={a.id}><FileText size={23}/><div><strong>{a.name}</strong><small>{dateLabel(a.startedAt)}</small></div><span>{a.pending?"Review pending":a.automatic+a.written+" / 100"}</span><ArrowUpRight size={19}/></a>)}</section>}
- <div className="privacy-note"><LockKey size={17}/><p>Attempts are private to this browser session. Clearing cookies removes access. Download your report cards to keep a copy. No account is required.</p></div>
- </main></Shell>
+function Dashboard() {
+  const { user, profile } = useAuth();
+  const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [name, setName] = useState("");
+  const [studentId, setStudentId] = useState("");
+  const [cohort, setCohort] = useState("");
+  const [accepted, setAccepted] = useState(false);
+
+  useEffect(() => {
+    if (profile?.full_name && !name) {
+      setName(profile.full_name);
+    } else if (user?.user_metadata?.full_name && !name) {
+      setName(user.user_metadata.full_name);
+    }
+  }, [profile, user, name]);
+
+  async function history() {
+    setLoading(true);
+    try {
+      const data = await api<{ attempts: Attempt[] }>();
+      setAttempts(data.attempts);
+      setError("");
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    void history();
+  }, []);
+
+  const active = attempts.find((a) => a.status === "active");
+  const finished = attempts.filter((a) => a.status === "submitted");
+  const best = finished
+    .filter((a) => !a.pending)
+    .reduce<number | null>(
+      (acc, a) => Math.max(acc ?? 0, a.automatic + a.written),
+      null
+    );
+
+  async function startTheoryExam(e: React.FormEvent) {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      const data = await api<ExamPayload>({
+        action: "start",
+        name,
+        studentId,
+        cohort,
+        accepted,
+      });
+      window.location.assign(attemptUrl(data.attempt.id, data.attempt.status));
+    } catch (e) {
+      setError((e as Error).message);
+      setBusy(false);
+    }
+  }
+
+  const icons = [
+    <BracketsCurly size={24} key="brackets" />,
+    <LockKey size={24} key="lock" />,
+    <Key size={24} key="key" />,
+    <CodeBlock size={24} key="code" />,
+  ];
+
+  return (
+    <Shell active="overview">
+      <main className="dashboard content-wrap">
+        {/* Hero Section */}
+        <section className="welcome">
+          <div className="welcome-copy">
+            <span className="eyebrow">ALGONEX IT SOLUTIONS • EXAM PORTAL</span>
+            <h1>
+              Algonex <span>Exam Studio</span>
+            </h1>
+            <p>
+              Standardized online assessments for database engineering and SQL development.
+              Choose between comprehensive theoretical evaluation and live hands-on query development.
+            </p>
+            <div className="hero-action-buttons">
+              <a className="hero-primary-btn" href="#available-exams">
+                Explore Examinations <ArrowRight size={18} />
+              </a>
+              {!user && (
+                <a className="hero-secondary-btn" href="/login">
+                  <GithubLogo size={18} weight="bold" /> Sign In with GitHub
+                </a>
+              )}
+            </div>
+          </div>
+          <div className="exam-facts">
+            <span className="facts-caption">ASSESSMENT OVERVIEW</span>
+            <div className="big-number">
+              2<span>tracks</span>
+            </div>
+            <div className="facts-bottom">
+              <span>
+                <Exam size={17} /> 65Q Theory (90m)
+              </span>
+              <span>
+                <Database size={17} /> 8Q Coding (30m)
+              </span>
+            </div>
+            <div className="facts-rule" />
+            <p>
+              Automated Scoring • Rubric Evaluation • Downloadable PDF Report Cards
+            </p>
+          </div>
+        </section>
+
+        {/* Personal Progress (Shown ONLY after the user signs in) */}
+        {user ? (
+          <section className="stats-strip" aria-label="Your personal progress">
+            <div>
+              <span>YOUR ATTEMPTS</span>
+              <strong>
+                {loading ? "..." : attempts.length.toString().padStart(2, "0")}
+              </strong>
+            </div>
+            <div>
+              <span>COMPLETED</span>
+              <strong>
+                {loading ? "..." : finished.length.toString().padStart(2, "0")}
+              </strong>
+            </div>
+            <div>
+              <span>BEST REVIEWED SCORE</span>
+              <strong>
+                {best === null ? "Not yet" : `${best}%`}
+                <small>
+                  {best === null
+                    ? "Finish your first exam"
+                    : "Includes rubric evaluations"}
+                </small>
+              </strong>
+            </div>
+            <a href="/reports" className="stats-report-link">
+              View report cards <ArrowUpRight size={20} />
+            </a>
+          </section>
+        ) : (
+          <div className="guest-progress-banner">
+            <div className="guest-progress-text">
+              <ShieldCheck size={28} />
+              <div>
+                <strong>Candidate Progress Tracking</strong>
+                <p>
+                  Sign in with GitHub to securely save your exam attempts, answers, and report cards.
+                </p>
+              </div>
+            </div>
+            <a href="/login" className="guest-signin-btn">
+              <GithubLogo size={18} weight="bold" />
+              <span>Sign In with GitHub</span>
+            </a>
+          </div>
+        )}
+
+        {error && <ErrorBox message={error} retry={() => void history()} />}
+
+        {/* Active Exam Resume Banner */}
+        {active && (
+          <div className="resume-banner">
+            <div>
+              <strong>An examination attempt is currently in progress</strong>
+              <p>
+                {active.answered} of 65 questions answered. Your allocated timer is actively running.
+              </p>
+            </div>
+            <a href={attemptUrl(active.id, active.status)}>
+              Resume Attempt <ArrowRight size={18} />
+            </a>
+          </div>
+        )}
+
+        {/* Two Clearly Separated Exam Cards */}
+        <section className="exam-selection-section" id="available-exams">
+          <div className="section-heading">
+            <span className="eyebrow">CHOOSE YOUR TRACK</span>
+            <h2>Standardized Examinations</h2>
+            <p className="muted">
+              Select an examination track below to begin your timed assessment.
+            </p>
+          </div>
+
+          <div className="exam-cards-grid">
+            {/* Card A: Theory Examination */}
+            <div className="exam-card exam-card-theory">
+              <div className="exam-card-header">
+                <span className="exam-card-badge badge-theory">THEORY ASSESSMENT</span>
+                <span className="exam-card-timer-chip">
+                  <Clock size={16} /> 90 Minutes
+                </span>
+              </div>
+
+              <div className="exam-card-body">
+                <h3>Theory Examination</h3>
+                <p className="exam-card-desc">
+                  Rigorous evaluation of relational database architecture, schema normalization,
+                  constraints, commands, problem identification, and data type selection.
+                </p>
+
+                <div className="exam-card-metrics">
+                  <div className="metric-box">
+                    <span>QUESTIONS</span>
+                    <strong>65 Questions</strong>
+                  </div>
+                  <div className="metric-box">
+                    <span>DURATION</span>
+                    <strong>90 Minutes</strong>
+                  </div>
+                  <div className="metric-box">
+                    <span>TOTAL MARKS</span>
+                    <strong>100 Marks</strong>
+                  </div>
+                  <div className="metric-box">
+                    <span>SCORING TYPE</span>
+                    <strong>Auto + Rubric</strong>
+                  </div>
+                </div>
+
+                <div className="exam-card-topics">
+                  <strong>Assessed Topics:</strong>
+                  <p>
+                    Data Types • Primary &amp; Foreign Keys • Constraints • SQL DDL / DML / DCL / TCL • Problem Identification • Table Architecture
+                  </p>
+                </div>
+              </div>
+
+              <div className="exam-card-footer">
+                <a href="#theory-registration" className="exam-card-btn btn-primary">
+                  Start Theory Exam <ArrowRight size={18} />
+                </a>
+              </div>
+            </div>
+
+            {/* Card B: SQL Coding Assessment */}
+            <div className="exam-card exam-card-coding">
+              <div className="exam-card-header">
+                <span className="exam-card-badge badge-coding">PRACTICAL CODING</span>
+                <span className="exam-card-timer-chip">
+                  <Clock size={16} /> 30 Minutes
+                </span>
+              </div>
+
+              <div className="exam-card-body">
+                <h3>SQL Coding Assessment</h3>
+                <p className="exam-card-desc">
+                  Hands-on query writing assessment executed directly inside an isolated database sandbox.
+                  Write queries and verify output tables against automated test cases.
+                </p>
+
+                <div className="exam-card-metrics">
+                  <div className="metric-box">
+                    <span>QUESTIONS</span>
+                    <strong>8 Problems</strong>
+                  </div>
+                  <div className="metric-box">
+                    <span>DURATION</span>
+                    <strong>30 Minutes</strong>
+                  </div>
+                  <div className="metric-box">
+                    <span>TOTAL MARKS</span>
+                    <strong>100 Marks</strong>
+                  </div>
+                  <div className="metric-box">
+                    <span>SCORING TYPE</span>
+                    <strong>Live Test Engine</strong>
+                  </div>
+                </div>
+
+                <div className="exam-card-topics">
+                  <strong>Assessed Topics:</strong>
+                  <p>
+                    SELECT &amp; Filters • INNER / LEFT JOINs • GROUP BY &amp; HAVING • Aggregations • Subqueries • INSERT / UPDATE Modifications
+                  </p>
+                </div>
+              </div>
+
+              <div className="exam-card-footer">
+                <a href="/sql-exam" className="exam-card-btn btn-coding">
+                  Start Coding Assessment <ArrowRight size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Simple "How It Works" Section */}
+        <section className="how-it-works-section">
+          <div className="section-heading">
+            <span className="eyebrow">ASSESSMENT WORKFLOW</span>
+            <h2>How It Works</h2>
+            <p className="muted">
+              A transparent, structured four-step journey from authentication to verified scorecards.
+            </p>
+          </div>
+
+          <div className="how-it-works-grid">
+            <div className="how-it-works-step">
+              <div className="step-number">01</div>
+              <div className="step-icon-box">
+                <GithubLogo size={24} weight="bold" />
+              </div>
+              <h4>Sign In</h4>
+              <p>
+                Sign in with GitHub to securely save your exam attempts, answers, and report cards.
+              </p>
+            </div>
+
+            <div className="how-it-works-step">
+              <div className="step-number">02</div>
+              <div className="step-icon-box">
+                <Exam size={24} weight="duotone" />
+              </div>
+              <h4>Choose Exam</h4>
+              <p>
+                Select either the 65-question Theory Examination or the 30-minute practical SQL Live Coding Assessment.
+              </p>
+            </div>
+
+            <div className="how-it-works-step">
+              <div className="step-number">03</div>
+              <div className="step-icon-box">
+                <Clock size={24} weight="duotone" />
+              </div>
+              <h4>Complete Assessment</h4>
+              <p>
+                Work independently against a live countdown timer with automated background auto-saving.
+              </p>
+            </div>
+
+            <div className="how-it-works-step">
+              <div className="step-number">04</div>
+              <div className="step-icon-box">
+                <FileText size={24} weight="duotone" />
+              </div>
+              <h4>View Report Card</h4>
+              <p>
+                Inspect objective score breakdowns, rubric evaluations, diagnostic reflections, and downloadable PDF report cards.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Theory Examination Registration Panel */}
+        <section className="assessment-layout" id="theory-registration">
+          <div className="section-outline">
+            <span className="eyebrow">CURRICULUM ARCHITECTURE</span>
+            <h2>Theory Exam Structure</h2>
+            <p className="muted">
+              Seven distinct sections structured from core conceptual recall to advanced architectural decisions.
+            </p>
+            <div className="outline-table">
+              {SECTION_DEFINITIONS.map((s) => (
+                <div className="outline-row" key={s.code}>
+                  <span className="section-letter">{s.code}</span>
+                  <div>
+                    <strong>{s.title}</strong>
+                    <small>Questions {s.range}</small>
+                  </div>
+                  <span className="mono">
+                    {s.marks}
+                    <small> marks</small>
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="small muted">
+              Sections A–D: 50 marks auto-graded upon submission.
+              <br />
+              Sections E–G: 50 marks evaluated against verified rubrics.
+            </p>
+          </div>
+
+          <div className="start-panel" id="begin">
+            <span className="panel-kicker">
+              <CheckCircle size={18} /> READY WHEN YOU ARE
+            </span>
+            <h2>Theory Exam Registration</h2>
+            <p className="muted">
+              Enter your candidate details to initialize your official scorecard.
+            </p>
+            <form onSubmit={startTheoryExam}>
+              <label htmlFor="name">
+                Full Name on Report Card <span aria-hidden="true">*</span>
+              </label>
+              <input
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                minLength={2}
+                maxLength={80}
+                autoComplete="name"
+                placeholder="e.g. Alex Morgan"
+              />
+              <div className="form-pair">
+                <div>
+                  <label htmlFor="student-id">
+                    Student / Candidate ID <small>optional</small>
+                  </label>
+                  <input
+                    id="student-id"
+                    value={studentId}
+                    onChange={(e) => setStudentId(e.target.value)}
+                    maxLength={40}
+                    placeholder="e.g. AGX-2026-904"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="cohort">
+                    Class / Batch <small>optional</small>
+                  </label>
+                  <input
+                    id="cohort"
+                    value={cohort}
+                    onChange={(e) => setCohort(e.target.value)}
+                    maxLength={80}
+                    placeholder="e.g. Cohort Alpha 2026"
+                  />
+                </div>
+              </div>
+
+              <div className="rules-box">
+                <LockKey size={20} />
+                <div>
+                  <strong>Examination Code of Conduct</strong>
+                  <p>
+                    Work independently. No unauthorized aids or generative AI tools. Timer runs continuously once started.
+                  </p>
+                </div>
+              </div>
+
+              <label className="check-row">
+                <input
+                  type="checkbox"
+                  checked={accepted}
+                  onChange={(e) => setAccepted(e.target.checked)}
+                  required
+                />
+                <span>
+                  I agree to the assessment code of conduct and the 90-minute time limit.
+                </span>
+              </label>
+
+              <button
+                type="submit"
+                className="start-exam"
+                disabled={busy || !accepted}
+              >
+                <span>{busy ? "Initializing Exam Session..." : "Start 90-Min Theory Exam"}</span>
+                <ArrowRight size={20} />
+              </button>
+              <p className="form-footnote">
+                Passing standard: 50 / 100 marks. Downloadable PDF report cards are generated immediately upon submission.
+              </p>
+            </form>
+          </div>
+        </section>
+
+        {/* Syllabus Section */}
+        <section className="syllabus-section">
+          <div className="section-heading">
+            <span className="eyebrow">CORE COMPETENCIES</span>
+            <h2>Four Pillars of Relational Engineering</h2>
+            <p className="muted">
+              Comprehensive reference foundations tested across both assessment tracks.
+            </p>
+          </div>
+          <div className="syllabus-grid">
+            {SYLLABUS.map((topic, i) => (
+              <details className="topic" key={topic.title}>
+                <summary>
+                  {icons[i]}
+                  <span>{topic.title}</span>
+                  <span className="expand">+</span>
+                </summary>
+                <p>{topic.body}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Recent Attempts (Signed-in candidates only) */}
+        {finished.length > 0 && (
+          <section className="recent">
+            <h2>Your Recent Submissions</h2>
+            {finished.slice(0, 3).map((a) => (
+              <a href={attemptUrl(a.id, a.status)} className="history-row" key={a.id}>
+                <FileText size={23} />
+                <div>
+                  <strong>{a.name}</strong>
+                  <small>
+                    {dateLabel(a.startedAt)} · Theory Examination
+                  </small>
+                </div>
+                <span>
+                  {a.pending > 0
+                    ? "Awaiting Manual Review"
+                    : `${a.automatic + a.written} / 100`}
+                </span>
+                <ArrowUpRight size={19} />
+              </a>
+            ))}
+          </section>
+        )}
+
+        {/* Footer Security Note */}
+        <div className="privacy-note">
+          <LockKey size={17} />
+          <p>
+            Sign in with GitHub to securely save your exam attempts, answers, and report cards.
+            Downloadable PDF report cards are generated upon completion.
+          </p>
+        </div>
+      </main>
+    </Shell>
+  );
 }

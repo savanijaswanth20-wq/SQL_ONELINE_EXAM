@@ -14,15 +14,16 @@ import {
 } from "@phosphor-icons/react";
 import { useAuth } from "@/lib/auth-context";
 import { openCookieSettings } from "@/lib/cookie-consent";
+import { AlgonexMark } from "./algonex-logo";
 
 export function Brand() {
   return (
-    <a href="/" className="brand" aria-label="MySQL Exam Studio home">
-      <span className="brand-mark">
-        <Database size={23} weight="duotone" />
+    <a href="/" className="brand" aria-label="Algonex Exam Studio home">
+      <span className="brand-mark algonex-brand-container">
+        <AlgonexMark size={36} />
       </span>
       <span>
-        MySQL<span className="brand-small">Exam Studio</span>
+        ALGONEX<span className="brand-small">Exam Studio</span>
       </span>
     </a>
   );
@@ -158,12 +159,12 @@ export function Shell({
         <div className="sidebar-note">
           <ShieldCheck size={24} />
           <strong>Developer progress, saved.</strong>
-          <p>Authenticated attempts and certificates are synced to your GitHub account.</p>
+          <p>Sign in with GitHub to securely save your exam attempts, answers, and report cards.</p>
         </div>
         <div className="sidebar-footer">
-          <span>MySQL core concepts</span>
+          <span>Algonex IT Solutions</span>
           <span className="mono">
-            Practice with purpose <ArrowUpRight size={13} />
+            Exam Portal <ArrowUpRight size={13} />
           </span>
         </div>
       </aside>
@@ -181,6 +182,8 @@ export function Shell({
                 ? "Theory Examination"
                 : active === "reports"
                 ? "Report cards"
+                : active === "policy"
+                ? "Privacy & Cookies"
                 : "Admin portal"}
             </strong>
           </span>
@@ -219,19 +222,22 @@ export function Shell({
                 <span>Sign in with GitHub</span>
               </a>
             )}
-            <span className="topbar-label">PERSONAL PRACTICE</span>
+            <span className="topbar-label">ALGONEX ASSESSMENTS</span>
           </div>
         </header>
         {children}
         <footer className="page-footer">
           <div className="page-footer-left">
-            <span>MySQL Exam Studio</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+              <AlgonexMark size={20} />
+              <strong>Algonex Exam Studio</strong>
+            </span>
             <span className="page-footer-divider">|</span>
-            <span>Built for focused practice. Based on MySQL 8.4 concepts.</span>
+            <span>Algonex IT Solutions Exam Portal • Professional Technical Assessments</span>
           </div>
           <div className="page-footer-right">
             <a href="/cookie-policy" className="footer-link">
-              Cookie Policy
+              Privacy &amp; Cookies
             </a>
             <span className="footer-dot">•</span>
             <button
